@@ -47,7 +47,7 @@ jobs:
           bun-version: "1.2.23"
 
       - name: Setup Node for npm publish
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
@@ -86,7 +86,7 @@ jobs:
           npm publish --provenance --access public
 
       - name: Setup Node for GitHub Packages
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: "22"
           registry-url: "https://npm.pkg.github.com"
