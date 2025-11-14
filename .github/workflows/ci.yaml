@@ -63,7 +63,7 @@ jobs:
 
       - name: Commit coverage badge
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: update coverage badge [skip ci][skip release]"
           file_pattern: docs/assets/coverage-badge.svg
