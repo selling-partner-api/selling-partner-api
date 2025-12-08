@@ -6,8 +6,8 @@ name: vendor-sync
 
 on:
   schedule:
-    # Run daily at 2 AM UTC
-    - cron: "0 2 * * *"
+    # Run every 3 days at 2 AM UTC
+    - cron: "0 2 */3 * *"
   workflow_dispatch:
 
 permissions:
@@ -77,7 +77,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.check.outputs.models_changed == 'true'
-        run: bun install --frozen-lockfile
+        run: bun install
 
       - name: Rebuild models package
         if: steps.check.outputs.models_changed == 'true'
