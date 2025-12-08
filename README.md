@@ -4,6 +4,7 @@
 [![npm](https://img.shields.io/npm/v/%40selling-partner-api%2Fmodels?label=@selling-partner-api%2Fmodels&color=cb3837)](https://www.npmjs.com/package/@selling-partner-api/models)
 [![CI](https://github.com/selling-partner-api/selling-partner-api/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/selling-partner-api/selling-partner-api/actions/workflows/ci.yaml)
 [![Publish](https://github.com/selling-partner-api/selling-partner-api/actions/workflows/publish-sdk.yaml/badge.svg?branch=main)](https://github.com/selling-partner-api/selling-partner-api/actions/workflows/publish-sdk.yaml)
+[![Vendor Models Sync](https://github.com/selling-partner-api/selling-partner-api/actions/workflows/vendor-sync.yaml/badge.svg)](https://github.com/selling-partner-api/selling-partner-api/actions/workflows/vendor-sync.yaml)
 ![Coverage](https://raw.githubusercontent.com/selling-partner-api/selling-partner-api/main/docs/assets/coverage-badge.svg)
 
 _**Unofficial** knowledge and resource base for the **Amazon Selling Partner API (SP-API)**._
