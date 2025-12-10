@@ -1068,6 +1068,56 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/delivery/2022-07-01/invoice": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Submits a shipment invoice for a given order or shipment. You must specify either an `orderId` or `shipmentId` as query parameter. If both parameters are supplied, `orderId` takes precedence over `shipmentId`.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 1.133 | 25 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
+        post: operations["deliveryShipmentInvoiceV2022-07-01_submitInvoice"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/delivery/2022-07-01/invoice/status": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Returns the invoice status for the order or shipment you specify. You must specify either an `orderId` or `shipmentId` as query parameter. If both parameters are supplied, `orderId` takes precedence over `shipmentId`.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 1.133 | 25 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
+        get: operations["getInvoiceStatus"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/easyShip/2022-03-23/package": {
         parameters: {
             query?: never;
@@ -1618,6 +1668,31 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/fba/outbound/2020-07-01/deliveryOfferings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Returns fast delivery estimates for Product Detail and Collection pages, based on criteria that you specify.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 5 | 30 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        post: operations["deliveryOfferings"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/fba/outbound/2020-07-01/deliveryOffers": {
         parameters: {
             query?: never;
@@ -1994,7 +2069,7 @@ export interface paths {
          *     | 1.133 | 25 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getInvoiceStatus"];
+        get: operations["shipmentInvoicingV0_getInvoiceStatus"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2483,26 +2558,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a list of inbound plans with minimal information.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a list of inbound plans with minimal information. */
         get: operations["listInboundPlans"];
         put?: never;
-        /** @description Creates an inbound plan. An inbound plan contains all the necessary information to send shipments into Amazon's fufillment network.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Creates an inbound plan. An inbound plan contains all the necessary information to send shipments into Amazon's fufillment network. */
         post: operations["createInboundPlan"];
         delete?: never;
         options?: never;
@@ -2517,15 +2576,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Fetches the top level information about an inbound plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Fetches the top level information about an inbound plan. */
         get: operations["getInboundPlan"];
         put?: never;
         post?: never;
@@ -2542,15 +2593,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a paginated list of box packages in an inbound plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a paginated list of box packages in an inbound plan. */
         get: operations["listInboundPlanBoxes"];
         put?: never;
         post?: never;
@@ -2568,15 +2611,7 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
-        /** @description Cancels an Inbound Plan. Charges may apply if the cancellation is performed outside of a void window. The window for Amazon Partnered Carriers is 24 hours for Small Parcel Delivery (SPD) and one hour for Less-Than-Truckload (LTL) carrier shipments.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Cancels an Inbound Plan. Charges may apply if the cancellation is performed outside of a void window. The window for Amazon Partnered Carriers is 24 hours for Small Parcel Delivery (SPD) and one hour for Less-Than-Truckload (LTL) carrier shipments. */
         put: operations["cancelInboundPlan"];
         post?: never;
         delete?: never;
@@ -2592,15 +2627,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a paginated list of item packages in an inbound plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a paginated list of item packages in an inbound plan. */
         get: operations["listInboundPlanItems"];
         put?: never;
         post?: never;
@@ -2618,15 +2645,7 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
-        /** @description Updates the name of an existing inbound plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Updates the name of an existing inbound plan. */
         put: operations["updateInboundPlanName"];
         post?: never;
         delete?: never;
@@ -2642,15 +2661,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieves a page of boxes from a given packing group. These boxes were previously provided through the `setPackingInformation` operation. This API is used for workflows where boxes are packed before Amazon determines shipment splits.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Retrieves a page of boxes from a given packing group. These boxes were previously provided through the `setPackingInformation` operation. This API is used for workflows where boxes are packed before Amazon determines shipment splits. */
         get: operations["listPackingGroupBoxes"];
         put?: never;
         post?: never;
@@ -2667,15 +2678,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieves a page of items in a given packing group. Packing options must first be generated by the corresponding operation before packing group items can be listed.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Retrieves a page of items in a given packing group. Packing options must first be generated by the corresponding operation before packing group items can be listed. */
         get: operations["listPackingGroupItems"];
         put?: never;
         post?: never;
@@ -2694,15 +2697,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Sets packing information for an inbound plan. This should be called after an inbound plan is created to populate the box level information required for planning and transportation estimates.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Sets packing information for an inbound plan. This should be called after an inbound plan is created to populate the box level information required for planning and transportation estimates. */
         post: operations["setPackingInformation"];
         delete?: never;
         options?: never;
@@ -2717,26 +2712,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieves a list of all packing options for an inbound plan. Packing options must first be generated by the corresponding operation before becoming available.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Retrieves a list of all packing options for an inbound plan. Packing options must first be generated by the corresponding operation before becoming available. */
         get: operations["listPackingOptions"];
         put?: never;
-        /** @description Generates available packing options for the inbound plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Generates available packing options for the inbound plan. */
         post: operations["generatePackingOptions"];
         delete?: never;
         options?: never;
@@ -2753,15 +2732,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Confirms the packing option for an inbound plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Confirms the packing option for an inbound plan. */
         post: operations["confirmPackingOption"];
         delete?: never;
         options?: never;
@@ -2776,15 +2747,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a paginated list of pallet packages in an inbound plan. An inbound plan will have pallets when the related details are provided after generating Less-Than-Truckload (LTL) carrier shipments.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a paginated list of pallet packages in an inbound plan. An inbound plan will have pallets when the related details are provided after generating Less-Than-Truckload (LTL) carrier shipments. */
         get: operations["listInboundPlanPallets"];
         put?: never;
         post?: never;
@@ -2801,26 +2764,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a list of all placement options for an inbound plan. Placement options must first be generated by the corresponding operation before becoming available.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a list of all placement options for an inbound plan. Placement options must first be generated by the corresponding operation before becoming available. */
         get: operations["listPlacementOptions"];
         put?: never;
-        /** @description Generates placement options for the inbound plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Generates placement options for the inbound plan. */
         post: operations["generatePlacementOptions"];
         delete?: never;
         options?: never;
@@ -2837,15 +2784,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Confirms the placement option for an inbound plan. Once confirmed, it cannot be changed for the Inbound Plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Confirms the placement option for an inbound plan. Once confirmed, it cannot be changed for the Inbound Plan. */
         post: operations["confirmPlacementOption"];
         delete?: never;
         options?: never;
@@ -2860,15 +2799,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides the full details for a specific shipment within an inbound plan. The `transportationOptionId` inside `acceptedTransportationSelection` can be used to retrieve the transportation details for the shipment.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides the full details for a specific shipment within an inbound plan. The `transportationOptionId` inside `acceptedTransportationSelection` can be used to retrieve the transportation details for the shipment. */
         get: operations["getShipment"];
         put?: never;
         post?: never;
@@ -2885,15 +2816,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a paginated list of box packages in a shipment.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a paginated list of box packages in a shipment. */
         get: operations["listShipmentBoxes"];
         put?: never;
         post?: never;
@@ -2910,26 +2833,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieve a paginated list of shipment content update previews for a given shipment. The shipment content update preview is a summary of the requested shipment content changes along with the transportation cost implications of the change that can only be confirmed prior to the expiry date specified.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Retrieve a paginated list of shipment content update previews for a given shipment. The shipment content update preview is a summary of the requested shipment content changes along with the transportation cost implications of the change that can only be confirmed prior to the expiry date specified. */
         get: operations["listShipmentContentUpdatePreviews"];
         put?: never;
-        /** @description Generate a shipment content update preview given a set of intended boxes and/or items for a shipment with a confirmed carrier. The shipment content update preview will be viewable with the updated costs and contents prior to confirmation.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Generate a shipment content update preview given a set of intended boxes and/or items for a shipment with a confirmed carrier. The shipment content update preview will be viewable with the updated costs and contents prior to confirmation. */
         post: operations["generateShipmentContentUpdatePreviews"];
         delete?: never;
         options?: never;
@@ -2944,15 +2851,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieve a shipment content update preview which provides a summary of the requested shipment content changes along with the transportation cost implications of the change that can only be confirmed prior to the expiry date specified.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Retrieve a shipment content update preview which provides a summary of the requested shipment content changes along with the transportation cost implications of the change that can only be confirmed prior to the expiry date specified. */
         get: operations["getShipmentContentUpdatePreview"];
         put?: never;
         post?: never;
@@ -2971,15 +2870,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Confirm a shipment content update preview and accept the changes in transportation cost.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Confirm a shipment content update preview and accept the changes in transportation cost. */
         post: operations["confirmShipmentContentUpdatePreview"];
         delete?: never;
         options?: never;
@@ -2994,15 +2885,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provide delivery challan document for PCP transportation in IN marketplace.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provide delivery challan document for PCP transportation in IN marketplace. */
         get: operations["getDeliveryChallanDocument"];
         put?: never;
         post?: never;
@@ -3019,26 +2902,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieves all delivery window options for a shipment. Delivery window options must first be generated by the `generateDeliveryWindowOptions` operation before becoming available.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Retrieves all delivery window options for a shipment. Delivery window options must first be generated by the `generateDeliveryWindowOptions` operation before becoming available. */
         get: operations["listDeliveryWindowOptions"];
         put?: never;
-        /** @description Generates available delivery window options for a given shipment.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Generates available delivery window options for a given shipment. */
         post: operations["generateDeliveryWindowOptions"];
         delete?: never;
         options?: never;
@@ -3055,15 +2922,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Confirms the delivery window option for chosen shipment within an inbound plan. A placement option must be confirmed prior to use of this API. Once confirmed, new delivery window options cannot be generated, but the chosen delivery window option can be updated before shipment closure. The window is used to provide the expected time when a shipment will arrive at the warehouse. All transportation options which have the program `CONFIRMED_DELIVERY_WINDOW` require a delivery window to be confirmed prior to transportation option confirmation.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Confirms the delivery window option for chosen shipment within an inbound plan. A placement option must be confirmed prior to use of this API. Once confirmed, new delivery window options cannot be generated, but the chosen delivery window option can be updated before shipment closure. The window is used to provide the expected time when a shipment will arrive at the warehouse. All transportation options which have the program `CONFIRMED_DELIVERY_WINDOW` require a delivery window to be confirmed prior to transportation option confirmation. */
         post: operations["confirmDeliveryWindowOptions"];
         delete?: never;
         options?: never;
@@ -3078,15 +2937,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a paginated list of item packages in a shipment.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a paginated list of item packages in a shipment. */
         get: operations["listShipmentItems"];
         put?: never;
         post?: never;
@@ -3104,15 +2955,7 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
-        /** @description Updates the name of an existing shipment.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Updates the name of an existing shipment. */
         put: operations["updateShipmentName"];
         post?: never;
         delete?: never;
@@ -3128,15 +2971,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Provides a paginated list of pallet packages in a shipment. A palletized shipment will have pallets when the related details are provided after generating Less-Than-Truckload (LTL) carrier shipments.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Provides a paginated list of pallet packages in a shipment. A palletized shipment will have pallets when the related details are provided after generating Less-Than-Truckload (LTL) carrier shipments. */
         get: operations["listShipmentPallets"];
         put?: never;
         post?: never;
@@ -3154,15 +2989,7 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
-        /** @description Cancels a self-ship appointment slot against a shipment. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | n | n |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).  */
+        /** @description Cancels a self-ship appointment slot against a shipment. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.  */
         put: operations["cancelSelfShipAppointment"];
         post?: never;
         delete?: never;
@@ -3178,26 +3005,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieves a list of available self-ship appointment slots used to drop off a shipment at a warehouse. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | n | n |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).  */
+        /** @description Retrieves a list of available self-ship appointment slots used to drop off a shipment at a warehouse. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.  */
         get: operations["getSelfShipAppointmentSlots"];
         put?: never;
-        /** @description Initiates the process of generating the appointment slots list. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | n | n |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).  */
+        /** @description Initiates the process of generating the appointment slots list. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.  */
         post: operations["generateSelfShipAppointmentSlots"];
         delete?: never;
         options?: never;
@@ -3214,15 +3025,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Confirms or reschedules a self-ship appointment slot against a shipment. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | n | n |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).  */
+        /** @description Confirms or reschedules a self-ship appointment slot against a shipment. Only available in the following [marketplaces](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids): MX, BR, EG, SA, AE, IN.  */
         post: operations["scheduleSelfShipAppointment"];
         delete?: never;
         options?: never;
@@ -3238,15 +3041,7 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
-        /** @description Updates the source address of an existing shipment. The shipment source address can only be updated prior to the confirmation of the shipment carriers. As a result of the updated source address, existing transportation options will be invalidated and will need to be regenerated to capture the potential difference in transportation options and quotes due to the new source address.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Updates the source address of an existing shipment. The shipment source address can only be updated prior to the confirmation of the shipment carriers. As a result of the updated source address, existing transportation options will be invalidated and will need to be regenerated to capture the potential difference in transportation options and quotes due to the new source address. */
         put: operations["updateShipmentSourceAddress"];
         post?: never;
         delete?: never;
@@ -3263,15 +3058,7 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
-        /** @description Updates a shipment's tracking details.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Updates a shipment's tracking details. */
         put: operations["updateShipmentTrackingDetails"];
         post?: never;
         delete?: never;
@@ -3287,26 +3074,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieves all transportation options for a shipment. Transportation options must first be generated by the `generateTransportationOptions` operation before becoming available.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Retrieves all transportation options for a shipment. Transportation options must first be generated by the `generateTransportationOptions` operation before becoming available. */
         get: operations["listTransportationOptions"];
         put?: never;
-        /** @description Generates available transportation options for a given placement option.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Generates available transportation options for a given placement option. */
         post: operations["generateTransportationOptions"];
         delete?: never;
         options?: never;
@@ -3323,15 +3094,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Confirms all the transportation options for an inbound plan. A placement option must be confirmed prior to use of this API. Once confirmed, new transportation options can not be generated or confirmed for the Inbound Plan.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 2 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Confirms all the transportation options for an inbound plan. A placement option must be confirmed prior to use of this API. Once confirmed, new transportation options can not be generated or confirmed for the Inbound Plan. */
         post: operations["confirmTransportationOptions"];
         delete?: never;
         options?: never;
@@ -3346,17 +3109,19 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description List the inbound compliance details for MSKUs in a given marketplace.\n\n**Note:** MSKUs that contain certain characters must be encoded. For more information, refer to [URL Encoding](https://developer-docs.amazon.com/sp-api/docs/url-encoding).\n\nThe following characters must be double percent encoded:\n\n- `%`\n- `+`\n- `,`\n\n**Examples:** An MSKU value of `test%msku` is encoded as `test%2525msku`. An MSKU value of `test,msku` is encoded as `test%252Cmsku`.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| n | n |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).  */
+        /** @description List the inbound compliance details for MSKUs in a given marketplace.
+         *
+         *     **Note:** MSKUs that contain certain characters must be encoded. For more information, refer to [URL Encoding](https://developer-docs.amazon.com/sp-api/docs/url-encoding).
+         *
+         *     The following characters must be double percent encoded:
+         *
+         *     - `%`
+         *     - `+`
+         *     - `,`
+         *
+         *     **Examples:** An MSKU value of `test%msku` is encoded as `test%2525msku`. An MSKU value of `test,msku` is encoded as `test%252Cmsku`. */
         get: operations["listItemComplianceDetails"];
-        /** @description Update compliance details for a list of MSKUs. The details provided here are only used for the India (IN - A21TJRUUN4KGV) marketplace compliance validation.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Update compliance details for a list of MSKUs. The details provided here are only used for the India (IN - A21TJRUUN4KGV) marketplace compliance validation. */
         put: operations["updateItemComplianceDetails"];
         post?: never;
         delete?: never;
@@ -3374,15 +3139,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description For a given marketplace - creates labels for a list of MSKUs.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description For a given marketplace - creates labels for a list of MSKUs. */
         post: operations["createMarketplaceItemLabels"];
         delete?: never;
         options?: never;
@@ -3397,18 +3154,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Get preparation details for a list of MSKUs in a specified marketplace.\n\n**Note:** MSKUs that contain certain characters must be encoded. For more information, refer to [URL Encoding](https://developer-docs.amazon.com/sp-api/docs/url-encoding).\n\nThe following characters must be double percent encoded:\n\n- `%`\n- `+`\n- `,`\n\n**Examples:** An MSKU value of `test%msku` is encoded as `test%2525msku`. An MSKU value of `test,msku` is encoded as `test%252Cmsku`.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| n | n |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).  */
+        /** @description Get preparation details for a list of MSKUs in a specified marketplace.\n\n**Note:** MSKUs that contain certain characters must be encoded. For more information, refer to [URL Encoding](https://developer-docs.amazon.com/sp-api/docs/url-encoding).\n\nThe following characters must be double percent encoded:\n\n- `%`\n- `+`\n- `,`\n\n**Examples:** An MSKU value of `test%msku` is encoded as `test%2525msku`. An MSKU value of `test,msku` is encoded as `test%252Cmsku`.  */
         get: operations["listPrepDetails"];
         put?: never;
-        /** @description Set the preparation details for a list of MSKUs in a specified marketplace.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Set the preparation details for a list of MSKUs in a specified marketplace. */
         post: operations["setPrepDetails"];
         delete?: never;
         options?: never;
@@ -3423,15 +3172,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Gets the status of the processing of an asynchronous API call.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 2 | 6 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        /** @description Gets the status of the processing of an asynchronous API call. */
         get: operations["getInboundOperationStatus"];
         put?: never;
         post?: never;
@@ -7198,6 +6939,34 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/vendor/shipping/v1/shipmentConfirmation": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * SubmitShipmentConfirmation
+         * @description Submits one shipment confirmation for vendor orders and get response immediately.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 10 | 10 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
+         */
+        post: operations["SubmitShipmentConfirmation"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/vendor/shipping/v1/shipmentConfirmations": {
         parameters: {
             query?: never;
@@ -9791,6 +9560,60 @@ export interface components {
                 verb: "GET";
             };
         };
+        /**
+         * Format: byte
+         * @description Shipment invoice document content.
+         */
+        "deliveryShipmentInvoiceV2022-07-01_Blob": string;
+        /** @description An error response returned when the request is unsuccessful. */
+        "deliveryShipmentInvoiceV2022-07-01_Error": {
+            /** @description An error code that identifies the type of error that occurred. */
+            code: string;
+            /** @description Additional details that can help the caller understand or fix the issue. */
+            details?: string;
+            /** @description A message that describes the error condition. */
+            message: string;
+        };
+        /** @description A list of error responses returned when a request is unsuccessful. */
+        "deliveryShipmentInvoiceV2022-07-01_ErrorList": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_Error"][];
+        /** @description The response schema for the getInvoiceStatus operation. */
+        "deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse": {
+            /** @description The Amazon-defined order identifier. */
+            amazonOrderId?: string;
+            /** @description The Amazon-defined shipment identifier. */
+            amazonShipmentId?: string;
+            errors?: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ErrorList"];
+            invoiceStatus?: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ShipmentInvoiceStatus"];
+        };
+        /**
+         * @description The invoice type.
+         * @enum {string}
+         */
+        "deliveryShipmentInvoiceV2022-07-01_InvoiceType": "Outbound";
+        /**
+         * @description The Amazon program type.
+         * @enum {string}
+         */
+        "deliveryShipmentInvoiceV2022-07-01_ProgramType": "EasyShip" | "FbaOnSite" | "SelfShip";
+        /**
+         * @description The shipment invoice status.
+         * @enum {string}
+         */
+        "deliveryShipmentInvoiceV2022-07-01_ShipmentInvoiceStatus": "Processing" | "Accepted" | "Errored" | "NotFound";
+        /** @description The request schema for the `submitInvoice` operation. */
+        "deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceRequest": {
+            /** @description MD5 sum for validating the invoice data. For more information about calculating this value, see [Working with Content-MD5 Checksums](https://docs.developer.amazonservices.com/en_US/dev_guide/DG_MD5.html). */
+            contentMD5Value: string;
+            invoiceContent: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_Blob"];
+            invoiceType: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_InvoiceType"];
+            /** @description An Amazon marketplace identifier. */
+            marketplaceId: string;
+            programType: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ProgramType"];
+        };
+        /** @description The response schema for the submitInvoice operation. */
+        "deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse": {
+            errors?: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ErrorList"];
+        };
         /** @description An Amazon-defined order identifier. Identifies the order that the seller wants to deliver using Amazon Easy Ship. */
         "easyShip_2022-03-23_AmazonOrderId": string;
         /**
@@ -10892,6 +10715,8 @@ export interface components {
             /** @description The list of packages in the shipment. */
             packages?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Package"][];
             partyInfoList?: components["schemas"]["externalFulfillmentShipments_2024-09-11_PartyIdentificationInfoList"];
+            /** @description The reason for the sub-status. */
+            reason?: string;
             shipmentInfo: components["schemas"]["externalFulfillmentShipments_2024-09-11_ShipmentInfo"];
             shipmentRequirements: components["schemas"]["externalFulfillmentShipments_2024-09-11_ShipmentRequirements"];
             shippingInfo: components["schemas"]["externalFulfillmentShipments_2024-09-11_ShippingInfo"];
@@ -11371,14 +11196,14 @@ export interface components {
         "finances_2024-06-19_AmazonPayContext": {
             /** @description Channel details of related transaction. */
             channel?: string;
-            /** @description Order type of the transaction. */
+            /** @description The transaction's order type. */
             orderType?: string;
-            /** @description Store name related to transaction. */
+            /** @description The name of the store that is related to the transaction. */
             storeName?: string;
         };
-        /** @description Fields with a schema type of BigDecimal are a signed decimal number (for example CurrencyAmount). */
+        /** @description A signed decimal number. */
         "finances_2024-06-19_BigDecimal": number;
-        /** @description Breakdown provides details regarding the money movement under the financial transaction. Breakdowns get categorized further into breakdown types, breakdown amounts, and further breakdowns into a hierarchical structure. */
+        /** @description Details about the movement of money in the financial transaction. Breakdowns are further categorized into breakdown types, breakdown amounts, and further breakdowns. */
         "finances_2024-06-19_Breakdown": {
             breakdownAmount?: components["schemas"]["finances_2024-06-19_Currency"];
             /** @description A list of breakdowns that detail how the total amount is calculated for the transaction. */
@@ -11426,7 +11251,7 @@ export interface components {
         "finances_2024-06-19_Context": {
             contextType: string;
         } & components["schemas"]["finances_2024-06-19_AmazonPayContext"] & components["schemas"]["finances_2024-06-19_ProductContext"] & components["schemas"]["finances_2024-06-19_PaymentsContext"] & components["schemas"]["finances_2024-06-19_DeferredContext"] & components["schemas"]["finances_2024-06-19_BusinessContext"] & components["schemas"]["finances_2024-06-19_TimeRangeContext"];
-        /** @description List of additional Information about the item. */
+        /** @description A list of additional information about the item. */
         "finances_2024-06-19_Contexts": components["schemas"]["finances_2024-06-19_Context"][];
         /** @description A currency type and amount. */
         "finances_2024-06-19_Currency": {
@@ -11436,11 +11261,11 @@ export interface components {
         };
         /**
          * Format: date-time
-         * @description Fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate).
+         * @description A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
          */
         "finances_2024-06-19_Date": string;
         /**
-         * @description Additional information related to Deferred transactions.
+         * @description Additional information related to deferred transactions.
          * @example {
          *       "deferralReason": "B2B",
          *       "maturityDate": "2024-07-14T00:00:00Z"
@@ -11453,7 +11278,7 @@ export interface components {
             deferralReason?: string;
             maturityDate?: components["schemas"]["finances_2024-06-19_Date"];
         };
-        /** @description Error response returned when the request is unsuccessful. */
+        /** @description An error response returned when the request is unsuccessful. */
         "finances_2024-06-19_Error": {
             /** @description An error code that identifies the type of error that occurred. */
             code: string;
@@ -11464,15 +11289,15 @@ export interface components {
         };
         /** @description A list of error responses returned when a request is unsuccessful. */
         "finances_2024-06-19_ErrorList": {
-            /** @description Error response returned when the request is unsuccessful. */
+            /** @description The error responses that are returned when the request is unsuccessful. */
             errors: components["schemas"]["finances_2024-06-19_Error"][];
         };
-        /** @description Additional information about the items in Transaction. */
+        /** @description Additional information about the items in a transaction. */
         "finances_2024-06-19_Item": {
             /** @description A list of breakdowns that detail how the total amount is calculated for the transaction. */
             breakdowns?: components["schemas"]["finances_2024-06-19_Breakdown"][];
             contexts?: components["schemas"]["finances_2024-06-19_Contexts"];
-            /** @description Description of items in the transaction */
+            /** @description A description of the items in a transaction. */
             description?: string;
             relatedIdentifiers?: components["schemas"]["finances_2024-06-19_ItemRelatedIdentifiers"];
             totalAmount?: components["schemas"]["finances_2024-06-19_Currency"];
@@ -11490,12 +11315,12 @@ export interface components {
              * @enum {string}
              */
             itemRelatedIdentifierName?: "ORDER_ADJUSTMENT_ITEM_ID" | "COUPON_ID" | "REMOVAL_SHIPMENT_ITEM_ID" | "TRANSACTION_ID";
-            /** @description Corresponding value of ItemRelatedIdentifierName */
+            /** @description Corresponding value to `ItemRelatedIdentifierName`. */
             itemRelatedIdentifierValue?: string;
         };
-        /** @description Related Business identifiers of the item in Transaction. */
+        /** @description Related business identifiers of the item in the transaction. */
         "finances_2024-06-19_ItemRelatedIdentifiers": components["schemas"]["finances_2024-06-19_ItemRelatedIdentifier"][];
-        /** @description List of items in the transaction */
+        /** @description A list of items in the transaction. */
         "finances_2024-06-19_Items": components["schemas"]["finances_2024-06-19_Item"][];
         /** @description The response schema for the `listTransactions` operation. */
         "finances_2024-06-19_ListTransactionsResponse": {
@@ -11511,13 +11336,11 @@ export interface components {
         "finances_2024-06-19_MarketplaceDetails": {
             /** @description The identifier of the marketplace where the transaction occurred. The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
             marketplaceId?: string;
-            /** @description The name of the marketplace where the transaction occurred.
-             *
-             *     Example: 'Amazon.com','Amazon.in' */
+            /** @description The name of the marketplace where the transaction occurred. For example: `Amazon.com`,`Amazon.in` */
             marketplaceName?: string;
         };
         /**
-         * @description Additional information related to Payments related transactions.
+         * @description Additional information related to payments-related transactions.
          * @example {
          *       "paymentType": "Debit Card",
          *       "paymentMethod": "BANK",
@@ -11527,11 +11350,11 @@ export interface components {
          */
         "finances_2024-06-19_PaymentsContext": {
             paymentDate?: components["schemas"]["finances_2024-06-19_Date"];
-            /** @description Method of payment made. */
+            /** @description The method of payment. */
             paymentMethod?: string;
-            /** @description Reference number of payment made. */
+            /** @description The reference number of the payment. */
             paymentReference?: string;
-            /** @description Type of payment made. */
+            /** @description The type of payment. */
             paymentType?: string;
         };
         /**
@@ -11544,41 +11367,41 @@ export interface components {
          *     }
          */
         "finances_2024-06-19_ProductContext": {
-            /** @description Amazon Standard Identification Number (ASIN) of the item. */
+            /** @description The Amazon Standard Identification Number (ASIN) of the item. */
             asin?: string;
-            /** @description Fulfillment network of the item. */
+            /** @description The fulfillment network of the item. */
             fulfillmentNetwork?: string;
             /**
              * Format: int32
-             * @description Quantity of the item shipped.
+             * @description The quantity of the item shipped.
              */
             quantityShipped?: number;
-            /** @description Stock keeping unit (SKU) of the item. */
+            /** @description The Stock Keeping Unit (SKU) of the item. */
             sku?: string;
         };
         /** @description Related business identifier of the transaction. */
         "finances_2024-06-19_RelatedIdentifier": {
             /**
-             * @description Enumerated set of related business identifier names.
+             * @description An enumerated set of related business identifier names.
              * @enum {string}
              */
             relatedIdentifierName?: "ORDER_ID" | "SHIPMENT_ID" | "FINANCIAL_EVENT_GROUP_ID" | "REFUND_ID" | "INVOICE_ID" | "DISBURSEMENT_ID" | "TRANSFER_ID" | "DEFERRED_TRANSACTION_ID" | "RELEASE_TRANSACTION_ID" | "SETTLEMENT_ID";
-            /** @description Corresponding value of RelatedIdentifierName */
+            /** @description Corresponding value of `RelatedIdentifierName`. */
             relatedIdentifierValue?: string;
         };
         /** @description Related business identifiers of the transaction. */
         "finances_2024-06-19_RelatedIdentifiers": components["schemas"]["finances_2024-06-19_RelatedIdentifier"][];
-        /** @description Metadata describing the seller. */
+        /** @description Metadata that describes the seller. */
         "finances_2024-06-19_SellingPartnerMetadata": {
-            /** @description Account type of transaction. */
+            /** @description The type of account in the transaction. */
             accountType?: string;
             /** @description The identifier of the marketplace where the transaction occurred. The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
             marketplaceId?: string;
-            /** @description Unique seller identifier. */
+            /** @description A unique seller identifier. */
             sellingPartnerId?: string;
         };
         /**
-         * @description Additional information related to time range for transaction.
+         * @description Additional information that is related to the time range of the transaction.
          * @example {
          *       "startTime": "2020-07-14T03:35:13.214Z",
          *       "endTime": "2020-07-14T03:35:13.214Z"
@@ -11589,7 +11412,7 @@ export interface components {
             startTime?: components["schemas"]["finances_2024-06-19_Date"];
         };
         /**
-         * @description Contains all information related to the transaction.
+         * @description All the information related to a transaction.
          * @example {
          *       "sellingPartnerMetadata": {
          *         "sellingPartnerId": "XXXXXXXXXXXXXX",
@@ -11695,7 +11518,7 @@ export interface components {
             contexts?: components["schemas"]["finances_2024-06-19_Contexts"];
             /** @description Describes the reasons for the transaction.
              *
-             *     Example: 'Order Payment','Refund Order' */
+             *     **Example:** 'Order Payment', 'Refund Order' */
             description?: string;
             items?: components["schemas"]["finances_2024-06-19_Items"];
             marketplaceDetails?: components["schemas"]["finances_2024-06-19_MarketplaceDetails"];
@@ -11703,7 +11526,7 @@ export interface components {
             relatedIdentifiers?: components["schemas"]["finances_2024-06-19_RelatedIdentifiers"];
             sellingPartnerMetadata?: components["schemas"]["finances_2024-06-19_SellingPartnerMetadata"];
             totalAmount?: components["schemas"]["finances_2024-06-19_Currency"];
-            /** @description The unique identifier for the transaction. */
+            /** @description The unique identifier of the transaction. */
             transactionId?: string;
             /** @description The status of the transaction.
              *
@@ -11715,16 +11538,14 @@ export interface components {
             transactionStatus?: string;
             /** @description The type of transaction.
              *
-             *     Possible values:
-             *
-             *     * Shipment */
+             *     **Possible value:** `Shipment` */
             transactionType?: string;
         };
-        /** @description Contains transactions within a given time period. */
+        /** @description A list of transactions within the specified time period. */
         "finances_2024-06-19_Transactions": components["schemas"]["finances_2024-06-19_Transaction"][];
         /** @description The payload for the `listTransactions` operation. */
         "finances_2024-06-19_TransactionsPayload": {
-            /** @description When present and not empty, pass this string token in the next request to return the next response page. */
+            /** @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
             nextToken?: string;
             transactions?: components["schemas"]["finances_2024-06-19_Transactions"];
         };
@@ -13064,7 +12885,7 @@ export interface components {
          *     }
          */
         "fulfillmentInbound_2024-03-20_DeliveryWindowOption": {
-            /** @description Identifies type of Delivery Window Availability. Values: `AVAILABLE`, `CONGESTED` */
+            /** @description The type of delivery window availability. Values: `AVAILABLE`, `BLOCKED`, `CONGESTED`, `DISCOUNTED` */
             availabilityType: string;
             /** @description Identifier of a delivery window option. A delivery window option represent one option for when a shipment is expected to be delivered. */
             deliveryWindowOptionId: string;
@@ -13930,7 +13751,7 @@ export interface components {
          *     }
          */
         "fulfillmentInbound_2024-03-20_SelectedDeliveryWindow": {
-            /** @description Identifies type of Delivery Window Availability. Values: `AVAILABLE`, `CONGESTED` */
+            /** @description The type of delivery window availability. Values: `AVAILABLE`, `BLOCKED`, `CONGESTED`, `DISCOUNTED` */
             availabilityType: string;
             /** @description Identifier of a delivery window option. A delivery window option represent one option for when a shipment is expected to be delivered. */
             deliveryWindowOptionId: string;
@@ -14855,6 +14676,14 @@ export interface components {
             expiresAt?: components["schemas"]["fulfillmentOutbound_2020-07-01_Timestamp"];
             policy?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryPolicy"];
         };
+        /** @description An available offering for delivery of a product. */
+        "fulfillmentOutbound_2020-07-01_DeliveryOffering": {
+            dateRange?: components["schemas"]["fulfillmentOutbound_2020-07-01_DateRange"];
+            expiresAt?: components["schemas"]["fulfillmentOutbound_2020-07-01_Timestamp"];
+            policy?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryPolicy"];
+        };
+        /** @description An array of delivery offering information. */
+        "fulfillmentOutbound_2020-07-01_DeliveryOfferingsList": components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryOffering"][];
         /** @description An array of delivery offer information. */
         "fulfillmentOutbound_2020-07-01_DeliveryOffersList": components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryOffer"][];
         /** @description The policy for a delivery offering. */
@@ -14868,6 +14697,15 @@ export interface components {
             /** @description Additional delivery instructions. For example, this could be instructions on how to enter a building, nearby landmark or navigation instructions, 'Beware of dogs', etc. */
             deliveryInstructions?: string;
             dropOffLocation?: components["schemas"]["fulfillmentOutbound_2020-07-01_DropOffLocation"];
+        };
+        /** @description A quantity based on unit of measure. */
+        "fulfillmentOutbound_2020-07-01_DeliveryQuantity": {
+            amount: components["schemas"]["fulfillmentOutbound_2020-07-01_Decimal"];
+            /**
+             * @description The unit of measure for the amount.
+             * @enum {string}
+             */
+            unitOfMeasure: "Each";
         };
         /** @description The time range within which a Scheduled Delivery fulfillment order should be delivered. This is only available in the JP marketplace. */
         "fulfillmentOutbound_2020-07-01_DeliveryWindow": {
@@ -15135,6 +14973,24 @@ export interface components {
         };
         /** @description An array of fulfillment shipment package information. */
         "fulfillmentOutbound_2020-07-01_FulfillmentShipmentPackageList": components["schemas"]["fulfillmentOutbound_2020-07-01_FulfillmentShipmentPackage"][];
+        /** @description The request body schema for the `getDeliveryOfferings` operation. */
+        "fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsRequest": {
+            destinationAddress: components["schemas"]["fulfillmentOutbound_2020-07-01_VariablePrecisionAddress"];
+            quantity?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryQuantity"];
+            /** @description The seller SKU of the item. */
+            sellerSku: string;
+            /** @description The two digit country code the items should ship from. In ISO 3166-1 alpha-2 format. */
+            shipFromCountryCode: string;
+        };
+        /** @description The response schema for the `getDeliveryOfferings` operation. */
+        "fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse": {
+            errors?: components["schemas"]["fulfillmentOutbound_2020-07-01_ErrorList"];
+            payload?: components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResult"];
+        };
+        /** @description A list of delivery offerings, including offering expiration, earliest and latest date and time range, and the delivery offering policy. */
+        "fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResult": {
+            deliveryOfferings?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryOfferingsList"];
+        };
         /** @description The product details for the delivery offer. */
         "fulfillmentOutbound_2020-07-01_GetDeliveryOffersProduct": {
             amount?: components["schemas"]["fulfillmentOutbound_2020-07-01_Amount"];
@@ -19593,60 +19449,6 @@ export interface components {
             nonLatinName?: string;
         };
         /**
-         * @description Address for bank account verification of the Payee. For example, this can be a person or business mailing address
-         *
-         * @example {
-         *       "addressLine1": "678 JFK Street",
-         *       "city": "Seattle",
-         *       "state": "WA",
-         *       "postalCode": "98109",
-         *       "countryCode": "US"
-         *     }
-         */
-        "sellerWallet_2024-03-01_AccountHolderAddress": {
-            /**
-             * @description Address Line 1 of the public address
-             *
-             * @example 678 JFK Street
-             */
-            addressLine1: string;
-            /**
-             * @description Address Line 2 of the public address
-             *
-             * @example Unit 415
-             */
-            addressLine2?: string;
-            /**
-             * @description City name of the public address
-             *
-             * @example Seattle
-             */
-            city: string;
-            /**
-             * @description Country name of the public address
-             *
-             * @example United States
-             */
-            country?: string;
-            /**
-             * @description The two digit country code, in ISO 3166 format.
-             *
-             * @example US
-             */
-            countryCode: string;
-            /**
-             * @description Postal code of the public address
-             *
-             * @example 98109
-             */
-            postalCode: string;
-            /**
-             * @description State name of the public address. This is the state or region for China-based addresses.
-             * @example WA
-             */
-            state: string;
-        };
-        /**
          * @description Specifies the balance amount in the Amazon SW bank account
          * @example {
          *       "accountId": "amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ",
@@ -19716,8 +19518,7 @@ export interface components {
          * @enum {string}
          */
         "sellerWallet_2024-03-01_BalanceType": "AVAILABLE" | "LOCKED_IN" | "LOCKED_OUT" | "TOTAL";
-        /** @description Details of an Amazon SW bank account, used to hold money earned by a SW customer by selling items. NOTE: Not including account_links, short cut links to the account balance and transactions -> since not mandatory
-         *      */
+        /** @description Details of an Amazon Seller Wallet bank account. This account is used to hold the money that a Seller Wallet customer earns by selling items. */
         "sellerWallet_2024-03-01_BankAccount": {
             /**
              * @description The two digit country code, in ISO 3166 format.
@@ -19732,19 +19533,17 @@ export interface components {
              */
             accountCurrency: string;
             /**
-             * @description BankAccount holder's name (expected to be Amazon customer)
-             *
+             * @description The bank account holder's name (expected to be an Amazon customer). There is a 50 character limit.
              * @example John Doe
              */
             accountHolderName?: string;
             /**
-             * @description The unique identifier provided by Amazon to identify the account
-             *
+             * @description The unique bank account identifier provided by Amazon. To initiate a `SELF` transaction with Seller Wallet, you must choose `BANK_ACCOUNT` as the payment method type in the [getPaymentMethod](https://developer-docs.amazon.com/sp-api/reference/getpaymentmethods) request. Your Amazon Seller Wallet bank account identifier should match the `paymentMethodId` in the response. This field is required.
              * @example amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ
              */
             accountId?: string;
             bankAccountHolderStatus?: components["schemas"]["sellerWallet_2024-03-01_BankAccountHolderStatus"];
-            bankAccountNumberFormat: components["schemas"]["sellerWallet_2024-03-01_BankAccountNumberFormat"];
+            bankAccountNumberFormat?: components["schemas"]["sellerWallet_2024-03-01_BankAccountNumberFormat"];
             /**
              * @description Last 3 digit of the bank account number, for all Amazon Seller Wallet account the value will be three consecutive 0's
              *
@@ -19753,18 +19552,16 @@ export interface components {
             bankAccountNumberTail: string;
             bankAccountOwnershipType: components["schemas"]["sellerWallet_2024-03-01_BankAccountOwnershipType"];
             /**
-             * @description The name of the bank, for all Amazon Seller Wallet account the value will be Amazon Seller Wallet
-             *
-             * @example Bank Of America
+             * @description The name of the bank. This value is Amazon Seller Wallet for Amazon Seller Wallet accounts.
+             * @example DEUTSCHE BANK AG
              */
             bankName?: string;
-            bankNumberFormat: components["schemas"]["sellerWallet_2024-03-01_BankNumberFormat"];
+            bankNumberFormat?: components["schemas"]["sellerWallet_2024-03-01_BankNumberFormat"];
             /**
-             * @description Routing number for automated clearing house transfers, for all Amazon Seller Wallet account the value will be denoted by nine cosecutive 0's,
-             *
+             * @description Routing number for automated clearing house transfers for `THIRD_PARTY` transaction requests. This value is nine consecutive zeros for Amazon Seller Wallet accounts.
              * @example 026009593
              */
-            routingNumber: string;
+            routingNumber?: string;
         };
         /**
          * @description Represents status of the Amazon Seller Wallet accountholder
@@ -19786,7 +19583,7 @@ export interface components {
          * @description Represents destination bank account's ownership type.
          * @enum {string}
          */
-        "sellerWallet_2024-03-01_BankAccountOwnershipType": "THIRD_PARTY" | "SELF" | "GOVERNMENT";
+        "sellerWallet_2024-03-01_BankAccountOwnershipType": "THIRD_PARTY" | "SELF";
         /**
          * @description Represents a format of a bank number also called routing number type
          * @enum {string}
@@ -19867,6 +19664,95 @@ export interface components {
             fxRateId: string;
             rateDirection: components["schemas"]["sellerWallet_2024-03-01_RateDirection"];
         };
+        /**
+         * @description The contact information of the payee. This field is required when the request `bankAccountOwnershipType` is `THIRD_PARTY`. The contact information is used for payee verification and registration purposes.
+         * @example {
+         *       "payeeFirstName": "John",
+         *       "payeeLastName": "Doe",
+         *       "payeeEntityType": "PERSON",
+         *       "addressLine1": "678 JFK Street",
+         *       "city": "Seattle",
+         *       "state": "WA",
+         *       "postalCode": "98109",
+         *       "countryCode": "US",
+         *       "emailAddress": "johndoe@gmail.com",
+         *       "phoneNumber": "3450987121"
+         *     }
+         */
+        "sellerWallet_2024-03-01_PayeeContactInformation": {
+            /**
+             * @description Address Line 1 of the public address
+             *
+             * @example 678 JFK Street
+             */
+            addressLine1: string;
+            /**
+             * @description Address Line 2 of the public address
+             *
+             * @example Unit 415
+             */
+            addressLine2?: string;
+            /**
+             * @description City name of the public address
+             *
+             * @example Seattle
+             */
+            city: string;
+            /**
+             * @description Country name of the public address
+             *
+             * @example United States
+             */
+            country?: string;
+            /**
+             * @description The two digit country code, in ISO 3166 format.
+             *
+             * @example US
+             */
+            countryCode: string;
+            /**
+             * @description Email address of the payee.
+             * @example johndoe@gmail.com
+             */
+            emailAddress: string;
+            payeeEntityType: components["schemas"]["sellerWallet_2024-03-01_PayeeEntityType"];
+            /**
+             * @description First name of the payee. There is a 50 character limit.
+             * @example John
+             */
+            payeeFirstName: string;
+            /**
+             * @description Last name of the payee. There is a 50 character limit.
+             * @example Doe
+             */
+            payeeLastName: string;
+            /**
+             * @description Middle name of the payee. There is a 50 character limit.
+             * @example Henry
+             */
+            payeeMiddleName?: string;
+            /**
+             * @description Valid phone number of the payee.
+             * @example 1234567890
+             */
+            phoneNumber: string;
+            /**
+             * @description Postal code of the public address
+             *
+             * @example 98109
+             */
+            postalCode: string;
+            /**
+             * @description State name of the public address. This is the state or region for China-based addresses.
+             * @example WA
+             */
+            state: string;
+        };
+        /**
+         * @description The entity type of the transaction payee when the bank account ownership type is `THIRD_PARTY`.
+         * @enum {string}
+         */
+        "sellerWallet_2024-03-01_PayeeEntityType": "INDIVIDUAL" | "BUSINESS" | "TAX_AUTHORITY";
         /** @description Payment preference type in which transfer is being scheduled
          *      */
         "sellerWallet_2024-03-01_PaymentPreference": {
@@ -19907,6 +19793,11 @@ export interface components {
         "sellerWallet_2024-03-01_ScheduleTransferType": "TIME_BASED";
         /** @description The current transaction status and related historical details. */
         "sellerWallet_2024-03-01_Transaction": {
+            /**
+             * @description The unique identifier of the Amazon Seller Wallet bank account from which the money is debited.
+             * @example amzn1.account.SMUGN2EN3ZHWSRJKH2KCJPII5JEI
+             */
+            accountId: string;
             /**
              * Format: date-time
              * @description Expected completion date of a transaction, for existing active Payees (Trusted Beneficiaries) it will be 24 hours but for new destination bank accounts the value could go up to 5 days
@@ -19953,7 +19844,7 @@ export interface components {
             transactionRequestDate: string;
             /** @description The transaction initiation source. This value is either the Amazon portal or PISP name that the customer used to start the transaction. */
             transactionRequesterSource: string;
-            transactionSourceAccount: components["schemas"]["sellerWallet_2024-03-01_TransactionAccount"];
+            transactionSourceAccount?: components["schemas"]["sellerWallet_2024-03-01_TransactionAccount"];
             transactionStatus: components["schemas"]["sellerWallet_2024-03-01_TransactionStatus"];
             transactionType: components["schemas"]["sellerWallet_2024-03-01_TransactionType"];
             transferRateDetails: components["schemas"]["sellerWallet_2024-03-01_TransferRatePreview"];
@@ -20004,12 +19895,17 @@ export interface components {
          *       },
          *       "transactionDescription": "This is transaction to partner",
          *       "customerPaymentReference": "BG999999999",
-         *       "destinationAccountHolderAddress": {
-         *         "addressLine1": "333 Boren Ave N",
-         *         "city": "Seattle",
-         *         "state": "WA",
-         *         "postalCode": "98109",
-         *         "countryCode": "US"
+         *       "payeeContactInformation": {
+         *         "payeeFirstName": "John",
+         *         "payeeLastName": "Doe",
+         *         "payeeEntityType": "PERSON",
+         *         "addressLine1": "Avenue John F. Kennedy 38",
+         *         "city": "Luxembourg",
+         *         "state": "LUXEMBOURG",
+         *         "postalCode": "1855",
+         *         "countryCode": "LU",
+         *         "emailAddress": "johndoe@gmail.com",
+         *         "phoneNumber": "3450987121"
          *       },
          *       "transferRateDetails": {
          *         "baseAmount": {
@@ -20056,7 +19952,6 @@ export interface components {
              * @example BG999999999
              */
             customerPaymentReference?: string;
-            destinationAccountHolderAddress?: components["schemas"]["sellerWallet_2024-03-01_AccountHolderAddress"];
             /**
              * @description Optional field to specify the unique identifier of the destination bank account where the money needs to be deposited
              *
@@ -20064,6 +19959,7 @@ export interface components {
              */
             destinationAccountId?: string;
             destinationTransactionInstrument: components["schemas"]["sellerWallet_2024-03-01_TransactionInstrumentDetails"];
+            payeeContactInformation?: components["schemas"]["sellerWallet_2024-03-01_PayeeContactInformation"];
             /**
              * Format: date-time
              * @description The transaction initiation request time in date-time format
@@ -20088,7 +19984,7 @@ export interface components {
          * @example {
          *       "bankAccount": {
          *         "bankAccountNumberFormat": "IBAN",
-         *         "bankAccountOwnershipType": "SELF",
+         *         "bankAccountOwnershipType": "THIRD_PARTY",
          *         "routingNumber": "HBUKGB4B",
          *         "bankNumberFormat": "BASIC",
          *         "accountCountryCode": "EU",
@@ -25681,11 +25577,21 @@ export interface components {
         };
         /** @description Item details for be provided for every item in shipment at either the item or carton or pallet level, whichever is appropriate. */
         vendorShipments_PackageItemDetails: {
+            /** @description The two digit country code in ISO 3166-1 alpha-2 format representing the country where the product was manufactured or originated. */
+            countryOfOrigin?: string;
             expiry?: components["schemas"]["vendorShipments_Expiry"];
             /** @description The batch or lot number associates an item with information the manufacturer considers relevant for traceability of the trade item to which the Element String is applied. The data may refer to the trade item itself or to items contained. This field is mandatory for all perishable items. */
             lotNumber?: string;
+            /** @description This is a reference to the lot number source location meaning the place where the product was assigned a traceability lot number. This is mandatory for goods in scope of the FDA Food Safety Modernization Act (FSMA 204). If provided, lotNumberSourceType must also be specified. */
+            lotNumberSourceReference?: string;
+            /**
+             * @description The type of reference for the lot number source. Must be provided when lotNumberSourceReference is specified.
+             * @enum {string}
+             */
+            lotNumberSourceType?: "GLN" | "FFRN" | "USDA_E" | "URL";
             /** @description The purchase order number for the shipment being confirmed. If the items in this shipment belong to multiple purchase order numbers that are in particular carton or pallet within the shipment, then provide the purchaseOrderNumber at the appropriate carton or pallet level. Formatting Notes: 8-character alpha-numeric code. */
             purchaseOrderNumber?: string;
+            regulationReferences?: components["schemas"]["vendorShipments_RegulationReferences"];
         };
         /** @description Details of the item being shipped. */
         vendorShipments_PackedItems: {
@@ -25765,6 +25671,17 @@ export interface components {
             purchaseOrderNumber?: string;
             /** @description Date range in which shipment is expected for these purchase orders. */
             shipWindow?: string;
+        };
+        /** @description Container for regulatory compliance information, for instance EU Due Diligence Regulation (EUDR) requirements. Includes reference numbers, verification codes, compliance information, and exemption codes necessary for documenting regulatory compliance for shipments. */
+        vendorShipments_RegulationReferences: {
+            /** @description The Due Diligence exemption code for EUDR products indicating the item is exempt from due diligence requirements. */
+            dueDiligenceExemptionCode?: string;
+            /** @description The EUDR Due Diligence Information for EUDR that was already pre-loaded in Vendor Central within Amazon compliance collection experience. */
+            dueDiligenceInformation?: string;
+            /** @description The EUDR Due Diligence Reference number from vendor's upstream Due Dilligence Statement (DDS) submitted to EU Commison portal or provided to Onix. */
+            dueDiligenceReference?: string;
+            /** @description The EUDR Due Diligence Verification number provided by EU Commision associated with submitted DDR. */
+            dueDiligenceVerification?: string;
         };
         /** @description This is used only for direct import shipment confirmations. */
         vendorShipments_Route: {
@@ -25945,6 +25862,15 @@ export interface components {
              */
             functionCode: "PortOfDischarge" | "FreightPayableAt" | "PortOfLoading";
             locationIdentification?: components["schemas"]["vendorShipments_Location"];
+        };
+        /** @description The request schema for the SubmitShipmentConfirmation operation. */
+        vendorShipments_SubmitShipmentConfirmationRequest: {
+            shipmentConfirmation: components["schemas"]["vendorShipments_ShipmentConfirmation"];
+        };
+        /** @description The ASN was submitted successfully */
+        vendorShipments_SubmitShipmentConfirmationResponse: {
+            errors?: components["schemas"]["vendorShipments_ErrorList"];
+            payload?: components["schemas"]["vendorShipments_TransactionReference"];
         };
         /** @description The request schema for the SubmitShipmentConfirmations operation. */
         vendorShipments_SubmitShipmentConfirmationsRequest: {
@@ -32626,6 +32552,302 @@ export interface operations {
             };
         };
     };
+    "deliveryShipmentInvoiceV2022-07-01_submitInvoice": {
+        parameters: {
+            query?: {
+                /**
+                 * @description The identifier for the order.
+                 * @example 123-1234567-1234567
+                 */
+                orderId?: string;
+                /**
+                 * @description The identifier for the shipment.
+                 * @example 1234567890123
+                 */
+                shipmentId?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description The request body that specifies invoice, program and marketplace values. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description The request's Authorization header is not formatted correctly or does not contain a valid token. */
+            401: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceResponse"];
+                };
+            };
+        };
+    };
+    getInvoiceStatus: {
+        parameters: {
+            query: {
+                /**
+                 * @description The invoice's type.
+                 * @example Outbound
+                 */
+                invoiceType: "Outbound";
+                /**
+                 * @description The marketplace identifier.
+                 * @example A2Q3Y263D00KWC
+                 */
+                marketplaceId: string;
+                /**
+                 * @description The order identifier.
+                 * @example 123-1234567-1234567
+                 */
+                orderId?: string;
+                /**
+                 * @description The Amazon program that seller is currently enrolled.
+                 * @example EasyShip
+                 */
+                programType: "EasyShip" | "FbaOnSite" | "SelfShip";
+                /**
+                 * @description The shipment identifier.
+                 * @example 1234567890123
+                 */
+                shipmentId?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description The request's Authorization header is not formatted correctly or does not contain a valid token. */
+            401: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_GetInvoiceStatusResponse"];
+                };
+            };
+        };
+    };
     getScheduledPackage: {
         parameters: {
             query: {
@@ -36404,6 +36626,117 @@ export interface operations {
             };
         };
     };
+    deliveryOfferings: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description GetDeliveryOfferingsRequest parameter */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                    payload: unknown;
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                };
+            };
+            /** @description The request's Authorization header is not formatted correctly or does not contain a valid token. */
+            401: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                };
+            };
+            /** @description The specified resource does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
+                };
+            };
+        };
+    };
     deliveryOffers: {
         parameters: {
             query?: never;
@@ -37854,11 +38187,9 @@ export interface operations {
     };
     getPackageTrackingDetails: {
         parameters: {
-            query?: {
-                /** @description The Amazon fulfillment tracking number. You can obtain this value from the `getFulfillmentOrder` operation. */
-                amazonFulfillmentTrackingNumber?: string;
+            query: {
                 /** @description The unencrypted package identifier. You can obtain this value from the `getFulfillmentOrder` operation. */
-                packageNumber?: number;
+                packageNumber: number;
             };
             header?: never;
             path?: never;
@@ -38235,7 +38566,7 @@ export interface operations {
             };
         };
     };
-    getInvoiceStatus: {
+    shipmentInvoicingV0_getInvoiceStatus: {
         parameters: {
             query?: never;
             header?: never;
@@ -39099,27 +39430,51 @@ export interface operations {
     };
     listTransactions: {
         parameters: {
-            query: {
+            query?: {
                 /**
                  * @description The identifier of the marketplace from which you want to retrieve transactions. The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
                  * @example ATIV93840DER
                  */
                 marketplaceId?: string;
                 /**
-                 * @description A string token returned in the response of your previous request.
+                 * @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.
                  * @example jehgri34yo7jr9e8f984tr9i4o
                  */
                 nextToken?: string;
                 /**
                  * @description The response includes financial events posted on or after this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.
+                 *
+                 *     This field is required if you do not specify a related identifier.
                  * @example 2023-01-12
                  */
-                postedAfter: string;
+                postedAfter?: string;
                 /**
-                 * @description A date used for selecting transactions posted before (but not at) a specified time. The date-time must be later than PostedAfter and no later than two minutes before the request was submitted, in ISO 8601 date time format. If PostedAfter and PostedBefore are more than 180 days apart, no transactions are returned. You must specify the PostedAfter parameter if you specify the PostedBefore parameter. Default: Now minus two minutes.
+                 * @description The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+                 *
+                 *     The date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty.
+                 *
+                 *     **Default:** Two minutes before the time of the request.
                  * @example 2023-02-12
                  */
                 postedBefore?: string;
+                /**
+                 * @description The name of the `relatedIdentifier`.
+                 *
+                 *     **Possible values:**
+                 *
+                 *     * `FINANCIAL_EVENT_GROUP_ID`: the financial event group ID associated with the transaction.
+                 *
+                 *     **Note:**
+                 *
+                 *      FINANCIAL_EVENT_GROUP_ID is the only `relatedIdentifier` with filtering capabilities at the moment. While other `relatedIdentifier` values will be included in the response when available, they cannot be used for filtering purposes.
+                 * @example FINANCIAL_EVENT_GROUP_ID
+                 */
+                relatedIdentifierName?: string;
+                /**
+                 * @description The value of the `relatedIdentifier`.
+                 * @example 8129762527551
+                 */
+                relatedIdentifierValue?: string;
                 /**
                  * @description The status of the transaction.
                  *
@@ -40058,12 +40413,12 @@ export interface operations {
             };
             header: {
                 /**
-                 * @description Digital signature for the source currency transaction amount.
+                 * @description Digital signature for the source currency transaction amount. Sign in the order of the request definitions. You can omit empty or optional fields. For more information, refer to [Third-Party Provider Signature Guidance](https://developer-docs.amazon.com/sp-api/docs/tpp-registration-signature-guidance).
                  * @example 1EHdFHhrCArIgmWbPtW0HuTlN_LPteg8G8tbvF4QmoRekOO84nQxg8j4gs0wEyAktg2Sm80a_FaTswv-U8XUXGHZ1UBagGD9zEPrGBbia_N5gm4fCOW-qyrT8lwchdkiaprNwsqpv3aKid7Ux3uwEzxiEedO3QWvv6nCZnNNxK-zz2Zj6tPDE_mgQk5tJv4xRgMxtcTMmr7
                  */
                 amountDigitalSignature: string;
                 /**
-                 * @description Digital signature for the destination bank account details.
+                 * @description Digital signature for the destination bank account details. For more information, refer to [Third-Party Provider Signature Guidance](https://developer-docs.amazon.com/sp-api/docs/tpp-registration-signature-guidance).
                  * @example U8AsRXdh5fvjozFIv6vRUal1EHdFHhrCArIgmWbPtW0HuTlN_LPteg8G8tbvF4QmoRekOO84nQxg8j4gs0wEyAktg2Sm80a_FaTswv-U8XUXGHZ1UBagGD9zEPrGBbia_N5gm4fCOW-V3mSieblwBiUyq8frUYL606WtuStHtE3zJgaj9-B1ObhudxxQALuBKjPeksc7-qyrT8lwchdkiaprNwsqpv3aKid7Ux3uwEzxiEedO3QWvv6nCZnNNxK-zz2Zj6tPDE_mgQk5tJv4xRgMxtcTMmr7_ce4A9wqRxQqwBerIHpOIzpZizmXAG56uG8-hJojmPwnsPif7ihMuw
                  */
                 destAccountDigitalSignature: string;
@@ -68580,6 +68935,127 @@ export interface operations {
             };
         };
     };
+    SubmitShipmentConfirmation: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description A request to submit shipment confirmation. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. */
+            202: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
+                };
+            };
+        };
+    };
     SubmitShipmentConfirmations: {
         parameters: {
             query?: never;
@@ -68714,7 +69190,7 @@ export interface operations {
                 createdBefore?: string;
                 /** @description Get Shipment Details by passing Current shipment status. */
                 currentShipmentStatus?: string;
-                /** @description Get Shipment Details by passing Estimated Delivery Date Before. Must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format. */
+                /** @description Get Shipment Details by passing Estimated Delivery Date After. Must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format. */
                 estimatedDeliveryAfter?: string;
                 /** @description Get Shipment Details by passing Estimated Delivery Date Before. Must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format. */
                 estimatedDeliveryBefore?: string;
