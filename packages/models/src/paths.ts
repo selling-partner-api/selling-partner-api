@@ -1668,31 +1668,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/fba/outbound/2020-07-01/deliveryOfferings": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Returns fast delivery estimates for Product Detail and Collection pages, based on criteria that you specify.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 5 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["deliveryOfferings"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/fba/outbound/2020-07-01/deliveryOffers": {
         parameters: {
             query?: never;
@@ -14676,14 +14651,6 @@ export interface components {
             expiresAt?: components["schemas"]["fulfillmentOutbound_2020-07-01_Timestamp"];
             policy?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryPolicy"];
         };
-        /** @description An available offering for delivery of a product. */
-        "fulfillmentOutbound_2020-07-01_DeliveryOffering": {
-            dateRange?: components["schemas"]["fulfillmentOutbound_2020-07-01_DateRange"];
-            expiresAt?: components["schemas"]["fulfillmentOutbound_2020-07-01_Timestamp"];
-            policy?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryPolicy"];
-        };
-        /** @description An array of delivery offering information. */
-        "fulfillmentOutbound_2020-07-01_DeliveryOfferingsList": components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryOffering"][];
         /** @description An array of delivery offer information. */
         "fulfillmentOutbound_2020-07-01_DeliveryOffersList": components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryOffer"][];
         /** @description The policy for a delivery offering. */
@@ -14697,15 +14664,6 @@ export interface components {
             /** @description Additional delivery instructions. For example, this could be instructions on how to enter a building, nearby landmark or navigation instructions, 'Beware of dogs', etc. */
             deliveryInstructions?: string;
             dropOffLocation?: components["schemas"]["fulfillmentOutbound_2020-07-01_DropOffLocation"];
-        };
-        /** @description A quantity based on unit of measure. */
-        "fulfillmentOutbound_2020-07-01_DeliveryQuantity": {
-            amount: components["schemas"]["fulfillmentOutbound_2020-07-01_Decimal"];
-            /**
-             * @description The unit of measure for the amount.
-             * @enum {string}
-             */
-            unitOfMeasure: "Each";
         };
         /** @description The time range within which a Scheduled Delivery fulfillment order should be delivered. This is only available in the JP marketplace. */
         "fulfillmentOutbound_2020-07-01_DeliveryWindow": {
@@ -14973,24 +14931,6 @@ export interface components {
         };
         /** @description An array of fulfillment shipment package information. */
         "fulfillmentOutbound_2020-07-01_FulfillmentShipmentPackageList": components["schemas"]["fulfillmentOutbound_2020-07-01_FulfillmentShipmentPackage"][];
-        /** @description The request body schema for the `getDeliveryOfferings` operation. */
-        "fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsRequest": {
-            destinationAddress: components["schemas"]["fulfillmentOutbound_2020-07-01_VariablePrecisionAddress"];
-            quantity?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryQuantity"];
-            /** @description The seller SKU of the item. */
-            sellerSku: string;
-            /** @description The two digit country code the items should ship from. In ISO 3166-1 alpha-2 format. */
-            shipFromCountryCode: string;
-        };
-        /** @description The response schema for the `getDeliveryOfferings` operation. */
-        "fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse": {
-            errors?: components["schemas"]["fulfillmentOutbound_2020-07-01_ErrorList"];
-            payload?: components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResult"];
-        };
-        /** @description A list of delivery offerings, including offering expiration, earliest and latest date and time range, and the delivery offering policy. */
-        "fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResult": {
-            deliveryOfferings?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryOfferingsList"];
-        };
         /** @description The product details for the delivery offer. */
         "fulfillmentOutbound_2020-07-01_GetDeliveryOffersProduct": {
             amount?: components["schemas"]["fulfillmentOutbound_2020-07-01_Amount"];
@@ -36622,117 +36562,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["fbaInventory_GetInventorySummariesResponse"];
-                };
-            };
-        };
-    };
-    deliveryOfferings: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description GetDeliveryOfferingsRequest parameter */
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsRequest"];
-            };
-        };
-        responses: {
-            /** @description Success. */
-            200: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
-                    payload: unknown;
-                };
-            };
-            /** @description Request has missing or invalid parameters and cannot be parsed. */
-            400: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
-                };
-            };
-            /** @description The request's Authorization header is not formatted correctly or does not contain a valid token. */
-            401: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
-                };
-            };
-            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
-            403: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
-                };
-            };
-            /** @description The specified resource does not exist. */
-            404: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
-                };
-            };
-            /** @description The frequency of requests was greater than allowed. */
-            429: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
-                };
-            };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
-            500: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
-                };
-            };
-            /** @description Temporary overloading or maintenance of the server. */
-            503: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["fulfillmentOutbound_2020-07-01_GetDeliveryOfferingsResponse"];
                 };
             };
         };
