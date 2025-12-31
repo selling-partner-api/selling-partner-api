@@ -2431,7 +2431,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns financial event groups for a given date range. It may take up to 48 hours for orders to appear in your financial events.
+        /** @description Returns financial event groups for a given date range. Orders from the last 48 hours might not be included in financial events.
          *
          *     **Usage Plan:**
          *
@@ -2439,7 +2439,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits). */
         get: operations["listFinancialEventGroups"];
         put?: never;
         post?: never;
@@ -2456,9 +2456,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns all financial events for the specified financial event group. It may take up to 48 hours for orders to appear in your financial events.
+        /** @description Returns all financial events for the specified financial event group. Orders from the last 48 hours might not be included in financial events.
          *
-         *     **Note:** This operation will only retrieve group's data for the past two years. If a request is submitted for data spanning more than two years, an empty response is returned.
+         *     **Note:** This operation only retrieves a group's data for the past two years. A request for data spanning more than two years produces an empty response.
          *
          *     **Usage Plan:**
          *
@@ -2466,7 +2466,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits). */
         get: operations["listFinancialEventsByGroupId"];
         put?: never;
         post?: never;
@@ -2483,7 +2483,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns financial events for the specified data range. It may take up to 48 hours for orders to appear in your financial events. **Note:** in `ListFinancialEvents`, deferred events don't show up in responses until in they are released.
+        /** @description Returns financial events for the specified data range. Orders from the last 48 hours might not be included in financial events.
+         *
+         *     **Note:** in `ListFinancialEvents`, deferred events don't show up in responses until they are released.
          *
          *     **Usage Plan:**
          *
@@ -2491,7 +2493,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits). */
         get: operations["listFinancialEvents"];
         put?: never;
         post?: never;
@@ -2508,7 +2510,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns all financial events for the specified order. It may take up to 48 hours for orders to appear in your financial events.
+        /** @description Returns all financial events for the specified order. Orders from the last 48 hours might not be included in financial events.
          *
          *     **Usage Plan:**
          *
@@ -2516,8 +2518,33 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits). */
         get: operations["listFinancialEventsByOrderId"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/finances/v0/transactions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Returns transactions for the given parameters. Orders from the last 48 hours might not be included in financial events.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 1 | 10 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits). */
+        get: operations["financesV0_listTransactions"];
         put?: never;
         post?: never;
         delete?: never;
@@ -11530,9 +11557,7 @@ export interface components {
             TransactionAmount?: components["schemas"]["financesV0_Currency"];
             /** @description The identifier for the transaction. */
             TransactionId?: string;
-            /** @description Indicates the type of transaction.
-             *
-             *     Example: "Disbursed to Amazon Gift Card balance" */
+            /** @description The type of transaction. For example, "Disbursed to Amazon Gift Card balance". */
             TransactionType?: string;
         };
         /** @description A list of `AdhocDisbursement` events. */
@@ -11545,21 +11570,14 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * FBAInventoryReimbursement - An FBA inventory reimbursement to a seller's account. This occurs if a seller's inventory is damaged.
-             *
-             *     * ReserveEvent - A reserve event that is generated at the time of a settlement period closing. This occurs when some money from a seller's account is held back.
-             *
-             *     * PostageBilling - The amount paid by a seller for shipping labels.
-             *
-             *     * PostageRefund - The reimbursement of shipping labels purchased for orders that were canceled or refunded.
-             *
-             *     * LostOrDamagedReimbursement - An Amazon Easy Ship reimbursement to a seller's account for a package that we lost or damaged.
-             *
-             *     * CanceledButPickedUpReimbursement - An Amazon Easy Ship reimbursement to a seller's account. This occurs when a package is picked up and the order is subsequently canceled. This value is used only in the India marketplace.
-             *
-             *     * ReimbursementClawback - An Amazon Easy Ship reimbursement clawback from a seller's account. This occurs when a prior reimbursement is reversed. This value is used only in the India marketplace.
-             *
-             *     * SellerRewards - An award credited to a seller's account for their participation in an offer in the Seller Rewards program. Applies only to the India marketplace. */
+             *     * `FBAInventoryReimbursement`: An FBA inventory reimbursement to a seller's account. This occurs if a seller's inventory is damaged.
+             *     * `ReserveEvent`: A reserve event that is generated at the time a settlement period closes. This occurs when some money from a seller's account is held back.
+             *     * `PostageBilling`: The amount paid by a seller for shipping labels.
+             *     * `PostageRefund`: The reimbursement of shipping labels purchased for orders that were canceled or refunded.
+             *     * `LostOrDamagedReimbursement`: An Amazon Easy Ship reimbursement to a seller's account for a package that we lost or damaged.
+             *     * `CanceledButPickedUpReimbursement`: An Amazon Easy Ship reimbursement to a seller's account. This occurs when a package is picked up and the order is subsequently canceled. This value is used only in the India marketplace.
+             *     * `ReimbursementClawback`: An Amazon Easy Ship reimbursement clawback from a seller's account. This occurs when a prior reimbursement is reversed. This value is used only in the India marketplace.
+             *     * `SellerRewards`: An award credited to a seller's account for their participation in an offer in the Seller Rewards program. Applies only to the India marketplace. */
             AdjustmentType?: string;
             PostedDate?: components["schemas"]["financesV0_Date"];
             /** @description The name of the store where the event occurred. */
@@ -11576,7 +11594,7 @@ export interface components {
             PerUnitAmount?: components["schemas"]["financesV0_Currency"];
             /** @description A short description of the item. */
             ProductDescription?: string;
-            /** @description Represents the number of units in the seller's inventory when the AdustmentType is FBAInventoryReimbursement. */
+            /** @description Represents the number of units in the seller's inventory when the `AdjustmentType` is `FBAInventoryReimbursement`. */
             Quantity?: string;
             /** @description The seller SKU of the item. The seller SKU is qualified by the seller's seller ID, which is included with every call to the Selling Partner API. */
             SellerSKU?: string;
@@ -11591,25 +11609,24 @@ export interface components {
             /** @description An Amazon-defined identifier for an order. */
             AmazonOrderId?: string;
             BaseExpense?: components["schemas"]["financesV0_Currency"];
-            /** @description An encrypted, Amazon-defined marketplace identifier. */
+            /** @description The Amazon-defined marketplace identifier. */
             MarketplaceId?: string;
             PostedDate?: components["schemas"]["financesV0_Date"];
             TaxTypeCGST: components["schemas"]["financesV0_Currency"];
             TaxTypeIGST: components["schemas"]["financesV0_Currency"];
             TaxTypeSGST: components["schemas"]["financesV0_Currency"];
             TotalExpense?: components["schemas"]["financesV0_Currency"];
-            /** @description Indicates the type of transaction.
+            /** @description The type of transaction.
              *
              *     Possible values:
              *
-             *     * Charge - For an affordability promotion expense.
-             *
-             *     * Refund - For an affordability promotion expense reversal. */
+             *     * `Charge`: an affordability promotion expense.
+             *     * `Refund`: an affordability promotion expense reversal. */
             TransactionType?: string;
         };
         /** @description A list of expense information related to an affordability promotion. */
         financesV0_AffordabilityExpenseEventList: components["schemas"]["financesV0_AffordabilityExpenseEvent"][];
-        /** @description Fields with a schema type of BigDecimal are a signed decimal number (for example CurrencyAmount). */
+        /** @description A signed decimal number. */
         financesV0_BigDecimal: number;
         /** @description An event related to a capacity reservation billing charge. */
         financesV0_CapacityReservationBillingEvent: {
@@ -11617,7 +11634,7 @@ export interface components {
             Description?: string;
             PostedDate?: components["schemas"]["financesV0_Date"];
             TransactionAmount?: components["schemas"]["financesV0_Currency"];
-            /** @description Indicates the type of transaction. For example, FBA Inventory Fee */
+            /** @description The transaction type. For example, FBA Inventory Fee. */
             TransactionType?: string;
         };
         /** @description A list of `CapacityReservationBillingEvent` events. */
@@ -11626,67 +11643,69 @@ export interface components {
          *
          *     Possible values:
          *
-         *     * Principal - The selling price of the order item, equal to the selling price of the item multiplied by the quantity ordered.
+         *     * `Principal`: The selling price of the order item, which is equal to the selling price of the item multiplied by the quantity ordered.
          *
-         *     * Tax - The tax collected by the seller on the Principal.
+         *     * `Tax`: The tax on the principal that is collected by the seller.
          *
-         *     * MarketplaceFacilitatorTax-Principal - The tax withheld on the Principal.
+         *     * `MarketplaceFacilitatorTax-Principal`: The tax that is withheld on the principal.
          *
-         *     * MarketplaceFacilitatorTax-Shipping - The tax withheld on the ShippingCharge.
+         *     * `MarketplaceFacilitatorTax-Shipping`: The tax that is withheld on the `ShippingCharge`.
          *
-         *     * MarketplaceFacilitatorTax-Giftwrap - The tax withheld on the Giftwrap charge.
+         *     * `MarketplaceFacilitatorTax-Giftwrap`: The tax that is withheld on the Giftwrap charge.
          *
-         *     * MarketplaceFacilitatorTax-Other - The tax withheld on other miscellaneous charges.
+         *     * `MarketplaceFacilitatorTax-Other`: The tax that is withheld on other miscellaneous charges.
          *
-         *     * Discount - The promotional discount for an order item.
+         *     * `Discount`: The promotional discount for an order item.
          *
-         *     * TaxDiscount - The tax amount deducted for promotional rebates.
+         *     * `TaxDiscount`: The tax that is deducted for promotional rebates.
          *
-         *     * CODItemCharge - The COD charge for an order item.
+         *     * `CODItemCharge`: The COD charge for an order item.
          *
-         *     * CODItemTaxCharge - The tax collected by the seller on a CODItemCharge.
+         *     * `CODItemTaxCharge`: The tax that is collected by the seller on a `CODItemCharge`.
          *
-         *     * CODOrderCharge - The COD charge for an order.
+         *     * `CODOrderCharge`: The COD charge for an order.
          *
-         *     * CODOrderTaxCharge - The tax collected by the seller on a CODOrderCharge.
+         *     * `CODOrderTaxCharge`: The tax that is collected by the seller on a `CODOrderCharge`.
          *
-         *     * CODShippingCharge - Shipping charges for a COD order.
+         *     * `CODShippingCharge`: Shipping charges for a COD order.
          *
-         *     * CODShippingTaxCharge - The tax collected by the seller on a CODShippingCharge.
+         *     * `CODShippingTaxCharge`: The tax that is collected by the seller on a `CODShippingCharge`.
          *
-         *     * ShippingCharge - The shipping charge.
+         *     * `ShippingCharge`: The shipping charge.
          *
-         *     * ShippingTax - The tax collected by the seller on a ShippingCharge.
+         *     * `ShippingTax`: The tax that is collected by the seller on a `ShippingCharge`.
          *
-         *     * Goodwill - The amount given to a buyer as a gesture of goodwill or to compensate for pain and suffering in the buying experience.
+         *     * `Goodwill`: The amount of money that is given to a buyer as a gesture of goodwill or to compensate for pain and suffering in the buying experience.
          *
-         *     * Giftwrap - The gift wrap charge.
+         *     * `Giftwrap`: The gift wrap charge.
          *
-         *     * GiftwrapTax - The tax collected by the seller on a Giftwrap charge.
+         *     * `GiftwrapTax`: The tax that is collected by the seller on a gift wrap charge.
          *
-         *     * RestockingFee - The charge applied to the buyer when returning a product in certain categories.
+         *     * `RestockingFee`: The charge that is applied to the buyer when returning a product in certain categories.
          *
-         *     * ReturnShipping - The amount given to the buyer to compensate for shipping the item back in the event we are at fault.
+         *     * `ReturnShipping`: The amount of money that is given to the buyer to compensate for shipping the item back if we are at fault.
          *
-         *     * PointsFee - The value of Amazon Points deducted from the refund if the buyer does not have enough Amazon Points to cover the deduction.
+         *     * `PointsFee`: The value of Amazon Points deducted from the refund if the buyer does not have enough Amazon Points to cover the deduction.
          *
-         *     * GenericDeduction - A generic bad debt deduction.
+         *     * `GenericDeduction`: A generic bad debt deduction.
          *
-         *     * FreeReplacementReturnShipping - The compensation for return shipping when a buyer receives the wrong item, requests a free replacement, and returns the incorrect item.
+         *     * `FreeReplacementReturnShipping`: The compensation for return shipping when a buyer receives the wrong item, requests a free replacement, and returns the incorrect item.
          *
-         *     * PaymentMethodFee - The fee collected for certain payment methods in certain marketplaces.
+         *     * `PaymentMethodFee`: The fee that is collected for certain payment methods in certain marketplaces.
          *
-         *     * ExportCharge - The export duty that is charged when an item is shipped to an international destination as part of the Amazon Global program.
+         *     * `ExportCharge`: The export duty that is charged when an item is shipped to an international destination as part of the Amazon Global program.
          *
-         *     * SAFE-TReimbursement - The SAFE-T claim amount for the item.
+         *     * `SAFE-TReimbursement`: The SAFE-T claim amount for the item.
          *
-         *     * TCS-CGST - Tax Collected at Source (TCS) for Central Goods and Services Tax (CGST).
+         *     * `TCS-CGST`: Tax Collected at Source (TCS) for Central Goods and Services Tax (CGST).
          *
-         *     * TCS-SGST - Tax Collected at Source for State Goods and Services Tax (SGST).
+         *     * `TCS-SGST`: Tax Collected at Source for State Goods and Services Tax (SGST).
          *
-         *     * TCS-IGST - Tax Collected at Source for Integrated Goods and Services Tax (IGST).
+         *     * `TCS-IGST`: Tax Collected at Source for Integrated Goods and Services Tax (IGST).
          *
-         *     * TCS-UTGST - Tax Collected at Source for Union Territories Goods and Services Tax (UTGST). */
+         *     * `TCS-UTGST`: Tax Collected at Source for Union Territories Goods and Services Tax (UTGST).
+         *
+         *     * `PaidthroughEBT`: The amount of money paid with EBT for any order or shipment items. */
         financesV0_ChargeComponent: {
             ChargeAmount?: components["schemas"]["financesV0_Currency"];
             /** @description The type of charge. */
@@ -11708,13 +11727,9 @@ export interface components {
         financesV0_ChargeRefundEvent: {
             ChargeRefundTransactions?: components["schemas"]["financesV0_ChargeRefundTransactions"];
             PostedDate?: components["schemas"]["financesV0_Date"];
-            /** @description The reason given for a charge refund.
-             *
-             *     Example: `SubscriptionFeeCorrection` */
+            /** @description The reason given for a charge refund. For example, `SubscriptionFeeCorrection`. */
             ReasonCode?: string;
-            /** @description A description of the Reason Code.
-             *
-             *     Example: `SubscriptionFeeCorrection` */
+            /** @description A description of the Reason Code. For example, `SubscriptionFeeCorrection`. */
             ReasonCodeDescription?: string;
         };
         /** @description A list of charge refund events. */
@@ -11755,7 +11770,7 @@ export interface components {
         };
         /**
          * Format: date-time
-         * @description Fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate).
+         * @description A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
          */
         financesV0_Date: string;
         /** @description A debt payment or debt adjustment. */
@@ -11766,11 +11781,9 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * DebtPayment
-             *
-             *     * DebtPaymentFailure
-             *
-             *     * DebtAdjustment */
+             *     * `DebtPayment`
+             *     * `DebtPaymentFailure`
+             *     * `DebtAdjustment` */
             DebtRecoveryType?: string;
             OverPaymentCredit?: components["schemas"]["financesV0_Currency"];
             RecoveryAmount?: components["schemas"]["financesV0_Currency"];
@@ -11793,21 +11806,30 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * StoredValueCardRevenue - The amount that is deducted from the seller's account because the seller received money through a stored value card.
+             *     * `StoredValueCardRevenue` - The amount that is deducted from the seller's account because the seller received money through a stored value card.
              *
-             *     * StoredValueCardRefund - The amount that Amazon returns to the seller if the order that is bought using a stored value card is refunded.
+             *     * `StoredValueCardRefund` - The amount that Amazon returns to the seller if the order that is purchased using a stored value card is refunded.
              *
-             *     * PrivateLabelCreditCardRevenue - The amount that is deducted from the seller's account because the seller received money through a private label credit card offered by Amazon.
+             *     * `PrivateLabelCreditCardRevenue` - The amount that is deducted from the seller's account because the seller received money through a private label credit card offered by Amazon.
              *
-             *     * PrivateLabelCreditCardRefund - The amount that Amazon returns to the seller if the order that is bought using a private label credit card offered by Amazon is refunded.
+             *     * `PrivateLabelCreditCardRefund` - The amount that Amazon returns to the seller if the order that is purchased using a private label credit card offered by Amazon is refunded.
              *
-             *     * CollectOnDeliveryRevenue - The COD amount that the seller collected directly from the buyer.
+             *     * `CollectOnDeliveryRevenue` - The COD amount that the seller collected directly from the buyer.
              *
-             *     * CollectOnDeliveryRefund - The amount that Amazon refunds to the buyer if an order paid for by COD is refunded. */
+             *     * `CollectOnDeliveryRefund` - The amount that Amazon refunds to the buyer if an order paid for by COD is refunded. */
             DirectPaymentType?: string;
         };
         /** @description A list of direct payment information. */
         financesV0_DirectPaymentList: components["schemas"]["financesV0_DirectPayment"][];
+        /** @description An EBT refund reimbursement event. */
+        financesV0_EBTRefundReimbursementOnlyEvent: {
+            Amount?: components["schemas"]["financesV0_Currency"];
+            /** @description The identifier of an order. */
+            OrderId?: string;
+            PostedDate?: components["schemas"]["financesV0_Date"];
+        };
+        /** @description A list of EBT refund reimbursement events. */
+        financesV0_EBTRefundReimbursementOnlyEventList: components["schemas"]["financesV0_EBTRefundReimbursementOnlyEvent"][];
         /** @description Error response returned when the request is unsuccessful. */
         financesV0_Error: {
             /** @description An error code that identifies the type of error that occurred. */
@@ -11823,24 +11845,18 @@ export interface components {
         financesV0_FailedAdhocDisbursementEvent: {
             /** @description The disbursement identifier. */
             DisbursementId?: string;
-            /** @description The type of fund transfer.
-             *
-             *     Example "Refund" */
+            /** @description The type of fund transfer. For example, `Refund`. */
             FundsTransfersType?: string;
-            /** @description The type of payment for disbursement.
-             *
-             *     Example `CREDIT_CARD` */
+            /** @description The type of payment for disbursement. For example, `CREDIT_CARD`. */
             PaymentDisbursementType?: string;
             PostedDate?: components["schemas"]["financesV0_Date"];
-            /** @description The status of the failed `AdhocDisbursement`.
-             *
-             *     Example `HARD_DECLINED` */
+            /** @description The status of the failed `AdhocDisbursement`. For example, `HARD_DECLINED`. */
             Status?: string;
             TransferAmount?: components["schemas"]["financesV0_Currency"];
             /** @description The transfer identifier. */
             TransferId?: string;
         };
-        /** @description A list of `FailedAdhocDisbursementEvent`s. */
+        /** @description A list of `FailedAdhocDisbursementEvent`. */
         financesV0_FailedAdhocDisbursementEventList: components["schemas"]["financesV0_FailedAdhocDisbursementEvent"][];
         /** @description A payment event for Fulfillment by Amazon (FBA) inventory liquidation. This event is used only in the US marketplace. */
         financesV0_FBALiquidationEvent: {
@@ -11878,16 +11894,15 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * Open
-             *
-             *     * Closed */
+             *     * `Open`
+             *     * `Closed` */
             ProcessingStatus?: string;
             /** @description The trace identifier used by sellers to look up transactions externally. */
             TraceId?: string;
         };
         /** @description A list of financial event group information. */
         financesV0_FinancialEventGroupList: components["schemas"]["financesV0_FinancialEventGroup"][];
-        /** @description Contains all information related to a financial event. */
+        /** @description All the information that is related to a financial event. */
         financesV0_FinancialEvents: {
             AdhocDisbursementEventList?: components["schemas"]["financesV0_AdhocDisbursementEventList"];
             AdjustmentEventList?: components["schemas"]["financesV0_AdjustmentEventList"];
@@ -11898,6 +11913,7 @@ export interface components {
             ChargeRefundEventList?: components["schemas"]["financesV0_ChargeRefundEventList"];
             CouponPaymentEventList?: components["schemas"]["financesV0_CouponPaymentEventList"];
             DebtRecoveryEventList?: components["schemas"]["financesV0_DebtRecoveryEventList"];
+            EBTRefundReimbursementOnlyEventList?: components["schemas"]["financesV0_EBTRefundReimbursementOnlyEventList"];
             FailedAdhocDisbursementEventList?: components["schemas"]["financesV0_FailedAdhocDisbursementEventList"];
             FBALiquidationEventList?: components["schemas"]["financesV0_FBALiquidationEventList"];
             GuaranteeClaimEventList?: components["schemas"]["financesV0_ShipmentEventList"];
@@ -11934,27 +11950,38 @@ export interface components {
         };
         /** @description A list of fee events related to Amazon Imaging services. */
         financesV0_ImagingServicesFeeEventList: components["schemas"]["financesV0_ImagingServicesFeeEvent"][];
-        /** @description The payload for the listFinancialEventGroups operation. */
+        /** @description The payload for the `listFinancialEventGroups` operation. */
         financesV0_ListFinancialEventGroupsPayload: {
             FinancialEventGroupList?: components["schemas"]["financesV0_FinancialEventGroupList"];
             /** @description When present and not empty, pass this string token in the next request to return the next response page. */
             NextToken?: string;
         };
-        /** @description The response schema for the listFinancialEventGroups operation. */
+        /** @description The response schema for the `listFinancialEventGroups` operation. */
         financesV0_ListFinancialEventGroupsResponse: {
             errors?: components["schemas"]["financesV0_ErrorList"];
             payload?: components["schemas"]["financesV0_ListFinancialEventGroupsPayload"];
         };
-        /** @description The payload for the listFinancialEvents operation. */
+        /** @description The payload for the `listFinancialEvents` operation. */
         financesV0_ListFinancialEventsPayload: {
             FinancialEvents?: components["schemas"]["financesV0_FinancialEvents"];
             /** @description When present and not empty, pass this string token in the next request to return the next response page. */
             NextToken?: string;
         };
-        /** @description The response schema for the listFinancialEvents operation. */
+        /** @description The response schema for the `listFinancialEvents` operation. */
         financesV0_ListFinancialEventsResponse: {
             errors?: components["schemas"]["financesV0_ErrorList"];
             payload?: components["schemas"]["financesV0_ListFinancialEventsPayload"];
+        };
+        /** @description The payload for the `listTransactions` operation. */
+        financesV0_ListTransactionsPayload: {
+            /** @description When present and not empty, pass this string token in the next request to return the next response page. */
+            NextToken?: string;
+            Transactions?: components["schemas"]["financesV0_Transactions"];
+        };
+        /** @description The response schema for the `listTransactions` operation. */
+        financesV0_ListTransactionsResponse: {
+            errors?: components["schemas"]["financesV0_ErrorList"];
+            payload?: components["schemas"]["financesV0_ListTransactionsPayload"];
         };
         /** @description A loan advance, loan payment, or loan refund. */
         financesV0_LoanServicingEvent: {
@@ -11963,11 +11990,11 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * LoanAdvance
+             *     * `LoanAdvance`
              *
-             *     * LoanPayment
+             *     * `LoanPayment`
              *
-             *     * LoanRefund */
+             *     * `LoanRefund` */
             SourceBusinessEventType?: string;
         };
         /** @description A list of loan servicing events. */
@@ -11989,9 +12016,9 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * NetCo - A Fulfillment by Amazon inventory pooling transaction. Available only in the India marketplace.
+             *     * `NetCo`: A Fulfillment by Amazon inventory pooling transaction. Available only in the India marketplace.
              *
-             *     * ComminglingVAT - A commingling VAT transaction. Available only in the UK, Spain, France, Germany, and Italy marketplaces. */
+             *     * `ComminglingVAT`: A commingling VAT transaction. Available only in the Spain, UK, France, Germany, and Italy marketplaces. */
             TransactionType?: string;
         };
         /** @description A list of network commingling transaction events. */
@@ -12008,21 +12035,21 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * AFN - Amazon Fulfillment Network (Fulfillment by Amazon)
+             *     * `AFN`: Amazon Fulfillment Network (Fulfillment by Amazon)
              *
-             *     * MFN - Merchant Fulfillment Network (self-fulfilled) */
+             *     * `MFN`: Merchant Fulfillment Network (self-fulfilled) */
             FulfillmentChannel?: string;
             /** @description The type of payment.
              *
              *     Possible values:
              *
-             *     * Sales */
+             *     * `Sales` */
             PaymentAmountType?: string;
             /** @description The sales channel for the transaction. */
             SalesChannel?: string;
             /** @description An order identifier that is specified by the seller. */
             SellerOrderId?: string;
-            /** @description The store name where the event occurred. */
+            /** @description The name of the store where the event occurred. */
             StoreName?: string;
             TransactionPostedDate?: components["schemas"]["financesV0_Date"];
         };
@@ -12031,7 +12058,7 @@ export interface components {
         /** @description A Sponsored Products payment event. */
         financesV0_ProductAdsPaymentEvent: {
             baseValue?: components["schemas"]["financesV0_Currency"];
-            /** @description Identifier for the invoice that the transaction appears in. */
+            /** @description The identifier for the invoice that includes the transaction. */
             invoiceId?: string;
             postedDate?: components["schemas"]["financesV0_Date"];
             taxValue?: components["schemas"]["financesV0_Currency"];
@@ -12039,9 +12066,9 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * charge - Charge
+             *     * `charge`
              *
-             *     * refund - Refund */
+             *     * `refund` */
             transactionType?: string;
             transactionValue?: components["schemas"]["financesV0_Currency"];
         };
@@ -12057,6 +12084,18 @@ export interface components {
         };
         /** @description A list of promotions. */
         financesV0_PromotionList: components["schemas"]["financesV0_Promotion"][];
+        /** @description Related business identifier of the transaction. */
+        financesV0_RelatedIdentifier: {
+            /**
+             * @description Enumerated set of related business identifier names.
+             * @enum {string}
+             */
+            RelatedIdentifierName?: "ORDER_ID";
+            /** @description The corresponding value to `RelatedIdentifierName`. */
+            RelatedIdentifierValue?: string;
+        };
+        /** @description Related business identifiers of the transaction. */
+        financesV0_RelatedIdentifiers: components["schemas"]["financesV0_RelatedIdentifier"][];
         /** @description A financial adjustment event for FBA liquidated inventory. A positive value indicates money owed to Amazon by the buyer (for example, when the charge was incorrectly calculated as less than it should be). A negative value indicates a full or partial refund owed to the buyer (for example, when the buyer receives damaged items or fewer items than ordered). */
         financesV0_RemovalShipmentAdjustmentEvent: {
             /** @description The unique identifier for the adjustment event. */
@@ -12066,20 +12105,20 @@ export interface components {
             /** @description The orderId for shipping inventory. */
             OrderId?: string;
             PostedDate?: components["schemas"]["financesV0_Date"];
-            /** @description A comma-delimited list of Removal shipmentItemAdjustment details for FBA inventory. */
+            /** @description A comma-delimited list of `RemovalShipmentItemAdjustment` details for FBA inventory. */
             RemovalShipmentItemAdjustmentList?: components["schemas"]["financesV0_RemovalShipmentItemAdjustment"][];
             /** @description The type of removal order.
              *
              *     Possible values:
              *
-             *     * WHOLESALE_LIQUIDATION. */
+             *     * `WHOLESALE_LIQUIDATION`. */
             TransactionType?: string;
         };
-        /** @description A comma-delimited list of Removal shipmentAdjustment details for FBA inventory. */
+        /** @description A comma-delimited list of `RemovalShipmentAdjustment` details for FBA inventory. */
         financesV0_RemovalShipmentAdjustmentEventList: components["schemas"]["financesV0_RemovalShipmentAdjustmentEvent"][];
         /** @description A removal shipment event for a removal order. */
         financesV0_RemovalShipmentEvent: {
-            /** @description The merchant removal orderId. */
+            /** @description The merchant removal `orderId`. */
             MerchantOrderId?: string;
             /** @description The identifier for the removal shipment order. */
             OrderId?: string;
@@ -12091,7 +12130,7 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * WHOLESALE_LIQUIDATION */
+             *     * `WHOLESALE_LIQUIDATION` */
             TransactionType?: string;
         };
         /** @description A list of removal shipment event information. */
@@ -12110,13 +12149,12 @@ export interface components {
             RemovalShipmentItemId?: string;
             Revenue?: components["schemas"]["financesV0_Currency"];
             TaxAmount?: components["schemas"]["financesV0_Currency"];
-            /** @description The tax collection model applied to the item.
+            /** @description The tax collection model that is applied to the item.
              *
              *     Possible values:
              *
-             *     * MarketplaceFacilitator - Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.
-             *
-             *     * Standard - Tax is paid to the seller and not remitted to the taxing authority by Amazon. */
+             *     * `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.
+             *     * `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon. */
             TaxCollectionModel?: string;
             TaxWithheld?: components["schemas"]["financesV0_Currency"];
         };
@@ -12124,7 +12162,7 @@ export interface components {
         financesV0_RemovalShipmentItemAdjustment: {
             /**
              * Format: int32
-             * @description Adjusted quantity of removal shipmentItemAdjustment items.
+             * @description Adjusted quantity of `RemovalShipmentItemAdjustment` items.
              */
             AdjustedQuantity?: number;
             /** @description The Amazon fulfillment network SKU for the item. */
@@ -12133,17 +12171,16 @@ export interface components {
             RemovalShipmentItemId?: string;
             RevenueAdjustment?: components["schemas"]["financesV0_Currency"];
             TaxAmountAdjustment?: components["schemas"]["financesV0_Currency"];
-            /** @description The tax collection model applied to the item.
+            /** @description The tax collection model that is applied to the item.
              *
              *     Possible values:
              *
-             *     * MarketplaceFacilitator - Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.
-             *
-             *     * Standard - Tax is paid to the seller and not remitted to the taxing authority by Amazon. */
+             *     * `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.
+             *     * `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon. */
             TaxCollectionModel?: string;
             TaxWithheldAdjustment?: components["schemas"]["financesV0_Currency"];
         };
-        /** @description A list of information about removal shipment items. */
+        /** @description A list of `RemovalShipmentItem`. */
         financesV0_RemovalShipmentItemList: components["schemas"]["financesV0_RemovalShipmentItem"][];
         /** @description An event related to a rental transaction. */
         financesV0_RentalTransactionEvent: {
@@ -12151,7 +12188,7 @@ export interface components {
             AmazonOrderId?: string;
             /**
              * Format: int32
-             * @description The number of days that the buyer extended an already rented item. This value is only returned for RentalCustomerPayment-Extension and RentalCustomerRefund-Extension events.
+             * @description The number of days that the buyer extended an already rented item. This value is only returned for `RentalCustomerPayment-Extension` and `RentalCustomerRefund-Extension` events.
              */
             ExtensionLength?: number;
             /** @description The name of the marketplace. */
@@ -12162,19 +12199,19 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * RentalCustomerPayment-Buyout - Transaction type that represents when the customer wants to buy out a rented item.
+             *     * `RentalCustomerPayment-Buyout`: A transaction type that represents when the customer wants to buy out a rented item.
              *
-             *     * RentalCustomerPayment-Extension - Transaction type that represents when the customer wants to extend the rental period.
+             *     * `RentalCustomerPayment-Extension`: A transaction type that represents when the customer wants to extend the rental period.
              *
-             *     * RentalCustomerRefund-Buyout - Transaction type that represents when the customer requests a refund for the buyout of the rented item.
+             *     * `RentalCustomerRefund-Buyout`: A transaction type that represents when the customer requests a refund for the buyout of the rented item.
              *
-             *     * RentalCustomerRefund-Extension - Transaction type that represents when the customer requests a refund over the extension on the rented item.
+             *     * `RentalCustomerRefund-Extension`: A transaction type that represents when the customer requests a refund over the extension on the rented item.
              *
-             *     * RentalHandlingFee - Transaction type that represents the fee that Amazon charges sellers who rent through Amazon.
+             *     * `RentalHandlingFee`: A transaction type that represents the fee that Amazon charges sellers who rent through Amazon.
              *
-             *     * RentalChargeFailureReimbursement - Transaction type that represents when Amazon sends money to the seller to compensate for a failed charge.
+             *     * `RentalChargeFailureReimbursement`: A transaction type that represents when Amazon sends money to the seller to compensate for a failed charge.
              *
-             *     * RentalLostItemReimbursement - Transaction type that represents when Amazon sends money to the seller to compensate for a lost item. */
+             *     * `RentalLostItemReimbursement`: A transaction type that represents when Amazon sends money to the seller to compensate for a lost item. */
             RentalEventType?: string;
             RentalFeeList?: components["schemas"]["financesV0_FeeComponentList"];
             RentalInitialValue?: components["schemas"]["financesV0_Currency"];
@@ -12195,14 +12232,14 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * Retrocharge
+             *     * `Retrocharge`
              *
-             *     * RetrochargeReversal */
+             *     * `RetrochargeReversal` */
             RetrochargeEventType?: string;
             RetrochargeTaxWithheldList?: components["schemas"]["financesV0_TaxWithheldComponentList"];
             ShippingTax?: components["schemas"]["financesV0_Currency"];
         };
-        /** @description A list of information about Retrocharge or RetrochargeReversal events. */
+        /** @description A list of information about `Retrocharge` or `RetrochargeReversal` events. */
         financesV0_RetrochargeEventList: components["schemas"]["financesV0_RetrochargeEvent"][];
         /** @description A SAFE-T claim reimbursement on the seller's account. */
         financesV0_SAFETReimbursementEvent: {
@@ -12214,7 +12251,7 @@ export interface components {
             SAFETClaimId?: string;
             SAFETReimbursementItemList?: components["schemas"]["financesV0_SAFETReimbursementItemList"];
         };
-        /** @description A list of SAFETReimbursementEvents. */
+        /** @description A list of `SAFETReimbursementEvent`. */
         financesV0_SAFETReimbursementEventList: components["schemas"]["financesV0_SAFETReimbursementEvent"][];
         /** @description An item from a SAFE-T claim reimbursement. */
         financesV0_SAFETReimbursementItem: {
@@ -12224,7 +12261,7 @@ export interface components {
             /** @description The number of units of the item being reimbursed. */
             quantity?: string;
         };
-        /** @description A list of SAFETReimbursementItems. */
+        /** @description A list of `SAFETReimbursementItem`. */
         financesV0_SAFETReimbursementItemList: components["schemas"]["financesV0_SAFETReimbursementItem"][];
         /** @description An event linked to the payment of a fee related to the specified deal. */
         financesV0_SellerDealPaymentEvent: {
@@ -12232,10 +12269,10 @@ export interface components {
             dealDescription?: string;
             /** @description The unique identifier of the deal. */
             dealId?: string;
-            /** @description The type of event: SellerDealComplete. */
+            /** @description The type of event: `SellerDealComplete`. */
             eventType?: string;
             feeAmount?: components["schemas"]["financesV0_Currency"];
-            /** @description The type of fee: RunLightningDealFee. */
+            /** @description The type of fee: `RunLightningDealFee`. */
             feeType?: string;
             postedDate?: components["schemas"]["financesV0_Date"];
             taxAmount?: components["schemas"]["financesV0_Currency"];
@@ -12256,6 +12293,15 @@ export interface components {
         };
         /** @description A list of information about fee events for the Early Reviewer Program. */
         financesV0_SellerReviewEnrollmentPaymentEventList: components["schemas"]["financesV0_SellerReviewEnrollmentPaymentEvent"][];
+        /** @description Metadata describing the seller. */
+        financesV0_SellingPartnerMetadata: {
+            /** @description The type of account in the transaction. */
+            AccountType?: string;
+            /** @description The identifier of the marketplace in which the transaction occurred. */
+            MarketplaceId?: string;
+            /** @description The unique seller identifier. */
+            SellingPartnerId?: string;
+        };
         /** @description A service fee on the seller's account. */
         financesV0_ServiceFeeEvent: {
             /** @description An Amazon-defined identifier for an order. */
@@ -12347,7 +12393,7 @@ export interface components {
             TransactionAmount?: components["schemas"]["financesV0_Currency"];
             TransactionCreationDate?: components["schemas"]["financesV0_Date"];
         };
-        /** @description A list of information about solution provider credits. */
+        /** @description A list of `SolutionProviderCreditEvent`. */
         financesV0_SolutionProviderCreditEventList: components["schemas"]["financesV0_SolutionProviderCreditEvent"][];
         /** @description Information about the taxes withheld. */
         financesV0_TaxWithheldComponent: {
@@ -12355,24 +12401,23 @@ export interface components {
              *
              *     Possible values:
              *
-             *     * MarketplaceFacilitator - Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.
-             *
-             *     * Standard - Tax is paid to the seller and not remitted to the taxing authority by Amazon. */
+             *     * `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.
+             *     * `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon. */
             TaxCollectionModel?: string;
             TaxesWithheld?: components["schemas"]["financesV0_ChargeComponentList"];
         };
         /** @description A list of information about taxes withheld. */
         financesV0_TaxWithheldComponentList: components["schemas"]["financesV0_TaxWithheldComponent"][];
-        /** @description A TaxWithholding event on seller's account. */
+        /** @description A tax withholding event on a seller's account. */
         financesV0_TaxWithholdingEvent: {
             BaseAmount?: components["schemas"]["financesV0_Currency"];
             PostedDate?: components["schemas"]["financesV0_Date"];
             TaxWithholdingPeriod?: components["schemas"]["financesV0_TaxWithholdingPeriod"];
             WithheldAmount?: components["schemas"]["financesV0_Currency"];
         };
-        /** @description A list of `TaxWithholding` events. */
+        /** @description A list of tax withholding events. */
         financesV0_TaxWithholdingEventList: components["schemas"]["financesV0_TaxWithholdingEvent"][];
-        /** @description Period which taxwithholding on seller's account is calculated. */
+        /** @description The period during which tax withholding on a seller's account is calculated. */
         financesV0_TaxWithholdingPeriod: {
             EndDate?: components["schemas"]["financesV0_Date"];
             StartDate?: components["schemas"]["financesV0_Date"];
@@ -12386,6 +12431,21 @@ export interface components {
         };
         /** @description A list of `TDSReimbursementEvent` items. */
         financesV0_TDSReimbursementEventList: components["schemas"]["financesV0_TDSReimbursementEvent"][];
+        /** @description All the information related to the transaction. */
+        financesV0_Transaction: {
+            PostedDate?: components["schemas"]["financesV0_Date"];
+            RelatedIdentifiers?: components["schemas"]["financesV0_RelatedIdentifiers"];
+            SellingPartnerMetadata?: components["schemas"]["financesV0_SellingPartnerMetadata"];
+            TotalAmount?: components["schemas"]["financesV0_Currency"];
+            /** @description The type of transaction.
+             *
+             *     Possible values:
+             *
+             *     * `Shipment` */
+            TransactionType?: string;
+        };
+        /** @description A list of transactions within a given time period. */
+        financesV0_Transactions: components["schemas"]["financesV0_Transaction"][];
         /** @description An event related to a trial shipment. */
         financesV0_TrialShipmentEvent: {
             /** @description An Amazon-defined identifier for an order. */
@@ -12405,9 +12465,7 @@ export interface components {
             Description?: string;
             PostedDate?: components["schemas"]["financesV0_Date"];
             TransactionAmount?: components["schemas"]["financesV0_Currency"];
-            /** @description Indicates the type of transaction.
-             *
-             *     Example: 'Other Support Service fees' */
+            /** @description The transaction type. For example, 'Other Support Service fees' */
             TransactionType?: string;
         };
         /** @description A list of `ValueAddedServiceCharge` events. */
@@ -41477,13 +41535,13 @@ export interface operations {
     listFinancialEventGroups: {
         parameters: {
             query?: {
-                /** @description A date used for selecting financial event groups that opened after (or at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be no later than two minutes before the request was submitted. */
+                /** @description A date that selects financial event groups that opened after (or at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be more than two minutes before you submit the request. */
                 FinancialEventGroupStartedAfter?: string;
-                /** @description A date used for selecting financial event groups that opened before (but not at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time  must be later than FinancialEventGroupStartedAfter and no later than two minutes before the request was submitted. If FinancialEventGroupStartedAfter and FinancialEventGroupStartedBefore are more than 180 days apart, no financial event groups are returned. */
+                /** @description A date that selects financial event groups that opened before (but not at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be after `FinancialEventGroupStartedAfter` and more than two minutes before the time of request. If `FinancialEventGroupStartedAfter` and `FinancialEventGroupStartedBefore` are more than 180 days apart, no financial event groups are returned. */
                 FinancialEventGroupStartedBefore?: string;
-                /** @description The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'. */
+                /** @description The maximum number of results per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`. */
                 MaxResultsPerPage?: number;
-                /** @description A string token returned in the response of your previous request. */
+                /** @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
                 NextToken?: string;
             };
             header?: never;
@@ -41580,13 +41638,17 @@ export interface operations {
     listFinancialEventsByGroupId: {
         parameters: {
             query?: {
-                /** @description The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'. */
+                /** @description The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`. */
                 MaxResultsPerPage?: number;
-                /** @description A string token returned in the response of your previous request. */
+                /** @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
                 NextToken?: string;
-                /** @description A date used for selecting financial events posted after (or at) a specified time. The date-time **must** be more than two minutes before the time of the request, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. */
+                /** @description The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. */
                 PostedAfter?: string;
-                /** @description A date used for selecting financial events posted before (but not at) a specified time. The date-time must be later than `PostedAfter` and no later than two minutes before the request was submitted, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. If `PostedAfter` and `PostedBefore` are more than 180 days apart, no financial events are returned. You must specify the `PostedAfter` parameter if you specify the `PostedBefore` parameter. Default: Now minus two minutes. */
+                /** @description The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+                 *
+                 *     The date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty. If you include the `PostedBefore` parameter in your request, you must also specify the `PostedAfter` parameter.
+                 *
+                 *     **Default:** Two minutes before the time of the request. */
                 PostedBefore?: string;
             };
             header?: never;
@@ -41686,13 +41748,17 @@ export interface operations {
     listFinancialEvents: {
         parameters: {
             query?: {
-                /** @description The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'. */
+                /** @description The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`. */
                 MaxResultsPerPage?: number;
-                /** @description A string token returned in the response of your previous request. */
+                /** @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
                 NextToken?: string;
-                /** @description A date used for selecting financial events posted after (or at) a specified time. The date-time must be no later than two minutes before the request was submitted, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. */
+                /** @description The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. */
                 PostedAfter?: string;
-                /** @description A date used for selecting financial events posted before (but not at) a specified time. The date-time must be later than PostedAfter and no later than two minutes before the request was submitted, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. If PostedAfter and PostedBefore are more than 180 days apart, no financial events are returned. You must specify the PostedAfter parameter if you specify the PostedBefore parameter. Default: Now minus two minutes. */
+                /** @description The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+                 *
+                 *     The date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty. If you include the `PostedBefore` parameter in your request, you must also specify the `PostedAfter` parameter.
+                 *
+                 *     **Default:** Two minutes before the time of the request. */
                 PostedBefore?: string;
             };
             header?: never;
@@ -41789,9 +41855,9 @@ export interface operations {
     listFinancialEventsByOrderId: {
         parameters: {
             query?: {
-                /** @description The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'. */
+                /** @description The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`. */
                 MaxResultsPerPage?: number;
-                /** @description A string token returned in the response of your previous request. */
+                /** @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
                 NextToken?: string;
             };
             header?: never;
@@ -41884,6 +41950,113 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["financesV0_ListFinancialEventsResponse"];
+                };
+            };
+        };
+    };
+    financesV0_listTransactions: {
+        parameters: {
+            query: {
+                /** @description The ID of the marketplace from which you want to retrieve transactions. */
+                MarketplaceId: string;
+                /** @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
+                NextToken?: string;
+                /** @description The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. */
+                PostedAfter: string;
+                /** @description The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+                 *
+                 *     The date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty. If you include the `PostedBefore` parameter in your request, you must also specify the `PostedAfter` parameter.
+                 *
+                 *     **Default:** Two minutes before the time of the request. */
+                PostedBefore?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
                 };
             };
         };

@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "description": "## catalogItems_2022-04-01\n\nUse the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.\n\nFor more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).\n\n## catalogItemsV0\n\nThe Selling Partner API for Catalog Items helps you programmatically retrieve item details for items in the catalog.\n\n## catalogItems_2020-12-01\n\nThe Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.\n\nFor more information, see the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2020-12-01-use-case-guide).\n\n## vendorDirectFulfillmentShipping_2021-12-28\n\nUse the Selling Partner API for Direct Fulfillment Shipping to access a direct fulfillment vendor's shipping data.\n\n## vendorDirectFulfillmentShippingV1\n\nThe Selling Partner API for Direct Fulfillment Shipping provides programmatic access to a direct fulfillment vendor's shipping data.\n\n## vendorDirectFulfillmentOrders_2021-12-28\n\nThe Selling Partner API for Direct Fulfillment Orders provides programmatic access to a direct fulfillment vendor's order data.\n\n## vendorDirectFulfillmentOrdersV1\n\nThe Selling Partner API for Direct Fulfillment Orders provides programmatic access to a direct fulfillment vendor's order data.\n\n## fulfillmentInbound_2024-03-20\n\nThe Selling Partner API for Fulfillment By Amazon (FBA) Inbound. The FBA Inbound API enables building inbound workflows to create, manage, and send shipments into Amazon's fulfillment network. The API has interoperability with the Send-to-Amazon user interface.\n\n## fulfillmentInboundV0\n\nThe Selling Partner API for Fulfillment Inbound lets you create applications that create and update inbound shipments of inventory to Amazon's fulfillment network.\n\n## InvoicesApiModel_2024-06-19\n\nUse the Selling Partner API for Invoices to retrieve and manage invoice-related operations, which can help selling partners manage their bookkeeping processes.\n\n## tokens_2021-03-01\n\nThe Selling Partner API for Tokens provides a secure way to access a customer's PII (Personally Identifiable Information). You can call the Tokens API to get a Restricted Data Token (RDT) for one or more restricted resources that you specify. The RDT authorizes subsequent calls to restricted operations that correspond to the restricted resources that you specified.\n\nFor more information, see the [Tokens API Use Case Guide](doc:tokens-api-use-case-guide).\n\n## listingsRestrictions_2021-08-01\n\nThe Selling Partner API for Listings Restrictions provides programmatic access to restrictions on Amazon catalog listings.\n\nFor more information, see the [Listings Restrictions API Use Case Guide](doc:listings-restrictions-api-v2021-08-01-use-case-guide).\n\n## sellers\n\nThe [Selling Partner API for Sellers](https://developer-docs.amazon.com/sp-api/docs/sellers-api-v1-reference) (Sellers API) provides essential information about seller accounts, such as:\n\n- The marketplaces a seller can list in\n- The default language and currency of a marketplace\n- Whether the seller has suspended listings\n\nRefer to the [Sellers API reference](https://developer-docs.amazon.com/sp-api/docs/sellers-api-v1-reference) for details about this API's operations, data types, and schemas.\n\n## externalFulfillmentInventory_2024-09-11\n\nYou can use the Amazon External Fulfillment Inventory API to manage inventory operations in Amazon's External Fulfillment network, including batch inventory updates and retrievals.\n\n## externalFulfillmentShipments_2024-09-11\n\nYou can use the External Fulfillment Shipments API to retrieve, manage, and track shipments processed through Amazon's external fulfillment network. Use this API to get shipment details, monitor status changes, and access fulfillment requirements.\n\n## externalFulfillmentReturns_2024-09-11\n\nYou can use the Amazon External Fulfillment Return Item Processing API to retrieve, track, and process return items through Amazon's External Fulfillment returns management system.\n\n## vendorDirectFulfillmentPaymentsV1\n\nThe Selling Partner API for Direct Fulfillment Payments provides programmatic access to a direct fulfillment vendor's invoice data.\n\n## vendorDirectFulfillmentSandboxData_2021-10-28\n\nThe Selling Partner API for Vendor Direct Fulfillment Sandbox Test Data provides programmatic access to vendor direct fulfillment sandbox test data.\n\n## supplySources_2020-07-01\n\nManage configurations and capabilities of seller supply sources.\n\n## awd_2024-05-09\n\nThe Selling Partner API for Amazon Warehousing and Distribution (AWD) provides programmatic access to information about AWD shipments and inventory.\n\n## notifications\n\nThe Selling Partner API for Notifications lets you subscribe to notifications that are relevant to a selling partner's business. Using this API you can create a destination to receive notifications, subscribe to notifications, delete notification subscriptions, and more.\n\nFor more information, refer to the [Notifications Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide).\n\n## fulfillmentOutbound_2020-07-01\n\nThe Selling Partner API for Fulfillment Outbound lets you create applications that help a seller fulfill Multi-Channel Fulfillment orders using their inventory in Amazon's fulfillment network. You can get information on both potential and existing fulfillment orders.\n\n## messaging\n\nWith the Messaging API you can build applications that send messages to buyers. You can get a list of message types that are available for an order that you specify, then call an operation that sends a message to the buyer for that order. The Messaging API returns responses that are formed according to the <a href=https://tools.ietf.org/html/draft-kelly-json-hal-08>JSON Hypertext Application Language</a> (HAL) standard.\n\n## productFeesV0\n\nThe Selling Partner API for Product Fees lets you programmatically retrieve estimated fees for a product. You can then account for those fees in your pricing.\n\n## productPricingV0\n\nThe Selling Partner API for Pricing helps you programmatically retrieve product pricing and offer information for Amazon Marketplace products.\n\n## productPricing_2022-05-01\n\nThe Selling Partner API for Pricing helps you programmatically retrieve product pricing and offer pricing information for Amazon Marketplace products.\n\nFor more information, refer to the [Product Pricing v2022-05-01 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/product-pricing-api-v2022-05-01-use-case-guide).\n\n## ordersV0\n\nUse the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools. \n\n_Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).\n\n## sellerWallet_2024-03-01\n\nThe Selling Partner API for Seller Wallet (Seller Wallet API) provides financial information that is relevant to a seller's Seller Wallet account. You can obtain financial events, balances, and transfer schedules for Seller Wallet accounts. You can also schedule and initiate transactions.\n\n## appIntegrations-2024-04-01\n\nWith the AppIntegrations API v2024-04-01, you can send notifications to Amazon Selling Partners and display the notifications in Seller Central.\n\n## dataKiosk_2023-11-15\n\nThe Selling Partner API for Data Kiosk lets you submit GraphQL queries from a variety of schemas to help selling partners manage their businesses.\n\n## vendorDirectFulfillmentTransactions_2021-12-28\n\nThe Selling Partner API for Direct Fulfillment Transaction Status provides programmatic access to a direct fulfillment vendor's transaction status.\n\n## vendorDirectFulfillmentTransactionsV1\n\nThe Selling Partner API for Direct Fulfillment Transaction Status provides programmatic access to a direct fulfillment vendor's transaction status.\n\n## vendorTransactionStatus\n\nThe Selling Partner API for Retail Procurement Transaction Status provides programmatic access to status information on specific asynchronous POST transactions for vendors.\n\n## aplusContent_2020-11-01\n\nUse the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.\n\n## fbaInventory\n\nThe Selling Partner API for FBA Inventory lets you programmatically retrieve information about inventory in Amazon's fulfillment network.\n\n## shipping\n\nProvides programmatic access to Amazon Shipping APIs.\n\n **Note:** If you are new to the Amazon Shipping API, refer to the latest version of <a href=\"https://developer-docs.amazon.com/amazon-shipping/docs/shipping-api-v2-reference\">Amazon Shipping API (v2)</a> on the <a href=\"https://developer-docs.amazon.com/amazon-shipping/\">Amazon Shipping Developer Documentation</a> site.\n\n## shippingV2\n\nThe Amazon Shipping API is designed to support outbound shipping use cases both for orders originating on Amazon-owned marketplaces as well as external channels/marketplaces. With these APIs, you can request shipping rates, create shipments, cancel shipments, and track shipments.\n\n## feeds_2021-06-30\n\nThe Selling Partner API for Feeds lets you upload data to Amazon on behalf of a selling partner.\n\n## solicitations\n\nWith the Solicitations API you can build applications that send non-critical solicitations to buyers. You can get a list of solicitation types that are available for an order that you specify, then call an operation that sends a solicitation to the buyer for that order. Buyers cannot respond to solicitations sent by this API, and these solicitations do not appear in the Messaging section of Seller Central or in the recipient's Message Center. The Solicitations API returns responses that are formed according to the <a href=https://tools.ietf.org/html/draft-kelly-json-hal-08>JSON Hypertext Application Language</a> (HAL) standard.\n\n## merchantFulfillmentV0\n\nWith the Selling Partner API for Merchant Fulfillment, you can build applications that sellers can use to purchase shipping for non-Prime and Prime orders using Amazon's Buy Shipping Services.\n\n## replenishment-2022-11-07\n\nThe Selling Partner API for Replenishment (Replenishment API) provides programmatic access to replenishment program metrics and offers. These programs provide recurring delivery of any replenishable item at a frequency chosen by the customer.\n\nThe Replenishment API is available worldwide wherever Amazon Subscribe & Save is available or is supported. The API is available to vendors and FBA selling partners.\n\n## finances_2024-06-19\n\nThe Selling Partner API for Finances provides financial information relevant to a seller's business. You can obtain financial events for a given order or date range without having to wait until a statement period closes.\n\n## transfers_2024-06-01\n\nThe Selling Partner API for Transfers enables selling partners to retrieve payment methods and initiate payouts for their seller accounts. This API supports the following marketplaces: DE, FR, IT, ES, SE, NL, PL, and BE.\n\n## financesV0\n\nThe Selling Partner API for Finances helps you obtain financial information relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.\n\n## uploads_2020-11-01\n\nThe Uploads API lets you upload files that you can programmatically access using other Selling Partner APIs, such as the A+ Content API and the Messaging API.\n\n## vendorOrders\n\nThe Selling Partner API for Retail Procurement Orders provides programmatic access to vendor orders data.\n\n## sales\n\nThe Selling Partner API for Sales provides APIs related to sales performance.\n\n## application_2023-11-30\n\nThe Selling Partner API for Application Management lets you programmatically update the client secret on registered applications.\n\n## services\n\nWith the Services API, you can build applications that help service providers get and modify their service orders and manage their resources.\n\n## fbaInbound\n\nWith the FBA Inbound Eligibility API, you can build applications that let sellers get eligibility previews for items before shipping them to Amazon's fulfillment centers. With this API you can find out if an item is eligible for inbound shipment to Amazon's fulfillment centers in a specific marketplace. You can also find out if an item is eligible for using the manufacturer barcode for FBA inventory tracking. Sellers can use this information to inform their decisions about which items to ship Amazon's fulfillment centers.\n\n## listingsItems_2021-08-01\n\nThe Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.\n\nFor more information, see the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).\n\n## listingsItems_2020-09-01\n\nThe Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.\n\nFor more information, see the [Listing Items API Use Case Guide](doc:listings-items-api-v2020-09-01-use-case-guide).\n\n## vendorShipments\n\nThe Selling Partner API for Retail Procurement Shipments provides programmatic access to retail shipping data for vendors.\n\n## easyShip_2022-03-23\n\nUse the Selling Partner API for Easy Ship to build applications for sellers to manage and ship Amazon Easy Ship orders. With this API, you can get available time slots, schedule and reschedule Easy Ship orders, and print shipping labels, invoices, and warranties. To review the differences in Easy Ship operations by marketplace, refer to [Marketplace support](https://developer-docs.amazon.com/sp-api/docs/easyship-api-v2022-03-23-use-case-guide#marketplace-support).\n\n## definitionsProductTypes_2020-09-01\n\nThe Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).\n\nFor more information, see the [Product Type Definitions API Use Case Guide](doc:product-type-api-use-case-guide).\n\n## deliveryShipmentInvoiceV2022-07-01\n\nThe Selling Partner API for Delivery Shipment Invoicing helps you programmatically retrieve shipment invoice information in the Brazil marketplace for a selling partner’s orders.\n\n## customerFeedback_2024-06-01\n\nThe Selling Partner API for Customer Feedback (Customer Feedback API) provides information about customer reviews and returns at both the item and browse node level.\n\n## shipmentInvoicingV0\n\nThe Selling Partner API for Shipment Invoicing helps you programmatically retrieve shipment invoice information in the Brazil marketplace for a selling partner’s Fulfillment by Amazon (FBA) orders.\n\n## vehicles_2024-11-01\n\nThe Selling Partner API for Automotive provides programmatic access to information needed by selling partners to provide compatibility information about their listed products.\n\n## vendorDirectFulfillmentInventoryV1\n\nThe Selling Partner API for Direct Fulfillment Inventory Updates provides programmatic access to a direct fulfillment vendor's inventory updates.\n\n## reports_2021-06-30\n\nThe Selling Partner API for Reports lets you retrieve and manage a variety of reports that can help selling partners manage their businesses.\n\n## vendorInvoices\n\nThe Selling Partner API for Retail Procurement Payments provides programmatic access to vendors payments data.",
+    "description": "## catalogItems_2022-04-01\n\nUse the Selling Partner API for Catalog Items to retrieve information about items in the Amazon catalog.\n\nFor more information, refer to the [Catalog Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/:catalog-items-api-v2022-04-01-use-case-guide).\n\n## catalogItemsV0\n\nThe Selling Partner API for Catalog Items helps you programmatically retrieve item details for items in the catalog.\n\n## catalogItems_2020-12-01\n\nThe Selling Partner API for Catalog Items provides programmatic access to information about items in the Amazon catalog.\n\nFor more information, see the [Catalog Items API Use Case Guide](doc:catalog-items-api-v2020-12-01-use-case-guide).\n\n## vendorDirectFulfillmentShipping_2021-12-28\n\nUse the Selling Partner API for Direct Fulfillment Shipping to access a direct fulfillment vendor's shipping data.\n\n## vendorDirectFulfillmentShippingV1\n\nThe Selling Partner API for Direct Fulfillment Shipping provides programmatic access to a direct fulfillment vendor's shipping data.\n\n## vendorDirectFulfillmentOrders_2021-12-28\n\nThe Selling Partner API for Direct Fulfillment Orders provides programmatic access to a direct fulfillment vendor's order data.\n\n## vendorDirectFulfillmentOrdersV1\n\nThe Selling Partner API for Direct Fulfillment Orders provides programmatic access to a direct fulfillment vendor's order data.\n\n## fulfillmentInbound_2024-03-20\n\nThe Selling Partner API for Fulfillment By Amazon (FBA) Inbound. The FBA Inbound API enables building inbound workflows to create, manage, and send shipments into Amazon's fulfillment network. The API has interoperability with the Send-to-Amazon user interface.\n\n## fulfillmentInboundV0\n\nThe Selling Partner API for Fulfillment Inbound lets you create applications that create and update inbound shipments of inventory to Amazon's fulfillment network.\n\n## InvoicesApiModel_2024-06-19\n\nUse the Selling Partner API for Invoices to retrieve and manage invoice-related operations, which can help selling partners manage their bookkeeping processes.\n\n## tokens_2021-03-01\n\nThe Selling Partner API for Tokens provides a secure way to access a customer's PII (Personally Identifiable Information). You can call the Tokens API to get a Restricted Data Token (RDT) for one or more restricted resources that you specify. The RDT authorizes subsequent calls to restricted operations that correspond to the restricted resources that you specified.\n\nFor more information, see the [Tokens API Use Case Guide](doc:tokens-api-use-case-guide).\n\n## listingsRestrictions_2021-08-01\n\nThe Selling Partner API for Listings Restrictions provides programmatic access to restrictions on Amazon catalog listings.\n\nFor more information, see the [Listings Restrictions API Use Case Guide](doc:listings-restrictions-api-v2021-08-01-use-case-guide).\n\n## sellers\n\nThe [Selling Partner API for Sellers](https://developer-docs.amazon.com/sp-api/docs/sellers-api-v1-reference) (Sellers API) provides essential information about seller accounts, such as:\n\n- The marketplaces a seller can list in\n- The default language and currency of a marketplace\n- Whether the seller has suspended listings\n\nRefer to the [Sellers API reference](https://developer-docs.amazon.com/sp-api/docs/sellers-api-v1-reference) for details about this API's operations, data types, and schemas.\n\n## externalFulfillmentInventory_2024-09-11\n\nYou can use the Amazon External Fulfillment Inventory API to manage inventory operations in Amazon's External Fulfillment network, including batch inventory updates and retrievals.\n\n## externalFulfillmentShipments_2024-09-11\n\nYou can use the External Fulfillment Shipments API to retrieve, manage, and track shipments processed through Amazon's external fulfillment network. Use this API to get shipment details, monitor status changes, and access fulfillment requirements.\n\n## externalFulfillmentReturns_2024-09-11\n\nYou can use the Amazon External Fulfillment Return Item Processing API to retrieve, track, and process return items through Amazon's External Fulfillment returns management system.\n\n## vendorDirectFulfillmentPaymentsV1\n\nThe Selling Partner API for Direct Fulfillment Payments provides programmatic access to a direct fulfillment vendor's invoice data.\n\n## vendorDirectFulfillmentSandboxData_2021-10-28\n\nThe Selling Partner API for Vendor Direct Fulfillment Sandbox Test Data provides programmatic access to vendor direct fulfillment sandbox test data.\n\n## supplySources_2020-07-01\n\nManage configurations and capabilities of seller supply sources.\n\n## awd_2024-05-09\n\nThe Selling Partner API for Amazon Warehousing and Distribution (AWD) provides programmatic access to information about AWD shipments and inventory.\n\n## notifications\n\nThe Selling Partner API for Notifications lets you subscribe to notifications that are relevant to a selling partner's business. Using this API you can create a destination to receive notifications, subscribe to notifications, delete notification subscriptions, and more.\n\nFor more information, refer to the [Notifications Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide).\n\n## fulfillmentOutbound_2020-07-01\n\nThe Selling Partner API for Fulfillment Outbound lets you create applications that help a seller fulfill Multi-Channel Fulfillment orders using their inventory in Amazon's fulfillment network. You can get information on both potential and existing fulfillment orders.\n\n## messaging\n\nWith the Messaging API you can build applications that send messages to buyers. You can get a list of message types that are available for an order that you specify, then call an operation that sends a message to the buyer for that order. The Messaging API returns responses that are formed according to the <a href=https://tools.ietf.org/html/draft-kelly-json-hal-08>JSON Hypertext Application Language</a> (HAL) standard.\n\n## productFeesV0\n\nThe Selling Partner API for Product Fees lets you programmatically retrieve estimated fees for a product. You can then account for those fees in your pricing.\n\n## productPricingV0\n\nThe Selling Partner API for Pricing helps you programmatically retrieve product pricing and offer information for Amazon Marketplace products.\n\n## productPricing_2022-05-01\n\nThe Selling Partner API for Pricing helps you programmatically retrieve product pricing and offer pricing information for Amazon Marketplace products.\n\nFor more information, refer to the [Product Pricing v2022-05-01 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/product-pricing-api-v2022-05-01-use-case-guide).\n\n## ordersV0\n\nUse the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools. \n\n_Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).\n\n## sellerWallet_2024-03-01\n\nThe Selling Partner API for Seller Wallet (Seller Wallet API) provides financial information that is relevant to a seller's Seller Wallet account. You can obtain financial events, balances, and transfer schedules for Seller Wallet accounts. You can also schedule and initiate transactions.\n\n## appIntegrations-2024-04-01\n\nWith the AppIntegrations API v2024-04-01, you can send notifications to Amazon Selling Partners and display the notifications in Seller Central.\n\n## dataKiosk_2023-11-15\n\nThe Selling Partner API for Data Kiosk lets you submit GraphQL queries from a variety of schemas to help selling partners manage their businesses.\n\n## vendorDirectFulfillmentTransactions_2021-12-28\n\nThe Selling Partner API for Direct Fulfillment Transaction Status provides programmatic access to a direct fulfillment vendor's transaction status.\n\n## vendorDirectFulfillmentTransactionsV1\n\nThe Selling Partner API for Direct Fulfillment Transaction Status provides programmatic access to a direct fulfillment vendor's transaction status.\n\n## vendorTransactionStatus\n\nThe Selling Partner API for Retail Procurement Transaction Status provides programmatic access to status information on specific asynchronous POST transactions for vendors.\n\n## aplusContent_2020-11-01\n\nUse the A+ Content API to build applications that help selling partners add rich marketing content to their Amazon product detail pages. Selling partners can use A+ content to share their brand and product story, which helps buyers make informed purchasing decisions. Selling partners use content modules to add images and text.\n\n## fbaInventory\n\nThe Selling Partner API for FBA Inventory lets you programmatically retrieve information about inventory in Amazon's fulfillment network.\n\n## shipping\n\nProvides programmatic access to Amazon Shipping APIs.\n\n **Note:** If you are new to the Amazon Shipping API, refer to the latest version of <a href=\"https://developer-docs.amazon.com/amazon-shipping/docs/shipping-api-v2-reference\">Amazon Shipping API (v2)</a> on the <a href=\"https://developer-docs.amazon.com/amazon-shipping/\">Amazon Shipping Developer Documentation</a> site.\n\n## shippingV2\n\nThe Amazon Shipping API is designed to support outbound shipping use cases both for orders originating on Amazon-owned marketplaces as well as external channels/marketplaces. With these APIs, you can request shipping rates, create shipments, cancel shipments, and track shipments.\n\n## feeds_2021-06-30\n\nThe Selling Partner API for Feeds lets you upload data to Amazon on behalf of a selling partner.\n\n## solicitations\n\nWith the Solicitations API you can build applications that send non-critical solicitations to buyers. You can get a list of solicitation types that are available for an order that you specify, then call an operation that sends a solicitation to the buyer for that order. Buyers cannot respond to solicitations sent by this API, and these solicitations do not appear in the Messaging section of Seller Central or in the recipient's Message Center. The Solicitations API returns responses that are formed according to the <a href=https://tools.ietf.org/html/draft-kelly-json-hal-08>JSON Hypertext Application Language</a> (HAL) standard.\n\n## merchantFulfillmentV0\n\nWith the Selling Partner API for Merchant Fulfillment, you can build applications that sellers can use to purchase shipping for non-Prime and Prime orders using Amazon's Buy Shipping Services.\n\n## replenishment-2022-11-07\n\nThe Selling Partner API for Replenishment (Replenishment API) provides programmatic access to replenishment program metrics and offers. These programs provide recurring delivery of any replenishable item at a frequency chosen by the customer.\n\nThe Replenishment API is available worldwide wherever Amazon Subscribe & Save is available or is supported. The API is available to vendors and FBA selling partners.\n\n## finances_2024-06-19\n\nThe Selling Partner API for Finances provides financial information relevant to a seller's business. You can obtain financial events for a given order or date range without having to wait until a statement period closes.\n\n## transfers_2024-06-01\n\nThe Selling Partner API for Transfers enables selling partners to retrieve payment methods and initiate payouts for their seller accounts. This API supports the following marketplaces: DE, FR, IT, ES, SE, NL, PL, and BE.\n\n## financesV0\n\nThe Selling Partner API for Finances provides financial information that is relevant to a seller's business. You can obtain financial events for a given order, financial event group, or date range without having to wait until a statement period closes. You can also obtain financial event groups for a given date range.\n\n## uploads_2020-11-01\n\nThe Uploads API lets you upload files that you can programmatically access using other Selling Partner APIs, such as the A+ Content API and the Messaging API.\n\n## vendorOrders\n\nThe Selling Partner API for Retail Procurement Orders provides programmatic access to vendor orders data.\n\n## sales\n\nThe Selling Partner API for Sales provides APIs related to sales performance.\n\n## application_2023-11-30\n\nThe Selling Partner API for Application Management lets you programmatically update the client secret on registered applications.\n\n## services\n\nWith the Services API, you can build applications that help service providers get and modify their service orders and manage their resources.\n\n## fbaInbound\n\nWith the FBA Inbound Eligibility API, you can build applications that let sellers get eligibility previews for items before shipping them to Amazon's fulfillment centers. With this API you can find out if an item is eligible for inbound shipment to Amazon's fulfillment centers in a specific marketplace. You can also find out if an item is eligible for using the manufacturer barcode for FBA inventory tracking. Sellers can use this information to inform their decisions about which items to ship Amazon's fulfillment centers.\n\n## listingsItems_2021-08-01\n\nThe Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.\n\nFor more information, see the [Listings Items API Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/listings-items-api-v2021-08-01-use-case-guide).\n\n## listingsItems_2020-09-01\n\nThe Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.\n\nFor more information, see the [Listing Items API Use Case Guide](doc:listings-items-api-v2020-09-01-use-case-guide).\n\n## vendorShipments\n\nThe Selling Partner API for Retail Procurement Shipments provides programmatic access to retail shipping data for vendors.\n\n## easyShip_2022-03-23\n\nUse the Selling Partner API for Easy Ship to build applications for sellers to manage and ship Amazon Easy Ship orders. With this API, you can get available time slots, schedule and reschedule Easy Ship orders, and print shipping labels, invoices, and warranties. To review the differences in Easy Ship operations by marketplace, refer to [Marketplace support](https://developer-docs.amazon.com/sp-api/docs/easyship-api-v2022-03-23-use-case-guide#marketplace-support).\n\n## definitionsProductTypes_2020-09-01\n\nThe Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).\n\nFor more information, see the [Product Type Definitions API Use Case Guide](doc:product-type-api-use-case-guide).\n\n## deliveryShipmentInvoiceV2022-07-01\n\nThe Selling Partner API for Delivery Shipment Invoicing helps you programmatically retrieve shipment invoice information in the Brazil marketplace for a selling partner’s orders.\n\n## customerFeedback_2024-06-01\n\nThe Selling Partner API for Customer Feedback (Customer Feedback API) provides information about customer reviews and returns at both the item and browse node level.\n\n## shipmentInvoicingV0\n\nThe Selling Partner API for Shipment Invoicing helps you programmatically retrieve shipment invoice information in the Brazil marketplace for a selling partner’s Fulfillment by Amazon (FBA) orders.\n\n## vehicles_2024-11-01\n\nThe Selling Partner API for Automotive provides programmatic access to information needed by selling partners to provide compatibility information about their listed products.\n\n## vendorDirectFulfillmentInventoryV1\n\nThe Selling Partner API for Direct Fulfillment Inventory Updates provides programmatic access to a direct fulfillment vendor's inventory updates.\n\n## reports_2021-06-30\n\nThe Selling Partner API for Reports lets you retrieve and manage a variety of reports that can help selling partners manage their businesses.\n\n## vendorInvoices\n\nThe Selling Partner API for Retail Procurement Payments provides programmatic access to vendors payments data.",
     "version": "2022-04-01",
     "title": "Selling Partner API",
     "contact": {
@@ -100817,13 +100817,13 @@
     },
     "/finances/v0/financialEventGroups": {
       "get": {
-        "description": "Returns financial event groups for a given date range. It may take up to 48 hours for orders to appear in your financial events.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
+        "description": "Returns financial event groups for a given date range. Orders from the last 48 hours might not be included in financial events.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).",
         "operationId": "listFinancialEventGroups",
         "parameters": [
           {
             "name": "MaxResultsPerPage",
             "in": "query",
-            "description": "The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'.",
+            "description": "The maximum number of results per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -100836,7 +100836,7 @@
           {
             "name": "FinancialEventGroupStartedBefore",
             "in": "query",
-            "description": "A date used for selecting financial event groups that opened before (but not at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time  must be later than FinancialEventGroupStartedAfter and no later than two minutes before the request was submitted. If FinancialEventGroupStartedAfter and FinancialEventGroupStartedBefore are more than 180 days apart, no financial event groups are returned.",
+            "description": "A date that selects financial event groups that opened before (but not at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be after `FinancialEventGroupStartedAfter` and more than two minutes before the time of request. If `FinancialEventGroupStartedAfter` and `FinancialEventGroupStartedBefore` are more than 180 days apart, no financial event groups are returned.",
             "required": false,
             "schema": {
               "type": "string",
@@ -100846,7 +100846,7 @@
           {
             "name": "FinancialEventGroupStartedAfter",
             "in": "query",
-            "description": "A date used for selecting financial event groups that opened after (or at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be no later than two minutes before the request was submitted.",
+            "description": "A date that selects financial event groups that opened after (or at) a specified date and time, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. The date-time must be more than two minutes before you submit the request.",
             "required": false,
             "schema": {
               "type": "string",
@@ -100856,7 +100856,7 @@
           {
             "name": "NextToken",
             "in": "query",
-            "description": "A string token returned in the response of your previous request.",
+            "description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
             "required": false,
             "schema": {
               "type": "string"
@@ -101082,13 +101082,13 @@
     },
     "/finances/v0/financialEventGroups/{eventGroupId}/financialEvents": {
       "get": {
-        "description": "Returns all financial events for the specified financial event group. It may take up to 48 hours for orders to appear in your financial events.\n\n**Note:** This operation will only retrieve group's data for the past two years. If a request is submitted for data spanning more than two years, an empty response is returned.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
+        "description": "Returns all financial events for the specified financial event group. Orders from the last 48 hours might not be included in financial events.\n\n**Note:** This operation only retrieves a group's data for the past two years. A request for data spanning more than two years produces an empty response.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).",
         "operationId": "listFinancialEventsByGroupId",
         "parameters": [
           {
             "name": "MaxResultsPerPage",
             "in": "query",
-            "description": "The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'.",
+            "description": "The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -101101,7 +101101,7 @@
           {
             "name": "PostedAfter",
             "in": "query",
-            "description": "A date used for selecting financial events posted after (or at) a specified time. The date-time **must** be more than two minutes before the time of the request, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.",
+            "description": "The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
             "required": false,
             "schema": {
               "type": "string",
@@ -101111,7 +101111,7 @@
           {
             "name": "PostedBefore",
             "in": "query",
-            "description": "A date used for selecting financial events posted before (but not at) a specified time. The date-time must be later than `PostedAfter` and no later than two minutes before the request was submitted, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. If `PostedAfter` and `PostedBefore` are more than 180 days apart, no financial events are returned. You must specify the `PostedAfter` parameter if you specify the `PostedBefore` parameter. Default: Now minus two minutes.",
+            "description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty. If you include the `PostedBefore` parameter in your request, you must also specify the `PostedAfter` parameter.\n\n**Default:** Two minutes before the time of the request.",
             "required": false,
             "schema": {
               "type": "string",
@@ -101130,7 +101130,7 @@
           {
             "name": "NextToken",
             "in": "query",
-            "description": "A string token returned in the response of your previous request.",
+            "description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
             "required": false,
             "schema": {
               "type": "string"
@@ -101670,7 +101670,7 @@
     },
     "/finances/v0/orders/{orderId}/financialEvents": {
       "get": {
-        "description": "Returns all financial events for the specified order. It may take up to 48 hours for orders to appear in your financial events.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
+        "description": "Returns all financial events for the specified order. Orders from the last 48 hours might not be included in financial events.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).",
         "operationId": "listFinancialEventsByOrderId",
         "parameters": [
           {
@@ -101685,7 +101685,7 @@
           {
             "name": "MaxResultsPerPage",
             "in": "query",
-            "description": "The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'.",
+            "description": "The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -101698,7 +101698,7 @@
           {
             "name": "NextToken",
             "in": "query",
-            "description": "A string token returned in the response of your previous request.",
+            "description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
             "required": false,
             "schema": {
               "type": "string"
@@ -102016,13 +102016,13 @@
     },
     "/finances/v0/financialEvents": {
       "get": {
-        "description": "Returns financial events for the specified data range. It may take up to 48 hours for orders to appear in your financial events. **Note:** in `ListFinancialEvents`, deferred events don't show up in responses until in they are released.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
+        "description": "Returns financial events for the specified data range. Orders from the last 48 hours might not be included in financial events.\n\n**Note:** in `ListFinancialEvents`, deferred events don't show up in responses until they are released.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).",
         "operationId": "listFinancialEvents",
         "parameters": [
           {
             "name": "MaxResultsPerPage",
             "in": "query",
-            "description": "The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the API responds with 'InvalidInput'.",
+            "description": "The maximum number of results to return per page. If the response exceeds the maximum number of transactions or 10 MB, the response is `InvalidInput`.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -102035,7 +102035,7 @@
           {
             "name": "PostedAfter",
             "in": "query",
-            "description": "A date used for selecting financial events posted after (or at) a specified time. The date-time must be no later than two minutes before the request was submitted, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.",
+            "description": "The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
             "required": false,
             "schema": {
               "type": "string",
@@ -102045,7 +102045,7 @@
           {
             "name": "PostedBefore",
             "in": "query",
-            "description": "A date used for selecting financial events posted before (but not at) a specified time. The date-time must be later than PostedAfter and no later than two minutes before the request was submitted, in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. If PostedAfter and PostedBefore are more than 180 days apart, no financial events are returned. You must specify the PostedAfter parameter if you specify the PostedBefore parameter. Default: Now minus two minutes.",
+            "description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty. If you include the `PostedBefore` parameter in your request, you must also specify the `PostedAfter` parameter.\n\n**Default:** Two minutes before the time of the request.",
             "required": false,
             "schema": {
               "type": "string",
@@ -102055,7 +102055,7 @@
           {
             "name": "NextToken",
             "in": "query",
-            "description": "A string token returned in the response of your previous request.",
+            "description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
             "required": false,
             "schema": {
               "type": "string"
@@ -102360,6 +102360,257 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/financesV0_ListFinancialEventsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/finances/v0/transactions": {
+      "get": {
+        "description": "Returns transactions for the given parameters. Orders from the last 48 hours might not be included in financial events.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 1 | 10 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).",
+        "operationId": "financesV0_listTransactions",
+        "parameters": [
+          {
+            "name": "PostedAfter",
+            "in": "query",
+            "description": "The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "PostedBefore",
+            "in": "query",
+            "description": "The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.\n\nThe date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty. If you include the `PostedBefore` parameter in your request, you must also specify the `PostedAfter` parameter.\n\n**Default:** Two minutes before the time of the request.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "MarketplaceId",
+            "in": "query",
+            "description": "The ID of the marketplace from which you want to retrieve transactions.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "NextToken",
+            "in": "query",
+            "description": "The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "headers": {
+              "x-amzn-RateLimit-Limit": {
+                "description": "Your rate limit (requests per second) for this operation.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-amzn-RequestId": {
+                "description": "Unique request reference identifier.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {
+                      "PostedAfter": {
+                        "value": "2023-03-07"
+                      },
+                      "NextToken": {
+                        "value": "jehgri34yo7jr9e8f984tr9i4o"
+                      }
+                    }
+                  },
+                  "response": {
+                    "payload": {
+                      "NextToken": "Next token value",
+                      "Transactions": [
+                        {
+                          "SellingPartnerMetadata": {
+                            "SellingPartnerId": "A3TH9S8BH6GOGM",
+                            "AccountType": "PAYABLE",
+                            "MarketplaceId": "ATIV93840DER"
+                          },
+                          "RelatedIdentifiers": [
+                            {
+                              "RelatedIdentifierName": "ORDER_ID",
+                              "RelatedIdentifierValue": "8129762527551"
+                            }
+                          ],
+                          "TransactionType": "Shipment",
+                          "PostedDate": "2020-07-14T03:35:13.214Z",
+                          "TotalAmount": {
+                            "CurrencyAmount": 10,
+                            "CurrencyCode": "USD"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/financesV0_ListTransactionsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Request has missing or invalid parameters and cannot be parsed.",
+            "headers": {
+              "x-amzn-RateLimit-Limit": {
+                "description": "Your rate limit (requests per second) for this operation.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-amzn-RequestId": {
+                "description": "Unique request reference identifier.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {}
+                  },
+                  "response": {
+                    "errors": [
+                      {
+                        "code": "InvalidInput",
+                        "message": "Input not valid."
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/financesV0_ListTransactionsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature.",
+            "headers": {
+              "x-amzn-RequestId": {
+                "description": "Unique request reference identifier.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/financesV0_ListTransactionsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The resource specified does not exist.",
+            "headers": {
+              "x-amzn-RateLimit-Limit": {
+                "description": "Your rate limit (requests per second) for this operation.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-amzn-RequestId": {
+                "description": "Unique request reference identifier.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/financesV0_ListTransactionsResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "The frequency of requests was greater than allowed.",
+            "headers": {
+              "x-amzn-RequestId": {
+                "description": "Unique request reference identifier.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/financesV0_ListTransactionsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "An unexpected condition occurred that prevented the server from fulfilling the request.",
+            "headers": {
+              "x-amzn-RequestId": {
+                "description": "Unique request reference identifier.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/financesV0_ListTransactionsResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporary overloading or maintenance of the server.",
+            "headers": {
+              "x-amzn-RequestId": {
+                "description": "Unique request reference identifier.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/financesV0_ListTransactionsResponse"
                 }
               }
             }
@@ -172561,7 +172812,7 @@
         "properties": {
           "TransactionType": {
             "type": "string",
-            "description": "Indicates the type of transaction.\n\nExample: \"Disbursed to Amazon Gift Card balance\""
+            "description": "The type of transaction. For example, \"Disbursed to Amazon Gift Card balance\"."
           },
           "PostedDate": {
             "$ref": "#/components/schemas/financesV0_Date"
@@ -172588,7 +172839,7 @@
         "properties": {
           "AdjustmentType": {
             "type": "string",
-            "description": "The type of adjustment.\n\nPossible values:\n\n* FBAInventoryReimbursement - An FBA inventory reimbursement to a seller's account. This occurs if a seller's inventory is damaged.\n\n* ReserveEvent - A reserve event that is generated at the time of a settlement period closing. This occurs when some money from a seller's account is held back.\n\n* PostageBilling - The amount paid by a seller for shipping labels.\n\n* PostageRefund - The reimbursement of shipping labels purchased for orders that were canceled or refunded.\n\n* LostOrDamagedReimbursement - An Amazon Easy Ship reimbursement to a seller's account for a package that we lost or damaged.\n\n* CanceledButPickedUpReimbursement - An Amazon Easy Ship reimbursement to a seller's account. This occurs when a package is picked up and the order is subsequently canceled. This value is used only in the India marketplace.\n\n* ReimbursementClawback - An Amazon Easy Ship reimbursement clawback from a seller's account. This occurs when a prior reimbursement is reversed. This value is used only in the India marketplace.\n\n* SellerRewards - An award credited to a seller's account for their participation in an offer in the Seller Rewards program. Applies only to the India marketplace."
+            "description": "The type of adjustment.\n\nPossible values:\n\n* `FBAInventoryReimbursement`: An FBA inventory reimbursement to a seller's account. This occurs if a seller's inventory is damaged.\n* `ReserveEvent`: A reserve event that is generated at the time a settlement period closes. This occurs when some money from a seller's account is held back.\n* `PostageBilling`: The amount paid by a seller for shipping labels.\n* `PostageRefund`: The reimbursement of shipping labels purchased for orders that were canceled or refunded.\n* `LostOrDamagedReimbursement`: An Amazon Easy Ship reimbursement to a seller's account for a package that we lost or damaged.\n* `CanceledButPickedUpReimbursement`: An Amazon Easy Ship reimbursement to a seller's account. This occurs when a package is picked up and the order is subsequently canceled. This value is used only in the India marketplace.\n* `ReimbursementClawback`: An Amazon Easy Ship reimbursement clawback from a seller's account. This occurs when a prior reimbursement is reversed. This value is used only in the India marketplace.\n* `SellerRewards`: An award credited to a seller's account for their participation in an offer in the Seller Rewards program. Applies only to the India marketplace."
           },
           "PostedDate": {
             "$ref": "#/components/schemas/financesV0_Date"
@@ -172613,12 +172864,35 @@
           "$ref": "#/components/schemas/financesV0_AdjustmentEvent"
         }
       },
+      "financesV0_EBTRefundReimbursementOnlyEvent": {
+        "type": "object",
+        "properties": {
+          "OrderId": {
+            "type": "string",
+            "description": "The identifier of an order."
+          },
+          "PostedDate": {
+            "$ref": "#/components/schemas/financesV0_Date"
+          },
+          "Amount": {
+            "$ref": "#/components/schemas/financesV0_Currency"
+          }
+        },
+        "description": "An EBT refund reimbursement event."
+      },
+      "financesV0_EBTRefundReimbursementOnlyEventList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/financesV0_EBTRefundReimbursementOnlyEvent"
+        },
+        "description": "A list of EBT refund reimbursement events."
+      },
       "financesV0_AdjustmentItem": {
         "type": "object",
         "properties": {
           "Quantity": {
             "type": "string",
-            "description": "Represents the number of units in the seller's inventory when the AdustmentType is FBAInventoryReimbursement."
+            "description": "Represents the number of units in the seller's inventory when the `AdjustmentType` is `FBAInventoryReimbursement`."
           },
           "PerUnitAmount": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -172673,11 +172947,11 @@
           },
           "MarketplaceId": {
             "type": "string",
-            "description": "An encrypted, Amazon-defined marketplace identifier."
+            "description": "The Amazon-defined marketplace identifier."
           },
           "TransactionType": {
             "type": "string",
-            "description": "Indicates the type of transaction. \n\nPossible values:\n\n* Charge - For an affordability promotion expense.\n\n* Refund - For an affordability promotion expense reversal."
+            "description": "The type of transaction. \n\nPossible values:\n\n* `Charge`: an affordability promotion expense.\n* `Refund`: an affordability promotion expense reversal."
           },
           "BaseExpense": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -172706,7 +172980,7 @@
       },
       "financesV0_BigDecimal": {
         "type": "number",
-        "description": "Fields with a schema type of BigDecimal are a signed decimal number (for example CurrencyAmount)."
+        "description": "A signed decimal number."
       },
       "financesV0_ChargeComponent": {
         "type": "object",
@@ -172719,7 +172993,7 @@
             "$ref": "#/components/schemas/financesV0_Currency"
           }
         },
-        "description": "A charge on the seller's account.\n\nPossible values:\n\n* Principal - The selling price of the order item, equal to the selling price of the item multiplied by the quantity ordered.\n\n* Tax - The tax collected by the seller on the Principal.\n\n* MarketplaceFacilitatorTax-Principal - The tax withheld on the Principal.\n\n* MarketplaceFacilitatorTax-Shipping - The tax withheld on the ShippingCharge.\n\n* MarketplaceFacilitatorTax-Giftwrap - The tax withheld on the Giftwrap charge.\n\n* MarketplaceFacilitatorTax-Other - The tax withheld on other miscellaneous charges.\n\n* Discount - The promotional discount for an order item.\n\n* TaxDiscount - The tax amount deducted for promotional rebates.\n\n* CODItemCharge - The COD charge for an order item.\n\n* CODItemTaxCharge - The tax collected by the seller on a CODItemCharge.\n\n* CODOrderCharge - The COD charge for an order.\n\n* CODOrderTaxCharge - The tax collected by the seller on a CODOrderCharge.\n\n* CODShippingCharge - Shipping charges for a COD order.\n\n* CODShippingTaxCharge - The tax collected by the seller on a CODShippingCharge.\n\n* ShippingCharge - The shipping charge.\n\n* ShippingTax - The tax collected by the seller on a ShippingCharge.\n\n* Goodwill - The amount given to a buyer as a gesture of goodwill or to compensate for pain and suffering in the buying experience.\n\n* Giftwrap - The gift wrap charge.\n\n* GiftwrapTax - The tax collected by the seller on a Giftwrap charge.\n\n* RestockingFee - The charge applied to the buyer when returning a product in certain categories.\n\n* ReturnShipping - The amount given to the buyer to compensate for shipping the item back in the event we are at fault.\n\n* PointsFee - The value of Amazon Points deducted from the refund if the buyer does not have enough Amazon Points to cover the deduction.\n\n* GenericDeduction - A generic bad debt deduction.\n\n* FreeReplacementReturnShipping - The compensation for return shipping when a buyer receives the wrong item, requests a free replacement, and returns the incorrect item.\n\n* PaymentMethodFee - The fee collected for certain payment methods in certain marketplaces.\n\n* ExportCharge - The export duty that is charged when an item is shipped to an international destination as part of the Amazon Global program.\n\n* SAFE-TReimbursement - The SAFE-T claim amount for the item.\n\n* TCS-CGST - Tax Collected at Source (TCS) for Central Goods and Services Tax (CGST).\n\n* TCS-SGST - Tax Collected at Source for State Goods and Services Tax (SGST).\n\n* TCS-IGST - Tax Collected at Source for Integrated Goods and Services Tax (IGST).\n\n* TCS-UTGST - Tax Collected at Source for Union Territories Goods and Services Tax (UTGST)."
+        "description": "A charge on the seller's account.\n\nPossible values:\n\n* `Principal`: The selling price of the order item, which is equal to the selling price of the item multiplied by the quantity ordered.\n\n* `Tax`: The tax on the principal that is collected by the seller.\n\n* `MarketplaceFacilitatorTax-Principal`: The tax that is withheld on the principal.\n\n* `MarketplaceFacilitatorTax-Shipping`: The tax that is withheld on the `ShippingCharge`.\n\n* `MarketplaceFacilitatorTax-Giftwrap`: The tax that is withheld on the Giftwrap charge.\n\n* `MarketplaceFacilitatorTax-Other`: The tax that is withheld on other miscellaneous charges.\n\n* `Discount`: The promotional discount for an order item.\n\n* `TaxDiscount`: The tax that is deducted for promotional rebates.\n\n* `CODItemCharge`: The COD charge for an order item.\n\n* `CODItemTaxCharge`: The tax that is collected by the seller on a `CODItemCharge`.\n\n* `CODOrderCharge`: The COD charge for an order.\n\n* `CODOrderTaxCharge`: The tax that is collected by the seller on a `CODOrderCharge`.\n\n* `CODShippingCharge`: Shipping charges for a COD order.\n\n* `CODShippingTaxCharge`: The tax that is collected by the seller on a `CODShippingCharge`.\n\n* `ShippingCharge`: The shipping charge.\n\n* `ShippingTax`: The tax that is collected by the seller on a `ShippingCharge`.\n\n* `Goodwill`: The amount of money that is given to a buyer as a gesture of goodwill or to compensate for pain and suffering in the buying experience.\n\n* `Giftwrap`: The gift wrap charge.\n\n* `GiftwrapTax`: The tax that is collected by the seller on a gift wrap charge.\n\n* `RestockingFee`: The charge that is applied to the buyer when returning a product in certain categories.\n\n* `ReturnShipping`: The amount of money that is given to the buyer to compensate for shipping the item back if we are at fault.\n\n* `PointsFee`: The value of Amazon Points deducted from the refund if the buyer does not have enough Amazon Points to cover the deduction.\n\n* `GenericDeduction`: A generic bad debt deduction.\n\n* `FreeReplacementReturnShipping`: The compensation for return shipping when a buyer receives the wrong item, requests a free replacement, and returns the incorrect item.\n\n* `PaymentMethodFee`: The fee that is collected for certain payment methods in certain marketplaces.\n\n* `ExportCharge`: The export duty that is charged when an item is shipped to an international destination as part of the Amazon Global program.\n\n* `SAFE-TReimbursement`: The SAFE-T claim amount for the item.\n\n* `TCS-CGST`: Tax Collected at Source (TCS) for Central Goods and Services Tax (CGST).\n\n* `TCS-SGST`: Tax Collected at Source for State Goods and Services Tax (SGST).\n\n* `TCS-IGST`: Tax Collected at Source for Integrated Goods and Services Tax (IGST).\n\n* `TCS-UTGST`: Tax Collected at Source for Union Territories Goods and Services Tax (UTGST).\n\n* `PaidthroughEBT`: The amount of money paid with EBT for any order or shipment items."
       },
       "financesV0_ChargeComponentList": {
         "type": "array",
@@ -172760,11 +173034,11 @@
           },
           "ReasonCode": {
             "type": "string",
-            "description": "The reason given for a charge refund.\n\nExample: `SubscriptionFeeCorrection`"
+            "description": "The reason given for a charge refund. For example, `SubscriptionFeeCorrection`."
           },
           "ReasonCodeDescription": {
             "type": "string",
-            "description": "A description of the Reason Code. \n\nExample: `SubscriptionFeeCorrection`"
+            "description": "A description of the Reason Code. For example, `SubscriptionFeeCorrection`."
           },
           "ChargeRefundTransactions": {
             "$ref": "#/components/schemas/financesV0_ChargeRefundTransactions"
@@ -172857,14 +173131,14 @@
       "financesV0_Date": {
         "type": "string",
         "format": "date-time",
-        "description": "Fields with a schema type of date are in ISO 8601 date time format (for example GroupBeginDate)."
+        "description": "A date in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format."
       },
       "financesV0_DebtRecoveryEvent": {
         "type": "object",
         "properties": {
           "DebtRecoveryType": {
             "type": "string",
-            "description": "The debt recovery type.\n\nPossible values:\n\n* DebtPayment\n\n* DebtPaymentFailure\n\n* DebtAdjustment"
+            "description": "The debt recovery type.\n\nPossible values:\n\n* `DebtPayment`\n* `DebtPaymentFailure`\n* `DebtAdjustment`"
           },
           "RecoveryAmount": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -172918,7 +173192,7 @@
         "properties": {
           "DirectPaymentType": {
             "type": "string",
-            "description": "The type of payment.\n\nPossible values:\n\n* StoredValueCardRevenue - The amount that is deducted from the seller's account because the seller received money through a stored value card.\n\n* StoredValueCardRefund - The amount that Amazon returns to the seller if the order that is bought using a stored value card is refunded.\n\n* PrivateLabelCreditCardRevenue - The amount that is deducted from the seller's account because the seller received money through a private label credit card offered by Amazon.\n\n* PrivateLabelCreditCardRefund - The amount that Amazon returns to the seller if the order that is bought using a private label credit card offered by Amazon is refunded.\n\n* CollectOnDeliveryRevenue - The COD amount that the seller collected directly from the buyer.\n\n* CollectOnDeliveryRefund - The amount that Amazon refunds to the buyer if an order paid for by COD is refunded."
+            "description": "The type of payment.\n\nPossible values:\n\n* `StoredValueCardRevenue` - The amount that is deducted from the seller's account because the seller received money through a stored value card.\n\n* `StoredValueCardRefund` - The amount that Amazon returns to the seller if the order that is purchased using a stored value card is refunded.\n\n* `PrivateLabelCreditCardRevenue` - The amount that is deducted from the seller's account because the seller received money through a private label credit card offered by Amazon.\n\n* `PrivateLabelCreditCardRefund` - The amount that Amazon returns to the seller if the order that is purchased using a private label credit card offered by Amazon is refunded.\n\n* `CollectOnDeliveryRevenue` - The COD amount that the seller collected directly from the buyer.\n\n* `CollectOnDeliveryRefund` - The amount that Amazon refunds to the buyer if an order paid for by COD is refunded."
           },
           "DirectPaymentAmount": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -172938,14 +173212,14 @@
         "items": {
           "$ref": "#/components/schemas/financesV0_FailedAdhocDisbursementEvent"
         },
-        "description": "A list of `FailedAdhocDisbursementEvent`s."
+        "description": "A list of `FailedAdhocDisbursementEvent`."
       },
       "financesV0_FailedAdhocDisbursementEvent": {
         "type": "object",
         "properties": {
           "FundsTransfersType": {
             "type": "string",
-            "description": "The type of fund transfer. \n\nExample \"Refund\""
+            "description": "The type of fund transfer. For example, `Refund`."
           },
           "TransferId": {
             "type": "string",
@@ -172957,11 +173231,11 @@
           },
           "PaymentDisbursementType": {
             "type": "string",
-            "description": "The type of payment for disbursement. \n\nExample `CREDIT_CARD`"
+            "description": "The type of payment for disbursement. For example, `CREDIT_CARD`."
           },
           "Status": {
             "type": "string",
-            "description": "The status of the failed `AdhocDisbursement`. \n\nExample `HARD_DECLINED`"
+            "description": "The status of the failed `AdhocDisbursement`. For example, `HARD_DECLINED`."
           },
           "TransferAmount": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -173027,7 +173301,7 @@
           },
           "ProcessingStatus": {
             "type": "string",
-            "description": "The processing status of the financial event group indicates whether the balance of the financial event group is settled.\n\nPossible values:\n\n* Open\n\n* Closed"
+            "description": "The processing status of the financial event group indicates whether the balance of the financial event group is settled.\n\nPossible values:\n\n* `Open`\n* `Closed`"
           },
           "FundTransferStatus": {
             "type": "string",
@@ -173069,6 +173343,83 @@
           "$ref": "#/components/schemas/financesV0_FinancialEventGroup"
         }
       },
+      "financesV0_Transactions": {
+        "type": "array",
+        "description": "A list of transactions within a given time period.",
+        "items": {
+          "$ref": "#/components/schemas/financesV0_Transaction"
+        }
+      },
+      "financesV0_Transaction": {
+        "type": "object",
+        "properties": {
+          "SellingPartnerMetadata": {
+            "$ref": "#/components/schemas/financesV0_SellingPartnerMetadata"
+          },
+          "RelatedIdentifiers": {
+            "$ref": "#/components/schemas/financesV0_RelatedIdentifiers"
+          },
+          "TransactionType": {
+            "type": "string",
+            "description": "The type of transaction.\n\nPossible values:\n\n* `Shipment`"
+          },
+          "PostedDate": {
+            "$ref": "#/components/schemas/financesV0_Date"
+          },
+          "TotalAmount": {
+            "$ref": "#/components/schemas/financesV0_Currency"
+          }
+        },
+        "description": "All the information related to the transaction."
+      },
+      "financesV0_RelatedIdentifier": {
+        "type": "object",
+        "properties": {
+          "RelatedIdentifierName": {
+            "type": "string",
+            "description": "Enumerated set of related business identifier names.",
+            "enum": [
+              "ORDER_ID"
+            ],
+            "x-docgen-enum-table-extension": [
+              {
+                "value": "ORDER_ID",
+                "description": "The associated `OrderId` of the transaction"
+              }
+            ]
+          },
+          "RelatedIdentifierValue": {
+            "type": "string",
+            "description": "The corresponding value to `RelatedIdentifierName`."
+          }
+        },
+        "description": "Related business identifier of the transaction."
+      },
+      "financesV0_RelatedIdentifiers": {
+        "type": "array",
+        "description": "Related business identifiers of the transaction.",
+        "items": {
+          "$ref": "#/components/schemas/financesV0_RelatedIdentifier"
+        }
+      },
+      "financesV0_SellingPartnerMetadata": {
+        "type": "object",
+        "properties": {
+          "SellingPartnerId": {
+            "type": "string",
+            "description": "The unique seller identifier."
+          },
+          "AccountType": {
+            "type": "string",
+            "description": "The type of account in the transaction."
+          },
+          "MarketplaceId": {
+            "type": "string",
+            "description": "The identifier of the marketplace in which the transaction occurred."
+          }
+        },
+        "description": "Metadata describing the seller."
+      },
       "financesV0_FinancialEvents": {
         "type": "object",
         "properties": {
@@ -173083,6 +173434,9 @@
           },
           "GuaranteeClaimEventList": {
             "$ref": "#/components/schemas/financesV0_ShipmentEventList"
+          },
+          "EBTRefundReimbursementOnlyEventList": {
+            "$ref": "#/components/schemas/financesV0_EBTRefundReimbursementOnlyEventList"
           },
           "ChargebackEventList": {
             "$ref": "#/components/schemas/financesV0_ShipmentEventList"
@@ -173172,7 +173526,7 @@
             "$ref": "#/components/schemas/financesV0_CapacityReservationBillingEventList"
           }
         },
-        "description": "Contains all information related to a financial event."
+        "description": "All the information that is related to a financial event."
       },
       "financesV0_ImagingServicesFeeEvent": {
         "type": "object",
@@ -173212,7 +173566,7 @@
             "$ref": "#/components/schemas/financesV0_FinancialEventGroupList"
           }
         },
-        "description": "The payload for the listFinancialEventGroups operation."
+        "description": "The payload for the `listFinancialEventGroups` operation."
       },
       "financesV0_ListFinancialEventGroupsResponse": {
         "type": "object",
@@ -173224,7 +173578,32 @@
             "$ref": "#/components/schemas/financesV0_ErrorList"
           }
         },
-        "description": "The response schema for the listFinancialEventGroups operation."
+        "description": "The response schema for the `listFinancialEventGroups` operation."
+      },
+      "financesV0_ListTransactionsPayload": {
+        "type": "object",
+        "properties": {
+          "NextToken": {
+            "type": "string",
+            "description": "When present and not empty, pass this string token in the next request to return the next response page."
+          },
+          "Transactions": {
+            "$ref": "#/components/schemas/financesV0_Transactions"
+          }
+        },
+        "description": "The payload for the `listTransactions` operation."
+      },
+      "financesV0_ListTransactionsResponse": {
+        "type": "object",
+        "properties": {
+          "payload": {
+            "$ref": "#/components/schemas/financesV0_ListTransactionsPayload"
+          },
+          "errors": {
+            "$ref": "#/components/schemas/financesV0_ErrorList"
+          }
+        },
+        "description": "The response schema for the `listTransactions` operation."
       },
       "financesV0_ListFinancialEventsPayload": {
         "type": "object",
@@ -173237,7 +173616,7 @@
             "$ref": "#/components/schemas/financesV0_FinancialEvents"
           }
         },
-        "description": "The payload for the listFinancialEvents operation."
+        "description": "The payload for the `listFinancialEvents` operation."
       },
       "financesV0_ListFinancialEventsResponse": {
         "type": "object",
@@ -173249,7 +173628,7 @@
             "$ref": "#/components/schemas/financesV0_ErrorList"
           }
         },
-        "description": "The response schema for the listFinancialEvents operation."
+        "description": "The response schema for the `listFinancialEvents` operation."
       },
       "financesV0_LoanServicingEvent": {
         "type": "object",
@@ -173259,7 +173638,7 @@
           },
           "SourceBusinessEventType": {
             "type": "string",
-            "description": "The type of event.\n\nPossible values:\n\n* LoanAdvance\n\n* LoanPayment\n\n* LoanRefund"
+            "description": "The type of event.\n\nPossible values:\n\n* `LoanAdvance`\n\n* `LoanPayment`\n\n* `LoanRefund`"
           }
         },
         "description": "A loan advance, loan payment, or loan refund."
@@ -173276,7 +173655,7 @@
         "properties": {
           "TransactionType": {
             "type": "string",
-            "description": "The type of network item swap.\n\nPossible values:\n\n* NetCo - A Fulfillment by Amazon inventory pooling transaction. Available only in the India marketplace.\n\n* ComminglingVAT - A commingling VAT transaction. Available only in the UK, Spain, France, Germany, and Italy marketplaces."
+            "description": "The type of network item swap.\n\nPossible values:\n\n* `NetCo`: A Fulfillment by Amazon inventory pooling transaction. Available only in the India marketplace.\n\n* `ComminglingVAT`: A commingling VAT transaction. Available only in the Spain, UK, France, Germany, and Italy marketplaces."
           },
           "PostedDate": {
             "$ref": "#/components/schemas/financesV0_Date"
@@ -173339,7 +173718,7 @@
           },
           "PaymentAmountType": {
             "type": "string",
-            "description": "The type of payment.\n\nPossible values:\n\n* Sales"
+            "description": "The type of payment.\n\nPossible values:\n\n* `Sales`"
           },
           "AmountDescription": {
             "type": "string",
@@ -173347,11 +173726,11 @@
           },
           "FulfillmentChannel": {
             "type": "string",
-            "description": "The fulfillment channel.\n\nPossible values:\n\n* AFN - Amazon Fulfillment Network (Fulfillment by Amazon)\n\n* MFN - Merchant Fulfillment Network (self-fulfilled)"
+            "description": "The fulfillment channel.\n\nPossible values:\n\n* `AFN`: Amazon Fulfillment Network (Fulfillment by Amazon)\n\n* `MFN`: Merchant Fulfillment Network (self-fulfilled)"
           },
           "StoreName": {
             "type": "string",
-            "description": "The store name where the event occurred."
+            "description": "The name of the store where the event occurred."
           }
         },
         "description": "An event related to the seller's Pay with Amazon account."
@@ -173371,11 +173750,11 @@
           },
           "transactionType": {
             "type": "string",
-            "description": "Indicates if the transaction is for a charge or a refund.\n\nPossible values:\n\n* charge - Charge\n\n* refund - Refund"
+            "description": "Indicates if the transaction is for a charge or a refund.\n\nPossible values:\n\n* `charge`\n\n* `refund`"
           },
           "invoiceId": {
             "type": "string",
-            "description": "Identifier for the invoice that the transaction appears in."
+            "description": "The identifier for the invoice that includes the transaction."
           },
           "baseValue": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -173428,7 +173807,7 @@
           },
           "MerchantOrderId": {
             "type": "string",
-            "description": "The merchant removal orderId."
+            "description": "The merchant removal `orderId`."
           },
           "OrderId": {
             "type": "string",
@@ -173436,7 +173815,7 @@
           },
           "TransactionType": {
             "type": "string",
-            "description": "The type of removal order.\n\nPossible values:\n\n* WHOLESALE_LIQUIDATION"
+            "description": "The type of removal order.\n\nPossible values:\n\n* `WHOLESALE_LIQUIDATION`"
           },
           "StoreName": {
             "type": "string",
@@ -173464,7 +173843,7 @@
           },
           "TaxCollectionModel": {
             "type": "string",
-            "description": "The tax collection model applied to the item.\n\nPossible values:\n\n* MarketplaceFacilitator - Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.\n\n* Standard - Tax is paid to the seller and not remitted to the taxing authority by Amazon."
+            "description": "The tax collection model that is applied to the item.\n\nPossible values:\n\n* `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.\n* `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon."
           },
           "FulfillmentNetworkSKU": {
             "type": "string",
@@ -173492,7 +173871,7 @@
       },
       "financesV0_RemovalShipmentItemList": {
         "type": "array",
-        "description": "A list of information about removal shipment items.",
+        "description": "A list of `RemovalShipmentItem`.",
         "items": {
           "$ref": "#/components/schemas/financesV0_RemovalShipmentItem"
         }
@@ -173517,11 +173896,11 @@
           },
           "TransactionType": {
             "type": "string",
-            "description": "The type of removal order.\n\nPossible values:\n\n* WHOLESALE_LIQUIDATION."
+            "description": "The type of removal order.\n\nPossible values:\n\n* `WHOLESALE_LIQUIDATION`."
           },
           "RemovalShipmentItemAdjustmentList": {
             "type": "array",
-            "description": "A comma-delimited list of Removal shipmentItemAdjustment details for FBA inventory.",
+            "description": "A comma-delimited list of `RemovalShipmentItemAdjustment` details for FBA inventory.",
             "items": {
               "$ref": "#/components/schemas/financesV0_RemovalShipmentItemAdjustment"
             }
@@ -173531,7 +173910,7 @@
       },
       "financesV0_RemovalShipmentAdjustmentEventList": {
         "type": "array",
-        "description": "A comma-delimited list of Removal shipmentAdjustment details for FBA inventory.",
+        "description": "A comma-delimited list of `RemovalShipmentAdjustment` details for FBA inventory.",
         "items": {
           "$ref": "#/components/schemas/financesV0_RemovalShipmentAdjustmentEvent"
         }
@@ -173545,7 +173924,7 @@
           },
           "TaxCollectionModel": {
             "type": "string",
-            "description": "The tax collection model applied to the item.\n\nPossible values:\n\n* MarketplaceFacilitator - Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.\n\n* Standard - Tax is paid to the seller and not remitted to the taxing authority by Amazon."
+            "description": "The tax collection model that is applied to the item.\n\nPossible values:\n\n* `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.\n* `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon."
           },
           "FulfillmentNetworkSKU": {
             "type": "string",
@@ -173554,7 +173933,7 @@
           "AdjustedQuantity": {
             "type": "integer",
             "format": "int32",
-            "description": "Adjusted quantity of removal shipmentItemAdjustment items."
+            "description": "Adjusted quantity of `RemovalShipmentItemAdjustment` items."
           },
           "RevenueAdjustment": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -173577,12 +173956,12 @@
           },
           "RentalEventType": {
             "type": "string",
-            "description": "The type of rental event.\n\nPossible values:\n\n* RentalCustomerPayment-Buyout - Transaction type that represents when the customer wants to buy out a rented item.\n\n* RentalCustomerPayment-Extension - Transaction type that represents when the customer wants to extend the rental period.\n\n* RentalCustomerRefund-Buyout - Transaction type that represents when the customer requests a refund for the buyout of the rented item.\n\n* RentalCustomerRefund-Extension - Transaction type that represents when the customer requests a refund over the extension on the rented item.\n\n* RentalHandlingFee - Transaction type that represents the fee that Amazon charges sellers who rent through Amazon.\n\n* RentalChargeFailureReimbursement - Transaction type that represents when Amazon sends money to the seller to compensate for a failed charge.\n\n* RentalLostItemReimbursement - Transaction type that represents when Amazon sends money to the seller to compensate for a lost item."
+            "description": "The type of rental event.\n\nPossible values:\n\n* `RentalCustomerPayment-Buyout`: A transaction type that represents when the customer wants to buy out a rented item.\n\n* `RentalCustomerPayment-Extension`: A transaction type that represents when the customer wants to extend the rental period.\n\n* `RentalCustomerRefund-Buyout`: A transaction type that represents when the customer requests a refund for the buyout of the rented item.\n\n* `RentalCustomerRefund-Extension`: A transaction type that represents when the customer requests a refund over the extension on the rented item.\n\n* `RentalHandlingFee`: A transaction type that represents the fee that Amazon charges sellers who rent through Amazon.\n\n* `RentalChargeFailureReimbursement`: A transaction type that represents when Amazon sends money to the seller to compensate for a failed charge.\n\n* `RentalLostItemReimbursement`: A transaction type that represents when Amazon sends money to the seller to compensate for a lost item."
           },
           "ExtensionLength": {
             "type": "integer",
             "format": "int32",
-            "description": "The number of days that the buyer extended an already rented item. This value is only returned for RentalCustomerPayment-Extension and RentalCustomerRefund-Extension events."
+            "description": "The number of days that the buyer extended an already rented item. This value is only returned for `RentalCustomerPayment-Extension` and `RentalCustomerRefund-Extension` events."
           },
           "PostedDate": {
             "$ref": "#/components/schemas/financesV0_Date"
@@ -173621,7 +174000,7 @@
         "properties": {
           "RetrochargeEventType": {
             "type": "string",
-            "description": "The type of event.\n\nPossible values:\n\n* Retrocharge\n\n* RetrochargeReversal"
+            "description": "The type of event.\n\nPossible values:\n\n* `Retrocharge`\n\n* `RetrochargeReversal`"
           },
           "AmazonOrderId": {
             "type": "string",
@@ -173648,7 +174027,7 @@
       },
       "financesV0_RetrochargeEventList": {
         "type": "array",
-        "description": "A list of information about Retrocharge or RetrochargeReversal events.",
+        "description": "A list of information about `Retrocharge` or `RetrochargeReversal` events.",
         "items": {
           "$ref": "#/components/schemas/financesV0_RetrochargeEvent"
         }
@@ -173678,7 +174057,7 @@
       },
       "financesV0_SAFETReimbursementEventList": {
         "type": "array",
-        "description": "A list of SAFETReimbursementEvents.",
+        "description": "A list of `SAFETReimbursementEvent`.",
         "items": {
           "$ref": "#/components/schemas/financesV0_SAFETReimbursementEvent"
         }
@@ -173702,7 +174081,7 @@
       },
       "financesV0_SAFETReimbursementItemList": {
         "type": "array",
-        "description": "A list of SAFETReimbursementItems.",
+        "description": "A list of `SAFETReimbursementItem`.",
         "items": {
           "$ref": "#/components/schemas/financesV0_SAFETReimbursementItem"
         }
@@ -173723,11 +174102,11 @@
           },
           "eventType": {
             "type": "string",
-            "description": "The type of event: SellerDealComplete."
+            "description": "The type of event: `SellerDealComplete`."
           },
           "feeType": {
             "type": "string",
-            "description": "The type of fee: RunLightningDealFee."
+            "description": "The type of fee: `RunLightningDealFee`."
           },
           "feeAmount": {
             "$ref": "#/components/schemas/financesV0_Currency"
@@ -173994,7 +174373,7 @@
       },
       "financesV0_SolutionProviderCreditEventList": {
         "type": "array",
-        "description": "A list of information about solution provider credits.",
+        "description": "A list of `SolutionProviderCreditEvent`.",
         "items": {
           "$ref": "#/components/schemas/financesV0_SolutionProviderCreditEvent"
         }
@@ -174009,7 +174388,7 @@
             "$ref": "#/components/schemas/financesV0_Date"
           }
         },
-        "description": "Period which taxwithholding on seller's account is calculated."
+        "description": "The period during which tax withholding on a seller's account is calculated."
       },
       "financesV0_TaxWithholdingEvent": {
         "type": "object",
@@ -174027,21 +174406,21 @@
             "$ref": "#/components/schemas/financesV0_TaxWithholdingPeriod"
           }
         },
-        "description": "A TaxWithholding event on seller's account."
+        "description": "A tax withholding event on a seller's account."
       },
       "financesV0_TaxWithholdingEventList": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/financesV0_TaxWithholdingEvent"
         },
-        "description": "A list of `TaxWithholding` events."
+        "description": "A list of tax withholding events."
       },
       "financesV0_TaxWithheldComponent": {
         "type": "object",
         "properties": {
           "TaxCollectionModel": {
             "type": "string",
-            "description": "The tax collection model applied to the item.\n\nPossible values:\n\n* MarketplaceFacilitator - Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.\n\n* Standard - Tax is paid to the seller and not remitted to the taxing authority by Amazon."
+            "description": "The tax collection model applied to the item.\n\nPossible values:\n\n* `MarketplaceFacilitator`: Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller.\n* `Standard`: Tax is paid to the seller and not remitted to the taxing authority by Amazon."
           },
           "TaxesWithheld": {
             "$ref": "#/components/schemas/financesV0_ChargeComponentList"
@@ -174122,7 +174501,7 @@
         "properties": {
           "TransactionType": {
             "type": "string",
-            "description": "Indicates the type of transaction.\n\nExample: 'Other Support Service fees'"
+            "description": "The transaction type. For example, 'Other Support Service fees'"
           },
           "PostedDate": {
             "$ref": "#/components/schemas/financesV0_Date"
@@ -174142,7 +174521,7 @@
         "properties": {
           "TransactionType": {
             "type": "string",
-            "description": "Indicates the type of transaction. For example, FBA Inventory Fee"
+            "description": "The transaction type. For example, FBA Inventory Fee."
           },
           "PostedDate": {
             "$ref": "#/components/schemas/financesV0_Date"
