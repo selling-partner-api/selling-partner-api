@@ -2528,31 +2528,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/finances/v0/transactions": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Returns transactions for the given parameters. Orders from the last 48 hours might not be included in financial events.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 1 | 10 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits). */
-        get: operations["financesV0_listTransactions"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/inbound/fba/2024-03-20/inboundPlans": {
         parameters: {
             query?: never;
@@ -6985,7 +6960,7 @@ export interface paths {
          *     **Usage Plan:**
          *
          *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
+         *     | --- | --- |
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
@@ -11972,17 +11947,6 @@ export interface components {
             errors?: components["schemas"]["financesV0_ErrorList"];
             payload?: components["schemas"]["financesV0_ListFinancialEventsPayload"];
         };
-        /** @description The payload for the `listTransactions` operation. */
-        financesV0_ListTransactionsPayload: {
-            /** @description When present and not empty, pass this string token in the next request to return the next response page. */
-            NextToken?: string;
-            Transactions?: components["schemas"]["financesV0_Transactions"];
-        };
-        /** @description The response schema for the `listTransactions` operation. */
-        financesV0_ListTransactionsResponse: {
-            errors?: components["schemas"]["financesV0_ErrorList"];
-            payload?: components["schemas"]["financesV0_ListTransactionsPayload"];
-        };
         /** @description A loan advance, loan payment, or loan refund. */
         financesV0_LoanServicingEvent: {
             LoanAmount?: components["schemas"]["financesV0_Currency"];
@@ -12084,18 +12048,6 @@ export interface components {
         };
         /** @description A list of promotions. */
         financesV0_PromotionList: components["schemas"]["financesV0_Promotion"][];
-        /** @description Related business identifier of the transaction. */
-        financesV0_RelatedIdentifier: {
-            /**
-             * @description Enumerated set of related business identifier names.
-             * @enum {string}
-             */
-            RelatedIdentifierName?: "ORDER_ID";
-            /** @description The corresponding value to `RelatedIdentifierName`. */
-            RelatedIdentifierValue?: string;
-        };
-        /** @description Related business identifiers of the transaction. */
-        financesV0_RelatedIdentifiers: components["schemas"]["financesV0_RelatedIdentifier"][];
         /** @description A financial adjustment event for FBA liquidated inventory. A positive value indicates money owed to Amazon by the buyer (for example, when the charge was incorrectly calculated as less than it should be). A negative value indicates a full or partial refund owed to the buyer (for example, when the buyer receives damaged items or fewer items than ordered). */
         financesV0_RemovalShipmentAdjustmentEvent: {
             /** @description The unique identifier for the adjustment event. */
@@ -12293,15 +12245,6 @@ export interface components {
         };
         /** @description A list of information about fee events for the Early Reviewer Program. */
         financesV0_SellerReviewEnrollmentPaymentEventList: components["schemas"]["financesV0_SellerReviewEnrollmentPaymentEvent"][];
-        /** @description Metadata describing the seller. */
-        financesV0_SellingPartnerMetadata: {
-            /** @description The type of account in the transaction. */
-            AccountType?: string;
-            /** @description The identifier of the marketplace in which the transaction occurred. */
-            MarketplaceId?: string;
-            /** @description The unique seller identifier. */
-            SellingPartnerId?: string;
-        };
         /** @description A service fee on the seller's account. */
         financesV0_ServiceFeeEvent: {
             /** @description An Amazon-defined identifier for an order. */
@@ -12431,21 +12374,6 @@ export interface components {
         };
         /** @description A list of `TDSReimbursementEvent` items. */
         financesV0_TDSReimbursementEventList: components["schemas"]["financesV0_TDSReimbursementEvent"][];
-        /** @description All the information related to the transaction. */
-        financesV0_Transaction: {
-            PostedDate?: components["schemas"]["financesV0_Date"];
-            RelatedIdentifiers?: components["schemas"]["financesV0_RelatedIdentifiers"];
-            SellingPartnerMetadata?: components["schemas"]["financesV0_SellingPartnerMetadata"];
-            TotalAmount?: components["schemas"]["financesV0_Currency"];
-            /** @description The type of transaction.
-             *
-             *     Possible values:
-             *
-             *     * `Shipment` */
-            TransactionType?: string;
-        };
-        /** @description A list of transactions within a given time period. */
-        financesV0_Transactions: components["schemas"]["financesV0_Transaction"][];
         /** @description An event related to a trial shipment. */
         financesV0_TrialShipmentEvent: {
             /** @description An Amazon-defined identifier for an order. */
@@ -25657,18 +25585,6 @@ export interface components {
             /** @description The vendor selected product identification of the item. Should be the same as was sent in the purchase order. */
             vendorProductIdentifier?: string;
         };
-        /** @description Details of item quantity. */
-        vendorShipments_PackedQuantity: {
-            /** @description Amount of units shipped for a specific item at a shipment level. If the item is present only in certain cartons or pallets within the shipment, please provide this at the appropriate carton or pallet level. */
-            amount: number;
-            /**
-             * @description Unit of measure for the shipped quantity.
-             * @enum {string}
-             */
-            unitOfMeasure: "Cases" | "Eaches";
-            /** @description The case size, in the event that we ordered using cases. Otherwise, 1. */
-            unitSize?: number;
-        };
         /** @description The pagination elements required to retrieve the remaining data. */
         vendorShipments_Pagination: {
             /** @description A generated string used to pass information to your next request. If NextToken is returned, pass the value of NextToken to the next request. If NextToken is not returned, there are no more shipment items to return. */
@@ -25695,10 +25611,6 @@ export interface components {
             partyId: string;
             /** @description Tax registration details of the entity. */
             taxRegistrationDetails?: components["schemas"]["vendorShipments_TaxRegistrationDetails"][];
-        };
-        /** @description Item details for be provided for every item in shipment at either the item or carton or pallet level, whichever is appropriate. */
-        vendorShipments_PurchaseOrderItemDetails: {
-            maximumRetailPrice?: components["schemas"]["vendorShipments_Money"];
         };
         /** @description Details of the item being shipped. */
         vendorShipments_PurchaseOrderItems: {
@@ -41950,113 +41862,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["financesV0_ListFinancialEventsResponse"];
-                };
-            };
-        };
-    };
-    financesV0_listTransactions: {
-        parameters: {
-            query: {
-                /** @description The ID of the marketplace from which you want to retrieve transactions. */
-                MarketplaceId: string;
-                /** @description The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
-                NextToken?: string;
-                /** @description The response includes financial events posted after (or on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. The date-time must be more than two minutes before the time of the request. */
-                PostedAfter: string;
-                /** @description The response includes financial events posted before (but not on) this date. This date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
-                 *
-                 *     The date-time must be later than `PostedAfter` and more than two minutes before the request was submitted. If `PostedAfter` and `PostedBefore` are more than 180 days apart, the response is empty. If you include the `PostedBefore` parameter in your request, you must also specify the `PostedAfter` parameter.
-                 *
-                 *     **Default:** Two minutes before the time of the request. */
-                PostedBefore?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Success. */
-            200: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
-                };
-            };
-            /** @description Request has missing or invalid parameters and cannot be parsed. */
-            400: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
-                };
-            };
-            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
-            403: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
-                };
-            };
-            /** @description The resource specified does not exist. */
-            404: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
-                };
-            };
-            /** @description The frequency of requests was greater than allowed. */
-            429: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
-                };
-            };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
-            500: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
-                };
-            };
-            /** @description Temporary overloading or maintenance of the server. */
-            503: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["financesV0_ListTransactionsResponse"];
                 };
             };
         };
