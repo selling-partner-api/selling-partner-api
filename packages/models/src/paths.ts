@@ -6916,34 +6916,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/vendor/shipping/v1/shipmentConfirmation": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * SubmitShipmentConfirmation
-         * @description Submits one shipment confirmation for vendor orders and get response immediately.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 10 | 10 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
-         */
-        post: operations["SubmitShipmentConfirmation"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/vendor/shipping/v1/shipmentConfirmations": {
         parameters: {
             query?: never;
@@ -25827,15 +25799,6 @@ export interface components {
              */
             functionCode: "PortOfDischarge" | "FreightPayableAt" | "PortOfLoading";
             locationIdentification?: components["schemas"]["vendorShipments_Location"];
-        };
-        /** @description The request schema for the SubmitShipmentConfirmation operation. */
-        vendorShipments_SubmitShipmentConfirmationRequest: {
-            shipmentConfirmation: components["schemas"]["vendorShipments_ShipmentConfirmation"];
-        };
-        /** @description The ASN was submitted successfully */
-        vendorShipments_SubmitShipmentConfirmationResponse: {
-            errors?: components["schemas"]["vendorShipments_ErrorList"];
-            payload?: components["schemas"]["vendorShipments_TransactionReference"];
         };
         /** @description The request schema for the SubmitShipmentConfirmations operation. */
         vendorShipments_SubmitShipmentConfirmationsRequest: {
@@ -68793,127 +68756,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["vendorInvoices_SubmitInvoicesResponse"];
-                };
-            };
-        };
-    };
-    SubmitShipmentConfirmation: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description A request to submit shipment confirmation. */
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationRequest"];
-            };
-        };
-        responses: {
-            /** @description Success. */
-            202: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description Request has missing or invalid parameters and cannot be parsed. */
-            400: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
-            403: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The resource specified does not exist. */
-            404: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The request size exceeded the maximum accepted size. */
-            413: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The request payload is in an unsupported format. */
-            415: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The frequency of requests was greater than allowed. */
-            429: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
-            500: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description Temporary overloading or maintenance of the server. */
-            503: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
                 };
             };
         };
