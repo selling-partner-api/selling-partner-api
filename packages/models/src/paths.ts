@@ -16961,8 +16961,6 @@ export interface components {
              *
              *     **Note**: This attribute is only available in the Brazil marketplace. */
             BuyerCounty?: string;
-            /** @description The anonymized email address of the buyer. */
-            BuyerEmail?: string;
             /** @description The buyer name or the recipient name. */
             BuyerName?: string;
             BuyerTaxInfo?: components["schemas"]["ordersV0_BuyerTaxInfo"];
@@ -17284,8 +17282,6 @@ export interface components {
              *
              *     **Note**: This attribute is only available in the Brazil marketplace. */
             BuyerCounty?: string;
-            /** @description The anonymized email address of the buyer. */
-            BuyerEmail?: string;
             /** @description The buyer name or the recipient name. */
             BuyerName?: string;
             BuyerTaxInfo?: components["schemas"]["ordersV0_BuyerTaxInfo"];
@@ -51948,8 +51944,6 @@ export interface operations {
                 ActualFulfillmentSupplySourceId?: string;
                 /** @description A list of `AmazonOrderId` values. An `AmazonOrderId` is an Amazon-defined order identifier, in 3-7-7 format. */
                 AmazonOrderIds?: string[];
-                /** @description The email address of a buyer. Used to select orders that contain the specified email address. */
-                BuyerEmail?: string;
                 /** @description Use this date to select orders created after (or at) a specified time. Only orders placed after the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
                  *
                  *     **Note**: Either the `CreatedAfter` parameter or the `LastUpdatedAfter` parameter is required. Both cannot be empty. `LastUpdatedAfter` and `LastUpdatedBefore` cannot be set when `CreatedAfter` is set. */
@@ -52033,7 +52027,7 @@ export interface operations {
                  *
                  *     **Possible values**: `COD` (cash on delivery), `CVS` (convenience store), `Other` (Any payment method other than COD or CVS). */
                 PaymentMethods?: string[];
-                /** @description An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, LastUpdatedBefore, and `BuyerEmail` cannot be specified. */
+                /** @description An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, and `LastUpdatedBefore` cannot be specified. */
                 SellerOrderId?: string;
                 /** @description The store chain store identifier. Linked to a specific store in a store chain. */
                 StoreChainStoreId?: string;
