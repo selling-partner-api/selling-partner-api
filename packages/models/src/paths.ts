@@ -4010,31 +4010,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/orders/v0/orders/{orderId}/fulfillmentInstructions": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Returns the fulfillment instructions for the order that you specify.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 0.5 | 30 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getOrderFulfillmentInstructions"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/orders/v0/orders/{orderId}/orderItems": {
         parameters: {
             query?: never;
@@ -7059,34 +7034,6 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["submitInvoices"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/vendor/shipping/v1/shipmentConfirmation": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * SubmitShipmentConfirmation
-         * @description Submits one shipment confirmation for vendor orders and get response immediately.
-         *
-         *     **Usage Plan:**
-         *
-         *     | Rate (requests per second) | Burst |
-         *     | ---- | ---- |
-         *     | 10 | 10 |
-         *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
-         */
-        post: operations["SubmitShipmentConfirmation"];
         delete?: never;
         options?: never;
         head?: never;
@@ -18057,69 +18004,10 @@ export interface components {
             /** @description Time window during the day when the business is open. */
             OpenIntervals?: components["schemas"]["ordersV0_OpenInterval"][];
         };
-        /** @description Contains information that is related to the export of an order item. */
-        ordersV0_ExportInfo: {
-            ExportCharge?: components["schemas"]["ordersV0_Money"];
-            /** @description Holds the `ExportCharge` collection model that is associated with the specified order item.
-             *
-             *     **Possible values**: `AMAZON_FACILITATED`: Import/export charge is withheld by Amazon and remitted to the customs authority by the carrier on behalf of the buyer/seller. */
-            ExportChargeModel?: string;
-        };
         /** @description Contains the instructions about the fulfillment, such as the location from where you want the order filled. */
         ordersV0_FulfillmentInstruction: {
             /** @description The `sourceId` of the location from where you want the order fulfilled. */
             FulfillmentSupplySourceId?: string;
-        };
-        /** @description Contains all fulfillment plans for the order */
-        ordersV0_FulfillmentInstructions: {
-            /** @description An Amazon-defined order identifier, in 3-7-7 format. */
-            AmazonOrderId: string;
-            /** @description List of all fulfillment plans for the given order id */
-            FulfillmentPlans?: components["schemas"]["ordersV0_FulfillmentPlan"][];
-        };
-        /** @description Represents a location from which the plan is to be fulfilled. */
-        ordersV0_FulfillmentLocation: {
-            /** @description The fulfillment location identifier. */
-            SupplySourceId?: string;
-        };
-        /** @description A collection of order items that are to be fulfilled from the same location with the same shipping, pickup, and service instructions. */
-        ordersV0_FulfillmentPlan: {
-            /** @description Time when the fulfillment plan was created in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. */
-            CreationDate: string;
-            FulfillmentLocation?: components["schemas"]["ordersV0_FulfillmentLocation"];
-            /** @description Unique identifier for a fulfillment plan. */
-            FulfillmentPlanId: string;
-            /** @description The details of the order items that are included in the fulfillment plan. */
-            FulfillmentPlanItems: components["schemas"]["ordersV0_FulfillmentPlanItem"][];
-            /**
-             * @description The fulfillment plan status.
-             * @enum {string}
-             */
-            FulfillmentPlanStatus: "ACTIVE" | "ABORTED" | "COMPLETED" | "PARTIALLY_FULFILLED";
-            /**
-             * @description Type of fulfillment
-             * @enum {string}
-             */
-            FulfillmentType: "INSTORE_PICKUP" | "SERVICE" | "SHIP";
-            /** @description The time when the fulfillment plan's status was last updated in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. */
-            LastStatusUpdateDate: string;
-            ShippingInstructions?: components["schemas"]["ordersV0_ShippingInstructions"];
-        };
-        /**
-         * @description Details the importance of the constraint present on the item.
-         * @enum {string}
-         */
-        ordersV0_FulfillmentPlanConstraintType: "MANDATORY" | "RECOMMENDED";
-        /** @description The order items associated with this fulfillment plan. */
-        ordersV0_FulfillmentPlanItem: {
-            Measurement: components["schemas"]["ordersV0_Measurement"];
-            /** @description An Amazon-defined associated order item's order item identifier. */
-            OrderItemId: string;
-        };
-        /** @description Delivery constraints applicable to this order. */
-        ordersV0_FulfillmentPlanShippingConstraints: {
-            PalletDelivery?: components["schemas"]["ordersV0_FulfillmentPlanConstraintType"];
-            SignatureConfirmation?: components["schemas"]["ordersV0_FulfillmentPlanConstraintType"];
         };
         /** @description The response schema for the `getOrderAddress` operation. */
         ordersV0_GetOrderAddressResponse: {
@@ -18130,11 +18018,6 @@ export interface components {
         ordersV0_GetOrderBuyerInfoResponse: {
             errors?: components["schemas"]["ordersV0_ErrorList"];
             payload?: components["schemas"]["ordersV0_OrderBuyerInfo"];
-        };
-        /** @description The response schema for the `getOrderFulfillmentInstructions` operation. */
-        ordersV0_GetOrderFulfillmentInstructionsResponse: {
-            errors?: components["schemas"]["ordersV0_ErrorList"];
-            payload?: components["schemas"]["ordersV0_FulfillmentInstructions"];
         };
         /** @description The response schema for the `getOrderItemsBuyerInfo` operation. */
         ordersV0_GetOrderItemsBuyerInfoResponse: {
@@ -18370,7 +18253,6 @@ export interface components {
              * @enum {string}
              */
             DeemedResellerCategory?: "IOSS" | "UOSS";
-            ExportInfo?: components["schemas"]["ordersV0_ExportInfo"];
             /** @description The IOSS number of the marketplace. Sellers shipping to the EU from outside the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale. */
             IossNumber?: string;
             /** @description Indicates whether the item is a gift.
@@ -18637,14 +18519,6 @@ export interface components {
             RecipientAgeVerification?: components["schemas"]["ordersV0_ConstraintType"];
             RecipientIdentityVerification?: components["schemas"]["ordersV0_ConstraintType"];
             SignatureConfirmation?: components["schemas"]["ordersV0_ConstraintType"];
-        };
-        /** @description The shipping-related information of a delivery. */
-        ordersV0_ShippingInstructions: {
-            /** @description The name of the carrier that delivers the package. */
-            CarrierCode?: string;
-            ShippingConstraints?: components["schemas"]["ordersV0_FulfillmentPlanShippingConstraints"];
-            /** @description The ship method that is used for the order. */
-            ShippingMethod?: string;
         };
         /** @description Substitution options for an order item. */
         ordersV0_SubstitutionOption: {
@@ -26618,18 +26492,6 @@ export interface components {
             /** @description The vendor selected product identification of the item. Should be the same as was sent in the purchase order. */
             vendorProductIdentifier?: string;
         };
-        /** @description Details of item quantity. */
-        vendorShipments_PackedQuantity: {
-            /** @description Amount of units shipped for a specific item at a shipment level. If the item is present only in certain cartons or pallets within the shipment, please provide this at the appropriate carton or pallet level. */
-            amount: number;
-            /**
-             * @description Unit of measure for the shipped quantity.
-             * @enum {string}
-             */
-            unitOfMeasure: "Cases" | "Eaches";
-            /** @description The case size, in the event that we ordered using cases. Otherwise, 1. */
-            unitSize?: number;
-        };
         /** @description The pagination elements required to retrieve the remaining data. */
         vendorShipments_Pagination: {
             /** @description A generated string used to pass information to your next request. If NextToken is returned, pass the value of NextToken to the next request. If NextToken is not returned, there are no more shipment items to return. */
@@ -26656,10 +26518,6 @@ export interface components {
             partyId: string;
             /** @description Tax registration details of the entity. */
             taxRegistrationDetails?: components["schemas"]["vendorShipments_TaxRegistrationDetails"][];
-        };
-        /** @description Item details for be provided for every item in shipment at either the item or carton or pallet level, whichever is appropriate. */
-        vendorShipments_PurchaseOrderItemDetails: {
-            maximumRetailPrice?: components["schemas"]["vendorShipments_Money"];
         };
         /** @description Details of the item being shipped. */
         vendorShipments_PurchaseOrderItems: {
@@ -26876,23 +26734,6 @@ export interface components {
              */
             functionCode: "PortOfDischarge" | "FreightPayableAt" | "PortOfLoading";
             locationIdentification?: components["schemas"]["vendorShipments_Location"];
-        };
-        /** @description The request schema for the SubmitShipmentConfirmation operation. */
-        vendorShipments_SubmitShipmentConfirmationRequest: {
-            shipmentConfirmation: components["schemas"]["vendorShipments_ShipmentConfirmation"];
-        };
-        /** @description The response schema for the SubmitShipmentConfirmation operation. */
-        vendorShipments_SubmitShipmentConfirmationResponse: {
-            errors?: components["schemas"]["vendorShipments_ErrorList"];
-            payload?: components["schemas"]["vendorShipments_SubmitShipmentConfirmationResult"];
-        };
-        /** @description Result payload for successful ASN submission. */
-        vendorShipments_SubmitShipmentConfirmationResult: {
-            /**
-             * @description Success message for the operation SubmitShipmentConfirmation
-             * @example The ASN was submitted successfully
-             */
-            message?: string;
         };
         /** @description The request schema for the SubmitShipmentConfirmations operation. */
         vendorShipments_SubmitShipmentConfirmationsRequest: {
@@ -54205,103 +54046,6 @@ export interface operations {
             };
         };
     };
-    getOrderFulfillmentInstructions: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description The Amazon order identifier in 3-7-7 format. */
-                orderId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Success. */
-            200: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ordersV0_GetOrderFulfillmentInstructionsResponse"];
-                };
-            };
-            /** @description Request has missing or invalid parameters and cannot be parsed. */
-            400: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ordersV0_GetOrderFulfillmentInstructionsResponse"];
-                };
-            };
-            /** @description Indicates access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
-            403: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ordersV0_GetOrderFulfillmentInstructionsResponse"];
-                };
-            };
-            /** @description The resource specified does not exist. */
-            404: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ordersV0_GetOrderFulfillmentInstructionsResponse"];
-                };
-            };
-            /** @description The frequency of requests was greater than allowed. */
-            429: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ordersV0_GetOrderFulfillmentInstructionsResponse"];
-                };
-            };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
-            500: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ordersV0_GetOrderFulfillmentInstructionsResponse"];
-                };
-            };
-            /** @description Temporary overloading or maintenance of the server. */
-            503: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ordersV0_GetOrderFulfillmentInstructionsResponse"];
-                };
-            };
-        };
-    };
     getOrderItems: {
         parameters: {
             query?: {
@@ -71047,127 +70791,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["vendorInvoices_SubmitInvoicesResponse"];
-                };
-            };
-        };
-    };
-    SubmitShipmentConfirmation: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description A request to submit shipment confirmation. */
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationRequest"];
-            };
-        };
-        responses: {
-            /** @description Success. */
-            200: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description Request has missing or invalid parameters and cannot be parsed. */
-            400: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
-            403: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The resource specified does not exist. */
-            404: {
-                headers: {
-                    /** @description Your rate limit (requests per second) for this operation. */
-                    "x-amzn-RateLimit-Limit"?: string;
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The request size exceeded the maximum accepted size. */
-            413: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The request payload is in an unsupported format. */
-            415: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description The frequency of requests was greater than allowed. */
-            429: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
-            500: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
-                };
-            };
-            /** @description Temporary overloading or maintenance of the server. */
-            503: {
-                headers: {
-                    /** @description Unique request reference identifier. */
-                    "x-amzn-RequestId"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["vendorShipments_SubmitShipmentConfirmationResponse"];
                 };
             };
         };
