@@ -1165,7 +1165,7 @@ export interface paths {
          *     | 1.133 | 25 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getInvoiceStatus"];
+        get: operations["deliveryShipmentInvoiceV2022-07-01_getInvoiceStatus"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1335,7 +1335,7 @@ export interface paths {
             cookie?: never;
         };
         /** @description Get a list of shipments created for the seller in the status you specify. Shipments can be further filtered based on the fulfillment node or the time of the shipments' last update. */
-        get: operations["externalFulfillmentShipments_2024-09-11_getShipments"];
+        get: operations["getShipments"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1352,7 +1352,7 @@ export interface paths {
             cookie?: never;
         };
         /** @description Get a single shipment with the ID you specify. */
-        get: operations["externalFulfillmentShipments_2024-09-11_getShipment"];
+        get: operations["getShipment"];
         put?: never;
         /** @description Confirm or reject the specified shipment. */
         post: operations["processShipment"];
@@ -1532,7 +1532,7 @@ export interface paths {
          *     | 2 | 30 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getShipments"];
+        get: operations["fulfillmentInboundV0_getShipments"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1789,7 +1789,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 2 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).. */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         get: operations["getFeatureInventory"];
         put?: never;
         post?: never;
@@ -2077,7 +2077,7 @@ export interface paths {
          *     | 1.133 | 25 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["shipmentInvoicingV0_submitInvoice"];
+        post: operations["submitInvoice"];
         delete?: never;
         options?: never;
         head?: never;
@@ -2100,7 +2100,7 @@ export interface paths {
          *     | 1.133 | 25 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["shipmentInvoicingV0_getInvoiceStatus"];
+        get: operations["getInvoiceStatus"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2399,7 +2399,7 @@ export interface paths {
          * Find particular Amazon SW account transaction by Amazon transaction identifier
          * @description Returns a transaction
          */
-        get: operations["getTransaction"];
+        get: operations["sellerWallet_2024-03-01_getTransaction"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2833,7 +2833,7 @@ export interface paths {
             cookie?: never;
         };
         /** @description Provides the full details for a specific shipment within an inbound plan. The `transportationOptionId` inside `acceptedTransportationSelection` can be used to retrieve the transportation details for the shipment. */
-        get: operations["getShipment"];
+        get: operations["fulfillmentInbound_2024-03-20_getShipment"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3234,7 +3234,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        put: operations["listingsItems_2020-09-01_putListingsItem"];
+        put: operations["putListingsItem"];
         post?: never;
         /** @description Delete a listings item for a selling partner.
          *
@@ -3247,7 +3247,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        delete: operations["listingsItems_2020-09-01_deleteListingsItem"];
+        delete: operations["deleteListingsItem"];
         options?: never;
         head?: never;
         /** @description Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.
@@ -3261,7 +3261,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        patch: operations["listingsItems_2020-09-01_patchListingsItem"];
+        patch: operations["patchListingsItem"];
         trace?: never;
     };
     "/listings/2021-08-01/items/{sellerId}": {
@@ -3315,7 +3315,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        put: operations["putListingsItem"];
+        put: operations["listingsItems_2021-08-01_putListingsItem"];
         post?: never;
         /** @description Delete a listings item for a selling partner.
          *
@@ -3326,7 +3326,7 @@ export interface paths {
          *     | 5 | 5 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        delete: operations["deleteListingsItem"];
+        delete: operations["listingsItems_2021-08-01_deleteListingsItem"];
         options?: never;
         head?: never;
         /** @description Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.
@@ -3338,7 +3338,7 @@ export interface paths {
          *     | 5 | 5 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        patch: operations["patchListingsItem"];
+        patch: operations["listingsItems_2021-08-01_patchListingsItem"];
         trace?: never;
     };
     "/listings/2021-08-01/restrictions": {
@@ -3901,7 +3901,7 @@ export interface paths {
             cookie?: never;
         };
         /** @description Returns the order that you specify. */
-        get: operations["orders_2026-01-01_getOrder"];
+        get: operations["getOrder"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3917,7 +3917,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns orders that are created or updated during the specified time period. If you want to return specific types of orders, you can apply filters to your request. `NextToken` doesn't affect any filters that you include in your request; it only impacts the pagination for the filtered orders response.
+        /**
+         * @deprecated
+         * @description Returns orders that are created or updated during the specified time period. If you want to return specific types of orders, you can apply filters to your request. `NextToken` doesn't affect any filters that you include in your request; it only impacts the pagination for the filtered orders response.
          *
          *     **Usage Plan:**
          *
@@ -3925,8 +3927,9 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.0167 | 20 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["ordersV0_getOrders"];
+         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
+         */
+        get: operations["getOrders"];
         put?: never;
         post?: never;
         delete?: never;
@@ -3942,7 +3945,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns the order that you specify.
+        /**
+         * @deprecated
+         * @description Returns the order that you specify.
          *
          *     **Usage Plan:**
          *
@@ -3950,7 +3955,8 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
+         */
         get: operations["ordersV0_getOrder"];
         put?: never;
         post?: never;
@@ -3967,7 +3973,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns the shipping address for the order that you specify.
+        /**
+         * @deprecated
+         * @description Returns the shipping address for the order that you specify.
          *
          *     **Usage Plan:**
          *
@@ -3975,7 +3983,8 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
+         */
         get: operations["getOrderAddress"];
         put?: never;
         post?: never;
@@ -3992,7 +4001,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns buyer information for the order that you specify.
+        /**
+         * @deprecated
+         * @description Returns buyer information for the order that you specify.
          *
          *     **Usage Plan:**
          *
@@ -4000,7 +4011,8 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
+         */
         get: operations["getOrderBuyerInfo"];
         put?: never;
         post?: never;
@@ -4017,7 +4029,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns detailed order item information for the order that you specify. If `NextToken` is provided, it's used to retrieve the next page of order items.
+        /**
+         * @deprecated
+         * @description Returns detailed order item information for the order that you specify. If `NextToken` is provided, it's used to retrieve the next page of order items.
          *
          *     __Note__: When an order is in the Pending state (the order has been placed but payment has not been authorized), the getOrderItems operation does not return information about pricing, taxes, shipping charges, gift status or promotions for the order items in the order. After an order leaves the Pending state (this occurs when payment has been authorized) and enters the Unshipped, Partially Shipped, or Shipped state, the getOrderItems operation returns information about pricing, taxes, shipping charges, gift status and promotions for the order items in the order.
          *
@@ -4027,7 +4041,8 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
+         */
         get: operations["getOrderItems"];
         put?: never;
         post?: never;
@@ -4044,7 +4059,9 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns buyer information for the order items in the order that you specify.
+        /**
+         * @deprecated
+         * @description Returns buyer information for the order items in the order that you specify.
          *
          *     **Usage Plan:**
          *
@@ -4052,7 +4069,8 @@ export interface paths {
          *     | ---- | ---- |
          *     | 0.5 | 30 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
+         */
         get: operations["getOrderItemsBuyerInfo"];
         put?: never;
         post?: never;
@@ -6189,7 +6207,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["submitAcknowledgement"];
+        post: operations["vendorDirectFulfillmentOrders_2021-12-28_submitAcknowledgement"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6212,7 +6230,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getOrders"];
+        get: operations["vendorDirectFulfillmentOrders_2021-12-28_getOrders"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6237,7 +6255,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getOrder"];
+        get: operations["vendorDirectFulfillmentOrders_2021-12-28_getOrder"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6264,7 +6282,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["vendorDirectFulfillmentOrdersV1_submitAcknowledgement"];
+        post: operations["submitAcknowledgement"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6339,7 +6357,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["submitInvoice"];
+        post: operations["vendorDirectFulfillmentPaymentsV1_submitInvoice"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6427,7 +6445,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        get: operations["getCustomerInvoices"];
+        get: operations["vendorDirectFulfillmentShipping_2021-12-28_getCustomerInvoices"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6455,7 +6473,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        get: operations["getCustomerInvoice"];
+        get: operations["vendorDirectFulfillmentShipping_2021-12-28_getCustomerInvoice"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6483,7 +6501,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        get: operations["getPackingSlips"];
+        get: operations["vendorDirectFulfillmentShipping_2021-12-28_getPackingSlips"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6511,7 +6529,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        get: operations["getPackingSlip"];
+        get: operations["vendorDirectFulfillmentShipping_2021-12-28_getPackingSlip"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6541,7 +6559,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        post: operations["submitShipmentConfirmations"];
+        post: operations["vendorDirectFulfillmentShipping_2021-12-28_submitShipmentConfirmations"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6569,7 +6587,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        post: operations["submitShipmentStatusUpdates"];
+        post: operations["vendorDirectFulfillmentShipping_2021-12-28_submitShipmentStatusUpdates"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6595,7 +6613,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        get: operations["getShippingLabels"];
+        get: operations["vendorDirectFulfillmentShipping_2021-12-28_getShippingLabels"];
         put?: never;
         /**
          * submitShippingLabelRequest
@@ -6609,7 +6627,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        post: operations["submitShippingLabelRequest"];
+        post: operations["vendorDirectFulfillmentShipping_2021-12-28_submitShippingLabelRequest"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6635,7 +6653,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values then those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits).
          */
-        get: operations["getShippingLabel"];
+        get: operations["vendorDirectFulfillmentShipping_2021-12-28_getShippingLabel"];
         put?: never;
         /**
          * createShippingLabels
@@ -6672,7 +6690,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorDirectFulfillmentShippingV1_getCustomerInvoices"];
+        get: operations["getCustomerInvoices"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6697,7 +6715,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorDirectFulfillmentShippingV1_getCustomerInvoice"];
+        get: operations["getCustomerInvoice"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6722,7 +6740,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorDirectFulfillmentShippingV1_getPackingSlips"];
+        get: operations["getPackingSlips"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6747,7 +6765,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorDirectFulfillmentShippingV1_getPackingSlip"];
+        get: operations["getPackingSlip"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6774,7 +6792,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["vendorDirectFulfillmentShippingV1_submitShipmentConfirmations"];
+        post: operations["submitShipmentConfirmations"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6799,7 +6817,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["vendorDirectFulfillmentShippingV1_submitShipmentStatusUpdates"];
+        post: operations["submitShipmentStatusUpdates"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6822,7 +6840,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorDirectFulfillmentShippingV1_getShippingLabels"];
+        get: operations["getShippingLabels"];
         put?: never;
         /** @description Creates a shipping label for a purchase order and returns a transactionId for reference.
          *
@@ -6833,7 +6851,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["vendorDirectFulfillmentShippingV1_submitShippingLabelRequest"];
+        post: operations["submitShippingLabelRequest"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6856,7 +6874,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorDirectFulfillmentShippingV1_getShippingLabel"];
+        get: operations["getShippingLabel"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6881,7 +6899,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getTransactionStatus"];
+        get: operations["vendorDirectFulfillmentTransactions_2021-12-28_getTransactionStatus"];
         put?: never;
         post?: never;
         delete?: never;
@@ -6906,7 +6924,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorDirectFulfillmentTransactionsV1_getTransactionStatus"];
+        get: operations["getTransactionStatus"];
         put?: never;
         post?: never;
         delete?: never;
@@ -7149,7 +7167,7 @@ export interface paths {
          *     | 10 | 20 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorTransactionStatus_getTransaction"];
+        get: operations["getTransaction"];
         put?: never;
         post?: never;
         delete?: never;
@@ -14772,7 +14790,7 @@ export interface components {
             /** @description The state or region where the person, business or institution is located. */
             stateOrRegion?: string;
         };
-        /** @description A quantity based on unit of measure. */
+        /** @description A quantity based on the specified unit of measurement. */
         "fulfillmentOutbound_2020-07-01_Amount": {
             /**
              * @description The unit of measure for the amount.
@@ -14891,12 +14909,12 @@ export interface components {
         "fulfillmentOutbound_2020-07-01_DeliveryDocument": {
             /** @description The delivery document type. The only possible value is `DELIVERY_IMAGE`. */
             documentType: string;
-            /** @description A URL that you can use to download the document. This URL has a `Content-Type` header. Note that the URL expires after one hour. To get a new URL, you must call the API again. */
+            /** @description A URL that is valid for one hour to download the document. In case of URL expiry, call the API again to get a new url. The URL will have a Content-Type header. */
             url?: string;
         };
         /** @description A list of delivery documents for a package. */
         "fulfillmentOutbound_2020-07-01_DeliveryDocumentList": components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryDocument"][];
-        /** @description The delivery information for the package. This information is available after the package is delivered. */
+        /** @description The delivery information of the package, this information is only available post package delivery to its intended destination. */
         "fulfillmentOutbound_2020-07-01_DeliveryInformation": {
             deliveryDocumentList?: components["schemas"]["fulfillmentOutbound_2020-07-01_DeliveryDocumentList"];
             dropOffLocation?: components["schemas"]["fulfillmentOutbound_2020-07-01_DropOffLocation"];
@@ -14924,7 +14942,7 @@ export interface components {
          *     This feature is currently supported only in the JP marketplace and not applicable for other marketplaces.
          *     For eligible orders, the default delivery preference will be to deliver the package unattended at the front door, unless you specify otherwise. */
         "fulfillmentOutbound_2020-07-01_DeliveryPreferences": {
-            /** @description Additional delivery instructions. For example, this could be instructions on how to enter a building, nearby landmark or navigation instructions, 'Beware of dogs', etc. */
+            /** @description Additional delivery instructions. For example, this could be instructions on how to enter a building, nearby landmark or navigation instructions, or `Beware of dogs`. */
             deliveryInstructions?: string;
             dropOffLocation?: components["schemas"]["fulfillmentOutbound_2020-07-01_DropOffLocation"];
         };
@@ -14940,15 +14958,18 @@ export interface components {
             deliveryAddress?: components["schemas"]["fulfillmentOutbound_2020-07-01_VariablePrecisionAddress"];
             ipAddress?: components["schemas"]["fulfillmentOutbound_2020-07-01_IpAddress"];
         };
-        /** @description The preferred location to leave packages at the destination address. */
+        /** @description The drop-off location at the destination address. */
         "fulfillmentOutbound_2020-07-01_DropOffLocation": {
-            /** @description Additional information about the drop-off location that can vary depending on the type of drop-off location specified in the `type` field.
-             *     If the `type` is set to `FALLBACK_NEIGHBOR_DELIVERY`, the `attributes` object should include the exact keys `neighborName` and `houseNumber` to provide the name and house number of the designated neighbor. */
+            /** @description Additional information about the drop-off location. This information can vary depending on the type of drop-off location specified in the `type` field.
+             *
+             *     If the `type` is set to `FALLBACK_NEIGHBOR_DELIVERY`, the `attributes` object must include the keys `neighborName` and `houseNumber` to provide the name and house number of the designated neighbor.
+             *
+             *     For `RECEPTIONIST` type, the `attributes` object may include a `recipientName` field that contains the name of the person who received or will receive the package. */
             attributes?: {
                 [key: string]: string;
             };
             /**
-             * @description Specifies the preferred location to leave the package at the destination address.
+             * @description The drop-off location type at the destination address.
              * @enum {string}
              */
             type: "FRONT_DOOR" | "DELIVERY_BOX" | "GAS_METER_BOX" | "BICYCLE_BASKET" | "GARAGE" | "RECEPTIONIST" | "FALLBACK_NEIGHBOR_DELIVERY" | "DO_NOT_LEAVE_UNATTENDED";
@@ -14980,7 +15001,7 @@ export interface components {
         };
         /** @description An array of features. */
         "fulfillmentOutbound_2020-07-01_Features": components["schemas"]["fulfillmentOutbound_2020-07-01_Feature"][];
-        /** @description Feature settings allows you to apply fulfillment features to an order. To block an order from being shipped using Amazon Logistics (AMZL) and an AMZL tracking number, set `featureName` to `BLOCK_AMZL` and `featureFulfillmentPolicy` to `Required`. Blocking AMZL will incur an additional fee surcharge on your MCF orders and increase the risk of some of your orders being unfulfilled or delivered late if there are no alternative carriers available. Using `BLOCK_AMZL` in an order request will take precedence over your Seller Central account setting. To ship in non-Amazon branded packaging (blank boxes), set `featureName` to `BLANK_BOX`. To require a signature from the recipient upon delivery, set `featureName` to `SIGNATURE_CONFIRMATION`. Note that using signature confirmation features will incur additional fees on MCF orders and are currently supported only in the US marketplace. To ensure all items in an order are delivered together, set `featureName` to `DELIVER_TOGETHER`. */
+        /** @description Feature settings allows you to apply fulfillment features to an order. To block an order from being shipped using Amazon Logistics (AMZL) and an AMZL tracking number, set `featureName` to `BLOCK_AMZL` and `featureFulfillmentPolicy` to `Required`. Blocking AMZL will incur an additional fee surcharge on your MCF orders and increase the risk of some of your orders being unfulfilled or delivered late if there are no alternative carriers available. Using `BLOCK_AMZL` in an order request will take precedence over your Seller Central account setting. To ship in non-Amazon branded packaging (blank boxes), set `featureName` to `BLANK_BOX`. To require items to be shipped in an overbox rather than in their original product packaging, set `featureName` to `OVERBOX`. To require a packing slip to be included with the order, set `featureName` to `PACKING_SLIP`. To require a signature from the recipient upon delivery, set `featureName` to `SIGNATURE_CONFIRMATION`. Note that using signature confirmation features will incur additional fees on MCF orders and are currently supported only in the US marketplace. To ensure all items in an order are delivered together, set `featureName` to `DELIVER_TOGETHER`. */
         "fulfillmentOutbound_2020-07-01_FeatureSettings": {
             /**
              * @description Specifies the policy to use when fulfilling an order.
@@ -14992,6 +15013,8 @@ export interface components {
              *     - `BLOCK_AMZL`: Blocks orders from being shipped using Amazon Logistics (AMZL).
              *       - Note: Using this feature will incur additional fee surcharges on MCF orders and may increase the risk of unfulfilled or delayed deliveries if alternative carriers are unavailable. Using `BLOCK_AMZL` in an order request will take precedence over your Seller Central account setting.
              *     - `BLANK_BOX`: Ships orders in non-Amazon branded packaging (blank boxes).
+             *     - `OVERBOX`: Requires items to be shipped in an overbox rather than in their original product packaging.
+             *     - `PACKING_SLIP`: Requires a packing slip to be included with the order.
              *     - `SIGNATURE_CONFIRMATION`: Requires a signature from the recipient upon delivery.
              *       - Note: Using signature confirmation features will incur additional fees on MCF orders and are currently supported only in the US marketplace. */
             featureName?: string;
@@ -15004,7 +15027,7 @@ export interface components {
             fnSku?: string;
             /** @description Other seller SKUs that are shared across the same inventory. */
             overlappingSkus?: string[];
-            /** @description Used to identify an item in the given marketplace. `SellerSKU` is qualified by the seller's SellerId, which is included with every operation that you submit. */
+            /** @description Used to identify an item in the given marketplace. SellerSKU is qualified by the seller's SellerId, which is included with every operation that you submit. */
             sellerSku?: string;
             /** @description The number of SKUs available for this service. */
             skuCount?: number;
@@ -15241,8 +15264,12 @@ export interface components {
         };
         /** @description The payload for the `getFeatureSKU` operation. */
         "fulfillmentOutbound_2020-07-01_GetFeatureSkuResult": {
+            /** @description The Amazon Standard Identification Number (ASIN) of the item. */
+            asin?: string;
             /** @description The name of the feature. */
             featureName: string;
+            /** @description The unique SKU used by Amazon's fulfillment network. */
+            fnSku?: string;
             /** @description A list of one or more reasons that the seller SKU is ineligible for the feature.
              *
              *     Possible values:
@@ -15254,7 +15281,10 @@ export interface components {
             isEligible: boolean;
             /** @description The requested marketplace. */
             marketplaceId: string;
-            skuInfo?: components["schemas"]["fulfillmentOutbound_2020-07-01_FeatureSku"];
+            /** @description Used to identify an item in the given marketplace. SellerSKU is qualified by the seller's SellerId, which is included with every operation that you submit. */
+            sellerSku?: string;
+            /** @description The number of SKUs available for this service. */
+            skuCount?: number;
         };
         /** @description The response schema for the `getFeatures` operation. */
         "fulfillmentOutbound_2020-07-01_GetFeaturesResponse": {
@@ -15341,7 +15371,7 @@ export interface components {
         "fulfillmentOutbound_2020-07-01_InvalidReturnItemList": components["schemas"]["fulfillmentOutbound_2020-07-01_InvalidReturnItem"][];
         /**
          * Format: ip
-         * @description An IP Address.
+         * @description An IP address.
          */
         "fulfillmentOutbound_2020-07-01_IpAddress": string;
         /** @description The response schema for the `listAllFulfillmentOrders` operation. */
@@ -15382,7 +15412,7 @@ export interface components {
         "fulfillmentOutbound_2020-07-01_NotificationEmailList": string[];
         /** @description The origin for the delivery offer. */
         "fulfillmentOutbound_2020-07-01_Origin": {
-            /** @description The two digit country code the items should ship from. In ISO 3166-1 alpha-2 format. */
+            /** @description The two-digit country code (in ISO 3166-1 alpha-2 format) for the country where the items will ship from. */
             countryCode: string;
         };
         /** @description Tracking details of package */
@@ -19236,7 +19266,7 @@ export interface components {
             Identifier: components["schemas"]["productPricingV0_ItemIdentifier"];
             ItemCondition: components["schemas"]["productPricingV0_ConditionType"];
             /** @description A marketplace identifier. */
-            MarketplaceID: string;
+            marketplaceId: string;
             Offers: components["schemas"]["productPricingV0_OfferDetailList"];
             /** @description The stock keeping unit (SKU) of the item. */
             SKU?: string;
@@ -34059,7 +34089,7 @@ export interface operations {
             };
         };
     };
-    getInvoiceStatus: {
+    "deliveryShipmentInvoiceV2022-07-01_getInvoiceStatus": {
         parameters: {
             query: {
                 /**
@@ -35182,7 +35212,7 @@ export interface operations {
             };
         };
     };
-    "externalFulfillmentShipments_2024-09-11_getShipments": {
+    getShipments: {
         parameters: {
             query: {
                 /**
@@ -35350,7 +35380,7 @@ export interface operations {
             };
         };
     };
-    "externalFulfillmentShipments_2024-09-11_getShipment": {
+    getShipment: {
         parameters: {
             query?: never;
             header?: never;
@@ -37007,7 +37037,7 @@ export interface operations {
             };
         };
     };
-    getShipments: {
+    fulfillmentInboundV0_getShipments: {
         parameters: {
             query: {
                 /** @description A date used for selecting inbound shipments that were last updated after (or at) a specified time. The selection includes updates made by Amazon and by the seller. */
@@ -39681,7 +39711,7 @@ export interface operations {
             };
         };
     };
-    shipmentInvoicingV0_submitInvoice: {
+    submitInvoice: {
         parameters: {
             query?: never;
             header?: never;
@@ -39819,7 +39849,7 @@ export interface operations {
             };
         };
     };
-    shipmentInvoicingV0_getInvoiceStatus: {
+    getInvoiceStatus: {
         parameters: {
             query?: never;
             header?: never;
@@ -41817,7 +41847,7 @@ export interface operations {
             };
         };
     };
-    getTransaction: {
+    "sellerWallet_2024-03-01_getTransaction": {
         parameters: {
             query: {
                 /**
@@ -45356,7 +45386,7 @@ export interface operations {
             };
         };
     };
-    getShipment: {
+    "fulfillmentInbound_2024-03-20_getShipment": {
         parameters: {
             query?: never;
             header?: never;
@@ -48829,7 +48859,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2020-09-01_putListingsItem": {
+    putListingsItem: {
         parameters: {
             query: {
                 /**
@@ -48968,7 +48998,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2020-09-01_deleteListingsItem": {
+    deleteListingsItem: {
         parameters: {
             query: {
                 /**
@@ -49102,7 +49132,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2020-09-01_patchListingsItem": {
+    patchListingsItem: {
         parameters: {
             query: {
                 /**
@@ -49599,7 +49629,7 @@ export interface operations {
             };
         };
     };
-    putListingsItem: {
+    "listingsItems_2021-08-01_putListingsItem": {
         parameters: {
             query: {
                 /**
@@ -49733,7 +49763,7 @@ export interface operations {
             };
         };
     };
-    deleteListingsItem: {
+    "listingsItems_2021-08-01_deleteListingsItem": {
         parameters: {
             query: {
                 /**
@@ -49852,7 +49882,7 @@ export interface operations {
             };
         };
     };
-    patchListingsItem: {
+    "listingsItems_2021-08-01_patchListingsItem": {
         parameters: {
             query: {
                 /**
@@ -53441,7 +53471,7 @@ export interface operations {
             };
         };
     };
-    "orders_2026-01-01_getOrder": {
+    getOrder: {
         parameters: {
             query?: {
                 /**
@@ -53569,7 +53599,7 @@ export interface operations {
             };
         };
     };
-    ordersV0_getOrders: {
+    getOrders: {
         parameters: {
             query: {
                 /** @description The `sourceId` of the location from where you want the order fulfilled. */
@@ -66425,7 +66455,7 @@ export interface operations {
             };
         };
     };
-    submitAcknowledgement: {
+    "vendorDirectFulfillmentOrders_2021-12-28_submitAcknowledgement": {
         parameters: {
             query?: never;
             header?: never;
@@ -66546,7 +66576,7 @@ export interface operations {
             };
         };
     };
-    getOrders: {
+    "vendorDirectFulfillmentOrders_2021-12-28_getOrders": {
         parameters: {
             query: {
                 /** @description Purchase orders that became available after this date and time will be included in the result. Must be in ISO-8601 date/time format. */
@@ -66670,7 +66700,7 @@ export interface operations {
             };
         };
     };
-    getOrder: {
+    "vendorDirectFulfillmentOrders_2021-12-28_getOrder": {
         parameters: {
             query?: never;
             header?: never;
@@ -66789,7 +66819,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentOrdersV1_submitAcknowledgement: {
+    submitAcknowledgement: {
         parameters: {
             query?: never;
             header?: never;
@@ -67152,7 +67182,7 @@ export interface operations {
             };
         };
     };
-    submitInvoice: {
+    vendorDirectFulfillmentPaymentsV1_submitInvoice: {
         parameters: {
             query?: never;
             header?: never;
@@ -67623,7 +67653,7 @@ export interface operations {
             };
         };
     };
-    getCustomerInvoices: {
+    "vendorDirectFulfillmentShipping_2021-12-28_getCustomerInvoices": {
         parameters: {
             query: {
                 /** @description Orders that became available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. */
@@ -67742,7 +67772,7 @@ export interface operations {
             };
         };
     };
-    getCustomerInvoice: {
+    "vendorDirectFulfillmentShipping_2021-12-28_getCustomerInvoice": {
         parameters: {
             query?: never;
             header?: never;
@@ -67861,7 +67891,7 @@ export interface operations {
             };
         };
     };
-    getPackingSlips: {
+    "vendorDirectFulfillmentShipping_2021-12-28_getPackingSlips": {
         parameters: {
             query: {
                 /** @description Packing slips that become available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. */
@@ -67990,7 +68020,7 @@ export interface operations {
             };
         };
     };
-    getPackingSlip: {
+    "vendorDirectFulfillmentShipping_2021-12-28_getPackingSlip": {
         parameters: {
             query?: never;
             header?: never;
@@ -68109,7 +68139,7 @@ export interface operations {
             };
         };
     };
-    submitShipmentConfirmations: {
+    "vendorDirectFulfillmentShipping_2021-12-28_submitShipmentConfirmations": {
         parameters: {
             query?: never;
             header?: never;
@@ -68230,7 +68260,7 @@ export interface operations {
             };
         };
     };
-    submitShipmentStatusUpdates: {
+    "vendorDirectFulfillmentShipping_2021-12-28_submitShipmentStatusUpdates": {
         parameters: {
             query?: never;
             header?: never;
@@ -68351,7 +68381,7 @@ export interface operations {
             };
         };
     };
-    getShippingLabels: {
+    "vendorDirectFulfillmentShipping_2021-12-28_getShippingLabels": {
         parameters: {
             query: {
                 /** @description Shipping labels that became available after this date and time will be included in the result. Values are in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. */
@@ -68471,7 +68501,7 @@ export interface operations {
             };
         };
     };
-    submitShippingLabelRequest: {
+    "vendorDirectFulfillmentShipping_2021-12-28_submitShippingLabelRequest": {
         parameters: {
             query?: never;
             header?: never;
@@ -68592,7 +68622,7 @@ export interface operations {
             };
         };
     };
-    getShippingLabel: {
+    "vendorDirectFulfillmentShipping_2021-12-28_getShippingLabel": {
         parameters: {
             query?: never;
             header?: never;
@@ -68846,7 +68876,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_getCustomerInvoices: {
+    getCustomerInvoices: {
         parameters: {
             query: {
                 /** @description Orders that became available after this date and time will be included in the result. Must be in ISO-8601 date/time format. */
@@ -68965,7 +68995,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_getCustomerInvoice: {
+    getCustomerInvoice: {
         parameters: {
             query?: never;
             header?: never;
@@ -69084,7 +69114,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_getPackingSlips: {
+    getPackingSlips: {
         parameters: {
             query: {
                 /** @description Packing slips that became available after this date and time will be included in the result. Must be in ISO-8601 date/time format. */
@@ -69213,7 +69243,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_getPackingSlip: {
+    getPackingSlip: {
         parameters: {
             query?: never;
             header?: never;
@@ -69332,7 +69362,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_submitShipmentConfirmations: {
+    submitShipmentConfirmations: {
         parameters: {
             query?: never;
             header?: never;
@@ -69453,7 +69483,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_submitShipmentStatusUpdates: {
+    submitShipmentStatusUpdates: {
         parameters: {
             query?: never;
             header?: never;
@@ -69574,7 +69604,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_getShippingLabels: {
+    getShippingLabels: {
         parameters: {
             query: {
                 /** @description Shipping labels that became available after this date and time will be included in the result. Must be in ISO-8601 date/time format. */
@@ -69693,7 +69723,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_submitShippingLabelRequest: {
+    submitShippingLabelRequest: {
         parameters: {
             query?: never;
             header?: never;
@@ -69814,7 +69844,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentShippingV1_getShippingLabel: {
+    getShippingLabel: {
         parameters: {
             query?: never;
             header?: never;
@@ -69933,7 +69963,7 @@ export interface operations {
             };
         };
     };
-    getTransactionStatus: {
+    "vendorDirectFulfillmentTransactions_2021-12-28_getTransactionStatus": {
         parameters: {
             query?: never;
             header?: never;
@@ -70052,7 +70082,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentTransactionsV1_getTransactionStatus: {
+    getTransactionStatus: {
         parameters: {
             query?: never;
             header?: never;
@@ -71335,7 +71365,7 @@ export interface operations {
             };
         };
     };
-    vendorTransactionStatus_getTransaction: {
+    getTransaction: {
         parameters: {
             query?: never;
             header?: never;
