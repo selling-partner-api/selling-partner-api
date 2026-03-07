@@ -2312,7 +2312,7 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Get all Amazon SW accounts for the seller
+         * Get all Amazon Seller Wallet accounts for the seller
          * @description Get Seller Wallet accounts for a seller.
          */
         get: operations["listAccounts"];
@@ -2332,7 +2332,7 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Find particular Amazon SW account by Amazon account identifier
+         * Find particular Amazon Seller Wallet account by Amazon account identifier
          * @description Retrieve a Seller Wallet bank account by Amazon account identifier.
          */
         get: operations["sellerWallet_2024-03-01_getAccount"];
@@ -2352,7 +2352,7 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Find balance in particular Amazon SW account by Amazon account identifier
+         * Find balance in particular Amazon Seller Wallet account by Amazon account identifier
          * @description Retrieve the balance in a given Seller Wallet bank account.
          */
         get: operations["listAccountBalances"];
@@ -2372,13 +2372,13 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * The API will return all the transactions for a given Amazon SW account sorted by the transaction request date
+         * The API will return all the transactions for a given Amazon Seller Wallet account sorted by the transaction request date
          * @description Retrieve a list of transactions for a given Seller Wallet bank account.
          */
         get: operations["listAccountTransactions"];
         put?: never;
         /**
-         * Create a transaction request from Amazon SW account to another customer provided account
+         * Create a transaction request from Amazon Seller Wallet account to another customer-provided account
          * @description Create a transaction request from a Seller Wallet account to another customer-provided account.
          */
         post: operations["createTransaction"];
@@ -2396,8 +2396,8 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * Find particular Amazon SW account transaction by Amazon transaction identifier
-         * @description Returns a transaction
+         * Find particular Amazon Seller Wallet account transaction by Amazon transaction identifier
+         * @description Find a transaction by the Amazon transaction identifier.
          */
         get: operations["sellerWallet_2024-03-01_getTransaction"];
         put?: never;
@@ -2417,7 +2417,7 @@ export interface paths {
         };
         /**
          * Fetch potential fees that could be applied on a transaction on the basis of the source and destination country currency code
-         * @description Returns list of potential fees on a transaction based on the source and destination country currency code
+         * @description Retrieve a list of potential fees on a transaction.
          */
         get: operations["getTransferPreview"];
         put?: never;
@@ -2436,17 +2436,17 @@ export interface paths {
             cookie?: never;
         };
         /**
-         * The API will return all the transfer schedules for a given Amazon SW account
+         * The API will return all the transfer schedules for a given Amazon Seller Wallet account
          * @description Retrieve transfer schedules of a Seller Wallet bank account.
          */
         get: operations["listTransferSchedules"];
         /**
          * Update a transfer schedule information. Only fields (i.e; transferScheduleInformation, paymentPreference, transferScheduleStatus) in the request body can be updated.
-         * @description Returns a transfer belonging to the updated scheduled transfer request
+         * @description Update transfer schedule information. Returns a transfer belonging to the updated scheduled transfer request.
          */
         put: operations["updateTransferSchedule"];
         /**
-         * Create a transfer schedule request from Amazon SW account to another customer provided account
+         * Create a transfer schedule request from Amazon Seller Wallet account to another customer-provided account
          * @description Create a transfer schedule request from a Seller Wallet account to another customer-provided account.
          */
         post: operations["createTransferSchedule"];
@@ -20367,7 +20367,7 @@ export interface components {
             nonLatinName?: string;
         };
         /**
-         * @description Specifies the balance amount in the Amazon SW bank account
+         * @description The balance amount in the Amazon Seller Wallet bank account.
          * @example {
          *       "accountId": "amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ",
          *       "balanceType": "AVAILABLE",
@@ -20378,28 +20378,25 @@ export interface components {
          */
         "sellerWallet_2024-03-01_Balance": {
             /**
-             * @description The unique identifier provided by Amazon to identify the account
-             *
+             * @description The unique identifier provided by Amazon to identify the account.
              * @example amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ
              */
             accountId: string;
             balanceAmount: components["schemas"]["sellerWallet_2024-03-01_BigDecimal"];
             /**
-             * @description The Amazon SW bank account currency code in ISO 4217 format
-             *
+             * @description The Amazon Seller Wallet bank account currency code in ISO 4217 format.
              * @example USD
              */
             balanceCurrency: string;
             balanceType?: components["schemas"]["sellerWallet_2024-03-01_BalanceType"];
             /**
              * Format: date-time
-             * @description The last update date on the account balance
-             *
+             * @description The date of the most recent account balance update.
              */
             lastUpdateDate: string;
         };
         /**
-         * @description Struct that holds list of balances on the seller account.
+         * @description A list of balances in the seller account.
          * @example {
          *       "balances": [
          *         {
@@ -20427,26 +20424,23 @@ export interface components {
          *     }
          */
         "sellerWallet_2024-03-01_BalanceListing": {
-            /** @description Collection that holds list of balances on the account
-             *      */
+            /** @description A list of balances in the seller account. */
             balances?: components["schemas"]["sellerWallet_2024-03-01_Balance"][];
         };
         /**
-         * @description Represent a bank account balance type.
+         * @description The type of bank account balance.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_BalanceType": "AVAILABLE" | "LOCKED_IN" | "LOCKED_OUT" | "TOTAL";
         /** @description Details of an Amazon Seller Wallet bank account. This account is used to hold the money that a Seller Wallet customer earns by selling items. */
         "sellerWallet_2024-03-01_BankAccount": {
             /**
-             * @description The two digit country code, in ISO 3166 format.
-             *
+             * @description The two-digit country code in ISO 3166 format.
              * @example US
              */
             accountCountryCode: string;
             /**
-             * @description BankAccount currency code in ISO 4217 format
-             *
+             * @description Bank account currency code in ISO 4217 format.
              * @example USD
              */
             accountCurrency: string;
@@ -20463,9 +20457,8 @@ export interface components {
             bankAccountHolderStatus?: components["schemas"]["sellerWallet_2024-03-01_BankAccountHolderStatus"];
             bankAccountNumberFormat?: components["schemas"]["sellerWallet_2024-03-01_BankAccountNumberFormat"];
             /**
-             * @description Last 3 digit of the bank account number, for all Amazon Seller Wallet account the value will be three consecutive 0's
-             *
-             * @example 666
+             * @description The last 3 digit of the bank account number. This value is three consecutive zeros for Amazon Seller Wallet accounts.
+             * @example 123
              */
             bankAccountNumberTail: string;
             bankAccountOwnershipType: components["schemas"]["sellerWallet_2024-03-01_BankAccountOwnershipType"];
@@ -20482,14 +20475,13 @@ export interface components {
             routingNumber?: string;
         };
         /**
-         * @description Represents status of the Amazon Seller Wallet accountholder
+         * @description The status of the Amazon Seller Wallet account holder.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_BankAccountHolderStatus": "ACTIVE" | "INACTIVE" | "UNDER_REVIEW" | "VERIFICATION_FAILED";
-        /** @description Struct that holds collection of accounts. */
+        /** @description A list of bank accounts. */
         "sellerWallet_2024-03-01_BankAccountListing": {
-            /** @description Collection that holds BankAccount
-             *      */
+            /** @description A list of bank accounts. */
             accounts: components["schemas"]["sellerWallet_2024-03-01_BankAccount"][];
         };
         /**
@@ -20498,16 +20490,16 @@ export interface components {
          */
         "sellerWallet_2024-03-01_BankAccountNumberFormat": "IBAN" | "BBAN";
         /**
-         * @description Represents destination bank account's ownership type.
+         * @description The destination bank account's ownership type.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_BankAccountOwnershipType": "THIRD_PARTY" | "SELF";
         /**
-         * @description Represents a format of a bank number also called routing number type
+         * @description The format of the bank number. Also known as the routing number type.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_BankNumberFormat": "BIC" | "BASIC";
-        /** @description A decimal number such as amount or FX rate. */
+        /** @description A decimal number, such as an amount or FX rate. */
         "sellerWallet_2024-03-01_BigDecimal": number;
         /** @description The transaction response and historical details related to it. */
         "sellerWallet_2024-03-01_CreateTransactionResponse": {
@@ -20524,9 +20516,9 @@ export interface components {
             /** @description The three-digit currency code in ISO 4217 format. */
             currencyCode?: string;
         };
-        /** @description Response returned when the schedule transfer's delete request is successful. */
+        /** @description The response returned when the schedule transfer's delete request is successful. */
         "sellerWallet_2024-03-01_DeleteTransferSchedule": {
-            /** @description A success code that specifies the delete operation was successful. eg:HTTP 200. */
+            /** @description A success code that specifies that the delete operation was successful. For example, HTTP 200. */
             code: string;
             /** @description Additional details that can help the caller understand the operation execution. */
             details?: string;
@@ -20544,29 +20536,25 @@ export interface components {
         };
         /** @description A list of error responses returned when a request is unsuccessful. */
         "sellerWallet_2024-03-01_ErrorList": {
-            /** @description List of errors
-             *      */
+            /** @description List of errors */
             errors: components["schemas"]["sellerWallet_2024-03-01_Error"][];
         };
-        /** @description If the fees is in baseAmount (sourceAccount) currency, effectiveRate =  (baseAmount - sum(fees.feeAmount.currencyAmount)) * baseRate) / baseAmount. If the fees is in transferAmount (destinationAccount) currency, effectiveRate =  (( baseAmount * baseRate ) -  sum(fees.feeAmount.currencyAmount )) / baseAmount
-         *      */
+        /** @description Details of the fee. */
         "sellerWallet_2024-03-01_Fee": {
             feeAmount: components["schemas"]["sellerWallet_2024-03-01_Currency"];
-            /** @description Unique identifier assigned to the Fee.
-             *      */
+            /** @description The unique identifier assigned to the fee. */
             feeId: string;
             /** @description The value of the fee in percentage format. */
             feeRateValue: string;
             feeType: components["schemas"]["sellerWallet_2024-03-01_FeeType"];
         };
         /**
-         * @description Represents different types of fees that can be applied on a transaction.
+         * @description The type of fee on the transaction.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_FeeType": "MISCELLANEOUS_FEE" | "TAX" | "TRANSACTION_FEE";
         /**
-         * @description Foreign exchange rate details displayed when transfer preview is requested.
-         *
+         * @description Foreign exchange rate details.
          * @example {
          *       "fxRateId": "UNIQUE_FX_RATE_ID_1",
          *       "baseRate": 7.2,
@@ -20577,8 +20565,7 @@ export interface components {
         "sellerWallet_2024-03-01_FxRateDetails": {
             baseRate: components["schemas"]["sellerWallet_2024-03-01_BigDecimal"];
             effectiveFxRate: components["schemas"]["sellerWallet_2024-03-01_BigDecimal"];
-            /** @description Unique identifier assigned to the fees/foreign exchange Rate of a transaction.
-             *      */
+            /** @description The unique identifier assigned to the fees / foreign exchange rate of a transaction. */
             fxRateId: string;
             rateDirection: components["schemas"]["sellerWallet_2024-03-01_RateDirection"];
         };
@@ -20599,32 +20586,27 @@ export interface components {
          */
         "sellerWallet_2024-03-01_PayeeContactInformation": {
             /**
-             * @description Address Line 1 of the public address
-             *
+             * @description Address Line 1 of the public address.
              * @example 678 JFK Street
              */
             addressLine1: string;
             /**
-             * @description Address Line 2 of the public address
-             *
+             * @description Address Line 2 of the public address.
              * @example Unit 415
              */
             addressLine2?: string;
             /**
-             * @description City name of the public address
-             *
+             * @description City name of the public address.
              * @example Seattle
              */
             city: string;
             /**
-             * @description Country name of the public address
-             *
+             * @description Country name of the public address.
              * @example United States
              */
             country?: string;
             /**
              * @description The two digit country code, in ISO 3166 format.
-             *
              * @example US
              */
             countryCode: string;
@@ -20655,8 +20637,7 @@ export interface components {
              */
             phoneNumber: string;
             /**
-             * @description Postal code of the public address
-             *
+             * @description Postal code of the public address.
              * @example 98109
              */
             postalCode: string;
@@ -20671,41 +20652,38 @@ export interface components {
          * @enum {string}
          */
         "sellerWallet_2024-03-01_PayeeEntityType": "INDIVIDUAL" | "BUSINESS" | "TAX_AUTHORITY";
-        /** @description Payment preference type in which transfer is being scheduled
-         *      */
+        /** @description The type of payment preference in which the transfer is being scheduled. */
         "sellerWallet_2024-03-01_PaymentPreference": {
             paymentPreferencePaymentType: components["schemas"]["sellerWallet_2024-03-01_PaymentPreferencePaymentType"];
             value: components["schemas"]["sellerWallet_2024-03-01_BigDecimal"];
         };
         /**
-         * @description Represent a type of payment preference.
+         * @description The type of payment preference.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_PaymentPreferencePaymentType": "PERCENTAGE" | "AMOUNT";
         /**
-         * @description Represents the rate direction at which the transaction is performed.
+         * @description Whether the customer is buying or selling the source currency.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_RateDirection": "BUY" | "SELL";
         /**
-         * @description Represent parameters to specify recurrence of the scheduled transfer.
+         * @description The frequency at which the transaction is repeated.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_RecurringFrequency": "DAILY" | "WEEKLY" | "BIWEEKLY" | "MONTHLY";
-        /** @description Parameters containing information of the expression that defines when the schedule runs. The following formats are supported.
-         *      */
+        /** @description The configuration of the schedule. */
         "sellerWallet_2024-03-01_ScheduleExpression": {
             recurringFrequency?: components["schemas"]["sellerWallet_2024-03-01_RecurringFrequency"];
             scheduleExpressionType: components["schemas"]["sellerWallet_2024-03-01_ScheduleExpressionType"];
         };
         /**
-         * @description Represent a type of schedule transfer expression.
+         * @description The type of scheduled transfer expression.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_ScheduleExpressionType": "RECURRING" | "ONE_TIME";
         /**
-         * @description Defines the type of schedule trigger used for executing transfers. Schedule based on time patterns using EventBridge.
-         *
+         * @description The type of schedule the transfer is on. Schedules based on time patterns use EventBridge.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_ScheduleTransferType": "TIME_BASED";
@@ -20718,41 +20696,35 @@ export interface components {
             accountId: string;
             /**
              * Format: date-time
-             * @description Expected completion date of a transaction, for existing active Payees (Trusted Beneficiaries) it will be 24 hours but for new destination bank accounts the value could go up to 5 days
-             *
+             * @description The expected completion date of the transaction.
              * @example 2023-09-26T02:32:59.787Z
              */
             expectedCompletionDate?: string;
             /**
              * Format: date-time
-             * @description The last update date on the transaction
-             *
+             * @description The date of the most recent account balance update.
              */
             lastUpdateDate: string;
             /**
-             * @description Amazon SW customer who requested the transaction
-             *
+             * @description The Amazon Seller Wallet customer who requested the transaction.
              * @example TPPOrgId
              */
             requesterName?: string;
             /**
              * Format: date-time
-             * @description Transaction completion date
-             *
+             * @description The transaction's completion date.
              */
             transactionActualCompletionDate?: string;
             /** @description A description of the transaction that the requester provides when they initiate the transaction. */
             transactionDescription: string;
             transactionDestinationAccount: components["schemas"]["sellerWallet_2024-03-01_TransactionAccount"];
             /**
-             * @description Description in case the transaction fails before completion
-             *
+             * @description The reason the transaction failed, if applicable.
              * @example Insufficient Balance
              */
             transactionFailureReason?: string;
             transactionFinalAmount?: components["schemas"]["sellerWallet_2024-03-01_Currency"];
-            /** @description The unique identifier provided by Amazon to the transaction
-             *      */
+            /** @description The unique identifier provided by Amazon to the transaction. */
             transactionId: string;
             transactionRequestAmount: components["schemas"]["sellerWallet_2024-03-01_Currency"];
             /**
@@ -20769,29 +20741,22 @@ export interface components {
         };
         /** @description Details of the bank account involved in the transaction. */
         "sellerWallet_2024-03-01_TransactionAccount": {
-            /** @description The unique identifier provided by Amazon to identify the account
-             *      */
+            /** @description The unique identifier provided by Amazon to identify the account. */
             accountId?: string;
-            /** @description The two digit country code, in ISO 3166 format. This field is OPTIONAL for transactionSourceAccount object but is MANDATORY field for transactionDestinationAccount
-             *      */
+            /** @description The two-digit country code, in ISO 3166 format. This field is optional for `transactionSourceAccount`, but is mandatory for `transactionDestinationAccount`. */
             bankAccountCountryCode?: string;
-            /** @description The currency code in ISO 4217 format
-             *      */
+            /** @description The currency code in ISO 4217 format. */
             bankAccountCurrency: string;
-            /** @description BankAccount holder's name
-             *      */
+            /** @description The account holder's name. */
             bankAccountHolderName?: string;
             bankAccountNumberFormat: components["schemas"]["sellerWallet_2024-03-01_BankAccountNumberFormat"];
-            /** @description Last 3 digit of the bank account number
-             *      */
+            /** @description The last three digits of the bank account number. */
             bankAccountNumberTail?: string;
-            /** @description The name of the bank
-             *      */
+            /** @description The name of the bank. */
             bankName: string;
         };
         /**
-         * @description Request body to initiate a transaction from a SW bank account to another customer defined bank account
-         *
+         * @description Request body to initiate a transaction from a Seller Wallet bank account to another customer-defined bank account.
          * @example {
          *       "sourceAccountId": "amzn1.account.SMUGN2EN3ZHWSRJKH2KCJPII5JEI",
          *       "sourceAmount": {
@@ -20871,8 +20836,7 @@ export interface components {
              */
             customerPaymentReference?: string;
             /**
-             * @description Optional field to specify the unique identifier of the destination bank account where the money needs to be deposited
-             *
+             * @description The unique identifier of the destination bank account where the money is deposited.
              * @example amzn1.account.AJKBFWEJFBNH2KCJPII5FBN
              */
             destinationAccountId?: string;
@@ -20880,14 +20844,12 @@ export interface components {
             payeeContactInformation?: components["schemas"]["sellerWallet_2024-03-01_PayeeContactInformation"];
             /**
              * Format: date-time
-             * @description The transaction initiation request time in date-time format
-             *
+             * @description The time at which the transaction was initiated in [ISO 8601 date time format](https://developer-docs.amazon.com/sp-api/docs/iso-8601).
              * @example 2024-03-26T02:32:59.787Z
              */
             requestTime: string;
             /**
-             * @description The unique identifier of the source Amazon SW bank account from where the money needs to be debited
-             *
+             * @description The unique identifier of the source Amazon Seller Wallet bank account from which the money is debited.
              * @example amzn1.account.SMUGN2EN3ZHWSRJKH2KCJPII5JEI
              */
             sourceAccountId: string;
@@ -20897,8 +20859,7 @@ export interface components {
             transferRateDetails?: components["schemas"]["sellerWallet_2024-03-01_TransferRatePreview"];
         };
         /**
-         * @description Request body to create transaction instrument, Amazon performs validation and screening (anti-money laundering measuers) on all the transaction instruments before executing a transaction thus it requires transaction instrument holder's contact details as well
-         *
+         * @description Details of the destination bank account in the transaction request.
          * @example {
          *       "bankAccount": {
          *         "bankAccountNumberFormat": "IBAN",
@@ -20923,30 +20884,30 @@ export interface components {
             accountHolderName: string;
             bankAccount: components["schemas"]["sellerWallet_2024-03-01_BankAccount"];
             /**
-             * @description This field would be used to populate the bank account number of the destination payment method. The field is intentionally not included in any other Schemas since Amazon internal systems will never receive it in unencrypted format, so field won't be part of the request signature
+             * @description The bank account number of the destination payment method.
              *
+             *     **Note:** This field is encrypted before Amazon receives it, so should not be used to generate `destAccountDigitalSignature`, and should not be included in the request signature.
              * @example GB29RBOS60161331926819
              */
             bankAccountNumber: string;
         };
-        /** @description Struct that holds collection of transactions. */
+        /** @description A list of transactions. */
         "sellerWallet_2024-03-01_TransactionListing": {
             /**
-             * @description If present, use this pagination token to retrieve the next page of supply sources, if not provided the API will return same response. The field will only be provided when the list is greater than 100.
+             * @description A token that you use to retrieve the next page of results. The response includes `nextPageToken` when the number of results exceeds 100. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextPageToken` is null. Note that this operation can return empty pages.
              * @example 3493805734095308457308475
              */
             nextPageToken?: string;
-            /** @description Collection that holds Transaction
-             *      */
+            /** @description A list of transactions. */
             transactions: components["schemas"]["sellerWallet_2024-03-01_Transaction"][];
         };
         /**
-         * @description Represents current status of the transaction.
+         * @description The current status of the transaction.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_TransactionStatus": "EXPIRED" | "FAILED" | "FAILED_CREDITS_APPLIED" | "IN_PROGRESS" | "PENDING_USER_APPROVAL" | "SUCCESSFUL";
         /**
-         * @description Represent type of transaction.
+         * @description The type of transaction.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_TransactionType": "CREDIT" | "DEBIT";
@@ -20959,8 +20920,7 @@ export interface components {
          *     In the preceding expressions, **fees** is equal to the sum of all `feeAmount.currencyAmount` values in the `fees` array. */
         "sellerWallet_2024-03-01_TransferRatePreview": {
             baseAmount: components["schemas"]["sellerWallet_2024-03-01_Currency"];
-            /** @description List of fees
-             *      */
+            /** @description A list of fees. */
             fees: components["schemas"]["sellerWallet_2024-03-01_Fee"][];
             fxRateDetails: components["schemas"]["sellerWallet_2024-03-01_FxRateDetails"];
             transferAmount: components["schemas"]["sellerWallet_2024-03-01_Currency"];
@@ -21013,17 +20973,15 @@ export interface components {
             transactionDestinationAccount: components["schemas"]["sellerWallet_2024-03-01_TransactionAccount"];
             transactionSourceAccount?: components["schemas"]["sellerWallet_2024-03-01_TransactionAccount"];
             transactionType: components["schemas"]["sellerWallet_2024-03-01_TransactionType"];
-            /** @description Collection that holds Transfer Schedules that has been cancelled or failed due to certain reasons.
-             *      */
+            /** @description A list of transfer schedule failures. */
             transferScheduleFailures: components["schemas"]["sellerWallet_2024-03-01_TransferScheduleFailures"][];
-            /** @description The unique identifier provided by Amazon to the scheduled transfer
-             *      */
+            /** @description The unique identifier provided by Amazon to the scheduled transfer. */
             transferScheduleId: string;
             transferScheduleInformation: components["schemas"]["sellerWallet_2024-03-01_TransferScheduleInformation"];
             transferScheduleStatus: components["schemas"]["sellerWallet_2024-03-01_TransferScheduleStatus"];
         };
         /**
-         * @description Specifies the balance amount in the Amazon SW bank account
+         * @description The time of and reason for the transfer schedule failure.
          * @example {
          *       "transferScheduleFailureDate": "2024-03-01T10:30:00Z",
          *       "transferScheduleFailureReason": "INSUFFICIENT_BALANCE"
@@ -21032,20 +20990,17 @@ export interface components {
         "sellerWallet_2024-03-01_TransferScheduleFailures": {
             /**
              * Format: date-time
-             * @description The transfer schedule cancellation date
-             *
+             * @description The transfer schedule failure date.
              */
             transferScheduleFailureDate: string;
             /**
-             * @description The statement/reasoning listed for the cancellation of the transfer schedule
-             *
+             * @description The reason listed for the failure of the transfer schedule.
              * @example INSUFFICIENT_BALANCE
              */
             transferScheduleFailureReason: string;
         };
         /**
-         * @description Parameters containing information required for initiating a schedule transfer
-         *
+         * @description Mandatory information for initiating a schedule transfer.
          * @example {
          *       "scheduleStartDate": "2024-03-01T00:00:00Z",
          *       "scheduleEndDate": "2027-03-01T00:00:00Z",
@@ -21059,35 +21014,31 @@ export interface components {
         "sellerWallet_2024-03-01_TransferScheduleInformation": {
             /**
              * Format: date-time
-             * @description Field to specify end date of the scheduled transfer
-             *
+             * @description The end date of the scheduled transfer.
              * @example 2027-03-01T00:00:00Z
              */
             scheduleEndDate?: string;
             scheduleExpression?: components["schemas"]["sellerWallet_2024-03-01_ScheduleExpression"];
             /**
              * Format: date-time
-             * @description Field to specify start date of the scheduled transfer
-             *
+             * @description The start date of the scheduled transfer.
              * @example 2024-03-01T00:00:00Z
              */
             scheduleStartDate?: string;
             scheduleType?: components["schemas"]["sellerWallet_2024-03-01_ScheduleTransferType"];
         };
-        /** @description Struct that holds collection of transfer schedules. */
+        /** @description A list of transfer schedules. */
         "sellerWallet_2024-03-01_TransferScheduleListing": {
             /**
-             * @description If present, use this pagination token to retrieve the next page of supply sources, if not provided the API will return same response. The field will only be provided when the list is greater than 100.
+             * @description A token that you use to retrieve the next page of results. The response includes `nextPageToken` when the number of results exceeds 100. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextPageToken` is null. Note that this operation can return empty pages.
              * @example 3493805734095308457308475
              */
             nextPageToken?: string;
-            /** @description Collection that holds list of Transfer Schedules
-             *      */
+            /** @description A list of transfer schedules. */
             transferSchedules: components["schemas"]["sellerWallet_2024-03-01_TransferSchedule"][];
         };
         /**
-         * @description Request body to initiate a scheduled transfer from a SW bank account to another customer defined bank account
-         *
+         * @description Request body to initiate a scheduled transfer from a Seller Wallet bank account to another customer-defined bank account.
          * @example {
          *       "sourceAccountId": "amzn1.account.SMUGN2EN3ZHWSRJKH2KCJPII5JEI",
          *       "destinationAccountId": "amzn1.account.AJKBFWEJFBNH2KCJPII5FBN",
@@ -21124,22 +21075,19 @@ export interface components {
          */
         "sellerWallet_2024-03-01_TransferScheduleRequest": {
             /**
-             * @description Optional field to specify the unique identifier of the destination bank account where the money needs to be deposited
-             *
+             * @description The unique identifier of the destination bank account where the money is deposited.
              * @example amzn1.account.AJKBFWEJFBNH2KCJPII5FBN
              */
             destinationAccountId: string;
             destinationTransactionInstrument: components["schemas"]["sellerWallet_2024-03-01_TransactionInstrumentDetails"];
             paymentPreference: components["schemas"]["sellerWallet_2024-03-01_PaymentPreference"];
             /**
-             * @description The unique identifier of the source Amazon SW bank account from where the money needs to be debited
-             *
+             * @description The unique identifier of the source Amazon Seller Wallet bank account from which money is debited.
              * @example amzn1.account.SMUGN2EN3ZHWSRJKH2KCJPII5JEI
              */
             sourceAccountId: string;
             /**
-             * @description Represents 3 letter currency code in ISO 4217 standard format of the source payment method country
-             *
+             * @description The three-letter currency code of the source payment method country, in ISO 4217 format.
              * @example GBP
              */
             sourceCurrencyCode: string;
@@ -21148,7 +21096,7 @@ export interface components {
             transferScheduleStatus?: components["schemas"]["sellerWallet_2024-03-01_TransferScheduleStatus"];
         };
         /**
-         * @description Represents the schedule status of the transfer.
+         * @description The schedule status of the transfer.
          * @enum {string}
          */
         "sellerWallet_2024-03-01_TransferScheduleStatus": "ENABLED" | "DISABLED" | "EXPIRED" | "DELETED";
@@ -41137,7 +41085,7 @@ export interface operations {
         parameters: {
             query: {
                 /**
-                 * @description A marketplace identifier. Specifies the marketplace for which items are returned.
+                 * @description The marketplace for which items are returned. The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
                  * @example A1RKKUPIHCS9HS
                  */
                 marketplaceId: string;
@@ -41278,7 +41226,7 @@ export interface operations {
             header?: never;
             path: {
                 /**
-                 * @description ID of the Amazon SW account
+                 * @description The ID of the Amazon Seller Wallet account.
                  * @example amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ
                  */
                 accountId: string;
@@ -41417,7 +41365,7 @@ export interface operations {
             header?: never;
             path: {
                 /**
-                 * @description ID of the Amazon SW account
+                 * @description The ID of the Amazon Seller Wallet account.
                  * @example amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ
                  */
                 accountId: string;
@@ -41548,7 +41496,7 @@ export interface operations {
         parameters: {
             query: {
                 /**
-                 * @description ID of the Amazon SW account
+                 * @description The ID of the Amazon Seller Wallet account.
                  * @example amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ
                  */
                 accountId: string;
@@ -41558,7 +41506,7 @@ export interface operations {
                  */
                 marketplaceId: string;
                 /**
-                 * @description Pagination token to retrieve a specific page of results.
+                 * @description A token that you use to retrieve the next page of results. The response includes `nextPageToken` when the number of results exceeds 100. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextPageToken` is null. Note that this operation can return empty pages.
                  * @example Next Page Token
                  */
                 nextPageToken?: string;
@@ -41711,7 +41659,7 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        /** @description Defines the actual payload of the request */
+        /** @description The payload of the request */
         requestBody: {
             content: {
                 "application/json": components["schemas"]["sellerWallet_2024-03-01_TransactionInitiationRequest"];
@@ -41859,7 +41807,7 @@ export interface operations {
             header?: never;
             path: {
                 /**
-                 * @description ID of the Amazon SW transaction
+                 * @description The ID of the Amazon Seller Wallet transaction.
                  * @example amzn1.transaction.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ
                  */
                 transactionId: string;
@@ -41990,17 +41938,17 @@ export interface operations {
         parameters: {
             query: {
                 /**
-                 * @description Represents the base transaction amount without any markup fees, rates that will be used to get the transfer preview.
+                 * @description The base transaction amount without any markup fees.
                  * @example 1000
                  */
                 baseAmount: number;
                 /**
-                 * @description Represents 2 character country code of destination transaction account in ISO 3166 standard format.
+                 * @description Country code of the destination transaction account in ISO 3166 format.
                  * @example FR
                  */
                 destinationCountryCode: string;
                 /**
-                 * @description Represents 3 letter currency code in ISO 4217 standard format of the destination transaction country.
+                 * @description Currency code of the destination transaction country in ISO 4217 format.
                  * @example EUR
                  */
                 destinationCurrencyCode: string;
@@ -42010,12 +41958,12 @@ export interface operations {
                  */
                 marketplaceId: string;
                 /**
-                 * @description Represents 2 character country code of source transaction account in ISO 3166 standard format.
+                 * @description Country code of the source transaction account in ISO 3166 format.
                  * @example US
                  */
                 sourceCountryCode: string;
                 /**
-                 * @description Represents 3 letter currency code in ISO 4217 standard format of the source transaction country.
+                 * @description Currency code of the source transaction country in ISO 4217 format.
                  * @example USD
                  */
                 sourceCurrencyCode: string;
@@ -42148,7 +42096,7 @@ export interface operations {
         parameters: {
             query: {
                 /**
-                 * @description ID of the Amazon SW account
+                 * @description The ID of the Amazon Seller Wallet account.
                  * @example amzn1.account.AGUGL2EM3ZHYSRJWH2UCRPIM5JFQ
                  */
                 accountId: string;
@@ -42158,7 +42106,7 @@ export interface operations {
                  */
                 marketplaceId: string;
                 /**
-                 * @description Pagination token to retrieve a specific page of results.
+                 * @description A token that you use to retrieve the next page of results. The response includes `nextPageToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextPageToken` is null. Note that this operation can return empty pages.
                  * @example Next Page Token
                  */
                 nextPageToken?: string;
@@ -42311,8 +42259,7 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        /** @description Defines the actual payload of the scheduled transfer request that is to be updated.
-         *      */
+        /** @description The payload of the scheduled transfer request that is to be updated. */
         requestBody: {
             content: {
                 "application/json": components["schemas"]["sellerWallet_2024-03-01_TransferSchedule"];
@@ -42461,7 +42408,7 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        /** @description Defines the actual payload of the request */
+        /** @description The payload of the request. */
         requestBody: {
             content: {
                 "application/json": components["schemas"]["sellerWallet_2024-03-01_TransferScheduleRequest"];
