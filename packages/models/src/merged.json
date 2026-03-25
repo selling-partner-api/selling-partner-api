@@ -138057,32 +138057,32 @@
         }
       },
       "shipmentInvoicingV0_PaymentInformationList": {
-        "description": "List of payment transactions",
+        "description": "A list of payment transactions.",
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/shipmentInvoicingV0_PaymentInformation"
         }
       },
       "shipmentInvoicingV0_PaymentInformation": {
-        "description": "Payment transaction information",
+        "description": "Information about a payment transaction.",
         "type": "object",
         "properties": {
           "PaymentMethod": {
             "$ref": "#/components/schemas/shipmentInvoicingV0_PaymentMethodEnum"
           },
           "AcquirerId": {
-            "description": "Government ID of acquirer",
+            "description": "The government ID of the acquirer.",
             "type": "string"
           },
           "CardBrand": {
-            "description": "Credit card brand (if payment method is CreditCard)",
+            "description": "The credit card brand if the payment method is `CreditCard`.",
             "type": "string"
           },
           "PaymentValue": {
             "$ref": "#/components/schemas/shipmentInvoicingV0_Money"
           },
           "AuthorizationCode": {
-            "description": "Authorization code for this payment",
+            "description": "The authorization code of this payment.",
             "type": "string"
           }
         }
@@ -138101,11 +138101,11 @@
         "x-docgen-enum-table-extension": [
           {
             "value": "CreditCard",
-            "description": "Credit Card was used for payment."
+            "description": "A credit card was used for payment."
           },
           {
             "value": "DebitCard",
-            "description": "Debit Card was used for payment."
+            "description": "A debit card was used for payment."
           },
           {
             "value": "Pix",
@@ -138113,15 +138113,15 @@
           },
           {
             "value": "BankSlip",
-            "description": "Bank Slip was used for payment."
+            "description": "A bank slip was used for payment."
           },
           {
             "value": "GiftCard",
-            "description": "Gift Card was used for payment."
+            "description": "A gift card was used for payment."
           },
           {
             "value": "Other",
-            "description": "For invoicing purposes, payment was done using another method."
+            "description": "For invoicing purposes, payment was made using another method."
           }
         ]
       },
