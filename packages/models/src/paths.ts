@@ -21820,18 +21820,18 @@ export interface components {
             /** @description Three-digit currency code in ISO 4217 format. */
             CurrencyCode?: string;
         };
-        /** @description Payment transaction information */
+        /** @description Information about a payment transaction. */
         shipmentInvoicingV0_PaymentInformation: {
-            /** @description Government ID of acquirer */
+            /** @description The government ID of the acquirer. */
             AcquirerId?: string;
-            /** @description Authorization code for this payment */
+            /** @description The authorization code of this payment. */
             AuthorizationCode?: string;
-            /** @description Credit card brand (if payment method is CreditCard) */
+            /** @description The credit card brand if the payment method is `CreditCard`. */
             CardBrand?: string;
             PaymentMethod?: components["schemas"]["shipmentInvoicingV0_PaymentMethodEnum"];
             PaymentValue?: components["schemas"]["shipmentInvoicingV0_Money"];
         };
-        /** @description List of payment transactions */
+        /** @description A list of payment transactions. */
         shipmentInvoicingV0_PaymentInformationList: components["schemas"]["shipmentInvoicingV0_PaymentInformation"][];
         /** @description The list of payment method details. */
         shipmentInvoicingV0_PaymentMethodDetailItemList: string[];
