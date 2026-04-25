@@ -170137,7 +170137,7 @@
             "$ref": "#/components/schemas/replenishment-2022-11-07_TimeInterval"
           },
           "metrics": {
-            "description": "The list of metrics requested. If no metric value is provided, data for all of the metrics will be returned.",
+            "description": "The list of metrics requested. If no metric value is provided, data for all metrics will be returned.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/replenishment-2022-11-07_Metric"
@@ -170562,7 +170562,7 @@
       },
       "replenishment-2022-11-07_ListOffersRequestFilters": {
         "type": "object",
-        "description": "Use these parameters to filter results. Any result must match all of the provided parameters. For any parameter that is an array, the result must match at least one element in the provided array.",
+        "description": "Use these parameters to filter results. Any result must match all provided parameters. For any parameter that is an array, the result must match at least one element in the provided array.",
         "required": [
           "marketplaceId",
           "programTypes"
@@ -170576,7 +170576,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "description": "Sku."
+              "description": "SKU."
             },
             "uniqueItems": true,
             "minItems": 1,

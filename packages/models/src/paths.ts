@@ -19677,7 +19677,7 @@ export interface components {
         "replenishment-2022-11-07_GetSellingPartnerMetricsRequest": {
             aggregationFrequency?: components["schemas"]["replenishment-2022-11-07_AggregationFrequency"];
             marketplaceId: components["schemas"]["replenishment-2022-11-07_MarketplaceId"];
-            /** @description The list of metrics requested. If no metric value is provided, data for all of the metrics will be returned. */
+            /** @description The list of metrics requested. If no metric value is provided, data for all metrics will be returned. */
             metrics?: components["schemas"]["replenishment-2022-11-07_Metric"][];
             programTypes: components["schemas"]["replenishment-2022-11-07_ProgramTypes"];
             timeInterval: components["schemas"]["replenishment-2022-11-07_TimeInterval"];
@@ -19986,7 +19986,7 @@ export interface components {
             pagination: components["schemas"]["replenishment-2022-11-07_ListOffersRequestPagination"];
             sort?: components["schemas"]["replenishment-2022-11-07_ListOffersRequestSort"];
         };
-        /** @description Use these parameters to filter results. Any result must match all of the provided parameters. For any parameter that is an array, the result must match at least one element in the provided array. */
+        /** @description Use these parameters to filter results. Any result must match all provided parameters. For any parameter that is an array, the result must match at least one element in the provided array. */
         "replenishment-2022-11-07_ListOffersRequestFilters": {
             /** @description A list of Amazon Standard Identification Numbers (ASINs). */
             asins?: string[];
