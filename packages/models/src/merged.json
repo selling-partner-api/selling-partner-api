@@ -20502,8 +20502,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "maxItems": 1
+              }
             }
           },
           {
@@ -92546,9 +92545,18 @@
             }
           },
           {
+            "name": "BuyerEmail",
+            "in": "query",
+            "description": "The email address of a buyer. Used to select orders that contain the specified email address.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "SellerOrderId",
             "in": "query",
-            "description": "An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, and `LastUpdatedBefore` cannot be specified.",
+            "description": "An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, `LastUpdatedBefore`, and `BuyerEmail` cannot be specified.",
             "required": false,
             "schema": {
               "type": "string"
@@ -92955,6 +92963,7 @@
                               "CountryCode": "US"
                             },
                             "BuyerInfo": {
+                              "BuyerEmail": "user@example.com",
                               "BuyerName": "John Doe",
                               "BuyerTaxInfo": {
                                 "CompanyLegalName": "A Company Name"
@@ -93349,6 +93358,7 @@
                           "CountryCode": "US"
                         },
                         "BuyerInfo": {
+                          "BuyerEmail": "user@example.com",
                           "BuyerName": "John Doe",
                           "BuyerTaxInfo": {
                             "CompanyLegalName": "A Company Name"
@@ -93558,6 +93568,7 @@
                   "response": {
                     "payload": {
                       "AmazonOrderId": "902-1845936-5435065",
+                      "BuyerEmail": "fzyrv6gwkhbb15c@example.com",
                       "BuyerName": "MFNIntegrationTestMerchant"
                     }
                   }
@@ -93574,6 +93585,7 @@
                     "value": {
                       "payload": {
                         "AmazonOrderId": "902-3159896-1390916",
+                        "BuyerEmail": "user@example.com",
                         "BuyerName": "John Smith",
                         "BuyerTaxInfo": {
                           "CompanyLegalName": "Company Name"
@@ -93810,7 +93822,15 @@
                           "City": "Canton",
                           "StateOrRegion": "MI",
                           "PostalCode": "48817",
-                          "CountryCode": "US"
+                          "CountryCode": "US",
+                          "ExtendedFields": {
+                            "StreetName": "Cross St",
+                            "StreetNumber": "1",
+                            "GeoCoordinates": {
+                              "Latitude": 37.42678611,
+                              "Longitude": -122.08060321
+                            }
+                          }
                         }
                       }
                     }
@@ -96005,7 +96025,7 @@
         "tags": [
           "searchOrders"
         ],
-        "description": "Returns orders that are created or updated during the time period that you specify. You can filter the response for specific types of orders.",
+        "description": "Returns orders created or updated during the time period that you specify. You can filter the response for specific types of orders.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.0056 | 20 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation.",
         "operationId": "searchOrders",
         "parameters": [
           {
@@ -96033,7 +96053,7 @@
           {
             "name": "lastUpdatedAfter",
             "in": "query",
-            "description": "The response includes orders updated at or after this time. An update is defined as any change made by Amazon or by the seller, including an update to the order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.\n\n**Note**: You must provide exactly one of `createdAfter` and `lastUpdatedAfter`. If `lastUpdatedAfter` is provided, neither `createdAfter` nor `createdBefore` may be provided.",
+            "description": "The response includes orders updated at or after this time. An update is any change made by Amazon or the seller, including changes to order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.\n\n**Note**: You must provide exactly one of `createdAfter` and `lastUpdatedAfter`. If `lastUpdatedAfter` is provided, neither `createdAfter` nor `createdBefore` may be provided.",
             "required": false,
             "example": "2025-01-01T00:00:00Z",
             "schema": {
@@ -96044,7 +96064,7 @@
           {
             "name": "lastUpdatedBefore",
             "in": "query",
-            "description": "The response includes orders updated at or before this time. An update is defined as any change made by Amazon or by the seller, including an update to the order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.\n\n**Note**: If you include `lastUpdatedAfter` in the request, `lastUpdatedBefore` is optional, and if provided must be equal to or after the `lastUpdatedAfter` date and at least two minutes before the time of the request. If `lastUpdatedBefore` is provided, neither `createdAfter` nor `createdBefore` may be provided.",
+            "description": "The response includes orders updated at or before this time. An update is any change made by Amazon or the seller, including changes to order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.\n\n**Note**: If you include `lastUpdatedAfter` in the request, `lastUpdatedBefore` is optional, and if provided must be equal to or after the `lastUpdatedAfter` date and at least two minutes before the time of the request. If `lastUpdatedBefore` is provided, neither `createdAfter` nor `createdBefore` may be provided.",
             "required": false,
             "example": "2025-01-01T00:00:00Z",
             "schema": {
@@ -96103,7 +96123,7 @@
                   },
                   {
                     "value": "UNFULFILLABLE",
-                    "description": "The order cannot be fulfilled. This state only applies to Amazon-fulfilled orders that were not placed on Amazon's retail web site."
+                    "description": "The order cannot be fulfilled. This state only applies to Amazon-fulfilled orders that were not placed on Amazon's retail website."
                   }
                 ]
               }
@@ -96203,7 +96223,9 @@
                   "PROMOTION",
                   "CANCELLATION",
                   "FULFILLMENT",
-                  "PACKAGES"
+                  "PACKAGES",
+                  "TAX",
+                  "PAYMENT"
                 ],
                 "x-docgen-enum-table-extension": [
                   {
@@ -96237,6 +96259,14 @@
                   {
                     "value": "PACKAGES",
                     "description": "Information about shipping packages and tracking."
+                  },
+                  {
+                    "value": "TAX",
+                    "description": "The tax information associated with the order."
+                  },
+                  {
+                    "value": "PAYMENT",
+                    "description": "The payment information associated with the order."
                   }
                 ]
               }
@@ -96361,8 +96391,7 @@
                                 }
                               },
                               "serialNumbers": [
-                                "ED4JP-2024-ABC123456789",
-                                "ED4JP-2024-DEF987654321"
+                                "ED4JP-2024-ABC123456789"
                               ]
                             },
                             "proceeds": {
@@ -96664,6 +96693,177 @@
                     ],
                     "createdBefore": "2024-12-24T15:00:00Z"
                   }
+                },
+                {
+                  "request": {
+                    "parameters": {
+                      "createdAfter": {
+                        "value": "2024-12-20T00:00:00Z"
+                      },
+                      "marketplaceIds": {
+                        "value": [
+                          "A2Q3Y263D00KWC"
+                        ]
+                      },
+                      "includedData": {
+                        "value": [
+                          "BUYER",
+                          "RECIPIENT",
+                          "PROCEEDS",
+                          "FULFILLMENT",
+                          "TAX",
+                          "PAYMENT"
+                        ]
+                      }
+                    }
+                  },
+                  "response": {
+                    "orders": [
+                      {
+                        "orderId": "171-2345678-9012345",
+                        "orderAliases": [
+                          {
+                            "aliasId": "BR-BIZ-ORDER-2024-001",
+                            "aliasType": "SELLER_ORDER_ID"
+                          }
+                        ],
+                        "createdTime": "2024-12-22T15:30:00Z",
+                        "lastUpdatedTime": "2024-12-23T10:00:00Z",
+                        "programs": [
+                          "AMAZON_BUSINESS",
+                          "DELIVERY_BY_AMAZON"
+                        ],
+                        "salesChannel": {
+                          "channelName": "AMAZON",
+                          "marketplaceId": "A2Q3Y263D00KWC",
+                          "marketplaceName": "Amazon.com.br"
+                        },
+                        "buyer": {
+                          "buyerName": "Carlos Oliveira",
+                          "buyerEmail": "buyer-email@marketplace.amazon.com.br",
+                          "buyerCompanyName": "Oliveira Tecnologia Ltda",
+                          "buyerPurchaseOrderNumber": "PO-BR-2024-5678"
+                        },
+                        "recipient": {
+                          "deliveryAddress": {
+                            "name": "Carlos Oliveira",
+                            "companyName": "Oliveira Tecnologia Ltda",
+                            "addressLine1": "Avenida Paulista, 1000",
+                            "addressLine2": "Sala 301",
+                            "city": "São Paulo",
+                            "stateOrRegion": "SP",
+                            "postalCode": "01310-100",
+                            "countryCode": "BR",
+                            "phone": "+55 11 91234-5678",
+                            "extendedFields": {
+                              "streetName": "Avenida Paulista",
+                              "streetNumber": "1000",
+                              "complement": "Sala 301",
+                              "neighborhood": "Bela Vista"
+                            },
+                            "addressType": "COMMERCIAL"
+                          }
+                        },
+                        "proceeds": {
+                          "grandTotal": {
+                            "amount": "1599.90",
+                            "currencyCode": "BRL"
+                          }
+                        },
+                        "tax": {
+                          "taxRegistrations": [
+                            {
+                              "entityType": "BUYER",
+                              "legalName": "Oliveira Tecnologia Ltda",
+                              "taxRegistrationType": "VAT",
+                              "taxRegistrationNumber": "1234567890"
+                            },
+                            {
+                              "entityType": "MARKETPLACE",
+                              "taxRegistrationType": "CNPJ",
+                              "taxRegistrationNumber": "15436940"
+                            },
+                            {
+                              "entityType": "MERCHANT",
+                              "legalName": "TechStore"
+                            }
+                          ],
+                          "taxInvoicing": {
+                            "invoiceStatus": "PROCESSING"
+                          }
+                        },
+                        "payment": {
+                          "paymentExecutions": [
+                            {
+                              "paymentMethod": "CreditCard",
+                              "paymentAmount": {
+                                "amount": "1599.90",
+                                "currencyCode": "BRL"
+                              },
+                              "acquirerId": "01.027.058/0001-91",
+                              "cardBrand": "Visa",
+                              "authorizationCode": "123456"
+                            }
+                          ]
+                        },
+                        "fulfillment": {
+                          "fulfillmentStatus": "UNSHIPPED",
+                          "fulfilledBy": "MERCHANT",
+                          "fulfillmentServiceLevel": "STANDARD",
+                          "shipByWindow": {
+                            "earliestDateTime": "2024-12-23T00:00:00Z",
+                            "latestDateTime": "2024-12-24T23:59:59Z"
+                          },
+                          "deliverByWindow": {
+                            "earliestDateTime": "2024-12-26T00:00:00Z",
+                            "latestDateTime": "2024-12-30T23:59:59Z"
+                          }
+                        },
+                        "orderItems": [
+                          {
+                            "orderItemId": "17123456789012",
+                            "quantityOrdered": 1,
+                            "product": {
+                              "asin": "B09B8V1LZ3",
+                              "title": "Notebook Dell Inspiron 15 3000",
+                              "sellerSku": "DELL-I15-BR-001",
+                              "condition": {
+                                "conditionType": "NEW",
+                                "conditionSubtype": "NEW"
+                              },
+                              "price": {
+                                "unitPrice": {
+                                  "amount": "1599.90",
+                                  "currencyCode": "BRL"
+                                },
+                                "priceDesignation": "BUSINESS_PRICE"
+                              }
+                            },
+                            "proceeds": {
+                              "proceedsTotal": {
+                                "amount": "1599.90",
+                                "currencyCode": "BRL"
+                              },
+                              "breakdowns": [
+                                {
+                                  "type": "ITEM",
+                                  "subtotal": {
+                                    "amount": "1599.90",
+                                    "currencyCode": "BRL"
+                                  }
+                                }
+                              ]
+                            },
+                            "fulfillment": {
+                              "quantityFulfilled": 0,
+                              "quantityUnfulfilled": 1
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "createdBefore": "2024-12-22T16:00:00Z"
+                  }
                 }
               ]
             },
@@ -96867,7 +97067,7 @@
                               },
                               "proceeds": {
                                 "proceedsTotal": {
-                                  "amount": "99.98",
+                                  "amount": "100.00",
                                   "currencyCode": "USD"
                                 },
                                 "breakdowns": [
@@ -97222,7 +97422,7 @@
         "tags": [
           "getOrder"
         ],
-        "description": "Returns the order that you specify.",
+        "description": "Returns the order that you specify.\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 0.5 | 30 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation.",
         "operationId": "orders_2026-01-01_getOrder",
         "parameters": [
           {
@@ -97257,7 +97457,9 @@
                   "PROMOTION",
                   "CANCELLATION",
                   "FULFILLMENT",
-                  "PACKAGES"
+                  "PACKAGES",
+                  "TAX",
+                  "PAYMENT"
                 ],
                 "x-docgen-enum-table-extension": [
                   {
@@ -97274,7 +97476,7 @@
                   },
                   {
                     "value": "EXPENSE",
-                    "description": "The cost information applied to the order and order items."
+                    "description": "The cost information about the order and order items."
                   },
                   {
                     "value": "PROMOTION",
@@ -97286,11 +97488,19 @@
                   },
                   {
                     "value": "FULFILLMENT",
-                    "description": "Information about how this order and order items are processed and shipped."
+                    "description": "Information about how the order and order items are processed and shipped."
                   },
                   {
                     "value": "PACKAGES",
-                    "description": "Shipping packages and tracking information."
+                    "description": "Information about shipping packages and tracking."
+                  },
+                  {
+                    "value": "TAX",
+                    "description": "The tax information associated with the order."
+                  },
+                  {
+                    "value": "PAYMENT",
+                    "description": "The payment information associated with the order."
                   }
                 ]
               }
@@ -97452,6 +97662,277 @@
                               }
                             }
                           }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "request": {
+                    "parameters": {
+                      "orderId": {
+                        "value": "028-1234567-8901234"
+                      },
+                      "includedData": {
+                        "value": [
+                          "BUYER",
+                          "RECIPIENT",
+                          "PROCEEDS",
+                          "FULFILLMENT",
+                          "TAX"
+                        ]
+                      }
+                    }
+                  },
+                  "response": {
+                    "order": {
+                      "orderId": "028-1234567-8901234",
+                      "orderAliases": [
+                        {
+                          "aliasId": "TR-ORDER-2025-001",
+                          "aliasType": "SELLER_ORDER_ID"
+                        }
+                      ],
+                      "createdTime": "2025-03-15T10:30:00Z",
+                      "lastUpdatedTime": "2025-03-15T14:20:00Z",
+                      "salesChannel": {
+                        "channelName": "AMAZON",
+                        "marketplaceId": "A33AVAJ2PDY3EV",
+                        "marketplaceName": "Amazon.com.tr"
+                      },
+                      "buyer": {
+                        "buyerName": "Mehmet Yilmaz",
+                        "buyerEmail": "buyer-email@marketplace.amazon.com.tr"
+                      },
+                      "recipient": {
+                        "deliveryAddress": {
+                          "name": "Mehmet Yilmaz",
+                          "addressLine1": "Istiklal Caddesi No:42",
+                          "addressLine2": "Kat 3",
+                          "addressLine3": "",
+                          "city": "Istanbul",
+                          "districtOrCounty": "Beyoglu",
+                          "stateOrRegion": "Istanbul",
+                          "municipality": "",
+                          "postalCode": "34430",
+                          "countryCode": "TR",
+                          "addressType": "COMMERCIAL"
+                        }
+                      },
+                      "proceeds": {
+                        "grandTotal": {
+                          "amount": "125.00",
+                          "currencyCode": "TRY"
+                        }
+                      },
+                      "fulfillment": {
+                        "fulfillmentStatus": "SHIPPED",
+                        "fulfilledBy": "MERCHANT",
+                        "fulfillmentServiceLevel": "STANDARD",
+                        "shipByWindow": {
+                          "earliestDateTime": "2025-03-16T00:00:00Z",
+                          "latestDateTime": "2025-03-17T23:59:59Z"
+                        },
+                        "deliverByWindow": {
+                          "earliestDateTime": "2025-03-18T00:00:00Z",
+                          "latestDateTime": "2025-03-21T23:59:59Z"
+                        }
+                      },
+                      "tax": {
+                        "taxRegistrations": [
+                          {
+                            "entityType": "BUYER",
+                            "taxRegistrationType": "BUSINESS",
+                            "taxRegistrationNumber": "TR1234567890",
+                            "legalName": "Test company name",
+                            "taxRegistrationAddress": {
+                              "name": "Mehmet Yilmaz",
+                              "companyName": "Test company name",
+                              "addressLine1": "Istiklal Caddesi No:42",
+                              "addressLine2": "Kat 3",
+                              "city": "Istanbul",
+                              "stateOrRegion": "Istanbul",
+                              "postalCode": "34430",
+                              "countryCode": "TR"
+                            },
+                            "taxRegistrationAttributes": [
+                              {
+                                "key": "TAX_OFFICE",
+                                "value": "tax office"
+                              }
+                            ]
+                          }
+                        ],
+                        "taxInvoicing": {
+                          "buyerInvoicePreference": "BUSINESS"
+                        }
+                      },
+                      "orderItems": [
+                        {
+                          "orderItemId": "02812345678901",
+                          "quantityOrdered": 2,
+                          "product": {
+                            "asin": "B09V3KXJPB",
+                            "title": "Fire HD 10 tablet | 10.1 inch, 1080p Full HD",
+                            "sellerSku": "FIRE-HD10-TR-BLK",
+                            "condition": {
+                              "conditionType": "NEW",
+                              "conditionSubtype": "NEW",
+                              "conditionNote": ""
+                            },
+                            "price": {
+                              "unitPrice": {
+                                "amount": "62.50",
+                                "currencyCode": "TRY"
+                              }
+                            }
+                          },
+                          "proceeds": {
+                            "proceedsTotal": {
+                              "amount": "125.00",
+                              "currencyCode": "TRY"
+                            },
+                            "breakdowns": [
+                              {
+                                "type": "ITEM",
+                                "subtotal": {
+                                  "amount": "125.00",
+                                  "currencyCode": "TRY"
+                                }
+                              }
+                            ]
+                          },
+                          "fulfillment": {
+                            "quantityFulfilled": 2,
+                            "quantityUnfulfilled": 0
+                          },
+                          "tax": {
+                            "taxCalculationBreakdowns": [
+                              {
+                                "reportingScheme": "IOSS"
+                              }
+                            ],
+                            "taxCollections": [
+                              {
+                                "model": "MARKETPLACE_FACILITATOR",
+                                "responsibleParty": "Amazon Services Europe S.a.r.L."
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "request": {
+                    "parameters": {
+                      "orderId": {
+                        "value": "114-9876543-1234567"
+                      },
+                      "includedData": {
+                        "value": [
+                          "RECIPIENT",
+                          "PROCEEDS",
+                          "FULFILLMENT"
+                        ]
+                      }
+                    }
+                  },
+                  "response": {
+                    "order": {
+                      "orderId": "114-9876543-1234567",
+                      "createdTime": "2025-03-10T14:00:00Z",
+                      "lastUpdatedTime": "2025-03-10T14:30:00Z",
+                      "programs": [
+                        "IN_STORE_PICK_UP"
+                      ],
+                      "salesChannel": {
+                        "channelName": "AMAZON",
+                        "marketplaceId": "ATVPDKIKX0DER",
+                        "marketplaceName": "Amazon.com"
+                      },
+                      "recipient": {
+                        "deliveryAddress": {
+                          "name": "Test Store #1234",
+                          "companyName": "Test Store",
+                          "addressLine1": "100 Main Street",
+                          "addressLine2": "Suite 200",
+                          "addressLine3": "",
+                          "city": "Seattle",
+                          "districtOrCounty": "",
+                          "stateOrRegion": "WA",
+                          "municipality": "",
+                          "postalCode": "98101",
+                          "countryCode": "US",
+                          "phone": "+1 206 555 0100",
+                          "addressType": "COMMERCIAL"
+                        }
+                      },
+                      "proceeds": {
+                        "grandTotal": {
+                          "amount": "49.99",
+                          "currencyCode": "USD"
+                        }
+                      },
+                      "fulfillment": {
+                        "fulfillmentStatus": "UNSHIPPED",
+                        "fulfilledBy": "MERCHANT",
+                        "fulfillmentServiceLevel": "STANDARD"
+                      },
+                      "orderItems": [
+                        {
+                          "orderItemId": "11498765431234",
+                          "quantityOrdered": 1,
+                          "product": {
+                            "asin": "B0BSHF7WHW",
+                            "title": "All-new Echo Pop | Full sound compact smart speaker with Alexa",
+                            "sellerSku": "ECHO-POP-US-BLK",
+                            "condition": {
+                              "conditionType": "NEW",
+                              "conditionSubtype": "NEW",
+                              "conditionNote": ""
+                            },
+                            "price": {
+                              "unitPrice": {
+                                "amount": "39.99",
+                                "currencyCode": "USD"
+                              }
+                            }
+                          },
+                          "proceeds": {
+                            "proceedsTotal": {
+                              "amount": "49.99",
+                              "currencyCode": "USD"
+                            },
+                            "breakdowns": [
+                              {
+                                "type": "ITEM",
+                                "subtotal": {
+                                  "amount": "39.99",
+                                  "currencyCode": "USD"
+                                }
+                              },
+                              {
+                                "type": "TAX",
+                                "subtotal": {
+                                  "amount": "10.00",
+                                  "currencyCode": "USD"
+                                }
+                              }
+                            ]
+                          },
+                          "fulfillment": {
+                            "quantityFulfilled": 0,
+                            "quantityUnfulfilled": 1
+                          },
+                          "associatedOrderItems": [
+                            {
+                              "orderId": "333-1234567-7654321",
+                              "orderItemId": "11498765435678",
+                              "associationType": "VALUE_ADD_SERVICE"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -172488,6 +172969,10 @@
             "type": "string",
             "description": "An Amazon-defined order identifier, in 3-7-7 format."
           },
+          "BuyerEmail": {
+            "type": "string",
+            "description": "The anonymized email address of the buyer."
+          },
           "BuyerName": {
             "type": "string",
             "description": "The buyer name or the recipient name."
@@ -172881,9 +173366,28 @@
           "Neighborhood": {
             "type": "string",
             "description": "The neighborhood. This value is only used in some countries (such as Brazil)."
+          },
+          "GeoCoordinates": {
+            "$ref": "#/components/schemas/ordersV0_GeoCoordinates"
           }
         },
-        "description": "The container for address extended fields (such as `street name` and `street number`). Currently only available with Brazil shipping addresses."
+        "description": "Extended address fields for additional address components including the street name or number. \n\nNote: Available for grocery sellers and Brazil shipping addresses."
+      },
+      "ordersV0_GeoCoordinates": {
+        "type": "object",
+        "properties": {
+          "Latitude": {
+            "type": "number",
+            "format": "double",
+            "description": "The latitude coordinate of the shipping address using the WGS84 coordinate system."
+          },
+          "Longitude": {
+            "type": "number",
+            "format": "double",
+            "description": "The longitude coordinate of the shipping address using the WGS84 coordinate system."
+          }
+        },
+        "description": "The latitude and longitude coordinates of the shipping address using the WGS84 coordinate system."
       },
       "ordersV0_DeliveryPreferences": {
         "type": "object",
@@ -173810,6 +174314,10 @@
       "ordersV0_BuyerInfo": {
         "type": "object",
         "properties": {
+          "BuyerEmail": {
+            "type": "string",
+            "description": "The anonymized email address of the buyer."
+          },
           "BuyerName": {
             "type": "string",
             "description": "The buyer name or the recipient name."
@@ -174172,18 +174680,18 @@
           "lastUpdatedBefore": {
             "type": "string",
             "format": "date-time",
-            "description": "Only orders updated before the specified time are returned. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format."
+            "description": "Only orders updated before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format."
           },
           "createdBefore": {
             "type": "string",
             "format": "date-time",
-            "description": "Only orders placed before the specified time are returned. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format."
+            "description": "Only orders placed before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format."
           }
         }
       },
       "orders_2026-01-01_Pagination": {
         "type": "object",
-        "description": "When a request has results that are not included in the response, pagination occurs. This means the results are divided into individual pages. To retrieve a different page, you must pass the token value as the `paginationToken` query parameter in the subsequent request. All other parameters must be provided with the same values that were provided with the request that generated this token, with the exception of `maxResultsPerPage` and `includedData`, which can be modified between calls. The token will expire after 24 hours. When there are no other pages to fetch, the `pagination` field will be absent from the response.",
+        "description": "Pagination occurs when a request has results that exceed the response limit. This means the results are divided into individual pages. To retrieve a different page, you must pass the token value as the `paginationToken` query parameter in the subsequent request. All other parameters must be provided with the same values that were provided with the request that generated this token, with the exception of `maxResultsPerPage` and `includedData`, which can be modified between calls. The token will expire after 24 hours. When there are no other pages to fetch, the `pagination` field will be absent from the response.",
         "properties": {
           "nextToken": {
             "description": "A token that can be used to fetch the next page of results.",
@@ -174237,7 +174745,7 @@
           },
           "programs": {
             "type": "array",
-            "description": "Special programs associated with this order that may affect fulfillment or customer experience. \n\n**Possible values**: `AMAZON_BAZAAR`, `AMAZON_BUSINESS`,  `AMAZON_EASY_SHIP`, `AMAZON_HAUL`, `DELIVERY_BY_AMAZON`, `FBM_SHIP_PLUS`, `IN_STORE_PICK_UP`, `PREMIUM`, `PREORDER`, `PRIME`",
+            "description": "Special programs associated with this order that may affect fulfillment or customer experience. \n\n**Possible values**: `AMAZON_BAZAAR`, `AMAZON_BUSINESS`, `AMAZON_EASY_SHIP`, `AMAZON_HAUL`, `DELIVERY_BY_AMAZON`, `FBM_SHIP_PLUS`, `INVOICE_BY_AMAZON`, `IN_STORE_PICK_UP`, `PREMIUM`, `PREORDER`, `PRIME`",
             "items": {
               "type": "string"
             }
@@ -174260,6 +174768,12 @@
           },
           "proceeds": {
             "$ref": "#/components/schemas/orders_2026-01-01_OrderProceeds"
+          },
+          "payment": {
+            "$ref": "#/components/schemas/orders_2026-01-01_OrderPayment"
+          },
+          "tax": {
+            "$ref": "#/components/schemas/orders_2026-01-01_OrderTax"
           },
           "fulfillment": {
             "$ref": "#/components/schemas/orders_2026-01-01_OrderFulfillment"
@@ -174422,6 +174936,13 @@
           "measurement": {
             "$ref": "#/components/schemas/orders_2026-01-01_Measurement"
           },
+          "associatedOrderItems": {
+            "description": "A list of order items associated with this item. For example, a value-add service purchased with the product.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/orders_2026-01-01_AssociatedOrderItem"
+            }
+          },
           "programs": {
             "type": "array",
             "description": "Special programs that apply specifically to this item within the order.\n\n**Possible values**: `TRANSPARENCY`, `SUBSCRIBE_AND_SAVE`",
@@ -174446,6 +174967,9 @@
           },
           "fulfillment": {
             "$ref": "#/components/schemas/orders_2026-01-01_ItemFulfillment"
+          },
+          "tax": {
+            "$ref": "#/components/schemas/orders_2026-01-01_ItemTax"
           }
         }
       },
@@ -174669,7 +175193,7 @@
           },
           {
             "value": "PENDING",
-            "description": "The order has been placed but is not ready for shipment. Note that for standard orders, the initial order status is `PENDING`. For pre-orders, the initial order status is `PENDING_AVAILABILITY`, and the order passes into the `PENDING` status when payment authorization begins."
+            "description": "The order has been placed but is not ready for shipment. For standard orders, the initial order status is `PENDING`. For pre-orders, the initial order status is `PENDING_AVAILABILITY`, and the order passes into the `PENDING` status when payment authorization begins."
           },
           {
             "value": "UNSHIPPED",
@@ -174677,7 +175201,7 @@
           },
           {
             "value": "PARTIALLY_SHIPPED",
-            "description": "One or more (but not all) items in the order have been shipped."
+            "description": "At least one, but not all, items in the order have been shipped."
           },
           {
             "value": "SHIPPED",
@@ -174689,7 +175213,7 @@
           },
           {
             "value": "UNFULFILLABLE",
-            "description": "The order cannot be fulfilled. This state applies only to Amazon-fulfilled orders that were not placed on Amazon's retail web site."
+            "description": "The order cannot be fulfilled. This state only applies to Amazon-fulfilled orders that were not placed on Amazon's retail website."
           }
         ]
       },
@@ -175076,7 +175600,7 @@
         }
       },
       "orders_2026-01-01_PreferredDeliveryCapability": {
-        "description": "Special delivery capabilities available at the shipping address that may affect delivery options and methods. \n\n**Possible values:**\n- `HAS_ACCESS_POINT` (Delivery location includes designated pickup or drop-off access points)\n- `PALLET_ENABLED` (Address is equipped to receive large pallet deliveries)\n- `PALLET_DISABLED` (Address cannot accommodate pallet delivery methods)",
+        "description": "Special delivery capabilities available at the shipping address that may affect delivery options and methods. \n\n**Possible values**:\n- `HAS_ACCESS_POINT` (Delivery location includes designated pickup or drop-off access points)\n- `PALLET_ENABLED` (Address is equipped to receive large pallet deliveries)\n- `PALLET_DISABLED` (Address cannot accommodate pallet delivery methods)",
         "type": "string"
       },
       "orders_2026-01-01_ItemCondition": {
@@ -175141,7 +175665,7 @@
         }
       },
       "orders_2026-01-01_ItemProceedsDetailedBreakdown": {
-        "description": "Further granular breakdown of the subtotal of the proceeds breakdown, only available for TAX and DISCOUNT proceeds type.",
+        "description": "Further granular breakdown of the subtotal of the proceeds breakdown, only available for TAX and DISCOUNT proceeds types.",
         "type": "object",
         "properties": {
           "subtype": {
@@ -175214,6 +175738,18 @@
         "properties": {
           "giftOption": {
             "$ref": "#/components/schemas/orders_2026-01-01_GiftOption"
+          },
+          "serialNumberRequirement": {
+            "$ref": "#/components/schemas/orders_2026-01-01_SerialNumberRequirement"
+          }
+        },
+        "example": {
+          "giftOption": {
+            "giftMessage": "Happy Holidays! Enjoy your new smart speakers.",
+            "giftWrapLevel": "PREMIUM"
+          },
+          "serialNumberRequirement": {
+            "requirementType": "REQUIRED"
           }
         }
       },
@@ -175242,6 +175778,16 @@
           },
           "giftWrapLevel": {
             "description": "Type or quality level of gift wrapping service selected by the customer.",
+            "type": "string"
+          }
+        }
+      },
+      "orders_2026-01-01_SerialNumberRequirement": {
+        "description": "Whether serial numbers must be provided for this line item.",
+        "type": "object",
+        "properties": {
+          "requirementType": {
+            "description": "The requirement type for this request. \n\n**Possible values**: `REQUIRED`",
             "type": "string"
           }
         }
@@ -175400,7 +175946,7 @@
             ]
           },
           "detailedStatus": {
-            "description": "Granular status information providing specific details about the package's current location and handling stage. \n\n**Possible values:**\n- `PENDING_SCHEDULE` (Package awaiting pickup scheduling)\n- `PENDING_PICK_UP` (Package ready for carrier collection from seller)\n- `PENDING_DROP_OFF` (Package awaiting seller delivery to carrier)\n- `LABEL_CANCELLED` (Shipping label canceled by seller)\n- `PICKED_UP` (Package collected by carrier from seller location)\n- `DROPPED_OFF` (Package delivered to carrier by seller)\n- `AT_ORIGIN_FC` (Package at originating fulfillment center)\n- `AT_DESTINATION_FC` (Package at destination fulfillment center)\n- `DELIVERED` (Package successfully delivered to recipient)\n- `REJECTED_BY_BUYER` (Package refused by intended recipient)\n- `UNDELIVERABLE` (Package cannot be delivered due to address or access issues)\n- `RETURNING_TO_SELLER` (Package in transit back to seller)\n- `RETURNED_TO_SELLER` (Package successfully returned to seller)\n- `LOST` (Package location unknown or confirmed lost)\n- `OUT_FOR_DELIVERY` (Package on delivery vehicle for final delivery)\n- `DAMAGED` (Package damaged during transit)\n",
+            "description": "Granular status information providing specific details about the package's current location and handling stage. \n\n**Possible values**:\n- `PENDING_SCHEDULE` (Package awaiting pickup scheduling)\n- `PENDING_PICK_UP` (Package ready for carrier collection from seller)\n- `PENDING_DROP_OFF` (Package awaiting seller delivery to carrier)\n- `LABEL_CANCELLED` (Shipping label canceled by seller)\n- `PICKED_UP` (Package collected by carrier from seller location)\n- `DROPPED_OFF` (Package delivered to carrier by seller)\n- `AT_ORIGIN_FC` (Package at originating fulfillment center)\n- `AT_DESTINATION_FC` (Package at destination fulfillment center)\n- `DELIVERED` (Package successfully delivered to recipient)\n- `REJECTED_BY_BUYER` (Package refused by intended recipient)\n- `UNDELIVERABLE` (Package cannot be delivered due to address or access issues)\n- `RETURNING_TO_SELLER` (Package in transit back to seller)\n- `RETURNED_TO_SELLER` (Package successfully returned to seller)\n- `LOST` (Package location unknown or confirmed lost)\n- `OUT_FOR_DELIVERY` (Package on delivery vehicle for final delivery)\n- `DAMAGED` (Package damaged during transit)\n",
             "type": "string"
           }
         }
@@ -175427,6 +175973,187 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "orders_2026-01-01_OrderPayment": {
+        "description": "Payment information about the order.",
+        "type": "object",
+        "properties": {
+          "paymentExecutions": {
+            "description": "A list of payment executions for the order.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/orders_2026-01-01_PaymentExecution"
+            }
+          }
+        }
+      },
+      "orders_2026-01-01_PaymentExecution": {
+        "description": "Payment execution details for an order.",
+        "type": "object",
+        "properties": {
+          "paymentMethod": {
+            "description": "The payment method used for this payment execution (for example, CashOnDelivery, ConvenienceStore, CreditCard, Invoice, Pix, and so on).",
+            "type": "string"
+          },
+          "paymentAmount": {
+            "$ref": "#/components/schemas/orders_2026-01-01_Money"
+          },
+          "acquirerId": {
+            "description": "The unique identifier of the payment processor or acquiring bank that authorizes the payment. \n\n**Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `paymentMethod` is `CreditCard` or `Pix`.",
+            "type": "string"
+          },
+          "cardBrand": {
+            "description": "The card network or brand used in the payment transaction (for example, Visa or Mastercard).\n\n**Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `paymentMethod` is `CreditCard`.",
+            "type": "string"
+          },
+          "authorizationCode": {
+            "description": "The unique code that confirms the payment authorization.\n\n**Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `paymentMethod` is `CreditCard` or `Pix`.",
+            "type": "string"
+          }
+        }
+      },
+      "orders_2026-01-01_OrderTax": {
+        "description": "Tax information about the order.",
+        "type": "object",
+        "properties": {
+          "taxRegistrations": {
+            "description": "A list of tax registrations associated with the order.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/orders_2026-01-01_OrderTaxRegistration"
+            }
+          },
+          "taxInvoicing": {
+            "$ref": "#/components/schemas/orders_2026-01-01_OrderTaxInvoicing"
+          }
+        }
+      },
+      "orders_2026-01-01_OrderTaxRegistration": {
+        "description": "Tax registration information for an entity associated with the order.",
+        "type": "object",
+        "properties": {
+          "entityType": {
+            "description": "The type of entity that the tax registration belongs to.\n\n**Possible values**:\n- `BUYER` (Indicates that this is the buyer's tax registration information)\n- `MERCHANT` (Indicates that this is the merchant's tax registration information)\n- `MARKETPLACE` (Indicates that this is the marketplace's tax registration information)",
+            "type": "string"
+          },
+          "legalName": {
+            "description": "The legal name associated with the tax registration.",
+            "type": "string"
+          },
+          "taxRegistrationType": {
+            "description": "The type of the tax registration number.\n\n**Possible values**: `BUSINESS`, `VAT`, `CST`, `CPF`, `CNPJ`",
+            "type": "string"
+          },
+          "taxRegistrationNumber": {
+            "description": "The tax registration number that identifies the entity for tax purposes.",
+            "type": "string"
+          },
+          "taxRegistrationAddress": {
+            "$ref": "#/components/schemas/orders_2026-01-01_CustomerAddress"
+          },
+          "taxRegistrationAttributes": {
+            "description": "Additional attributes related to the tax registration.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/orders_2026-01-01_TaxRegistrationAttribute"
+            }
+          }
+        }
+      },
+      "orders_2026-01-01_TaxRegistrationAttribute": {
+        "description": "An additional attribute associated with a tax registration.",
+        "type": "object",
+        "properties": {
+          "key": {
+            "description": "The name of the tax registration attribute.\n\n**Possible values**: `TAX_OFFICE`",
+            "type": "string"
+          },
+          "value": {
+            "description": "The value of the tax registration attribute.",
+            "type": "string"
+          }
+        }
+      },
+      "orders_2026-01-01_OrderTaxInvoicing": {
+        "description": "Tax invoicing information for the order.",
+        "type": "object",
+        "properties": {
+          "buyerInvoicePreference": {
+            "description": "The buyer's invoicing preference, which indicates whether the seller should issue an individual or a business invoice to the buyer. \n\n **Note**: This attribute is only available in the Turkey marketplace. \n\n**Possible values**:\n- `INDIVIDUAL` (Issues an individual invoice to the buyer)\n- `BUSINESS` (Issues a business invoice to the buyer)",
+            "type": "string"
+          },
+          "invoiceStatus": {
+            "description": "The status of the invoice. Only available for Easy Ship orders and orders in the Brazil marketplace.\n\n**Possible values**:\n- `NOT_REQUIRED` (The order does not require an electronic invoice to be uploaded)\n- `NOT_FOUND` (The order requires an electronic invoice but it is not uploaded)\n- `PROCESSING` (The required electronic invoice was uploaded and is processing)\n- `ERRORED` (The uploaded electronic invoice was not accepted)\n- `ACCEPTED` (The uploaded electronic invoice was accepted)",
+            "type": "string"
+          }
+        }
+      },
+      "orders_2026-01-01_AssociatedOrderItem": {
+        "description": "An associated order item that a customer has purchased with the product. For example, a tire installation service purchased with tires.",
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "description": "The order identifier of the associated order item.",
+            "type": "string"
+          },
+          "orderItemId": {
+            "description": "The order item identifier of the associated order item.",
+            "type": "string"
+          },
+          "associationType": {
+            "description": "The type of association between the order items.\n\n**Possible values**:\n- `VALUE_ADD_SERVICE` (The associated item is a service order)",
+            "type": "string"
+          }
+        },
+        "example": {
+          "orderId": "123-4567890-7654321",
+          "orderItemId": "12345678904321",
+          "associationType": "VALUE_ADD_SERVICE"
+        }
+      },
+      "orders_2026-01-01_ItemTax": {
+        "description": "Tax information for an order item.",
+        "type": "object",
+        "properties": {
+          "taxCalculationBreakdowns": {
+            "description": "A list of tax calculation breakdowns for the order item.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/orders_2026-01-01_ItemTaxCalculationBreakdown"
+            }
+          },
+          "taxCollections": {
+            "description": "A list of tax collections for the order item.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/orders_2026-01-01_ItemTaxCollection"
+            }
+          }
+        }
+      },
+      "orders_2026-01-01_ItemTaxCalculationBreakdown": {
+        "description": "Tax calculation breakdowns for an order item.",
+        "type": "object",
+        "properties": {
+          "reportingScheme": {
+            "description": "The tax reporting scheme applied to this order item.\n\n**Possible values**:\n- `UOSS` (Union one stop shop. The item being purchased is held in the EU for shipment)\n- `IOSS` (Import one stop shop. The item being purchased is not held in the EU for shipment)",
+            "type": "string"
+          }
+        }
+      },
+      "orders_2026-01-01_ItemTaxCollection": {
+        "description": "Tax collection information for an order item.",
+        "type": "object",
+        "properties": {
+          "model": {
+            "description": "The tax collection model applied to the item.\n\n**Possible values**:\n- `MARKETPLACE_FACILITATOR` (Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller)",
+            "type": "string"
+          },
+          "responsibleParty": {
+            "description": "The party responsible for withholding the taxes and remitting them to the taxing authority.",
+            "type": "string"
           }
         }
       },
@@ -178588,7 +179315,9 @@
           "EVENT_416",
           "EVENT_417",
           "EVENT_418",
-          "EVENT_419"
+          "EVENT_419",
+          "EVENT_801",
+          "EVENT_804"
         ],
         "x-docgen-enum-table-extension": [
           {
@@ -178722,6 +179451,14 @@
           {
             "value": "EVENT_419",
             "description": "Address corrected - delivery rescheduled."
+          },
+          {
+            "value": "EVENT_801",
+            "description": "Package delivered to locker."
+          },
+          {
+            "value": "EVENT_804",
+            "description": "Package picked up from locker."
           }
         ]
       },
@@ -185597,6 +186334,99 @@
         "description": "A decimal number with no loss of precision. Useful when precision loss is unacceptable, as with currencies.",
         "type": "string"
       },
+      "externalFulfillmentShipments_2024-09-11_HandoverLocation": {
+        "description": "The drop-off location details for package handover.",
+        "type": "object",
+        "properties": {
+          "address": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_Address"
+          },
+          "distance": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_Distance"
+          },
+          "mapUrl": {
+            "description": "URL to the map that shows the drop-off location.",
+            "type": "string"
+          }
+        },
+        "example": {
+          "address": {
+            "postalCode": "98101",
+            "addressLine1": "123 Main St",
+            "city": "Seattle",
+            "stateOrRegion": "WA",
+            "countryCode": "US",
+            "geocodes": {
+              "latitude": "47.6062",
+              "longitude": "-122.3321"
+            }
+          },
+          "distance": {
+            "value": "3.5",
+            "distanceUnit": "MI"
+          },
+          "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
+        }
+      },
+      "externalFulfillmentShipments_2024-09-11_Distance": {
+        "description": "A distance measurement.",
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_Decimal"
+          },
+          "distanceUnit": {
+            "description": "The unit of measurement of the distance.",
+            "type": "string",
+            "enum": [
+              "MI",
+              "KM"
+            ],
+            "x-docgen-enum-table-extension": [
+              {
+                "value": "MI",
+                "description": "Miles."
+              },
+              {
+                "value": "KM",
+                "description": "Kilometers."
+              }
+            ]
+          }
+        },
+        "example": {
+          "value": "3.5",
+          "distanceUnit": "MI"
+        },
+        "required": [
+          "value",
+          "distanceUnit"
+        ]
+      },
+      "externalFulfillmentShipments_2024-09-11_Geocodes": {
+        "description": "Geographic coordinates.",
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_Decimal"
+          },
+          "longitude": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_Decimal"
+          },
+          "elevation": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_Decimal"
+          }
+        },
+        "example": {
+          "latitude": "47.6062",
+          "longitude": "-122.3321",
+          "elevation": "56.0"
+        },
+        "required": [
+          "latitude",
+          "longitude"
+        ]
+      },
       "externalFulfillmentShipments_2024-09-11_Amount": {
         "description": "An amount of money, including units in the form of currency.",
         "properties": {
@@ -185654,7 +186484,7 @@
             "type": "string"
           },
           "municipality": {
-            "description": "The municiplaity where the person, business, or institution is located.",
+            "description": "The municipality where the person, business, or institution is located.",
             "type": "string"
           },
           "state": {
@@ -185704,6 +186534,9 @@
             "minLength": 1,
             "maxLength": 20,
             "type": "string"
+          },
+          "geocodes": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_Geocodes"
           }
         },
         "required": [
@@ -185723,7 +186556,8 @@
             "type": "string",
             "enum": [
               "CM",
-              "M"
+              "M",
+              "IN"
             ],
             "x-docgen-enum-table-extension": [
               {
@@ -185733,6 +186567,10 @@
               {
                 "value": "M",
                 "description": "Meters."
+              },
+              {
+                "value": "IN",
+                "description": "Inches."
               }
             ]
           }
@@ -185754,7 +186592,9 @@
             "type": "string",
             "enum": [
               "G",
-              "KG"
+              "KG",
+              "LB",
+              "OZ"
             ],
             "x-docgen-enum-table-extension": [
               {
@@ -185764,6 +186604,14 @@
               {
                 "value": "KG",
                 "description": "Kilograms."
+              },
+              {
+                "value": "LB",
+                "description": "Pounds."
+              },
+              {
+                "value": "OZ",
+                "description": "Ounces."
               }
             ]
           }
@@ -186661,6 +187509,25 @@
                 "description": "The shipment is shipped using the SmartConnect platform."
               }
             ]
+          },
+          "paymentMethod": {
+            "description": "The payment method for the shipment.",
+            "type": "string",
+            "enum": [
+              "CASH_ON_DELIVERY",
+              "PREPAID"
+            ],
+            "example": "PREPAID",
+            "x-docgen-enum-table-extension": [
+              {
+                "value": "CASH_ON_DELIVERY",
+                "description": "The buyer will pay for the shipment during delivery."
+              },
+              {
+                "value": "PREPAID",
+                "description": "The buyer has already paid for the shipment."
+              }
+            ]
           }
         },
         "required": [
@@ -187167,6 +188034,9 @@
           },
           "timeSlot": {
             "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_TimeWindow"
+          },
+          "handoverLocation": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_HandoverLocation"
           }
         },
         "example": {
@@ -187181,7 +188051,25 @@
           "timeSlot": {
             "startTime": 1612933142,
             "endTime": 1612494142,
-            "handoverMethod": "PICKUP"
+            "handoverMethod": "DROPOFF"
+          },
+          "handoverLocation": {
+            "address": {
+              "postalCode": "98101",
+              "addressLine1": "123 Main St",
+              "city": "Seattle",
+              "stateOrRegion": "WA",
+              "countryCode": "US",
+              "geocodes": {
+                "latitude": "47.6062",
+                "longitude": "-122.3321"
+              }
+            },
+            "distance": {
+              "value": "3.5",
+              "distanceUnit": "MI"
+            },
+            "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
           }
         },
         "required": [
@@ -187272,6 +188160,41 @@
           },
           "timeSlot": {
             "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_TimeWindow"
+          },
+          "handoverLocation": {
+            "$ref": "#/components/schemas/externalFulfillmentShipments_2024-09-11_HandoverLocation"
+          }
+        },
+        "example": {
+          "shippingOptionId": "TEST_CASE_200_SHIPPING_OPTION_ID",
+          "carrierName": "ATSPL",
+          "shipBy": "MARKETPLACE",
+          "pickupWindow": {
+            "startTime": 1612933142,
+            "endTime": 1612494142
+          },
+          "timeSlot": {
+            "startTime": 1612933142,
+            "endTime": 1612494142,
+            "handoverMethod": "DROPOFF"
+          },
+          "handoverLocation": {
+            "address": {
+              "postalCode": "98101",
+              "addressLine1": "123 Main St",
+              "city": "Seattle",
+              "stateOrRegion": "WA",
+              "countryCode": "US",
+              "geocodes": {
+                "latitude": "47.6062",
+                "longitude": "-122.3321"
+              }
+            },
+            "distance": {
+              "value": "3.5",
+              "distanceUnit": "MI"
+            },
+            "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
           }
         },
         "required": [
@@ -187311,6 +188234,11 @@
               }
             ]
           }
+        },
+        "example": {
+          "startTime": 1612933142,
+          "endTime": 1612494142,
+          "handoverMethod": "DROPOFF"
         },
         "required": [
           "startTime",

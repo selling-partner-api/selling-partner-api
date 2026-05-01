@@ -3883,7 +3883,15 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns orders that are created or updated during the time period that you specify. You can filter the response for specific types of orders. */
+        /** @description Returns orders created or updated during the time period that you specify. You can filter the response for specific types of orders.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 0.0056 | 20 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
         get: operations["searchOrders"];
         put?: never;
         post?: never;
@@ -3900,7 +3908,15 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns the order that you specify. */
+        /** @description Returns the order that you specify.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 0.5 | 30 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
         get: operations["orders_2026-01-01_getOrder"];
         put?: never;
         post?: never;
@@ -10457,7 +10473,8 @@ export interface components {
             district?: string;
             /** @description The email address of the contact associated with the address. */
             email?: string;
-            /** @description The municiplaity where the person, business, or institution is located. */
+            geocodes?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Geocodes"];
+            /** @description The municipality where the person, business, or institution is located. */
             municipality?: string;
             /** @description The name of the person, business or institution at that address. */
             name?: string;
@@ -10560,7 +10577,22 @@ export interface components {
              * @description The unit of measurement of the dimension.
              * @enum {string}
              */
-            dimensionUnit: "CM" | "M";
+            dimensionUnit: "CM" | "M" | "IN";
+            value: components["schemas"]["externalFulfillmentShipments_2024-09-11_Decimal"];
+        };
+        /**
+         * @description A distance measurement.
+         * @example {
+         *       "value": "3.5",
+         *       "distanceUnit": "MI"
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_Distance": {
+            /**
+             * @description The unit of measurement of the distance.
+             * @enum {string}
+             */
+            distanceUnit: "MI" | "KM";
             value: components["schemas"]["externalFulfillmentShipments_2024-09-11_Decimal"];
         };
         /** @description A document, described by its file type and data. */
@@ -10597,6 +10629,19 @@ export interface components {
             /** @description A list of error responses returned when a request is unsuccessful. */
             errors: components["schemas"]["externalFulfillmentShipments_2024-09-11_Error"][];
         };
+        /**
+         * @description Geographic coordinates.
+         * @example {
+         *       "latitude": "47.6062",
+         *       "longitude": "-122.3321",
+         *       "elevation": "56.0"
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_Geocodes": {
+            elevation?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Decimal"];
+            latitude: components["schemas"]["externalFulfillmentShipments_2024-09-11_Decimal"];
+            longitude: components["schemas"]["externalFulfillmentShipments_2024-09-11_Decimal"];
+        };
         /** @description Information about any gift wrapping that is needed for this line item. */
         "externalFulfillmentShipments_2024-09-11_GiftAttributes": {
             giftMessage?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Document"];
@@ -10604,6 +10649,33 @@ export interface components {
             /** @description The label to be printed on the wrapped gift. */
             giftWrapLabel?: string;
             giftWrapRequirement: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
+        };
+        /**
+         * @description The drop-off location details for package handover.
+         * @example {
+         *       "address": {
+         *         "postalCode": "98101",
+         *         "addressLine1": "123 Main St",
+         *         "city": "Seattle",
+         *         "stateOrRegion": "WA",
+         *         "countryCode": "US",
+         *         "geocodes": {
+         *           "latitude": "47.6062",
+         *           "longitude": "-122.3321"
+         *         }
+         *       },
+         *       "distance": {
+         *         "value": "3.5",
+         *         "distanceUnit": "MI"
+         *       },
+         *       "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_HandoverLocation": {
+            address?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Address"];
+            distance?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Distance"];
+            /** @description URL to the map that shows the drop-off location. */
+            mapUrl?: string;
         };
         /** @description Information about the shipment's invoice. */
         "externalFulfillmentShipments_2024-09-11_InvoiceInfo": {
@@ -10935,13 +11007,32 @@ export interface components {
          *       "timeSlot": {
          *         "startTime": 1612933142,
          *         "endTime": 1612494142,
-         *         "handoverMethod": "PICKUP"
+         *         "handoverMethod": "DROPOFF"
+         *       },
+         *       "handoverLocation": {
+         *         "address": {
+         *           "postalCode": "98101",
+         *           "addressLine1": "123 Main St",
+         *           "city": "Seattle",
+         *           "stateOrRegion": "WA",
+         *           "countryCode": "US",
+         *           "geocodes": {
+         *             "latitude": "47.6062",
+         *             "longitude": "-122.3321"
+         *           }
+         *         },
+         *         "distance": {
+         *           "value": "3.5",
+         *           "distanceUnit": "MI"
+         *         },
+         *         "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
          *       }
          *     }
          */
         "externalFulfillmentShipments_2024-09-11_ShipLabelMetadata": {
             /** @description The name of the carrier. */
             carrierName: string;
+            handoverLocation?: components["schemas"]["externalFulfillmentShipments_2024-09-11_HandoverLocation"];
             pickupWindow?: components["schemas"]["externalFulfillmentShipments_2024-09-11_TimeWindow"];
             /** @description The selected slot for the ship label. */
             shippingOptionId?: string;
@@ -11035,6 +11126,12 @@ export interface components {
             /** @description A list of order statuses for which the marketplace allows order rejection (seller cancellation). If the order has a status that does not belong to this list, then seller cancellation is not possible. */
             orderStatesEligibleForRejection?: string[];
             originalShipmentInfo?: components["schemas"]["externalFulfillmentShipments_2024-09-11_ReplacedShipmentInfo"];
+            /**
+             * @description The payment method for the shipment.
+             * @example PREPAID
+             * @enum {string}
+             */
+            paymentMethod?: "CASH_ON_DELIVERY" | "PREPAID";
             priority: components["schemas"]["externalFulfillmentShipments_2024-09-11_Priority"];
             /**
              * @description The source of the order operation.
@@ -11098,10 +11195,45 @@ export interface components {
             shippingType?: "MARKETPLACE" | "SELF";
             shipToAddress?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Address"];
         };
-        /** @description Shipping options for a single package. */
+        /**
+         * @description Shipping options for a single package.
+         * @example {
+         *       "shippingOptionId": "TEST_CASE_200_SHIPPING_OPTION_ID",
+         *       "carrierName": "ATSPL",
+         *       "shipBy": "MARKETPLACE",
+         *       "pickupWindow": {
+         *         "startTime": 1612933142,
+         *         "endTime": 1612494142
+         *       },
+         *       "timeSlot": {
+         *         "startTime": 1612933142,
+         *         "endTime": 1612494142,
+         *         "handoverMethod": "DROPOFF"
+         *       },
+         *       "handoverLocation": {
+         *         "address": {
+         *           "postalCode": "98101",
+         *           "addressLine1": "123 Main St",
+         *           "city": "Seattle",
+         *           "stateOrRegion": "WA",
+         *           "countryCode": "US",
+         *           "geocodes": {
+         *             "latitude": "47.6062",
+         *             "longitude": "-122.3321"
+         *           }
+         *         },
+         *         "distance": {
+         *           "value": "3.5",
+         *           "distanceUnit": "MI"
+         *         },
+         *         "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
+         *       }
+         *     }
+         */
         "externalFulfillmentShipments_2024-09-11_ShippingOptions": {
             /** @description The carrier name for the offering. */
             carrierName?: string;
+            handoverLocation?: components["schemas"]["externalFulfillmentShipments_2024-09-11_HandoverLocation"];
             pickupWindow?: components["schemas"]["externalFulfillmentShipments_2024-09-11_TimeWindow"];
             /**
              * @description The shipper type.
@@ -11148,7 +11280,14 @@ export interface components {
              */
             type?: "VAT" | "GST";
         };
-        /** @description Time duration used to specify the interval of an event, such as pick up and delivery. */
+        /**
+         * @description Time duration used to specify the interval of an event, such as pick up and delivery.
+         * @example {
+         *       "startTime": 1612933142,
+         *       "endTime": 1612494142,
+         *       "handoverMethod": "DROPOFF"
+         *     }
+         */
         "externalFulfillmentShipments_2024-09-11_TimeWindow": {
             /**
              * Format: int64
@@ -11173,7 +11312,7 @@ export interface components {
              * @description The unit of measurement of the weight.
              * @enum {string}
              */
-            weightUnit: "G" | "KG";
+            weightUnit: "G" | "KG" | "LB" | "OZ";
         };
         /** @description Error response returned when the request is unsuccessful. */
         fbaInbound_Error: {
@@ -14989,7 +15128,7 @@ export interface components {
          * @description The event code for the delivery event.
          * @enum {string}
          */
-        "fulfillmentOutbound_2020-07-01_EventCode": "EVENT_101" | "EVENT_102" | "EVENT_201" | "EVENT_202" | "EVENT_203" | "EVENT_204" | "EVENT_205" | "EVENT_206" | "EVENT_301" | "EVENT_302" | "EVENT_304" | "EVENT_306" | "EVENT_307" | "EVENT_308" | "EVENT_309" | "EVENT_401" | "EVENT_402" | "EVENT_403" | "EVENT_404" | "EVENT_405" | "EVENT_406" | "EVENT_407" | "EVENT_408" | "EVENT_409" | "EVENT_411" | "EVENT_412" | "EVENT_413" | "EVENT_414" | "EVENT_415" | "EVENT_416" | "EVENT_417" | "EVENT_418" | "EVENT_419";
+        "fulfillmentOutbound_2020-07-01_EventCode": "EVENT_101" | "EVENT_102" | "EVENT_201" | "EVENT_202" | "EVENT_203" | "EVENT_204" | "EVENT_205" | "EVENT_206" | "EVENT_301" | "EVENT_302" | "EVENT_304" | "EVENT_306" | "EVENT_307" | "EVENT_308" | "EVENT_309" | "EVENT_401" | "EVENT_402" | "EVENT_403" | "EVENT_404" | "EVENT_405" | "EVENT_406" | "EVENT_407" | "EVENT_408" | "EVENT_409" | "EVENT_411" | "EVENT_412" | "EVENT_413" | "EVENT_414" | "EVENT_415" | "EVENT_416" | "EVENT_417" | "EVENT_418" | "EVENT_419" | "EVENT_801" | "EVENT_804";
         /** @description A Multi-Channel Fulfillment feature. */
         "fulfillmentOutbound_2020-07-01_Feature": {
             /** @description The feature description. */
@@ -17297,6 +17436,25 @@ export interface components {
             /** @description The unique identifier of the related order that is associated with the current order. */
             orderId?: string;
         };
+        /**
+         * @description An associated order item that a customer has purchased with the product. For example, a tire installation service purchased with tires.
+         * @example {
+         *       "orderId": "123-4567890-7654321",
+         *       "orderItemId": "12345678904321",
+         *       "associationType": "VALUE_ADD_SERVICE"
+         *     }
+         */
+        "orders_2026-01-01_AssociatedOrderItem": {
+            /** @description The type of association between the order items.
+             *
+             *     **Possible values**:
+             *     - `VALUE_ADD_SERVICE` (The associated item is a service order) */
+            associationType?: string;
+            /** @description The order identifier of the associated order item. */
+            orderId?: string;
+            /** @description The order item identifier of the associated order item. */
+            orderItemId?: string;
+        };
         /** @description Business days and hours when the destination is open for deliveries. */
         "orders_2026-01-01_BusinessHour": {
             /**
@@ -17487,9 +17645,21 @@ export interface components {
             /** @description Import One-Stop Shop registration number required for EU VAT compliance when shipping from outside the European Union. Sellers shipping to the EU from outside the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale. */
             iossNumber?: string;
         };
-        /** @description Information related to the packaging process for an order item. */
+        /**
+         * @description Information related to the packaging process for an order item.
+         * @example {
+         *       "giftOption": {
+         *         "giftMessage": "Happy Holidays! Enjoy your new smart speakers.",
+         *         "giftWrapLevel": "PREMIUM"
+         *       },
+         *       "serialNumberRequirement": {
+         *         "requirementType": "REQUIRED"
+         *       }
+         *     }
+         */
         "orders_2026-01-01_ItemPacking": {
             giftOption?: components["schemas"]["orders_2026-01-01_GiftOption"];
+            serialNumberRequirement?: components["schemas"]["orders_2026-01-01_SerialNumberRequirement"];
         };
         /** @description Information related to the warehouse picking process for an order item. */
         "orders_2026-01-01_ItemPicking": {
@@ -17523,7 +17693,7 @@ export interface components {
              *     **Possible values**: `ITEM`, `SHIPPING`, `GIFT_WRAP`, `COD_FEE`, `OTHER`, `TAX`, `DISCOUNT` */
             type?: string;
         };
-        /** @description Further granular breakdown of the subtotal of the proceeds breakdown, only available for TAX and DISCOUNT proceeds type. */
+        /** @description Further granular breakdown of the subtotal of the proceeds breakdown, only available for TAX and DISCOUNT proceeds types. */
         "orders_2026-01-01_ItemProceedsDetailedBreakdown": {
             /** @description Specific classification of the further granular breakdown.
              *
@@ -17589,6 +17759,32 @@ export interface components {
              */
             substitutionType: "CUSTOMER_PREFERENCE" | "AMAZON_RECOMMENDED" | "DO_NOT_SUBSTITUTE";
         };
+        /** @description Tax information for an order item. */
+        "orders_2026-01-01_ItemTax": {
+            /** @description A list of tax calculation breakdowns for the order item. */
+            taxCalculationBreakdowns?: components["schemas"]["orders_2026-01-01_ItemTaxCalculationBreakdown"][];
+            /** @description A list of tax collections for the order item. */
+            taxCollections?: components["schemas"]["orders_2026-01-01_ItemTaxCollection"][];
+        };
+        /** @description Tax calculation breakdowns for an order item. */
+        "orders_2026-01-01_ItemTaxCalculationBreakdown": {
+            /** @description The tax reporting scheme applied to this order item.
+             *
+             *     **Possible values**:
+             *     - `UOSS` (Union one stop shop. The item being purchased is held in the EU for shipment)
+             *     - `IOSS` (Import one stop shop. The item being purchased is not held in the EU for shipment) */
+            reportingScheme?: string;
+        };
+        /** @description Tax collection information for an order item. */
+        "orders_2026-01-01_ItemTaxCollection": {
+            /** @description The tax collection model applied to the item.
+             *
+             *     **Possible values**:
+             *     - `MARKETPLACE_FACILITATOR` (Tax is withheld and remitted to the taxing authority by Amazon on behalf of the seller) */
+            model?: string;
+            /** @description The party responsible for withholding the taxes and remitting them to the taxing authority. */
+            responsibleParty?: string;
+        };
         /** @description Specifies the unit of measure and quantity for items that are sold by weight, volume, length, or other measurements rather than simple count. */
         "orders_2026-01-01_Measurement": {
             /**
@@ -17652,13 +17848,15 @@ export interface components {
             orderItems: components["schemas"]["orders_2026-01-01_OrderItem"][];
             /** @description Shipping packages created for this order, including tracking information. **Note:** Only available for merchant-fulfilled (FBM) orders. */
             packages?: components["schemas"]["orders_2026-01-01_OrderPackage"][];
+            payment?: components["schemas"]["orders_2026-01-01_OrderPayment"];
             proceeds?: components["schemas"]["orders_2026-01-01_OrderProceeds"];
             /** @description Special programs associated with this order that may affect fulfillment or customer experience.
              *
-             *     **Possible values**: `AMAZON_BAZAAR`, `AMAZON_BUSINESS`,  `AMAZON_EASY_SHIP`, `AMAZON_HAUL`, `DELIVERY_BY_AMAZON`, `FBM_SHIP_PLUS`, `IN_STORE_PICK_UP`, `PREMIUM`, `PREORDER`, `PRIME` */
+             *     **Possible values**: `AMAZON_BAZAAR`, `AMAZON_BUSINESS`, `AMAZON_EASY_SHIP`, `AMAZON_HAUL`, `DELIVERY_BY_AMAZON`, `FBM_SHIP_PLUS`, `INVOICE_BY_AMAZON`, `IN_STORE_PICK_UP`, `PREMIUM`, `PREORDER`, `PRIME` */
             programs?: string[];
             recipient?: components["schemas"]["orders_2026-01-01_Recipient"];
             salesChannel: components["schemas"]["orders_2026-01-01_SalesChannel"];
+            tax?: components["schemas"]["orders_2026-01-01_OrderTax"];
         };
         /** @description Information about how the order is being processed, packed, and shipped to the customer. */
         "orders_2026-01-01_OrderFulfillment": {
@@ -17676,6 +17874,8 @@ export interface components {
         };
         /** @description Information about a single product within an order. */
         "orders_2026-01-01_OrderItem": {
+            /** @description A list of order items associated with this item. For example, a value-add service purchased with the product. */
+            associatedOrderItems?: components["schemas"]["orders_2026-01-01_AssociatedOrderItem"][];
             cancellation?: components["schemas"]["orders_2026-01-01_ItemCancellation"];
             expense?: components["schemas"]["orders_2026-01-01_ItemExpense"];
             fulfillment?: components["schemas"]["orders_2026-01-01_ItemFulfillment"];
@@ -17691,6 +17891,7 @@ export interface components {
             promotion?: components["schemas"]["orders_2026-01-01_ItemPromotion"];
             /** @description The number of units of this item that the customer ordered. */
             quantityOrdered: number;
+            tax?: components["schemas"]["orders_2026-01-01_ItemTax"];
         };
         /** @description Information about a physical shipping package, including tracking details. **Note:** Only available for merchant-fulfilled (FBM) orders. */
         "orders_2026-01-01_OrderPackage": {
@@ -17717,9 +17918,61 @@ export interface components {
             /** @description The carrier-provided tracking number that customers can use to monitor the package's delivery progress. */
             trackingNumber?: string;
         };
+        /** @description Payment information about the order. */
+        "orders_2026-01-01_OrderPayment": {
+            /** @description A list of payment executions for the order. */
+            paymentExecutions?: components["schemas"]["orders_2026-01-01_PaymentExecution"][];
+        };
         /** @description The money that the seller receives from the sale of the order. */
         "orders_2026-01-01_OrderProceeds": {
             grandTotal?: components["schemas"]["orders_2026-01-01_Money"];
+        };
+        /** @description Tax information about the order. */
+        "orders_2026-01-01_OrderTax": {
+            taxInvoicing?: components["schemas"]["orders_2026-01-01_OrderTaxInvoicing"];
+            /** @description A list of tax registrations associated with the order. */
+            taxRegistrations?: components["schemas"]["orders_2026-01-01_OrderTaxRegistration"][];
+        };
+        /** @description Tax invoicing information for the order. */
+        "orders_2026-01-01_OrderTaxInvoicing": {
+            /** @description The buyer's invoicing preference, which indicates whether the seller should issue an individual or a business invoice to the buyer.
+             *
+             *      **Note**: This attribute is only available in the Turkey marketplace.
+             *
+             *     **Possible values**:
+             *     - `INDIVIDUAL` (Issues an individual invoice to the buyer)
+             *     - `BUSINESS` (Issues a business invoice to the buyer) */
+            buyerInvoicePreference?: string;
+            /** @description The status of the invoice. Only available for Easy Ship orders and orders in the Brazil marketplace.
+             *
+             *     **Possible values**:
+             *     - `NOT_REQUIRED` (The order does not require an electronic invoice to be uploaded)
+             *     - `NOT_FOUND` (The order requires an electronic invoice but it is not uploaded)
+             *     - `PROCESSING` (The required electronic invoice was uploaded and is processing)
+             *     - `ERRORED` (The uploaded electronic invoice was not accepted)
+             *     - `ACCEPTED` (The uploaded electronic invoice was accepted) */
+            invoiceStatus?: string;
+        };
+        /** @description Tax registration information for an entity associated with the order. */
+        "orders_2026-01-01_OrderTaxRegistration": {
+            /** @description The type of entity that the tax registration belongs to.
+             *
+             *     **Possible values**:
+             *     - `BUYER` (Indicates that this is the buyer's tax registration information)
+             *     - `MERCHANT` (Indicates that this is the merchant's tax registration information)
+             *     - `MARKETPLACE` (Indicates that this is the marketplace's tax registration information) */
+            entityType?: string;
+            /** @description The legal name associated with the tax registration. */
+            legalName?: string;
+            taxRegistrationAddress?: components["schemas"]["orders_2026-01-01_CustomerAddress"];
+            /** @description Additional attributes related to the tax registration. */
+            taxRegistrationAttributes?: components["schemas"]["orders_2026-01-01_TaxRegistrationAttribute"][];
+            /** @description The tax registration number that identifies the entity for tax purposes. */
+            taxRegistrationNumber?: string;
+            /** @description The type of the tax registration number.
+             *
+             *     **Possible values**: `BUSINESS`, `VAT`, `CST`, `CPF`, `CNPJ` */
+            taxRegistrationType?: string;
         };
         /** @description Individual order item contained within a shipping package. */
         "orders_2026-01-01_PackageItem": {
@@ -17734,7 +17987,7 @@ export interface components {
         "orders_2026-01-01_PackageStatus": {
             /** @description Granular status information providing specific details about the package's current location and handling stage.
              *
-             *     **Possible values:**
+             *     **Possible values**:
              *     - `PENDING_SCHEDULE` (Package awaiting pickup scheduling)
              *     - `PENDING_PICK_UP` (Package ready for carrier collection from seller)
              *     - `PENDING_DROP_OFF` (Package awaiting seller delivery to carrier)
@@ -17759,10 +18012,28 @@ export interface components {
              */
             status: "PENDING" | "IN_TRANSIT" | "SHIPPED" | "DELIVERED" | "CANCELLED" | "UNDELIVERABLE";
         };
-        /** @description When a request has results that are not included in the response, pagination occurs. This means the results are divided into individual pages. To retrieve a different page, you must pass the token value as the `paginationToken` query parameter in the subsequent request. All other parameters must be provided with the same values that were provided with the request that generated this token, with the exception of `maxResultsPerPage` and `includedData`, which can be modified between calls. The token will expire after 24 hours. When there are no other pages to fetch, the `pagination` field will be absent from the response. */
+        /** @description Pagination occurs when a request has results that exceed the response limit. This means the results are divided into individual pages. To retrieve a different page, you must pass the token value as the `paginationToken` query parameter in the subsequent request. All other parameters must be provided with the same values that were provided with the request that generated this token, with the exception of `maxResultsPerPage` and `includedData`, which can be modified between calls. The token will expire after 24 hours. When there are no other pages to fetch, the `pagination` field will be absent from the response. */
         "orders_2026-01-01_Pagination": {
             /** @description A token that can be used to fetch the next page of results. */
             nextToken?: string;
+        };
+        /** @description Payment execution details for an order. */
+        "orders_2026-01-01_PaymentExecution": {
+            /** @description The unique identifier of the payment processor or acquiring bank that authorizes the payment.
+             *
+             *     **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `paymentMethod` is `CreditCard` or `Pix`. */
+            acquirerId?: string;
+            /** @description The unique code that confirms the payment authorization.
+             *
+             *     **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `paymentMethod` is `CreditCard` or `Pix`. */
+            authorizationCode?: string;
+            /** @description The card network or brand used in the payment transaction (for example, Visa or Mastercard).
+             *
+             *     **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `paymentMethod` is `CreditCard`. */
+            cardBrand?: string;
+            paymentAmount?: components["schemas"]["orders_2026-01-01_Money"];
+            /** @description The payment method used for this payment execution (for example, CashOnDelivery, ConvenienceStore, CreditCard, Invoice, Pix, and so on). */
+            paymentMethod?: string;
         };
         /** @description Information about Amazon Points awarded with an item purchase. */
         "orders_2026-01-01_PointsGranted": {
@@ -17772,7 +18043,7 @@ export interface components {
         };
         /** @description Special delivery capabilities available at the shipping address that may affect delivery options and methods.
          *
-         *     **Possible values:**
+         *     **Possible values**:
          *     - `HAS_ACCESS_POINT` (Delivery location includes designated pickup or drop-off access points)
          *     - `PALLET_ENABLED` (Address is equipped to receive large pallet deliveries)
          *     - `PALLET_DISABLED` (Address cannot accommodate pallet delivery methods) */
@@ -17804,20 +18075,36 @@ export interface components {
         "orders_2026-01-01_SearchOrdersResponse": {
             /**
              * Format: date-time
-             * @description Only orders placed before the specified time are returned. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
+             * @description Only orders placed before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
              */
             createdBefore?: string;
             /**
              * Format: date-time
-             * @description Only orders updated before the specified time are returned. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
+             * @description Only orders updated before the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
              */
             lastUpdatedBefore?: string;
             /** @description An array containing all orders that match the search criteria. */
             orders: components["schemas"]["orders_2026-01-01_Order"][];
             pagination?: components["schemas"]["orders_2026-01-01_Pagination"];
         };
+        /** @description Whether serial numbers must be provided for this line item. */
+        "orders_2026-01-01_SerialNumberRequirement": {
+            /** @description The requirement type for this request.
+             *
+             *     **Possible values**: `REQUIRED` */
+            requirementType?: string;
+        };
         /** @description The seller SKU of a product (catalog item). This is a unique number assigned by the seller when listing an item. */
         "orders_2026-01-01_SKU": string;
+        /** @description An additional attribute associated with a tax registration. */
+        "orders_2026-01-01_TaxRegistrationAttribute": {
+            /** @description The name of the tax registration attribute.
+             *
+             *     **Possible values**: `TAX_OFFICE` */
+            key?: string;
+            /** @description The value of the tax registration attribute. */
+            value?: string;
+        };
         /** @description Specific time interval defining the start and end times. */
         "orders_2026-01-01_TimeWindow": {
             endTime?: components["schemas"]["orders_2026-01-01_HourMinute"];
@@ -17866,10 +18153,13 @@ export interface components {
             /** @description The state or region. */
             StateOrRegion?: string;
         };
-        /** @description The container for address extended fields (such as `street name` and `street number`). Currently only available with Brazil shipping addresses. */
+        /** @description Extended address fields for additional address components including the street name or number.
+         *
+         *     Note: Available for grocery sellers and Brazil shipping addresses. */
         ordersV0_AddressExtendedFields: {
             /** @description The floor number/unit number in the building/private house number. */
             Complement?: string;
+            GeoCoordinates?: components["schemas"]["ordersV0_GeoCoordinates"];
             /** @description The neighborhood. This value is only used in some countries (such as Brazil). */
             Neighborhood?: string;
             /** @description The street name. */
@@ -17930,6 +18220,8 @@ export interface components {
              *
              *     **Note**: This attribute is only available in the Brazil marketplace. */
             BuyerCounty?: string;
+            /** @description The anonymized email address of the buyer. */
+            BuyerEmail?: string;
             /** @description The buyer name or the recipient name. */
             BuyerName?: string;
             BuyerTaxInfo?: components["schemas"]["ordersV0_BuyerTaxInfo"];
@@ -18038,6 +18330,19 @@ export interface components {
         ordersV0_FulfillmentInstruction: {
             /** @description The `sourceId` of the location from where you want the order fulfilled. */
             FulfillmentSupplySourceId?: string;
+        };
+        /** @description The latitude and longitude coordinates of the shipping address using the WGS84 coordinate system. */
+        ordersV0_GeoCoordinates: {
+            /**
+             * Format: double
+             * @description The latitude coordinate of the shipping address using the WGS84 coordinate system.
+             */
+            Latitude?: number;
+            /**
+             * Format: double
+             * @description The longitude coordinate of the shipping address using the WGS84 coordinate system.
+             */
+            Longitude?: number;
         };
         /** @description The response schema for the `getOrderAddress` operation. */
         ordersV0_GetOrderAddressResponse: {
@@ -18251,6 +18556,8 @@ export interface components {
              *
              *     **Note**: This attribute is only available in the Brazil marketplace. */
             BuyerCounty?: string;
+            /** @description The anonymized email address of the buyer. */
+            BuyerEmail?: string;
             /** @description The buyer name or the recipient name. */
             BuyerName?: string;
             BuyerTaxInfo?: components["schemas"]["ordersV0_BuyerTaxInfo"];
@@ -53373,16 +53680,16 @@ export interface operations {
                  *       "PACKAGES"
                  *     ]
                  */
-                includedData?: ("BUYER" | "RECIPIENT" | "PROCEEDS" | "EXPENSE" | "PROMOTION" | "CANCELLATION" | "FULFILLMENT" | "PACKAGES")[];
+                includedData?: ("BUYER" | "RECIPIENT" | "PROCEEDS" | "EXPENSE" | "PROMOTION" | "CANCELLATION" | "FULFILLMENT" | "PACKAGES" | "TAX" | "PAYMENT")[];
                 /**
-                 * @description The response includes orders updated at or after this time. An update is defined as any change made by Amazon or by the seller, including an update to the order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+                 * @description The response includes orders updated at or after this time. An update is any change made by Amazon or the seller, including changes to order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
                  *
                  *     **Note**: You must provide exactly one of `createdAfter` and `lastUpdatedAfter`. If `lastUpdatedAfter` is provided, neither `createdAfter` nor `createdBefore` may be provided.
                  * @example 2025-01-01T00:00:00Z
                  */
                 lastUpdatedAfter?: string;
                 /**
-                 * @description The response includes orders updated at or before this time. An update is defined as any change made by Amazon or by the seller, including an update to the order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+                 * @description The response includes orders updated at or before this time. An update is any change made by Amazon or the seller, including changes to order status. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
                  *
                  *     **Note**: If you include `lastUpdatedAfter` in the request, `lastUpdatedBefore` is optional, and if provided must be equal to or after the `lastUpdatedAfter` date and at least two minutes before the time of the request. If `lastUpdatedBefore` is provided, neither `createdAfter` nor `createdBefore` may be provided.
                  * @example 2025-01-01T00:00:00Z
@@ -53532,7 +53839,7 @@ export interface operations {
                  *       "PACKAGES"
                  *     ]
                  */
-                includedData?: ("BUYER" | "RECIPIENT" | "PROCEEDS" | "EXPENSE" | "PROMOTION" | "CANCELLATION" | "FULFILLMENT" | "PACKAGES")[];
+                includedData?: ("BUYER" | "RECIPIENT" | "PROCEEDS" | "EXPENSE" | "PROMOTION" | "CANCELLATION" | "FULFILLMENT" | "PACKAGES" | "TAX" | "PAYMENT")[];
             };
             header?: never;
             path: {
@@ -53657,6 +53964,8 @@ export interface operations {
                 ActualFulfillmentSupplySourceId?: string;
                 /** @description A list of `AmazonOrderId` values. An `AmazonOrderId` is an Amazon-defined order identifier, in 3-7-7 format. */
                 AmazonOrderIds?: string[];
+                /** @description The email address of a buyer. Used to select orders that contain the specified email address. */
+                BuyerEmail?: string;
                 /** @description Use this date to select orders created after (or at) a specified time. Only orders placed after the specified time are returned. The date must be in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
                  *
                  *     **Note**: Either the `CreatedAfter` parameter or the `LastUpdatedAfter` parameter is required. Both cannot be empty. `LastUpdatedAfter` and `LastUpdatedBefore` cannot be set when `CreatedAfter` is set. */
@@ -53740,7 +54049,7 @@ export interface operations {
                  *
                  *     **Possible values**: `COD` (cash on delivery), `CVS` (convenience store), `Other` (Any payment method other than COD or CVS). */
                 PaymentMethods?: string[];
-                /** @description An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, and `LastUpdatedBefore` cannot be specified. */
+                /** @description An order identifier that is specified by the seller. Used to select only the orders that match the order identifier. If `SellerOrderId` is specified, then `FulfillmentChannels`, `OrderStatuses`, `PaymentMethod`, `LastUpdatedAfter`, `LastUpdatedBefore`, and `BuyerEmail` cannot be specified. */
                 SellerOrderId?: string;
                 /** @description The store chain store identifier. Linked to a specific store in a store chain. */
                 StoreChainStoreId?: string;
