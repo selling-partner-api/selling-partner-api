@@ -3352,7 +3352,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        put: operations["listingsItems_2020-09-01_putListingsItem"];
+        put: operations["putListingsItem"];
         post?: never;
         /** @description Delete a listings item for a selling partner.
          *
@@ -3365,7 +3365,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        delete: operations["listingsItems_2020-09-01_deleteListingsItem"];
+        delete: operations["deleteListingsItem"];
         options?: never;
         head?: never;
         /** @description Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.
@@ -3379,7 +3379,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        patch: operations["listingsItems_2020-09-01_patchListingsItem"];
+        patch: operations["patchListingsItem"];
         trace?: never;
     };
     "/listings/2021-08-01/items/{sellerId}": {
@@ -3433,7 +3433,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        put: operations["putListingsItem"];
+        put: operations["listingsItems_2021-08-01_putListingsItem"];
         post?: never;
         /** @description Delete a listings item for a selling partner.
          *
@@ -3444,7 +3444,7 @@ export interface paths {
          *     | 5 | 5 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        delete: operations["deleteListingsItem"];
+        delete: operations["listingsItems_2021-08-01_deleteListingsItem"];
         options?: never;
         head?: never;
         /** @description Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.
@@ -3456,7 +3456,7 @@ export interface paths {
          *     | 5 | 5 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        patch: operations["patchListingsItem"];
+        patch: operations["listingsItems_2021-08-01_patchListingsItem"];
         trace?: never;
     };
     "/listings/2021-08-01/restrictions": {
@@ -5281,7 +5281,7 @@ export interface paths {
          *     | 5 | 15 |
          *
          *     For more information, see "Usage Plans and Rate Limits" in the Selling Partner API documentation. */
-        post: operations["shipping_purchaseShipment"];
+        post: operations["purchaseShipment"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5306,7 +5306,7 @@ export interface paths {
          *     | 5 | 15 |
          *
          *     For more information, see "Usage Plans and Rate Limits" in the Selling Partner API documentation. */
-        post: operations["shipping_getRates"];
+        post: operations["getRates"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5767,7 +5767,7 @@ export interface paths {
          *     | 80 | 100 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["purchaseShipment"];
+        post: operations["shippingV2_purchaseShipment"];
         delete?: never;
         options?: never;
         head?: never;
@@ -5892,7 +5892,7 @@ export interface paths {
          *     | 80 | 100 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["getRates"];
+        post: operations["shippingV2_getRates"];
         delete?: never;
         options?: never;
         head?: never;
@@ -50551,7 +50551,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2020-09-01_putListingsItem": {
+    putListingsItem: {
         parameters: {
             query: {
                 /**
@@ -50690,7 +50690,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2020-09-01_deleteListingsItem": {
+    deleteListingsItem: {
         parameters: {
             query: {
                 /**
@@ -50824,7 +50824,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2020-09-01_patchListingsItem": {
+    patchListingsItem: {
         parameters: {
             query: {
                 /**
@@ -51321,7 +51321,7 @@ export interface operations {
             };
         };
     };
-    putListingsItem: {
+    "listingsItems_2021-08-01_putListingsItem": {
         parameters: {
             query: {
                 /**
@@ -51455,7 +51455,7 @@ export interface operations {
             };
         };
     };
-    deleteListingsItem: {
+    "listingsItems_2021-08-01_deleteListingsItem": {
         parameters: {
             query: {
                 /**
@@ -51574,7 +51574,7 @@ export interface operations {
             };
         };
     };
-    patchListingsItem: {
+    "listingsItems_2021-08-01_patchListingsItem": {
         parameters: {
             query: {
                 /**
@@ -61462,7 +61462,7 @@ export interface operations {
             };
         };
     };
-    shipping_purchaseShipment: {
+    purchaseShipment: {
         parameters: {
             query?: never;
             header?: never;
@@ -61572,7 +61572,7 @@ export interface operations {
             };
         };
     };
-    shipping_getRates: {
+    getRates: {
         parameters: {
             query?: never;
             header?: never;
@@ -63967,7 +63967,7 @@ export interface operations {
             };
         };
     };
-    purchaseShipment: {
+    shippingV2_purchaseShipment: {
         parameters: {
             query?: never;
             header?: {
@@ -64656,7 +64656,7 @@ export interface operations {
             };
         };
     };
-    getRates: {
+    shippingV2_getRates: {
         parameters: {
             query?: never;
             header?: {
@@ -67658,7 +67658,7 @@ export interface operations {
             query: {
                 /** @description An MD5 hash of the content to be submitted to the upload destination. This value is used to determine if the data has been corrupted or tampered with during transit. */
                 contentMD5: string;
-                /** @description The content type of the file you upload. */
+                /** @description The content type of the file you upload. This parameter is required for A+ content. */
                 contentType?: string;
                 /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
                 marketplaceIds: string[];
