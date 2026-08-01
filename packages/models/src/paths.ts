@@ -2488,7 +2488,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of payouts for the selling partner's account. Results can be filtered by `marketplaceIds`, `accountType`, date range (`createdAfter` and `createdBefore`), or a specific `payoutId`. By default, the API returns payouts for all available marketplaces and account types. Results are sorted in descending order of their creation dates.
+        /** @description Retrieve a list of payouts for the selling partner's account. You can filter results by `marketplaceIds`, `accountType`, date range (`createdAfter` and `createdBefore`), or a specific `payoutId`. By default, the response includes payouts for all available marketplaces and account types. Results are grouped by the seller's account groups. Within each account group results are sorted by their creation date, with the most recent appearing first.
          *
          *     **Usage Plan:**
          *
@@ -2750,6 +2750,8 @@ export interface paths {
         };
         /** @description Returns all financial events for the specified financial event group. Orders from the last 48 hours might not be included in financial events.
          *
+         *     **Note:** Deferred events don't appear in the `listFinancialEventsByGroupId` response until they are released.
+         *
          *     **Note:** This operation only retrieves a group's data for the past two years. A request for data spanning more than two years produces an empty response.
          *
          *     **Usage Plan:**
@@ -2803,6 +2805,8 @@ export interface paths {
             cookie?: never;
         };
         /** @description Returns all financial events for the specified order. Orders from the last 48 hours might not be included in financial events.
+         *
+         *     **Note:** Deferred events don't appear in the `listFinancialEventsByOrderId` response until they are released.
          *
          *     **Usage Plan:**
          *
@@ -29028,7 +29032,7 @@ export interface components {
         "transfers_2024-06-01_PartnerMetadata": {
             /** @description The type of the selling partner's account in the payout. */
             accountType: string;
-            /** @description The identifier of the marketplace associated with the payout. The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+            /** @description The identifier of the store associated with the payout. To find the ID for your store, refer to [Store Identifiers](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
             marketplaceId: string;
             /** @description A unique selling partner identifier. */
             partnerId: string;
@@ -29068,6 +29072,13 @@ export interface components {
          * @enum {string}
          */
         "transfers_2024-06-01_PaymentMethodType": "BANK_ACCOUNT" | "CARD" | "SELLER_WALLET";
+        /**
+         * @description The list of payment method types that are present.
+         * @example [
+         *       "BANK_ACCOUNT, CARD"
+         *     ]
+         */
+        "transfers_2024-06-01_PaymentMethodTypeList": components["schemas"]["transfers_2024-06-01_PaymentMethodType"][];
         /** @description All the information related to a payout. */
         "transfers_2024-06-01_Payout": {
             /** @description The last few digits of the payment instrument. May be omitted when the configured payment instrument is invalid. */
@@ -47400,7 +47411,7 @@ export interface operations {
         parameters: {
             query: {
                 /**
-                 * @description The identifier of the marketplace from which you want to retrieve payment methods. For the list of possible marketplace identifiers, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
+                 * @description The identifier of the Amazon store from which you want to retrieve payment methods. For the list of store identifiers, refer to [Store Identifiers](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
                  * @example ATVPDKIKX0DER
                  */
                 marketplaceId: string;
@@ -47527,34 +47538,34 @@ export interface operations {
         parameters: {
             query?: {
                 /**
-                 * @description An optional query parameter to filter payouts by a specific account type. When provided, only payouts associated with the specified account type will be returned.
+                 * @description The response only includes payouts associated with the specified account type.
                  * @example STANDARD_ORDERS
                  */
                 accountType?: string;
                 /**
-                 * @description An optional query parameter to filter payouts created on or after this date-time. When provided, the response will only include payouts with a creation date on or after the specified date-time. The value must be formatted in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. If omitted, no start date filter is applied.
+                 * @description The response only includes payouts created on or after this date-time. The value must be formatted in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. If omitted, no start date filter is applied.
                  * @example 2024-06-01T00:00:00Z
                  */
                 createdAfter?: string;
                 /**
-                 * @description An optional query parameter to filter payouts created before this date-time. When provided, the response will only include payouts with a creation date before the specified date-time (exclusive). The value must be formatted in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. If omitted, no end date filter is applied.
+                 * @description The response only includes payouts created before this date-time. The value must be formatted in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format. If omitted, no end date filter is applied.
                  * @example 2024-06-30T00:00:00Z
                  */
                 createdBefore?: string;
                 /**
-                 * @description An optional query parameter that specifies the marketplaces from which to retrieve payouts. The marketplace ID is a globally unique identifier assigned to each Amazon marketplace. When provided, the response will only include payouts associated with the specified marketplaces. If omitted, payouts from all applicable marketplaces may be returned. To find the marketplace ID for your region, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
+                 * @description The Amazon stores from which to retrieve payouts. The Amazon store ID is a globally unique identifier assigned to each Amazon store. If omitted, the response includes payouts from all applicable stores. To find the Amazon store ID for your region, refer to [Store Identifiers](https://developer-docs.amazon/sp-api/docs/store-identifiers).
                  * @example [
                  *       "ATVPDKIKX0DER"
                  *     ]
                  */
                 marketplaceIds?: string[];
                 /**
-                 * @description The response includes `nextToken` when the number of results exceeds the specified page size. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.
+                 * @description The response includes `nextToken` when the number of results exceeds the page size. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.
                  * @example jehgri34yo7jr9e8f984tr9i4o
                  */
                 nextToken?: string;
                 /**
-                 * @description An optional query parameter that specifies the payout to retrieve. When provided, the response will only include the payout matching the specified identifier.
+                 * @description The response only includes the payout matching the specified identifier.
                  * @example 11888387941
                  */
                 payoutId?: string;
@@ -47797,12 +47808,12 @@ export interface operations {
         parameters: {
             query?: {
                 /**
-                 * @description An optional query parameter used to filter the response by a specific account type. When provided, only expected payouts associated with the specified account type will be returned.
+                 * @description The response only includes the accounts of the specified account type.
                  * @example STANDARD_ORDERS
                  */
                 accountType?: string;
                 /**
-                 * @description An optional query parameter that specifies the marketplaces from which to retrieve expected payouts. The marketplace ID is a globally unique identifier assigned to each Amazon marketplace. When provided, the response will only include expected payouts associated with the specified marketplaces. If omitted, expected payouts from all applicable marketplaces may be returned. To find the marketplace ID for your region, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
+                 * @description The Amazon stores from which to retrieve payouts. The Amazon store ID is a globally unique identifier assigned to each Amazon store. If omitted, the response includes payouts from all applicable stores. To find the Amazon store ID for your region, refer to [Store Identifiers](https://developer-docs.amazon/sp-api/docs/store-identifiers).
                  * @example [
                  *       "ATVPDKIKX0DER"
                  *     ]
