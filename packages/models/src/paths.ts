@@ -4559,6 +4559,35 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/notifications/v1/subscriptions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Returns information about subscriptions of the specified notification type. You can use this API to retrieve all subscriptions when multiple subscriptions exist for a notification type (for example, when using filter expressions).
+         *
+         *     The operation returns all subscriptions for the caller's party.
+         *
+         *     `payloadVersion` is an optional parameter. When you do not provide `payloadVersion`, the operation returns subscriptions across all payload versions.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 1 | 5 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        get: operations["getSubscriptions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/notifications/v1/subscriptions/{notificationType}": {
         parameters: {
             query?: never;
@@ -6851,6 +6880,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/tracking/2026-01-30/shipments/track": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get tracking information for the shipment.
+         * @description Returns tracking information for a shipment.
+         */
+        get: operations["getShipmentTracking"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/uploads/2020-11-01/uploadDestinations/{resource}": {
         parameters: {
             query?: never;
@@ -7677,7 +7726,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of purchase orders created or changed during the time frame that you specify. You define the time frame using the `createdAfter`, `createdBefore`, `changedAfter` and `changedBefore` parameters. The date range to search must not be more than 7 days. You can choose to get only the purchase order numbers by setting `includeDetails` to false. You can then use the `getPurchaseOrder` operation to receive details for a specific purchase order.
+        /** @description Returns a list of purchase orders created or changed during the time frame that you specify. You define the time frame using the `createdAfter`, `createdBefore`, `changedAfter` and `changedBefore` parameters. The date range must not exceed 7 days and is available to pull data from the past 6 months. You can choose to get only the purchase order numbers by setting `includeDetails` to false. You can then use the `getPurchaseOrder` operation to receive details for a specific purchase order.
          *
          *     **Usage Plan:**
          *
@@ -21904,12 +21953,12 @@ export interface components {
             region: string;
         };
         /** @description A `notificationType` filter. This object contains all of the available filters and properties that you can use to define a `notificationType` specific filter. */
-        notifications_EventFilter: components["schemas"]["notifications_AggregationFilter"] & components["schemas"]["notifications_MarketplaceFilter"] & components["schemas"]["notifications_OrderChangeTypeFilter"] & {
+        notifications_EventFilter: components["schemas"]["notifications_AggregationFilter"] & components["schemas"]["notifications_MarketplaceFilter"] & components["schemas"]["notifications_OrderChangeTypeFilter"] & components["schemas"]["notifications_TrackingFilter"] & {
             /**
              * @description An `eventFilterType` value that the `notificationType` supports. The subscription service uses the `eventFilterType` to determine the type of event filter. To determine if a specific `notificationType` supports an `eventFilterType`, refer to [Notification Type Values]( https://developer-docs.amazon.com/sp-api/docs/notification-type-values).
              * @enum {string}
              */
-            eventFilterType: "ANY_OFFER_CHANGED" | "ORDER_CHANGE";
+            eventFilterType: "ANY_OFFER_CHANGED" | "ORDER_CHANGE" | "SHIPMENT_TRACKING_MILESTONE_CHANGED";
         };
         /** @description The response schema for the `getDestination` operation. */
         notifications_GetDestinationResponse: {
@@ -21930,6 +21979,17 @@ export interface components {
         notifications_GetSubscriptionResponse: {
             errors?: components["schemas"]["notifications_ErrorList"];
             payload?: components["schemas"]["notifications_Subscription"];
+        };
+        /** @description The payload for the `getSubscriptions` operation. */
+        notifications_GetSubscriptionsPayload: {
+            /** @description A token that you can use to retrieve the next page of results. When this field is not empty, pass its value in the `nextToken` query parameter of the next request. */
+            nextToken?: string;
+            subscriptions?: components["schemas"]["notifications_Subscriptions"];
+        };
+        /** @description The response schema for the `getSubscriptions` operation. */
+        notifications_GetSubscriptionsResponse: {
+            errors?: components["schemas"]["notifications_ErrorList"];
+            payload?: components["schemas"]["notifications_GetSubscriptionsPayload"];
         };
         /** @description An event filter you can use to customize your subscription to send notifications for specific `marketplaceId`s. */
         notifications_MarketplaceFilter: {
@@ -21982,12 +22042,38 @@ export interface components {
             /** @description The subscription identifier generated when the subscription is created. */
             subscriptionId: string;
         };
+        /** @description A list of subscriptions. */
+        notifications_Subscriptions: components["schemas"]["notifications_Subscription"][];
         /** @description The describer for the test notification that will be delivered. */
         notifications_TestNotification: {
             /** @description The version of the payload object to be used in the notification. */
             payloadVersion: string;
             /** @description The scenario of the specified notification to be used in the notification payload. If testScenario is empty, a 400 response will be returned back to the developer. The scenarios supported for each notification type can be found in the Selling Partner API Developer Guide. */
             testScenario?: string;
+        };
+        /** @description An event filter you can use to customize your subscription to receive shipment tracking milestone notifications for a specific tracking identifier. */
+        notifications_TrackingFilter: {
+            trackingIdentifier?: components["schemas"]["notifications_TrackingIdentifier"];
+        };
+        /** @description Specifies the tracking identifier used to filter your subscription notifications. Provide exactly one identifier field. Providing multiple identifier fields in a single request is not supported. */
+        notifications_TrackingIdentifier: {
+            /** @description Air Cargo Shipment Identification Number. */
+            acsin?: string;
+            /** @description Amazon Fulfillment Tracking Number. */
+            aftn?: string;
+            /** @description Carrier-provided tracking identifier. */
+            carrierTracking?: {
+                /** @description Carrier code */
+                carrierCode?: string;
+                /** @description Carrier tracking number */
+                trackingNumber: string;
+            };
+            /** @description Container number provided by the Logistics Service Provider. */
+            containerNumber?: string;
+            /** @description House Bill of Lading number. */
+            houseBillOfLadingNumber?: string;
+            /** @description Amazon unique tracking identifier. */
+            id?: string;
         };
         /** @description Additional address components that provide more detailed location information, helping with precise delivery routing.
          *
@@ -28873,6 +28959,120 @@ export interface components {
              *     - ```/mfn/v0/shipments/FBA1234ABC5D```. For getting an RDT for the getShipment operation of the Shipping API. For a specific shipment.
              *     - ```/mfn/v0/shipments/{shipmentId}```. For getting an RDT for the getShipment operation of the Shipping API. For any of a selling partner's shipments that you specify when you call the getShipment operation. */
             path: string;
+        };
+        /** @description A time interval defined by a start time and end time. */
+        "tracking_2026-01-30_BoundedInterval": {
+            endTime: components["schemas"]["tracking_2026-01-30_Instant"];
+            startTime: components["schemas"]["tracking_2026-01-30_Instant"];
+        };
+        /** @description The carrier information. */
+        "tracking_2026-01-30_CarrierTracking": {
+            /** @description The carrier code associated with the carrier tracking number. */
+            carrierCode?: string;
+            /** @description The tracking number assigned by the carrier. */
+            trackingNumber: string;
+        };
+        /** @description Error response returned when the request is unsuccessful. */
+        "tracking_2026-01-30_Error": {
+            /** @description An error code that identifies the type of error that occurred. */
+            code: string;
+            /** @description Additional details that can help the caller understand or fix the issue. */
+            details?: string;
+            /** @description A message that describes the error condition. */
+            message: string;
+        };
+        /** @description A list of errors for an unsuccessful request. */
+        "tracking_2026-01-30_ErrorList": {
+            /** @description An array of error details. */
+            errors: components["schemas"]["tracking_2026-01-30_Error"][];
+        };
+        /** @description Contains tracking details for a requested shipment. */
+        "tracking_2026-01-30_GetShipmentTrackingResponse": {
+            trackingDetail: components["schemas"]["tracking_2026-01-30_TrackingDetail"];
+        };
+        /** @description A timestamp in UTC RFC 3339 date-time format. */
+        "tracking_2026-01-30_Instant": string;
+        /** @description Tracking information for the shipment identifier. */
+        "tracking_2026-01-30_TrackingDetail": {
+            identifier: components["schemas"]["tracking_2026-01-30_TrackingIdentifier"];
+            latestMilestone?: components["schemas"]["tracking_2026-01-30_TrackingMilestone"];
+            /** @description A chronological list of all milestone events for the shipment, from most recent to oldest. */
+            milestoneHistory: components["schemas"]["tracking_2026-01-30_TrackingMilestone"][];
+            /** @description A list of time-based estimated intervals for the shipment, such as estimated delivery date. */
+            trackingEstimates?: components["schemas"]["tracking_2026-01-30_TrackingEstimate"][];
+            /**
+             * @description The URL to view the shipment's tracking information.
+             * @example https://www.swiship.com/track/AFTN987654321
+             */
+            trackingUrl?: string;
+        };
+        /** @description A time-based estimate for the shipment, such as estimated delivery date. */
+        "tracking_2026-01-30_TrackingEstimate": {
+            estimatedInterval: components["schemas"]["tracking_2026-01-30_BoundedInterval"];
+            lastUpdatedTime: components["schemas"]["tracking_2026-01-30_Instant"];
+            /** @description The type of estimate. For example, `ESTIMATED_DELIVERY_DATE` or `ESTIMATED_TIME_OF_DEPARTURE`. */
+            type: string;
+        };
+        /** @description The identifier to track a shipment. */
+        "tracking_2026-01-30_TrackingIdentifier": {
+            /** @description The Air Cargo Shipment Identification Number. */
+            acsin?: string;
+            /** @description The Amazon Fulfillment Tracking Number. */
+            aftn?: string;
+            carrierTracking?: components["schemas"]["tracking_2026-01-30_CarrierTracking"];
+            /** @description The container number provided by the Logistics Service Provider. */
+            containerNumber?: string;
+            /** @description The House Bill of Lading (HBL) number. */
+            houseBillOfLadingNumber?: string;
+            /** @description A unique identifier generated by Amazon for the shipment tracking request. */
+            id?: string;
+        };
+        /** @description A single milestone event in a shipment's journey. */
+        "tracking_2026-01-30_TrackingMilestone": {
+            location?: components["schemas"]["tracking_2026-01-30_TrackingMilestoneLocation"];
+            occurredAt: components["schemas"]["tracking_2026-01-30_Instant"];
+            status: components["schemas"]["tracking_2026-01-30_TrackingMilestoneStatus"];
+        };
+        /** @description The physical address of the location. */
+        "tracking_2026-01-30_TrackingMilestoneAddress": {
+            /**
+             * @description The city where the milestone occurred.
+             * @example Seattle
+             */
+            city?: string;
+            /**
+             * @description The two-character country code in ISO 3166-1 alpha-2 format (for example, `US`).
+             * @example US
+             */
+            countryCode?: string;
+            /**
+             * @description The state or region where the milestone occurred.
+             * @example Washington
+             */
+            region?: string;
+        };
+        /** @description The location where a tracking milestone occurred. */
+        "tracking_2026-01-30_TrackingMilestoneLocation": {
+            address?: components["schemas"]["tracking_2026-01-30_TrackingMilestoneAddress"];
+        };
+        /** @description The status codes and description of the milestone event. */
+        "tracking_2026-01-30_TrackingMilestoneStatus": {
+            /**
+             * @description A status code that identifies the milestone event (for example, `DELIVERED`, `CUSTOMS_CLEARED`, `DEPARTED`).
+             * @example DELIVERED
+             * @enum {string}
+             */
+            code: "BOOKING_RECEIVED" | "BOOKING_ACCEPTED" | "ARRIVED_IN_DESTINATION_COUNTRY" | "CARRIER_RECEIVED_SHIPMENT" | "CARRIER_HOLD" | "CUSTOMER_CONTACTED" | "CUSTOMER_MOVED" | "RECIPIENT_REFUSED_DELIVERY" | "ORDER_PREPARING" | "CARRIER_ASSIGNED" | "CUSTOMS_DELAY" | "CONTAINERIZED" | "DAMAGED" | "DELAYED" | "DELIVERY_APPOINTMENT_CONFIRMED" | "DELIVERY_ATTEMPTED" | "INCORRECT_ADDRESS" | "IN_TRANSIT_TO_PICKUP" | "LOST" | "MANIFESTED_NOT_RECEIVED" | "MISSING_MANIFEST" | "MISSORTED" | "OUT_FOR_DELIVERY" | "RECEIVED_FROM_CARRIER" | "RETURNED" | "SHIPPED" | "UNDELIVERABLE" | "UNDELIVERABLE_DESTROY_IN_FIELD" | "BOOKING_CONFIRMED" | "BOOKING_CANCELLED" | "PICKED_UP" | "ARRIVED" | "DOCUMENTS_RECEIVED_EMBARK_PORT" | "DRAY_STOP_OFF" | "ARRIVED_AT_TERMINAL" | "CUSTOMS_IMPORT_SECURITY_FILED" | "CUSTOMS_IMPORT_SECURITY_FILING_ACCEPTED" | "CUSTOMS_DECLARATION_EMBARK_PORT" | "CUSTOMS_PROCESSING" | "CUSTOMS_HOLD" | "CUSTOMS_CLEARED" | "LOADED" | "DEPARTED" | "RECEIVED_AT_ORIGIN" | "UNLOADED" | "DOCUMENTS_RECEIVED_DISCHARGE_PORT" | "CUSTOMS_DECLARATION_DISCHARGE_PORT" | "CUSTOMS_HOLD_DISCHARGE_PORT" | "CUSTOMS_PAYMENT_REQUIRED" | "READY_FOR_CUSTOMER_PICKUP" | "DEPARTED_TERMINAL" | "LOADED_TRAIN" | "UNLOADED_TRAIN" | "ARRIVED_AT_DESTINATION_YARD" | "TRAILER_UNLOADING" | "DELIVERED" | "EMPTY_RETURN" | "ORDER_CANCELLED" | "ARRIVED_AT_RAIL_TERMINAL" | "CARRIER_TRANSFER" | "CUSTOMER_PICKUP_COMPLETED" | "CUSTOMS_EXCEPTION" | "DELIVERY_ADDRESS_UPDATED" | "DELIVERY_CHANGE_REQUESTED" | "DELIVERY_ESTIMATE_UPDATED" | "DEPARTED_RAIL_TERMINAL" | "PICKUP_FAILED" | "READY_FOR_DELIVERY" | "RETURN_DROPPED_OFF" | "RETURN_IN_TRANSIT" | "RETURN_PICKED_UP" | "RETURN_RECEIVED" | "SORTED" | "TRAILER_UNLOADED";
+            /**
+             * @description A human-readable explanation of the milestone event.
+             * @example Shipment delivered
+             */
+            description: string;
+            /**
+             * @description Status subcode that provides additional details about the milestone status. Valid values vary by milestone (for example, a `DELIVERED` milestone might include a `subCode` for the delivery location).
+             * @enum {string}
+             */
+            subCode?: "ACCIDENT" | "ADDRESS_CHANGE" | "ADDRESS_ISSUE" | "ADDRESS_NON_SERVICED" | "ADULT_SIGNATURE_REQUIRED" | "AIRPLANE_LATE" | "AIR_HUB" | "ANIMAL_HAZARD" | "APARTMENT" | "APPOINTMENT" | "APPOINTMENT_REQUIRED" | "ARMED_FORCES_POST_OFFICE" | "BAG" | "BAG_ID_MISMATCH" | "BATCH" | "BEHIND_WHEELIE_BIN" | "BUILDING_LOCKER" | "BUSINESS_CLOSED" | "BUSINESS_CLOSED_HOLIDAY" | "BUYBACK" | "CARRIER_HUB" | "CARRIER_HUB_DELAY" | "CARRIER_NO_ACCESS" | "CARRIER_NO_CAPACITY" | "CARRIER_REFUSAL" | "CITY_TOWN_STATE" | "CN_BUYER_PAYER_RECIPIENT_MISMATCH" | "CN_CUSTOMS_ALIPAY_WECHAT_NAME_FAILED" | "CN_CUSTOMS_CAN_GATEWAY_ID_VERIFICATION" | "CN_CUSTOMS_CLEARANCE_DATA_ISSUE" | "CN_CUSTOMS_CONVERT_TO_PERSONAL_REVIEW" | "CN_CUSTOMS_DATA_TRANSMISSION_DELAY" | "CN_CUSTOMS_PACKAGE_INFO_MISMATCH" | "CN_CUSTOMS_PERSONAL_REVIEW_DELAY" | "CN_CUSTOMS_PERSONAL_REVIEW_QUOTA_EXCEEDED" | "CN_CUSTOMS_PROHIBITED_WORDING" | "CN_CUSTOMS_SYSTEM_UPGRADE" | "CONSERVATORY" | "CONTAINER_FREIGHT_STATION" | "CONTENT_SPILL_OUT" | "COUNTER" | "COVERAGE_AREA_ISSUE" | "CUSTOMER" | "CUSTOMER_CANCELLED" | "CUSTOMER_MOVED" | "CUSTOMER_PICK_UP_FAILURE" | "CUSTOMER_REFUSAL" | "CUSTOMER_REQUEST" | "CUSTOMS" | "CUSTOMS_FEES" | "CUSTOMS_HUB" | "CUSTOMS_ISSUE" | "DAMAGE" | "DATE_CHANGE" | "DELAY" | "DELIVERY_AGENT_ASSIGNED" | "DELIVERY_ATTEMPTED" | "DELIVERY_DATE_MISMATCH" | "DELIVERY_DEPOT" | "DELIVERY_DEPOT_DELAY" | "DELIVERY_NOT_ATTEMPTED" | "DESTINATION" | "DIRECTIONS_REQUIRED" | "DRIVER_EMERGENCY" | "DRIVER_HELD" | "DRIVER_LATE" | "DRONE" | "DRONE_REPLAN" | "DUPLICATE" | "DUTIES_TAX_PENDING" | "EMERGENCY" | "EXCEEDS_20000_RMB_CLEARANCE_QUOTA" | "EXCEEDS_PERSONAL_QUANTITIES_QUOTA" | "EXPORT_CARRIER" | "FACILITY_BREAKDOWN" | "FACILITY_CLOSURE" | "FAILED_ADULT_VERIFICATION" | "FAILED_MAX_ATTEMPTS" | "FINAL_ATTEMPT_FAILED" | "FORCE_MAJEURE" | "FRAUDULENT_ACTIVITY" | "FREIGHT_FORWARDER" | "FRONT_PORCH" | "FRONT_PORCH_OR_FRONT_DOOR" | "FULFILLMENT_FACILITY" | "FULFILLMENT_ISSUE" | "FULFILLMENT_PROVIDER_MISSORT" | "FULFILLMENT_PROVIDER_RETURN_REQUEST" | "GARAGE" | "GARDEN" | "GOVERNMENT_AGENCY_INSPECTION_REQUIRED" | "GREENHOUSE" | "HANDED_OVER_FOR_FINAL_DELIVERY" | "HAZMAT" | "HEAVY_BULKY_CARRIER" | "HELD_FOR_PAYMENT" | "HELD_IN_TRAILER" | "HOLD_FOR_PICK_UP" | "HS_CODE_ISSUES" | "IMPORT_BLOCKED" | "IMPORT_DOCUMENTATION_REQUIRED" | "IMPORT_ELIGIBILITY_ISSUE" | "INCORRECT_ITEM" | "INCOTERMS_ISSUE" | "INSIDE_BOX" | "INSIDE_HOME" | "INSIDE_VEHICLE" | "INSUFFICIENT_PAPERWORK" | "INTERNATIONAL_TRANSIT_DELAY" | "INVALID_ADDRESS" | "INVALID_CITY_TOWN_STATE_ADDRESS" | "INVALID_POSTAL_CODE" | "INVALID_RECIPIENT_NAME" | "INVALID_STREET_ADDRESS" | "LABEL_ISSUE" | "LARGE_ITEM" | "LATE_DELIVERY" | "LEAVE_TO_NEIGHBOR" | "LETTERBOX" | "LOCKER" | "LOOSE" | "MAIL_BOX_FULL" | "MAIL_ROOM" | "MANUAL_CLEARANCE" | "MANUAL_SCAN_UPLOAD" | "MISSING_APARTMENT_ADDRESS" | "MISSING_COMMERCIAL_DOCS" | "MISSING_OR_INCOMPLETE_NAME" | "MISSING_RECIPIENT_PERSONAL_DATA" | "MISSORT" | "NAME_AUTHENTICATION_FAILED" | "NEARBY_STORE" | "NEIGHBOR" | "NEIGHBOR_SIGNED" | "NON_PERSONAL_BELONGINGS" | "NON_POSTAL_CARRIER" | "NOT_ORDERED" | "NOT_WANTED" | "NO_ACCESS" | "NO_CONTACT_INFORMATION" | "NO_RESPONSE" | "NO_SECURITY_ACCESS" | "OFF_AMAZON_CUSTOMER" | "ON_HOLD" | "ORIGIN" | "OUTBUILDING" | "OVER_FORECAST" | "PACKAGE_OPEN" | "PACKAGE_OVERSIZED" | "PARCEL_HUB" | "PARTIAL" | "PAYMENT_REFUSED" | "PENDING_INSPECTION" | "PGA_HOLD" | "PICKUP_FAILURE" | "PICKUP_POINT" | "PICKUP_POINT_CLOSED" | "PKG_DIMENSION_EXCEEDS" | "POI_DELIVERY_ADDRESS_MISMATCH" | "POI_INVALID" | "POI_RECIPIENT_NAME_MISMATCH" | "PORCH" | "POSTAL_CARRIER" | "POST_OFFICE" | "POWER_OF_ATTORNEY_REQUIRED" | "PO_BOX" | "PO_BOX_QUERY" | "PREDICTED" | "PROCESSING_DELAY" | "PROCESSING_HUB" | "PRODUCT_DAMAGED" | "PRODUCT_DEFECTIVE" | "PRODUCT_MISSING" | "PRODUCT_NOT_FUNCTIONAL" | "PRODUCT_PRICE_EXCEEDS_2000_RMB" | "PROHIBITED_ITEM" | "READY_FOR_PICKUP" | "REAR_PORCH" | "REAR_PORCH_OR_REAR_DOOR" | "RECEPTION" | "RECIPIENT_CANCELLED" | "RECIPIENT_HOLIDAY" | "RECIPIENT_ID_IMAGE_QUALITY" | "RECIPIENT_ID_INVALID" | "RECIPIENT_ID_MISSING" | "RECIPIENT_ID_NOT_RECEIVED" | "RECIPIENT_ID_RECEIVED" | "RECIPIENT_PIN_NOT_AVAILABLE" | "RECIPIENT_UNIQUE_CODE_MISSING" | "RECIPIENT_UNKNOWN_ENTITY" | "REDIRECTED_SHIPMENT" | "REDIRECT_FAILED" | "REMOTE_AREA" | "REROUTED_TO_LOCKER" | "REROUTED_TO_STORE" | "RETURN_TO_SELLER" | "REVERTED" | "ROAD_ISSUE" | "SAFE_PLACE" | "SCHEDULE_ADJUSTMENT" | "SECURITY_ACCESS" | "SECURITY_CHECKS_REQUIRED" | "SECURITY_DESK" | "SELLER_ISSUE" | "SELLER_MOVED" | "SELLER_REJECTION" | "SELLER_REQUEST" | "SHED" | "SHIPMENT_DAMAGED" | "SHIPMENT_FEES" | "SHIPMENT_HIJACKED" | "SHIPMENT_MISSING" | "SHIPMENT_NOT_RECEIVED" | "SHIPMENT_OVERDUE_14_DAYS" | "SHIPPER_RELATED" | "SHIPPER_REQUEST" | "SIDE_PORCH" | "SIGNATURE_REQUIRED" | "SIGNATURE_WAIVED" | "SIGNED" | "STORE" | "STREET" | "TERRACE" | "THEFT" | "THIRD_PARTY_CARRIER_DELAY" | "TRAILER_LATE" | "TRAIN_LATE" | "TRANSPORTATION_CAPACITY_SHORTAGE" | "TRUCK" | "UNIT_LOAD_DEVICE" | "UNKNOWN_ENTITY" | "UNREADABLE_BARCODE" | "UNSUCCESSFUL_CUSTOMER_CONTACT" | "UNVERIFIED_ADDRESS" | "VAN" | "VAN_REPLAN" | "VEHICLE_BREAKDOWN" | "WEATHER" | "WRONG_DELIVERY_ROUTE" | "WRONG_PHONE_NUMBER" | "POSTAL_CODE";
         };
         /**
          * @description The default payment method type.
@@ -60721,6 +60921,133 @@ export interface operations {
             };
         };
     };
+    getSubscriptions: {
+        parameters: {
+            query: {
+                /** @description A token to retrieve the next page of results. If this field is not empty in a response, pass its value in the next request to retrieve the next page. */
+                nextToken?: string;
+                /** @description A list of notification types to retrieve subscriptions for. Currently limited to a single notification type per request.
+                 *
+                 *      For more information about notification types, refer to the [Notifications API v1 Use Case Guide](https://developer-docs.amazon.com/sp-api/docs/notifications-api-v1-use-case-guide). */
+                notificationTypes: string[];
+                /** @description The maximum number of subscriptions to return per page. Minimum value is 30. Maximum value is 100. Default is 30. */
+                pageSize?: number;
+                /** @description The version of the payload object to be used in the notification. */
+                payloadVersion?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["notifications_GetSubscriptionsResponse"];
+                };
+            };
+        };
+    };
     getSubscription: {
         parameters: {
             query?: {
@@ -74062,6 +74389,175 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["tokens_2021-03-01_ErrorList"];
+                };
+            };
+        };
+    };
+    getShipmentTracking: {
+        parameters: {
+            query?: {
+                /**
+                 * @description The Air Cargo Shipment Identification Number.
+                 * @example 75726371365
+                 */
+                acsin?: string;
+                /**
+                 * @description The Amazon Fulfillment Tracking Number.
+                 * @example AFTN987654321
+                 */
+                aftn?: string;
+                /**
+                 * @description The carrier code associated with the carrier tracking number.
+                 * @example UPS
+                 */
+                "carrierTracking.carrierCode"?: string;
+                /**
+                 * @description The tracking number assigned by the carrier.
+                 * @example 1Z999AA1234567890
+                 */
+                "carrierTracking.trackingNumber"?: string;
+                /**
+                 * @description The container number provided by the Logistics Service Provider.
+                 * @example MSKU4538324
+                 */
+                containerNumber?: string;
+                /**
+                 * @description The House Bill of Lading (HBL) number.
+                 * @example AMZDCN203A900BD3
+                 */
+                houseBillOfLadingNumber?: string;
+                /**
+                 * @description The unique tracking request identifier.
+                 * @example 546e1ddb-dae0-4f76-84fd-ab4998ad00dd
+                 */
+                id?: string;
+            };
+            header?: {
+                /**
+                 * @description The preferred natural language and locale of the client, in POSIX locale format. Currently supports `en-US` only.
+                 * @example en-US
+                 */
+                "Accept-Language"?: string;
+            };
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_GetShipmentTrackingResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description The request's Authorization header is not formatted correctly or does not contain a valid token. Possible reasons include missing, invalid, or expired authentication token. */
+            401: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["tracking_2026-01-30_ErrorList"];
                 };
             };
         };
