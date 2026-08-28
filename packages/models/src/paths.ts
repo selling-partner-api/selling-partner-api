@@ -5216,6 +5216,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/promotions/2025-12-01/promotions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Search and filter promotions based on various criteria. Returns a paginated list of promotion summaries. */
+        get: operations["searchPromotions"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/promotions/2025-12-01/promotions/{promotionId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Retrieve details of a specified promotion. */
+        get: operations["getPromotion"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/promotions/2025-12-01/promotions/{promotionId}/selections/{selectionId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Retrieve up to 100 product items that are associated with a specified promotion. This operation only supports items found in `SelectionType.ITEMS`. Items found in `SelectionType.CATALOG` are not supported. Selection objects always include `selectionDetails` with item information. */
+        get: operations["getSelection"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/replenishment/2022-11-07/offers/metrics/search": {
         parameters: {
             query?: never;
@@ -24707,6 +24758,796 @@ export interface components {
              * @description The number of unique offers contained in NumberOfOffers.
              */
             TotalOfferCount: number;
+        };
+        /**
+         * @description Amount-based purchase conditions for basket building promotions. Customers must spend a minimum dollar amount.
+         * @example {
+         *       "type": "AT_LEAST",
+         *       "currency": {
+         *         "amount": 50,
+         *         "currencyCode": "USD"
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_AmountThreshold": {
+            currency: components["schemas"]["promotions_2025-12-01_Currency"];
+            /**
+             * @description The type of amount requirement. Only `AT_LEAST` is supported for spend-based conditions.
+             * @enum {string}
+             */
+            type: "AT_LEAST";
+        };
+        /**
+         * @description Defines a progressive (multi-tier) benefit tier that applies when customers exceed a higher purchase quantity for basket building promotions. Each tier specifies a purchase condition and corresponding enhanced discount.
+         * @example {
+         *       "purchaseCondition": {
+         *         "quantityThreshold": {
+         *           "type": "AT_LEAST",
+         *           "quantity": 3
+         *         }
+         *       },
+         *       "discount": {
+         *         "type": "PERCENTAGE_OFF",
+         *         "percentOff": 20
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_BenefitTier": {
+            discount: components["schemas"]["promotions_2025-12-01_Discount"];
+            purchaseCondition: components["schemas"]["promotions_2025-12-01_PurchaseCondition"];
+        };
+        /** @description Additional details specific to the `BRAND` segments type. */
+        "promotions_2025-12-01_BrandSegmentDetails": {
+            /** @description Brand identifier. */
+            brandId: string;
+        };
+        /** @description Budget configuration for spending limits. For `COUPON` and `BASKET_BUILDING` promotion types, the budget is set at the promotion level and applies to the entire promotion. For `DEAL` and `PRICE_DISCOUNT` promotion types, the budget is set at the item level within each item in the selection. */
+        "promotions_2025-12-01_Budget": {
+            /** @description The currency code in ISO 4217 format. Required when `type` is `AMOUNT`. */
+            currencyCode?: string;
+            /**
+             * @description The budget type, either monetary or unit-based.
+             * @enum {string}
+             */
+            type: "AMOUNT" | "UNITS";
+            /** @description Budget value (amount or unit count). */
+            value: number;
+        };
+        /**
+         * @description Claim code configuration for accessing the promotion.
+         * @example {
+         *       "type": "GROUP",
+         *       "value": "SAVE20"
+         *     }
+         */
+        "promotions_2025-12-01_ClaimCode": {
+            /**
+             * @description The type of claim code.
+             * @example GROUP
+             * @enum {string}
+             */
+            type: "GROUP" | "INDIVIDUAL";
+            /**
+             * @description The claim code (6-12 alphanumeric uppercase). Required when `type` is `GROUP`.
+             * @example SAVE20
+             */
+            value?: string;
+        };
+        /**
+         * @description The subtype of a `COUPON` promotion. Only applicable when `promotionType` is `COUPON`; not set for other promotion types. When omitted, the coupon is treated as `STANDARD`.
+         * @default STANDARD
+         * @example SUBSCRIBE_AND_SAVE
+         * @enum {string}
+         */
+        "promotions_2025-12-01_CouponType": "STANDARD" | "SUBSCRIBE_AND_SAVE" | "REORDER_REWARDS";
+        /**
+         * @description Currency amount with ISO 4217 currency code.
+         * @example {
+         *       "amount": 10,
+         *       "currencyCode": "USD"
+         *     }
+         */
+        "promotions_2025-12-01_Currency": {
+            /**
+             * @description Amount value.
+             * @example 5
+             */
+            amount: number;
+            /**
+             * @description ISO 4217 currency code.
+             * @example USD
+             */
+            currencyCode: string;
+        };
+        /** @description The customer segment. When `segmentType` is `BRAND`, `segmentId` contains the segment / audience ID and `segmentDetails.brandSegmentDetails` must be provided. When `segmentType` is `PROGRAM`, `segmentId` contains the program name (for example, `PRIME_EXCLUSIVE`, `MOM`, `STUDENT`). */
+        "promotions_2025-12-01_CustomerSegment": {
+            segmentDetails?: components["schemas"]["promotions_2025-12-01_CustomerSegmentDetails"];
+            /** @description The segment identifier. For `BRAND`: the segment / audience ID. For `PROGRAM`: the program name (for example, `PRIME_EXCLUSIVE`, `MOM`, `STUDENT` etc). */
+            segmentId: string;
+            segmentType: components["schemas"]["promotions_2025-12-01_CustomerSegmentType"];
+        };
+        /** @description Additional segment type-specific details. Use the appropriate property based on `segmentType`. */
+        "promotions_2025-12-01_CustomerSegmentDetails": {
+            brandSegmentDetails?: components["schemas"]["promotions_2025-12-01_BrandSegmentDetails"];
+        };
+        /**
+         * @description The segment type for targeting specific customer cohorts.
+         * @enum {string}
+         */
+        "promotions_2025-12-01_CustomerSegmentType": "BRAND" | "PROGRAM";
+        /** @description The discount configuration shared across benefit types. */
+        "promotions_2025-12-01_Discount": {
+            /**
+             * @description The amount off value. Only valid when `type` is `AMOUNT_OFF`.
+             * @example 5
+             */
+            amountOff?: number;
+            /**
+             * @description The currency code in ISO 4217 format. Required when `type` is `AMOUNT_OFF`.
+             * @example USD
+             */
+            currencyCode?: string;
+            /** @description The percentage discount value (1-100). Only valid when `type` is `PERCENTAGE_OFF`. */
+            percentOff?: number;
+            /**
+             * @description The method used to calculate the discount amount.
+             * @enum {string}
+             */
+            type: "PERCENTAGE_OFF" | "AMOUNT_OFF" | "FREE_ITEM";
+        };
+        /** @description Error response returned when the request is unsuccessful. */
+        "promotions_2025-12-01_Error": {
+            /** @description An error code that identifies the type of error that occurred. */
+            code: string;
+            /** @description Additional details that can help the caller understand or fix the issue. */
+            details?: string;
+            itemIdentifier?: components["schemas"]["promotions_2025-12-01_ItemIdentifier"];
+            /** @description A message that describes the error condition. */
+            message: string;
+        };
+        /** @description A list of error responses returned when a request is unsuccessful. */
+        "promotions_2025-12-01_ErrorList": {
+            /** @description List of errors. */
+            errors: components["schemas"]["promotions_2025-12-01_Error"][];
+        };
+        /**
+         * @description For participation fees, the frequency at which fees are charged.
+         * @enum {string}
+         */
+        "promotions_2025-12-01_FeeFrequency": "ONE_TIME" | "DAILY";
+        /** @description The response schema for `getPromotion`. **Note:** `selectionDetails` are included when `SELECTION` is in the `includedData` request parameter. */
+        "promotions_2025-12-01_GetPromotionResponse": components["schemas"]["promotions_2025-12-01_PromotionRevisionAttributes"] & {
+            latestRevision?: components["schemas"]["promotions_2025-12-01_LatestRevision"];
+            /**
+             * @description Current promotion status indicating the lifecycle state of the promotion.
+             * @enum {string}
+             */
+            status: "PROCESSING" | "UPCOMING" | "RUNNING" | "EXPIRED" | "FAILED" | "CANCELLING" | "CANCELLED";
+        };
+        /** @description The response schema for `getSelection`. The `selectionDetails` field is always present when `type` is `ITEMS`. */
+        "promotions_2025-12-01_GetSelectionResponse": {
+            selection: components["schemas"]["promotions_2025-12-01_Selection"];
+        };
+        /**
+         * @description Issue information with code, message, and severity.
+         * @example {
+         *       "code": "INVALID_INPUT",
+         *       "message": "The provided input is invalid.",
+         *       "severity": "ERROR"
+         *     }
+         */
+        "promotions_2025-12-01_Issue": {
+            /**
+             * @description Issue code identifier.
+             * @example INVALID_INPUT
+             */
+            code: string;
+            /**
+             * @description Issue description.
+             * @example The provided input is invalid.
+             */
+            message: string;
+            /**
+             * @description Issue severity level.
+             * @example ERROR
+             * @enum {string}
+             */
+            severity: "ERROR" | "WARNING";
+        };
+        /** @description An item in the Amazon catalog for promotion selection. */
+        "promotions_2025-12-01_Item": {
+            /**
+             * @description The Amazon Standard Identification Number (ASIN) is the unique identifier for an item in the Amazon catalog.
+             * @example B08N5WRWNW
+             */
+            asin?: string;
+            benefit?: components["schemas"]["promotions_2025-12-01_ItemBenefit"];
+            budget?: components["schemas"]["promotions_2025-12-01_Budget"];
+            /**
+             * @description The Stock Keeping Unit (SKU).
+             * @example MY-SKU-12345
+             */
+            sku?: string;
+        };
+        /**
+         * @description Item-level benefit configuration with pricing options. Applicable to `DEAL` and `PRICE_DISCOUNT` promotion types, where each item can have its own distinct benefit. For `COUPON` and `BASKET_BUILDING` promotion types, benefits are configured at the promotion level.
+         * @example {
+         *       "type": "DISCOUNTED_PRICE",
+         *       "discount": {
+         *         "type": "PERCENTAGE_OFF",
+         *         "percentOff": 15
+         *       },
+         *       "perCustomerUses": 5
+         *     }
+         */
+        "promotions_2025-12-01_ItemBenefit": {
+            discount?: components["schemas"]["promotions_2025-12-01_Discount"];
+            /**
+             * @description The maximum number of uses per customer for this item benefit.
+             * @example 5
+             */
+            perCustomerUses?: number;
+            price?: components["schemas"]["promotions_2025-12-01_Currency"];
+            /**
+             * @description The benefit type for item-level pricing.
+             * @example DISCOUNTED_PRICE
+             * @enum {string}
+             */
+            type: "FIXED_PRICE" | "DISCOUNTED_PRICE";
+        };
+        /**
+         * @description The key identifiers of an item.
+         * @example {
+         *       "asin": "B08N5WRWNW"
+         *     }
+         */
+        "promotions_2025-12-01_ItemIdentifier": {
+            /**
+             * @description Amazon Standard Identification Number (ASIN).
+             * @example B08N5WRWNW
+             */
+            asin?: string;
+            /**
+             * @description Stock Keeping Unit (SKU).
+             * @example MY-SKU-12345
+             */
+            sku?: string;
+        };
+        /** @description An item-level validation issue. */
+        "promotions_2025-12-01_ItemIssue": components["schemas"]["promotions_2025-12-01_Issue"] & {
+            identifier: components["schemas"]["promotions_2025-12-01_ItemIdentifier"];
+        };
+        /** @description The latest revision data, when it diverges from the published revision. Present only when an edit is still processing or was rejected. Mirrors the top-level promotion object structure. */
+        "promotions_2025-12-01_LatestRevision": components["schemas"]["promotions_2025-12-01_PromotionRevisionAttributes"] & {
+            /**
+             * @description The processing status of the latest revision.
+             * @enum {string}
+             */
+            revisionStatus: "PROCESSING" | "FAILED";
+        };
+        /**
+         * @description The merchandising configuration for displaying promotions on the retail website.
+         * @example {
+         *       "displayOnWebsite": "ALLOWED"
+         *     }
+         */
+        "promotions_2025-12-01_Merchandising": {
+            /**
+             * @description Whether the promotion badge and details are displayed on the product detail pages and search results on the retail website.
+             * @enum {string}
+             */
+            displayOnWebsite?: "ALLOWED" | "NOT_ALLOWED";
+        };
+        /** @description When a request produces a list that is larger than the page size, pagination occurs. This divides the response into individual pages. To retrieve the next page, pass the `nextToken` as the `paginationToken` query parameter in the subsequent request. When there are no more pages to retrieve, the `Pagination` key will be absent from the response. When a `Pagination` object is present, it contains `nextToken` as non-null value */
+        "promotions_2025-12-01_Pagination": {
+            /** @description A token that can be used to retrieve the next page from the current page of results. */
+            nextToken?: string;
+        };
+        /**
+         * @description Fee rates that were previewed to the selling partner. Example fee rates are `$100` or `5% of sales`.
+         * @example {
+         *       "upfrontFee": {
+         *         "rate": {
+         *           "amount": 100,
+         *           "currencyCode": "USD"
+         *         },
+         *         "frequency": "ONE_TIME"
+         *       },
+         *       "variableFee": {
+         *         "salesPercentage": 0.05,
+         *         "feeCapAmount": {
+         *           "amount": 1000,
+         *           "currencyCode": "USD"
+         *         }
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_PreviewedFeeRates": {
+            upfrontFee?: components["schemas"]["promotions_2025-12-01_UpfrontFee"];
+            variableFee?: components["schemas"]["promotions_2025-12-01_VariableFee"];
+        };
+        /** @description Promotion-level benefit configuration. Applicable to `COUPON` and `BASKET_BUILDING` promotion types, where the benefit applies uniformly across all items in the promotion. For `DEAL` and `PRICE_DISCOUNT` promotion types, benefits are configured at the item level within each item in the selection. */
+        "promotions_2025-12-01_PromotionBenefit": {
+            /**
+             * @description Progressive discount tiers offering increased benefits as customers purchase more. For example: buy 2 get 10% off, buy 3 get 15% off. For multi-tier `BASKET_BUILDING` promotions, each tier specifies additional purchase conditions and corresponding discounts beyond the first tier (defined in `benefit.discount` and `purchaseRequirements.condition`).
+             * @example [
+             *       {
+             *         "purchaseCondition": {
+             *           "quantityThreshold": {
+             *             "type": "AT_LEAST",
+             *             "quantity": 3
+             *           }
+             *         },
+             *         "discount": {
+             *           "type": "PERCENTAGE_OFF",
+             *           "percentOff": 20
+             *         }
+             *       },
+             *       {
+             *         "purchaseCondition": {
+             *           "quantityThreshold": {
+             *             "type": "AT_LEAST",
+             *             "quantity": 5
+             *           }
+             *         },
+             *         "discount": {
+             *           "type": "PERCENTAGE_OFF",
+             *           "percentOff": 25
+             *         }
+             *       }
+             *     ]
+             */
+            additionalTiers?: components["schemas"]["promotions_2025-12-01_BenefitTier"][];
+            /**
+             * @description The quantity of items from the benefit selection that receive the discount after the customer satisfies purchase conditions. This property is specific to `BASKET_BUILDING` promotions.
+             * @example 1
+             */
+            benefitQuantity?: number;
+            discount?: components["schemas"]["promotions_2025-12-01_Discount"];
+            /**
+             * @description The maximum number of uses per customer for this promotion.
+             * @example 5
+             */
+            perCustomerUses?: number;
+            /**
+             * @description Whether this benefit can be stacked with other promotions.
+             * @example ALLOWED
+             * @enum {string}
+             */
+            stacking?: "ALLOWED" | "NOT_ALLOWED";
+        };
+        /**
+         * @description The promotion's fee information (rates and incentive programs) that was locked at the time of promotion creation. You can estimate promotion fees (fee preview) at time t1, while promotion creation can happen at time t2. This object includes the fee information captured at time t2. If empty, it means that no fee information was recorded, which indicates that either a promotion type or a marketplace does not currently support promotion fees.
+         * @example {
+         *       "previewedFeeRates": {
+         *         "upfrontFee": {
+         *           "rate": {
+         *             "amount": 100,
+         *             "currencyCode": "USD"
+         *           },
+         *           "frequency": "ONE_TIME"
+         *         },
+         *         "variableFee": {
+         *           "salesPercentage": 0.05,
+         *           "feeCapAmount": {
+         *             "amount": 1000,
+         *             "currencyCode": "USD"
+         *           }
+         *         }
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_PromotionFeeSnapshot": {
+            previewedFeeRates?: components["schemas"]["promotions_2025-12-01_PreviewedFeeRates"];
+        };
+        /** @description A promotion-level validation issue. */
+        "promotions_2025-12-01_PromotionIssue": components["schemas"]["promotions_2025-12-01_Issue"];
+        /**
+         * @description Common promotion fields shared between the published promotion and the latest revision. Contains all promotion attributes except lifecycle status.
+         * @example {
+         *       "promotionId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+         *       "trackingId": "v2024-a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+         *       "marketplaceId": "ATVPDKIKX0DER",
+         *       "promotionTitle": "Summer Sale 2025",
+         *       "promotionType": "BASKET_BUILDING",
+         *       "schedule": {
+         *         "startDate": "2025-07-01T00:00:00-07:00",
+         *         "endDate": "2025-08-31T23:59:59-07:00"
+         *       },
+         *       "budget": {
+         *         "type": "AMOUNT",
+         *         "value": 1000,
+         *         "currencyCode": "USD"
+         *       },
+         *       "benefit": {
+         *         "discount": {
+         *           "type": "PERCENTAGE_OFF",
+         *           "percentOff": 15
+         *         },
+         *         "benefitQuantity": 1,
+         *         "perCustomerUses": 5,
+         *         "stacking": "ALLOWED"
+         *       },
+         *       "selection": {
+         *         "selectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+         *         "revisionId": 1,
+         *         "type": "ITEMS"
+         *       },
+         *       "purchaseRequirements": {
+         *         "selection": {
+         *           "selectionId": "6ba7b814-9dad-11d1-80b4-00c04fd430c8",
+         *           "revisionId": 1,
+         *           "type": "ITEMS"
+         *         },
+         *         "condition": {
+         *           "quantityThreshold": {
+         *             "type": "AT_LEAST",
+         *             "quantity": 2
+         *           }
+         *         }
+         *       },
+         *       "merchandising": {
+         *         "displayOnWebsite": "ALLOWED"
+         *       },
+         *       "customerSegments": [
+         *         {
+         *           "segmentType": "BRAND",
+         *           "segmentId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+         *           "segmentDetails": {
+         *             "brandSegmentDetails": {
+         *               "brandId": "XYZV1IB3VIYABC"
+         *             }
+         *           }
+         *         }
+         *       ],
+         *       "issues": [
+         *         {
+         *           "code": "HAS_OVERLAPPING_PROMOTIONS",
+         *           "message": "HAS_OVERLAPPING_PROMOTIONS",
+         *           "severity": "WARNING"
+         *         }
+         *       ],
+         *       "feeSnapshot": {
+         *         "previewedFeeRates": {
+         *           "upfrontFee": {
+         *             "rate": {
+         *               "amount": 100,
+         *               "currencyCode": "USD"
+         *             },
+         *             "frequency": "ONE_TIME"
+         *           },
+         *           "variableFee": {
+         *             "salesPercentage": 0.05,
+         *             "feeCapAmount": {
+         *               "amount": 1000,
+         *               "currencyCode": "USD"
+         *             }
+         *           }
+         *         }
+         *       },
+         *       "createdDate": "2025-07-01T02:01:08-07:00",
+         *       "lastUpdatedDate": "2025-07-15T14:30:00-07:00"
+         *     }
+         */
+        "promotions_2025-12-01_PromotionRevisionAttributes": {
+            benefit?: components["schemas"]["promotions_2025-12-01_PromotionBenefit"];
+            budget?: components["schemas"]["promotions_2025-12-01_Budget"];
+            couponType?: components["schemas"]["promotions_2025-12-01_CouponType"];
+            /**
+             * Format: date-time
+             * @description When the promotion was created. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+             */
+            createdDate: string;
+            /** @description The target customer segments for the promotion. */
+            customerSegments?: components["schemas"]["promotions_2025-12-01_CustomerSegment"][];
+            feeSnapshot?: components["schemas"]["promotions_2025-12-01_PromotionFeeSnapshot"];
+            /** @description Promotion-level validation issues found during processing. */
+            issues?: components["schemas"]["promotions_2025-12-01_PromotionIssue"][];
+            /**
+             * Format: date-time
+             * @description When the promotion was last updated. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+             */
+            lastUpdatedDate: string;
+            /** @description The Amazon store identifier. For a complete list of `marketplaceId` values, refer to [Store Identifiers](https://developer-docs.amazon/sp-api/docs/store-identifiers). */
+            marketplaceId: string;
+            merchandising?: components["schemas"]["promotions_2025-12-01_Merchandising"];
+            /** @description The unique promotion identifier. */
+            promotionId: string;
+            /** @description The name of the promotion for the selling partner. This value is not displayed to buyers. */
+            promotionTitle: string;
+            promotionType: components["schemas"]["promotions_2025-12-01_PromotionType"];
+            purchaseRequirements?: components["schemas"]["promotions_2025-12-01_PurchaseRequirements"];
+            schedule: components["schemas"]["promotions_2025-12-01_Schedule"];
+            selection: components["schemas"]["promotions_2025-12-01_Selection"];
+            /** @description The tracking ID you can use to uniquely identify a promotion and track its performance. */
+            trackingId: string;
+        };
+        /** @description Summary information for a promotion in search results. */
+        "promotions_2025-12-01_PromotionSummary": components["schemas"]["promotions_2025-12-01_PromotionRevisionAttributes"] & {
+            latestRevision?: components["schemas"]["promotions_2025-12-01_LatestRevision"];
+            /**
+             * @description Current promotion status indicating the lifecycle state of the promotion.
+             * @enum {string}
+             */
+            status: "PROCESSING" | "UPCOMING" | "RUNNING" | "EXPIRED" | "FAILED" | "CANCELLING" | "CANCELLED";
+        };
+        /**
+         * @description The type of promotion, categorized by the discount rules and eligibility criteria.
+         * @enum {string}
+         */
+        "promotions_2025-12-01_PromotionType": "BASKET_BUILDING" | "DEAL" | "PRICE_DISCOUNT" | "COUPON";
+        /**
+         * @description Minimum purchase requirements using quantity-based or amount-based conditions for basket building promotions. You can specify conditions within purchase requirements and multi-tier benefit configurations. You must specify exactly one of `quantityThreshold` or `amountThreshold`.
+         * @example {
+         *       "amountThreshold": {
+         *         "type": "AT_LEAST",
+         *         "currency": {
+         *           "amount": 50,
+         *           "currencyCode": "USD"
+         *         }
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_PurchaseCondition": {
+            amountThreshold?: components["schemas"]["promotions_2025-12-01_AmountThreshold"];
+            quantityThreshold?: components["schemas"]["promotions_2025-12-01_QuantityThreshold"];
+        };
+        /**
+         * @description Purchase requirements that customers must meet to qualify for a basket building promotion. Contains eligibility selection (what to buy), purchase condition (how much to buy), and an optional claim code. This is the 'Buy X' portion of 'Buy X Get Y' promotions.
+         * @example {
+         *       "selection": {
+         *         "selectionId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+         *         "revisionId": 1,
+         *         "type": "ITEMS"
+         *       },
+         *       "condition": {
+         *         "quantityThreshold": {
+         *           "type": "AT_LEAST",
+         *           "quantity": 2
+         *         }
+         *       },
+         *       "claimCode": {
+         *         "type": "GROUP",
+         *         "value": "SAVE20"
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_PurchaseRequirements": {
+            claimCode?: components["schemas"]["promotions_2025-12-01_ClaimCode"];
+            condition: components["schemas"]["promotions_2025-12-01_PurchaseCondition"];
+            selection: components["schemas"]["promotions_2025-12-01_Selection"];
+        };
+        /**
+         * @description Quantity-based purchase conditions for basket building promotions.
+         * @example {
+         *       "type": "AT_LEAST",
+         *       "quantity": 2
+         *     }
+         */
+        "promotions_2025-12-01_QuantityThreshold": {
+            /**
+             * @description The number of items required to meet this purchase condition.
+             * @example 2
+             */
+            quantity: number;
+            /**
+             * @description How the quantity requirement is evaluated.
+             * @enum {string}
+             */
+            type: "AT_LEAST" | "FOR_EACH";
+        };
+        /** @description A promotion's start and end dates with optional event association. */
+        "promotions_2025-12-01_Schedule": {
+            /**
+             * Format: date-time
+             * @description The promotion's end date and time. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+             */
+            endDate?: string;
+            /**
+             * @description An event identifier that associates the promotion with a specific event. For event promotions, this field contains the event name when available (for example, `Prime Day`). For historic event promotions, this field may contain `EVENT` as a placeholder.
+             * @example Prime Day
+             */
+            eventId?: string;
+            /**
+             * Format: date-time
+             * @description The promotion's start date and time. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+             */
+            startDate?: string;
+        };
+        /**
+         * @description The response schema for the `searchPromotions` operation. **Note:** The `selectionDetails` field is not present in the selection object within promotion summaries.
+         * @example {
+         *       "totalResults": 2,
+         *       "pagination": {
+         *         "nextToken": "sdlkj234lkj234lksjdflkjwdflkjsfdlkj234234234234"
+         *       },
+         *       "promotions": [
+         *         {
+         *           "promotionId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+         *           "trackingId": "v2024-a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+         *           "marketplaceId": "ATVPDKIKX0DER",
+         *           "status": "RUNNING",
+         *           "createdDate": "2025-07-01T02:01:08.180Z",
+         *           "lastUpdatedDate": "2025-07-15T14:30:00.180Z",
+         *           "promotionTitle": "Summer Sale 2025",
+         *           "selection": {
+         *             "selectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+         *             "revisionId": 1,
+         *             "type": "ITEMS"
+         *           },
+         *           "promotionType": "DEAL",
+         *           "schedule": {
+         *             "startDate": "2025-07-01T00:00:00.000Z",
+         *             "endDate": "2025-08-31T23:59:59.999Z"
+         *           }
+         *         }
+         *       ]
+         *     }
+         */
+        "promotions_2025-12-01_SearchPromotionsResponse": {
+            pagination?: components["schemas"]["promotions_2025-12-01_Pagination"];
+            /** @description A list of promotion summaries that matches the search criteria. */
+            promotions: components["schemas"]["promotions_2025-12-01_PromotionSummary"][];
+            /** @description The total number of promotions matching the search criteria, across all pages. This count remains consistent across paginated requests. **Note:** In rare cases, individual records cannot be returned and are omitted from the response. When this happens, a page may contain fewer items than expected, and the combined number of items across all pages may be less than `totalResults`. The request itself still completes successfully. */
+            totalResults: number;
+        };
+        /**
+         * @description Defines which products qualify for a benefit, allowing either specific items to be selected by ASIN or the entire catalog with optional exclusions.
+         * @example {
+         *       "selectionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+         *       "revisionId": 1,
+         *       "type": "ITEMS",
+         *       "selectionDetails": {
+         *         "items": [
+         *           {
+         *             "asin": "B08N5WRWNW",
+         *             "benefit": {
+         *               "type": "DISCOUNTED_PRICE",
+         *               "discount": {
+         *                 "type": "PERCENTAGE_OFF",
+         *                 "percentOff": 15
+         *               }
+         *             }
+         *           },
+         *           {
+         *             "asin": "B07XJ8C8F5"
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_Selection": {
+            /** @description The revision identifier for the selection. Pass this value to the `getSelection` operation's `revisionId` query parameter to retrieve the correct version of the selection. A promotion may have multiple selection revisions when an update is in progress. **Note:** This field is absent when `type` is `CATALOG`. */
+            revisionId?: number;
+            selectionDetails?: components["schemas"]["promotions_2025-12-01_SelectionDetails"];
+            /**
+             * @description The unique identifier for this selection configuration. **Note:** This field is absent when `type` is `CATALOG`.
+             * @example 3fa85f64-5717-4562-b3fc-2c963f66afa6
+             */
+            selectionId?: string;
+            /**
+             * @description Selection type.
+             * @example ITEMS
+             * @enum {string}
+             */
+            type: "CATALOG" | "ITEMS";
+        };
+        /** @description Detailed selection information including items, rules, issues, and pagination. */
+        "promotions_2025-12-01_SelectionDetails": {
+            /**
+             * @description Item-level validation issues for items in this selection. Only present when `ISSUES` is included in the `includedData` query parameter.
+             * @example [
+             *       {
+             *         "code": "INVALID_SKU",
+             *         "message": "The SKU provided is not valid",
+             *         "severity": "ERROR",
+             *         "identifier": {
+             *           "sku": "MY-SKU-12345"
+             *         }
+             *       }
+             *     ]
+             */
+            issues?: components["schemas"]["promotions_2025-12-01_ItemIssue"][];
+            /**
+             * @description List of specific items to include. Only valid when `type` is `ITEMS` (maximum 100 items).
+             * @example [
+             *       {
+             *         "asin": "B08N5WRWNW",
+             *         "benefit": {
+             *           "type": "DISCOUNTED_PRICE",
+             *           "discount": {
+             *             "type": "PERCENTAGE_OFF",
+             *             "percentOff": 15
+             *           },
+             *           "perCustomerUses": 3
+             *         },
+             *         "budget": {
+             *           "type": "AMOUNT",
+             *           "value": 500,
+             *           "currencyCode": "USD"
+             *         }
+             *       },
+             *       {
+             *         "asin": "B07XJ8C8F5",
+             *         "benefit": {
+             *           "type": "FIXED_PRICE",
+             *           "price": {
+             *             "amount": 24.99,
+             *             "currencyCode": "USD"
+             *           },
+             *           "discount": {
+             *             "type": "AMOUNT_OFF",
+             *             "amountOff": 10,
+             *             "currencyCode": "USD"
+             *           },
+             *           "perCustomerUses": 5
+             *         },
+             *         "budget": {
+             *           "type": "UNITS",
+             *           "value": 100
+             *         }
+             *       }
+             *     ]
+             */
+            items?: components["schemas"]["promotions_2025-12-01_Item"][];
+            pagination?: components["schemas"]["promotions_2025-12-01_Pagination"];
+            rules?: components["schemas"]["promotions_2025-12-01_SelectionRules"];
+        };
+        /**
+         * @description Rules for catalog-based selections.
+         * @example {
+         *       "excludedItems": [
+         *         {
+         *           "asin": "B08N5WRWNW"
+         *         }
+         *       ]
+         *     }
+         */
+        "promotions_2025-12-01_SelectionRules": {
+            /**
+             * @description Items to exclude from the catalog selection (maximum 100 items).
+             * @example [
+             *       {
+             *         "asin": "B08N5WRWNW"
+             *       },
+             *       {
+             *         "asin": "B07XJ8C8F5"
+             *       }
+             *     ]
+             */
+            excludedItems?: components["schemas"]["promotions_2025-12-01_Item"][];
+        };
+        /**
+         * @description Upfront fee (or a flat fee) for each promotion submitted.
+         * @example {
+         *       "rate": {
+         *         "amount": 100,
+         *         "currencyCode": "USD"
+         *       },
+         *       "frequency": "ONE_TIME"
+         *     }
+         */
+        "promotions_2025-12-01_UpfrontFee": {
+            frequency: components["schemas"]["promotions_2025-12-01_FeeFrequency"];
+            rate: components["schemas"]["promotions_2025-12-01_Currency"];
+        };
+        /**
+         * @description Performance based fee, usually represented as a percentage of promotion sales with a cap amount.
+         * @example {
+         *       "salesPercentage": 0.05,
+         *       "feeCapAmount": {
+         *         "amount": 1000,
+         *         "currencyCode": "USD"
+         *       }
+         *     }
+         */
+        "promotions_2025-12-01_VariableFee": {
+            feeCapAmount?: components["schemas"]["promotions_2025-12-01_Currency"];
+            /**
+             * @description Sales Percentage
+             * @example 0.05
+             */
+            salesPercentage: number;
         };
         /**
          * @description The time period used to group data in the response. Note that this is only valid for the `PERFORMANCE` time period type.
@@ -63969,6 +64810,468 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["productPricingV0_GetPricingResponse"];
+                };
+            };
+        };
+    };
+    searchPromotions: {
+        parameters: {
+            query: {
+                /**
+                 * @description The ASINs to which promotions apply, formatted as a comma-delimited list.
+                 * @example B08N5WRWNW,B07XJ8C8F5,B09MKTS6R4
+                 */
+                asins?: string[];
+                /**
+                 * @description Promotions that end after this date are returned. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+                 * @example 2025-09-01T00:00:00-07:00
+                 */
+                endDateAfter?: string;
+                /**
+                 * @description Promotions that end before this date are returned. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+                 * @example 2025-12-31T23:59:59-08:00
+                 */
+                endDateBefore?: string;
+                /**
+                 * @description A comma-delimited list of datasets to include in the response.
+                 * @example ISSUES
+                 */
+                includedData?: ("ISSUES" | "CUSTOMER_SEGMENTS")[];
+                /** @description The maximum number of response results per page. */
+                limit?: number;
+                /** @description The locale from which to retrieve promotions. Formatted as an ISO 639 language code, followed by an underscore, followed by an ISO 3166-1 alpha-2 country code. */
+                locale?: string;
+                /**
+                 * @description The Amazon stores from which to retrieve promotions. Refer to [Store Identifiers](https://developer-docs.amazon/sp-api/docs/store-identifiers) for a list of Amazon store values.
+                 * @example ATVPDKIKX0DER
+                 */
+                marketplaceIds: string[];
+                /**
+                 * @description A token that you use to retrieve the next page of results. The response includes `paginationToken` when the number of results exceeds the specified `limit` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `paginationToken` is null. Note that this operation can return empty pages.
+                 * @example sdlkj234lkj234lksjdflkjwdflkjsfdlkj234234234234
+                 */
+                paginationToken?: string;
+                /**
+                 * @description The promotion types to which promotions apply, formatted as a comma-delimited list.
+                 * @example DEAL
+                 */
+                promotionTypes?: ("BASKET_BUILDING" | "DEAL" | "PRICE_DISCOUNT" | "COUPON")[];
+                /**
+                 * @description Specifies which promotion revision or revisions to match against when filtering. This controls which promotions are included in search results, not the shape of the response. The response always returns the published revision in the main body, with `latestRevision` included when the latest revision diverges.
+                 * @example PUBLISHED
+                 */
+                revision?: "LATEST" | "PUBLISHED" | "ANY";
+                /**
+                 * @description The SKUs to which promotions apply, formatted as a comma-delimited list.
+                 * @example SKU-001,SKU-002,SKU-003
+                 */
+                skus?: string[];
+                /**
+                 * @description Promotions that start after this date are returned. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+                 * @example 2025-07-01T00:00:00-07:00
+                 */
+                startDateAfter?: string;
+                /**
+                 * @description Promotions that start before this date are returned. Formatted in ISO 8601 format, including the timezone. For example: `1970-01-01T00:00:00-07:00`.
+                 * @example 2025-08-31T23:59:59-07:00
+                 */
+                startDateBefore?: string;
+                /**
+                 * @description The statuses of promotions to retrieve, formatted as a comma-delimited list.
+                 * @example RUNNING,UPCOMING,PROCESSING
+                 */
+                statuses?: ("PROCESSING" | "UPCOMING" | "RUNNING" | "EXPIRED" | "FAILED" | "CANCELLING" | "CANCELLED")[];
+                /**
+                 * @description Filter promotions that were last modified after this timestamp. Zoned Datetime in ISO 8601 format (e.g., 1970-01-01T00:00:00-07:00).
+                 * @example 2025-07-01T00:00:00-07:00
+                 */
+                updateDateAfter?: string;
+                /**
+                 * @description Filter promotions that were last modified before this timestamp. Zoned Datetime in ISO 8601 format (e.g., 1970-01-01T00:00:00-07:00).
+                 * @example 2025-12-31T23:59:59-07:00
+                 */
+                updateDateBefore?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successfully retrieved promotions. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_SearchPromotionsResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+        };
+    };
+    getPromotion: {
+        parameters: {
+            query?: {
+                /**
+                 * @description A comma-delimited list of datasets to include in the response.
+                 * @example ISSUES
+                 */
+                includedData?: ("ISSUES" | "SELECTION" | "CUSTOMER_SEGMENTS")[];
+                /** @description The locale of the promotion. Formatted as an ISO 639 language code, followed by an underscore, followed by an ISO 3166-1 alpha-2 country code. */
+                locale?: string;
+            };
+            header?: never;
+            path: {
+                /** @description The ID of the promotion. */
+                promotionId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successfully retrieved the promotion details. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_GetPromotionResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+        };
+    };
+    getSelection: {
+        parameters: {
+            query: {
+                /**
+                 * @description A comma-delimited list of datasets to include in the response.
+                 * @example ISSUES
+                 */
+                includedData?: "ISSUES"[];
+                /** @description The maximum number of response results per page. */
+                limit?: number;
+                /**
+                 * @description The locale of the promotion. Formatted as an ISO 639 language code, followed by an underscore, followed by an ISO 3166-1 alpha-2 country code.
+                 * @example en_US
+                 */
+                locale?: string;
+                /**
+                 * @description A token that you use to retrieve the next page of results. The response includes `paginationToken` when the number of results exceeds the specified `limit` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `paginationToken` is null. Note that this operation can return empty pages.
+                 * @example sdlkj234lkj234lksjdflkjwdflkjsfdlkj234234234234
+                 */
+                paginationToken?: string;
+                /**
+                 * @description The revision identifier for the selection. Use the `revisionId` from the `getPromotion` response. A promotion may have multiple selection revisions when an update is in progress. Passing the correct `revisionId` ensures you retrieve the expected data.
+                 * @example 1
+                 */
+                revisionId: number;
+            };
+            header?: never;
+            path: {
+                /** @description The ID of the promotion. */
+                promotionId: string;
+                /** @description The ID of the selection. */
+                selectionId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successfully retrieved the item selection for the promotion. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_GetSelectionResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["promotions_2025-12-01_ErrorList"];
                 };
             };
         };
