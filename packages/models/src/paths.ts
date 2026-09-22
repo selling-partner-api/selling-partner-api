@@ -850,7 +850,7 @@ export interface paths {
          *     | 2 | 2 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["catalogItems_2020-12-01_searchCatalogItems"];
+        get: operations["searchCatalogItems"];
         put?: never;
         post?: never;
         delete?: never;
@@ -875,7 +875,7 @@ export interface paths {
          *     | 2 | 2 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["catalogItems_2020-12-01_getCatalogItem"];
+        get: operations["getCatalogItem"];
         put?: never;
         post?: never;
         delete?: never;
@@ -900,7 +900,7 @@ export interface paths {
          *     | 2 | 2 |
          *
          *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["searchCatalogItems"];
+        get: operations["catalogItems_2022-04-01_searchCatalogItems"];
         put?: never;
         post?: never;
         delete?: never;
@@ -925,7 +925,7 @@ export interface paths {
          *     | 2 | 2 |
          *
          *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getCatalogItem"];
+        get: operations["catalogItems_2022-04-01_getCatalogItem"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1260,7 +1260,7 @@ export interface paths {
          *     | 1.133 | 25 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["deliveryShipmentInvoiceV2022-07-01_submitInvoice"];
+        post: operations["submitInvoice"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1453,9 +1453,10 @@ export interface paths {
             cookie?: never;
         };
         /** @description Get a list of shipments created for the seller in the status you specify. Shipments can be further filtered based on the fulfillment node or the time of the shipments' last update. */
-        get: operations["externalFulfillmentShipments_2024-09-11_getShipments"];
+        get: operations["getShipments"];
         put?: never;
-        post?: never;
+        /** @description Creates a sandbox shipment to simulate order creation in the test environment. This operation is available only in the sandbox environment. The shipment is created with the specified configuration including shipping type and order type. */
+        post: operations["createSandboxShipment"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1470,14 +1471,15 @@ export interface paths {
             cookie?: never;
         };
         /** @description Get a single shipment with the ID you specify. */
-        get: operations["externalFulfillmentShipments_2024-09-11_getShipment"];
+        get: operations["getShipment"];
         put?: never;
         /** @description Confirm or reject the specified shipment. */
         post: operations["processShipment"];
         delete?: never;
         options?: never;
         head?: never;
-        patch?: never;
+        /** @description Updates a sandbox shipment on marketplace behalf. Supports status changes, invoice availability, and transport capacity updates. */
+        patch: operations["updateSandboxShipment"];
         trace?: never;
     };
     "/externalFulfillment/2024-09-11/shipments/{shipmentId}/invoice": {
@@ -1524,7 +1526,7 @@ export interface paths {
         };
         get?: never;
         /** @description Updates the details about the packages that will be used to fulfill the specified shipment. */
-        put: operations["externalFulfillmentShipments_2024-09-11_updatePackage"];
+        put: operations["updatePackage"];
         post?: never;
         delete?: never;
         options?: never;
@@ -1561,6 +1563,23 @@ export interface paths {
         get: operations["retrieveShippingOptions"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/externalFulfillment/2026-07-30/location": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Creates a sandbox location and merchant in the test environment. This operation is available only in the sandbox environment and is used for onboarding test locations. Idempotency is ensured on locationName. */
+        post: operations["createSandboxLocation"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1650,7 +1669,7 @@ export interface paths {
          *     | 2 | 30 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getShipments"];
+        get: operations["fulfillmentInboundV0_getShipments"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2951,7 +2970,7 @@ export interface paths {
         };
         get?: never;
         /** @description Update package information for a specific package in a fulfillment order. This is a sandbox-only operation and must be directed to a sandbox endpoint. Refer to [Fulfillment Outbound Dynamic Sandbox Guide](https://developer-docs.amazon.com/sp-api/docs/fulfillment-outbound-dynamic-sandbox-guide) and [Selling Partner API sandbox](https://developer-docs.amazon.com/sp-api/docs/the-selling-partner-api-sandbox) for more information. */
-        put: operations["updatePackage"];
+        put: operations["fulfillmentOutbound_2026-07-04_updatePackage"];
         post?: never;
         delete?: never;
         options?: never;
@@ -4021,7 +4040,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        put: operations["putListingsItem"];
+        put: operations["listingsItems_2020-09-01_putListingsItem"];
         post?: never;
         /** @description Delete a listings item for a selling partner.
          *
@@ -4034,7 +4053,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        delete: operations["deleteListingsItem"];
+        delete: operations["listingsItems_2020-09-01_deleteListingsItem"];
         options?: never;
         head?: never;
         /** @description Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.
@@ -4048,7 +4067,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        patch: operations["patchListingsItem"];
+        patch: operations["listingsItems_2020-09-01_patchListingsItem"];
         trace?: never;
     };
     "/listings/2021-08-01/items/{sellerId}": {
@@ -4102,7 +4121,7 @@ export interface paths {
          *     | 5 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        put: operations["listingsItems_2021-08-01_putListingsItem"];
+        put: operations["putListingsItem"];
         post?: never;
         /** @description Delete a listings item for a selling partner.
          *
@@ -4113,7 +4132,7 @@ export interface paths {
          *     | 5 | 5 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        delete: operations["listingsItems_2021-08-01_deleteListingsItem"];
+        delete: operations["deleteListingsItem"];
         options?: never;
         head?: never;
         /** @description Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.
@@ -4125,7 +4144,7 @@ export interface paths {
          *     | 5 | 5 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
-        patch: operations["listingsItems_2021-08-01_patchListingsItem"];
+        patch: operations["patchListingsItem"];
         trace?: never;
     };
     "/listings/2021-08-01/restrictions": {
@@ -4509,7 +4528,7 @@ export interface paths {
          *     | 1 | 1 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the SP-API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getShipment"];
+        get: operations["merchantFulfillmentV0_getShipment"];
         put?: never;
         post?: never;
         /** @description Cancel the shipment indicated by the specified shipment identifier.
@@ -6030,7 +6049,7 @@ export interface paths {
          *     | 5 | 15 |
          *
          *     For more information, see "Usage Plans and Rate Limits" in the Selling Partner API documentation. */
-        post: operations["purchaseShipment"];
+        post: operations["shipping_purchaseShipment"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6055,7 +6074,7 @@ export interface paths {
          *     | 5 | 15 |
          *
          *     For more information, see "Usage Plans and Rate Limits" in the Selling Partner API documentation. */
-        post: operations["getRates"];
+        post: operations["shipping_getRates"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6516,7 +6535,7 @@ export interface paths {
          *     | 80 | 100 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["shippingV2_purchaseShipment"];
+        post: operations["purchaseShipment"];
         delete?: never;
         options?: never;
         head?: never;
@@ -6641,7 +6660,7 @@ export interface paths {
          *     | 80 | 100 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["shippingV2_getRates"];
+        post: operations["getRates"];
         delete?: never;
         options?: never;
         head?: never;
@@ -7055,7 +7074,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["vendorDirectFulfillmentOrders_2021-12-28_submitAcknowledgement"];
+        post: operations["submitAcknowledgement"];
         delete?: never;
         options?: never;
         head?: never;
@@ -7205,7 +7224,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["submitInvoice"];
+        post: operations["vendorDirectFulfillmentPaymentsV1_submitInvoice"];
         delete?: never;
         options?: never;
         head?: never;
@@ -7799,7 +7818,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["submitAcknowledgement"];
+        post: operations["vendorOrders_submitAcknowledgement"];
         delete?: never;
         options?: never;
         head?: never;
@@ -11502,6 +11521,109 @@ export interface components {
              */
             marketplaceId?: string;
         };
+        /**
+         * @description The request object for creating a sandbox location.
+         * @example {
+         *       "merchantIds": [
+         *         "MERCHANT_ID_1"
+         *       ],
+         *       "marketplaceId": "A21TJRUUN4KGV",
+         *       "channels": [
+         *         "FBA",
+         *         "MFN"
+         *       ],
+         *       "locationName": "TestWarehouse1"
+         *     }
+         */
+        "externalFulfillmentLocation_2026-07-30_CreateSandboxLocationRequest": {
+            /**
+             * @description The list of channels to enable for the location. Defaults to ["FBA", "MFN"] if not specified.
+             * @example [
+             *       "FBA",
+             *       "MFN"
+             *     ]
+             */
+            channels?: ("FBA" | "MFN")[];
+            /**
+             * @description The name for the sandbox location. Idempotency is ensured on this field.
+             * @example TestWarehouse1
+             */
+            locationName: string;
+            marketplaceId: components["schemas"]["externalFulfillmentLocation_2026-07-30_MarketplaceId"];
+            /**
+             * @description The list of merchant identifiers to create the location for. This list will have more than one entry only in case of MSF (Multi-Seller Fulfillment) location creation. In other cases, only one merchant should be passed in.
+             * @example [
+             *       "MERCHANT_ID_1"
+             *     ]
+             */
+            merchantIds: string[];
+        };
+        /** @description The response object for creating a sandbox location. */
+        "externalFulfillmentLocation_2026-07-30_CreateSandboxLocationResponse": {
+            locationIds?: components["schemas"]["externalFulfillmentLocation_2026-07-30_LocationIdMap"];
+        };
+        /**
+         * @description An error response returned when the request is unsuccessful.
+         * @example {
+         *       "code": "InvalidInput",
+         *       "message": "Invalid request parameter.",
+         *       "details": "The specified parameter value is invalid."
+         *     }
+         */
+        "externalFulfillmentLocation_2026-07-30_Error": {
+            /**
+             * @description An error code that identifies the type of error that occurred.
+             * @example InvalidInput
+             */
+            code: string;
+            /** @description Additional details that can help the caller understand or fix the issue. */
+            details?: string;
+            /**
+             * @description A message that describes the error condition.
+             * @example Invalid request parameter.
+             */
+            message: string;
+        };
+        /**
+         * @description A list of error responses returned when a request is unsuccessful.
+         * @example {
+         *       "errors": [
+         *         {
+         *           "code": "InvalidInput",
+         *           "message": "Invalid request parameter.",
+         *           "details": "The specified parameter value is invalid."
+         *         }
+         *       ]
+         *     }
+         */
+        "externalFulfillmentLocation_2026-07-30_ErrorList": {
+            /** @description A list of error responses. */
+            errors: components["schemas"]["externalFulfillmentLocation_2026-07-30_Error"][];
+        };
+        /**
+         * @description A map of channel to location identifier.
+         * @example {
+         *       "FBA": "SANDBOX_LOC_FBA_001",
+         *       "MFN": "SANDBOX_LOC_MFN_001"
+         *     }
+         */
+        "externalFulfillmentLocation_2026-07-30_LocationIdMap": {
+            /**
+             * @description The location identifier for the FBA channel.
+             * @example SANDBOX_LOC_FBA_001
+             */
+            FBA?: string;
+            /**
+             * @description The location identifier for the MFN channel.
+             * @example SANDBOX_LOC_MFN_001
+             */
+            MFN?: string;
+        };
+        /**
+         * @description The identifier for the marketplace. Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for the full list of supported marketplace IDs.
+         * @example A21TJRUUN4KGV
+         */
+        "externalFulfillmentLocation_2026-07-30_MarketplaceId": string;
         /** @description A date and time in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. */
         "externalFulfillmentReturns_2024-09-11_DateTime": string;
         /** @description Error response returned when the request is unsuccessful. */
@@ -11737,16 +11859,97 @@ export interface components {
             /** @description The tracking number of the package. */
             trackingId: string;
         };
-        /** @description A custom attribute that is loosely typed, modeled through a key-value pair and its data type. */
+        /**
+         * @description The request object for creating a sandbox shipment.
+         * @example {
+         *       "locationId": "LOC_001",
+         *       "marketplaceId": "A21TJRUUN4KGV",
+         *       "marketplaceChannel": "FBA",
+         *       "shippingType": "SELF",
+         *       "orderType": [
+         *         "HAZMAT",
+         *         "MPS"
+         *       ],
+         *       "lineItemCount": "MULTIPLE",
+         *       "quantityCount": "SINGLE"
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_CreateSandboxShipmentRequest": {
+            /**
+             * @description The number of line items in the shipment.
+             * @example MULTIPLE
+             * @enum {string}
+             */
+            lineItemCount?: "SINGLE" | "MULTIPLE";
+            /**
+             * @description The location identifier for the shipment.
+             * @example LOC_001
+             */
+            locationId: string;
+            /**
+             * @description The marketplace channel.
+             * @example FBA
+             * @enum {string}
+             */
+            marketplaceChannel: "FBA" | "MFN";
+            marketplaceId: components["schemas"]["externalFulfillmentShipments_2024-09-11_MarketplaceId"];
+            /**
+             * @description The order type attributes for the sandbox shipment.
+             * @example [
+             *       "HAZMAT",
+             *       "MPS"
+             *     ]
+             */
+            orderType?: ("HAZMAT" | "GIFT_WRAP" | "GIFT_MESSAGE" | "MPS" | "SERIAL" | "CROSS_BORDER" | "REPLACEMENT" | "EXCHANGE" | "PHARMA_NON_PRESCRIPTION" | "PHARMA_PRESCRIPTION")[];
+            /**
+             * @description The quantity count per line item.
+             * @example SINGLE
+             * @enum {string}
+             */
+            quantityCount?: "SINGLE" | "MULTIPLE";
+            /**
+             * @description The shipping type for the sandbox shipment.
+             * @example SELF
+             * @enum {string}
+             */
+            shippingType: "SELF" | "MARKETPLACE" | "THIRD_PARTY_CARRIER";
+        };
+        /**
+         * @description The response object for creating a sandbox shipment.
+         * @example {
+         *       "shipmentId": "D39CwZpdj"
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_CreateSandboxShipmentResponse": {
+            /**
+             * @description The identifier of the created sandbox shipment.
+             * @example D39CwZpdj
+             */
+            shipmentId?: string;
+        };
+        /**
+         * @description A custom attribute that is loosely typed, modeled through a key-value pair and its data type.
+         * @example {
+         *       "key": "color",
+         *       "value": "red"
+         *     }
+         */
         "externalFulfillmentShipments_2024-09-11_CustomAttribute": {
-            /** @description The key of the custom attribute. Must be unique. */
+            /**
+             * @description The attribute key.
+             * @example color
+             */
             key?: string;
             type?: components["schemas"]["externalFulfillmentShipments_2024-09-11_CustomAttributeType"];
-            /** @description The value of the custom attribute. */
+            /**
+             * @description The attribute value.
+             * @example red
+             */
             value?: string;
         };
         /**
          * @description The data type of the custom attribute value to aid with parsing during deserialization.
+         * @example STRING
          * @enum {string}
          */
         "externalFulfillmentShipments_2024-09-11_CustomAttributeType": "STRING" | "BOOLEAN" | "INTEGER" | "DOUBLE" | "JSON_STRING";
@@ -11800,7 +12003,14 @@ export interface components {
              *     - **Plain Text**: `text/plain` */
             url: string;
         };
-        /** @description Error response returned when the request is unsuccessful. */
+        /**
+         * @description Error response returned when the request is unsuccessful.
+         * @example {
+         *       "code": "InvalidInput",
+         *       "message": "Invalid request parameter.",
+         *       "details": "The specified parameter value is invalid."
+         *     }
+         */
         "externalFulfillmentShipments_2024-09-11_Error": {
             /** @description An error code that identifies the type of error that occurred. */
             code: string;
@@ -11809,7 +12019,17 @@ export interface components {
             /** @description A message that describes the error condition. */
             message: string;
         };
-        /** @description An object containing a list of error responses returned when a request is unsuccessful. */
+        /**
+         * @description An object containing a list of error responses returned when a request is unsuccessful.
+         * @example {
+         *       "errors": [
+         *         {
+         *           "code": "InvalidInput",
+         *           "message": "Invalid request parameter."
+         *         }
+         *       ]
+         *     }
+         */
         "externalFulfillmentShipments_2024-09-11_ErrorList": {
             /** @description A list of error responses returned when a request is unsuccessful. */
             errors: components["schemas"]["externalFulfillmentShipments_2024-09-11_Error"][];
@@ -11926,6 +12146,11 @@ export interface components {
             /** @description The ID of the merchant or seller to whom this order is created. */
             merchantId?: string;
         };
+        /**
+         * @description The identifier for the marketplace. Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for the full list of supported marketplace IDs.
+         * @example A21TJRUUN4KGV
+         */
+        "externalFulfillmentShipments_2024-09-11_MarketplaceId": string;
         /** @description A line item from the original shipment that corresponds to this shipment. */
         "externalFulfillmentShipments_2024-09-11_OriginalLineItem": {
             charges: components["schemas"]["externalFulfillmentShipments_2024-09-11_Charges"];
@@ -12176,6 +12401,32 @@ export interface components {
          * @enum {string}
          */
         "externalFulfillmentShipments_2024-09-11_RequirementLevel": "REQUIRED" | "DISALLOWED";
+        /**
+         * @description The update details for the sandbox shipment. For `SHIPMENT_STATUS_CHANGE`, provide either `status` or `subStatus` (mutually exclusive). For `TRANSPORT_CAPACITY_CHANGE`, provide `timestamp` as the Expected Pickup Date (EPD).
+         * @example {
+         *       "status": "SHIPPED"
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_SandboxShipmentUpdates": {
+            /**
+             * @description The target shipment status. Mutually exclusive with `subStatus`. Used with `SHIPMENT_STATUS_CHANGE` update type.
+             * @example SHIPPED
+             * @enum {string}
+             */
+            status?: "SHIPPED" | "DELIVERED" | "CANCELLED";
+            /**
+             * @description The target shipment sub-status. Mutually exclusive with `status`. Used with `SHIPMENT_STATUS_CHANGE` update type.
+             * @example OUT_FOR_DELIVERY
+             * @enum {string}
+             */
+            subStatus?: "OUT_FOR_DELIVERY";
+            /**
+             * Format: date-time
+             * @description The Expected Pickup Date (EPD) for the shipment. Used with `TRANSPORT_CAPACITY_CHANGE` update type. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date-time format.
+             * @example 2024-09-15T10:30:00Z
+             */
+            timestamp?: string;
+        };
         /** @description The serial number of the SKU in this line item. */
         "externalFulfillmentShipments_2024-09-11_SerialNumber": string;
         /**
@@ -12336,7 +12587,15 @@ export interface components {
             charges: components["schemas"]["externalFulfillmentShipments_2024-09-11_Charges"];
             complianceAttributes: components["schemas"]["externalFulfillmentShipments_2024-09-11_ComplianceAttributes"];
             countryOfOrigin?: components["schemas"]["externalFulfillmentShipments_2024-09-11_CountryCode"];
-            /** @description A list of custom passthrough attributes. For details on these attributes, reach out to your respective program teams at Amazon. */
+            /**
+             * @description A list of custom passthrough attributes. For details on these attributes, reach out to your respective program teams at Amazon.
+             * @example [
+             *       {
+             *         "key": "color",
+             *         "value": "red"
+             *       }
+             *     ]
+             */
             customAttributes?: components["schemas"]["externalFulfillmentShipments_2024-09-11_CustomAttribute"][];
             giftAttributes?: components["schemas"]["externalFulfillmentShipments_2024-09-11_GiftAttributes"];
             /** @description A list of HAZMAT label identifiers that must be applied to the packages for this line item. */
@@ -12489,6 +12748,24 @@ export interface components {
              * @description The start time of the window.
              */
             startTime: number;
+        };
+        /**
+         * @description The request object for updating a sandbox shipment. The `updates` object is required for `SHIPMENT_STATUS_CHANGE` and `TRANSPORT_CAPACITY_CHANGE` update types, and must not be provided for `INVOICE_AVAILABILITY_CHANGE`.
+         * @example {
+         *       "updateType": "SHIPMENT_STATUS_CHANGE",
+         *       "updates": {
+         *         "status": "SHIPPED"
+         *       }
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_UpdateSandboxShipmentRequest": {
+            updates?: components["schemas"]["externalFulfillmentShipments_2024-09-11_SandboxShipmentUpdates"];
+            /**
+             * @description The type of update to apply to the shipment.
+             * @example SHIPMENT_STATUS_CHANGE
+             * @enum {string}
+             */
+            updateType: "SHIPMENT_STATUS_CHANGE" | "INVOICE_AVAILABILITY_CHANGE" | "TRANSPORT_CAPACITY_CHANGE";
         };
         /** @description The weight of a package. */
         "externalFulfillmentShipments_2024-09-11_Weight": {
@@ -38196,7 +38473,7 @@ export interface operations {
             };
         };
     };
-    "catalogItems_2020-12-01_searchCatalogItems": {
+    searchCatalogItems: {
         parameters: {
             query: {
                 /**
@@ -38373,7 +38650,7 @@ export interface operations {
             };
         };
     };
-    "catalogItems_2020-12-01_getCatalogItem": {
+    getCatalogItem: {
         parameters: {
             query: {
                 /**
@@ -38523,7 +38800,7 @@ export interface operations {
             };
         };
     };
-    searchCatalogItems: {
+    "catalogItems_2022-04-01_searchCatalogItems": {
         parameters: {
             query: {
                 /**
@@ -38697,7 +38974,7 @@ export interface operations {
             };
         };
     };
-    getCatalogItem: {
+    "catalogItems_2022-04-01_getCatalogItem": {
         parameters: {
             query: {
                 /**
@@ -40949,7 +41226,7 @@ export interface operations {
             };
         };
     };
-    "deliveryShipmentInvoiceV2022-07-01_submitInvoice": {
+    submitInvoice: {
         parameters: {
             query?: {
                 /**
@@ -42215,7 +42492,7 @@ export interface operations {
             };
         };
     };
-    "externalFulfillmentShipments_2024-09-11_getShipments": {
+    getShipments: {
         parameters: {
             query: {
                 /**
@@ -42383,7 +42660,122 @@ export interface operations {
             };
         };
     };
-    "externalFulfillmentShipments_2024-09-11_getShipment": {
+    createSandboxShipment: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description The request body for creating a sandbox shipment. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_CreateSandboxShipmentRequest"];
+            };
+        };
+        responses: {
+            /** @description Successfully created a sandbox shipment. */
+            201: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_CreateSandboxShipmentResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+        };
+    };
+    getShipment: {
         parameters: {
             query?: never;
             header?: never;
@@ -42621,6 +43013,125 @@ export interface operations {
             };
             /** @description Unprocessable Entity. Unable to process the contained instructions */
             422: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+        };
+    };
+    updateSandboxShipment: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier of the shipment to update.
+                 * @example D39CwZpdj
+                 */
+                shipmentId: string;
+            };
+            cookie?: never;
+        };
+        /** @description The request body for updating a sandbox shipment. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_UpdateSandboxShipmentRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. */
+            204: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentShipments_2024-09-11_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
                 headers: {
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -43082,7 +43593,7 @@ export interface operations {
             };
         };
     };
-    "externalFulfillmentShipments_2024-09-11_updatePackage": {
+    updatePackage: {
         parameters: {
             query?: never;
             header?: never;
@@ -43233,7 +43744,7 @@ export interface operations {
     updatePackageStatus: {
         parameters: {
             query?: {
-                /** @description **DEPRECATED**. Do not use. Package status is defined in the body parameter. */
+                /** @description **This field is only used for the Seller Flex program**. For the Self Delivery program, package statuses are defined in the body parameter. */
                 status?: "SHIPPED";
             };
             header?: never;
@@ -43676,6 +44187,121 @@ export interface operations {
             };
         };
     };
+    createSandboxLocation: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description The request body for creating a sandbox location. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_CreateSandboxLocationRequest"];
+            };
+        };
+        responses: {
+            /** @description Successfully created a sandbox location. */
+            201: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_CreateSandboxLocationResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["externalFulfillmentLocation_2026-07-30_ErrorList"];
+                };
+            };
+        };
+    };
     batchInventory: {
         parameters: {
             query?: never;
@@ -44040,7 +44666,7 @@ export interface operations {
             };
         };
     };
-    getShipments: {
+    fulfillmentInboundV0_getShipments: {
         parameters: {
             query: {
                 /** @description A date used for selecting inbound shipments that were last updated after (or at) a specified time. The selection includes updates made by Amazon and by the seller. */
@@ -52040,7 +52666,7 @@ export interface operations {
             };
         };
     };
-    updatePackage: {
+    "fulfillmentOutbound_2026-07-04_updatePackage": {
         parameters: {
             query?: never;
             header?: {
@@ -58023,7 +58649,7 @@ export interface operations {
             };
         };
     };
-    putListingsItem: {
+    "listingsItems_2020-09-01_putListingsItem": {
         parameters: {
             query: {
                 /**
@@ -58162,7 +58788,7 @@ export interface operations {
             };
         };
     };
-    deleteListingsItem: {
+    "listingsItems_2020-09-01_deleteListingsItem": {
         parameters: {
             query: {
                 /**
@@ -58296,7 +58922,7 @@ export interface operations {
             };
         };
     };
-    patchListingsItem: {
+    "listingsItems_2020-09-01_patchListingsItem": {
         parameters: {
             query: {
                 /**
@@ -58793,7 +59419,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2021-08-01_putListingsItem": {
+    putListingsItem: {
         parameters: {
             query: {
                 /**
@@ -58927,7 +59553,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2021-08-01_deleteListingsItem": {
+    deleteListingsItem: {
         parameters: {
             query: {
                 /**
@@ -59046,7 +59672,7 @@ export interface operations {
             };
         };
     };
-    "listingsItems_2021-08-01_patchListingsItem": {
+    patchListingsItem: {
         parameters: {
             query: {
                 /**
@@ -61041,7 +61667,7 @@ export interface operations {
             };
         };
     };
-    getShipment: {
+    merchantFulfillmentV0_getShipment: {
         parameters: {
             query?: never;
             header?: never;
@@ -69523,7 +70149,7 @@ export interface operations {
             };
         };
     };
-    purchaseShipment: {
+    shipping_purchaseShipment: {
         parameters: {
             query?: never;
             header?: never;
@@ -69633,7 +70259,7 @@ export interface operations {
             };
         };
     };
-    getRates: {
+    shipping_getRates: {
         parameters: {
             query?: never;
             header?: never;
@@ -72028,7 +72654,7 @@ export interface operations {
             };
         };
     };
-    shippingV2_purchaseShipment: {
+    purchaseShipment: {
         parameters: {
             query?: never;
             header?: {
@@ -72717,7 +73343,7 @@ export interface operations {
             };
         };
     };
-    shippingV2_getRates: {
+    getRates: {
         parameters: {
             query?: never;
             header?: {
@@ -76148,7 +76774,7 @@ export interface operations {
             };
         };
     };
-    "vendorDirectFulfillmentOrders_2021-12-28_submitAcknowledgement": {
+    submitAcknowledgement: {
         parameters: {
             query?: never;
             header?: never;
@@ -76875,7 +77501,7 @@ export interface operations {
             };
         };
     };
-    submitInvoice: {
+    vendorDirectFulfillmentPaymentsV1_submitInvoice: {
         parameters: {
             query?: never;
             header?: never;
@@ -79894,7 +80520,7 @@ export interface operations {
             };
         };
     };
-    submitAcknowledgement: {
+    vendorOrders_submitAcknowledgement: {
         parameters: {
             query?: never;
             header?: never;
