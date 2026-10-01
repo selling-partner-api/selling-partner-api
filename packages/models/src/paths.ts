@@ -16,7 +16,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["validateContentDocumentAsinRelations"];
         delete?: never;
         options?: never;
@@ -31,7 +31,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of all A+ Content documents, including metadata, that are assigned to a selling partner. To get the actual contents of the A+ Content documents, call the `getContentDocument` operation.
+        /** @description Retrieve a list of all A+ Content documents assigned to a selling partner. This operation returns only the metadata of the A+ Content documents. Call the `getContentDocument` operation to get the actual contents of the A+ Content documents.
          *
          *     **Usage Plan:**
          *
@@ -39,10 +39,10 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         get: operations["searchContentDocuments"];
         put?: never;
-        /** @description Creates a new A+ Content document.
+        /** @description Create a new A+ Content document.
          *
          *     **Usage Plan:**
          *
@@ -50,7 +50,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["createContentDocument"];
         delete?: never;
         options?: never;
@@ -65,7 +65,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns an A+ Content document, if available.
+        /** @description Retrieve an A+ Content document, if available.
          *
          *     **Usage Plan:**
          *
@@ -73,10 +73,10 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         get: operations["getContentDocument"];
         put?: never;
-        /** @description Updates an existing A+ Content document.
+        /** @description Update an existing A+ Content document.
          *
          *     **Usage Plan:**
          *
@@ -84,7 +84,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["updateContentDocument"];
         delete?: never;
         options?: never;
@@ -109,7 +109,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["postContentDocumentApprovalSubmission"];
         delete?: never;
         options?: never;
@@ -124,7 +124,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns a list of ASINs that are related to the specified A+ Content document, if available. If you don't include the `asinSet` parameter, this operation returns all ASINs related to the content document.
+        /** @description Retrieve a list of ASINs related to the specified A+ Content document, if available. If you do not include the `asinSet` parameter, the operation returns all ASINs related to the content document.
          *
          *     **Usage Plan:**
          *
@@ -132,10 +132,10 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         get: operations["listContentDocumentAsinRelations"];
         put?: never;
-        /** @description Replaces all ASINs related to the specified A+ Content document, if available. This operation can add or remove ASINs, depending on the current set of related ASINs. Removing an ASIN will suspend the content document from that ASIN.
+        /** @description Replaces all ASINs related to the specified A+ Content document, if available. This may add or remove ASINs, depending on the current set of related ASINs. Removing an ASIN has the side effect of suspending the content document from that ASIN.
          *
          *     **Usage Plan:**
          *
@@ -143,7 +143,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["postContentDocumentAsinRelations"];
         delete?: never;
         options?: never;
@@ -160,7 +160,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        /** @description Submits a request to suspend visible A+ Content. This doesn't delete the content document or the ASIN relations.
+        /** @description Submits a request to suspend visible A+ Content. This neither deletes the content document nor the ASIN relations.
          *
          *     **Usage Plan:**
          *
@@ -168,7 +168,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["postContentDocumentSuspendSubmission"];
         delete?: never;
         options?: never;
@@ -191,7 +191,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 10 | 10 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         get: operations["searchContentPublishRecords"];
         put?: never;
         post?: never;
@@ -199,6 +199,75 @@ export interface paths {
         options?: never;
         head?: never;
         patch?: never;
+        trace?: never;
+    };
+    "/aplus/2020-11-01/media": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Create a media asset record. The `mediaType` field determines the type of asset to create.
+         *
+         *     This operation is idempotent; if the asset or pairing already exists with identical metadata, this operation returns a `200` response with existing data. Returns `201` when a new asset or pairing is created. Returns `409` if the asset or pairing already exists but the metadata fields differ.
+         *
+         *     If an `uploadDestinationId` is provided, it is resolved to its `mediaId` before any further processing. A request that references an asset by `uploadDestinationId` and a subsequent request that uses the resulting `mediaId` are treated as referring to the same identity.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 10 | 10 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        post: operations["createMedia"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/aplus/2020-11-01/media/{mediaId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Retrieve media metadata and related media for a given media ID. The response uses the unified Media shape. Related media associations are also included in the response.
+         *
+         *     When `associatedMediaId` is provided, `relatedMedia` is filtered to the specific pairing. When omitted, all related media are returned.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 10 | 10 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        get: operations["getMedia"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** @description Update metadata on an existing media asset. The `mediaId` path parameter identifies the target asset. For video-image pairing title updates, provide `associatedMediaId` as a query parameter. For video-level description updates or standalone image title updates, omit `associatedMediaId`.
+         *
+         *     Each request updates either title or descriptions, but not both. Descriptions are upserted by locale; only provided locales are modified, and existing locales not in the request are preserved.
+         *
+         *     The response contains the full unified Media shape. When `associatedMediaId` is provided, `relatedMedia` contains only the specified pairing. When `associatedMediaId` is absent, `relatedMedia` contains all affected pairings.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 10 | 10 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+        patch: operations["updateMedia"];
         trace?: never;
     };
     "/appIntegrations/2024-04-01/notifications": {
@@ -1259,8 +1328,8 @@ export interface paths {
          *     | ---- | ---- |
          *     | 1.133 | 25 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["submitInvoice"];
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon/sp-api/docs/usage-plans-and-rate-limits). */
+        post: operations["deliveryShipmentInvoiceV2022-07-01_submitInvoice"];
         delete?: never;
         options?: never;
         head?: never;
@@ -1274,7 +1343,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns the invoice status for the order or shipment you specify. You must specify either an `orderId` or `shipmentId` as query parameter. If both parameters are supplied, `orderId` takes precedence over `shipmentId`.
+        /** @description Returns the invoice status for the order or shipment you specify. You must specify either an `orderId`, `shipmentId`, or `invoiceId` as a query parameter. If multiple parameters are supplied, `orderId` takes precedence over `shipmentId`, which takes precedence over `invoiceId`.
          *
          *     **Usage Plan:**
          *
@@ -1282,8 +1351,8 @@ export interface paths {
          *     | ---- | ---- |
          *     | 1.133 | 25 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getInvoiceStatus"];
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon/sp-api/docs/usage-plans-and-rate-limits). */
+        get: operations["deliveryShipmentInvoiceV2022-07-01_getInvoiceStatus"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1453,7 +1522,7 @@ export interface paths {
             cookie?: never;
         };
         /** @description Get a list of shipments created for the seller in the status you specify. Shipments can be further filtered based on the fulfillment node or the time of the shipments' last update. */
-        get: operations["getShipments"];
+        get: operations["externalFulfillmentShipments_2024-09-11_getShipments"];
         put?: never;
         /** @description Creates a sandbox shipment to simulate order creation in the test environment. This operation is available only in the sandbox environment. The shipment is created with the specified configuration including shipping type and order type. */
         post: operations["createSandboxShipment"];
@@ -1471,7 +1540,7 @@ export interface paths {
             cookie?: never;
         };
         /** @description Get a single shipment with the ID you specify. */
-        get: operations["getShipment"];
+        get: operations["externalFulfillmentShipments_2024-09-11_getShipment"];
         put?: never;
         /** @description Confirm or reject the specified shipment. */
         post: operations["processShipment"];
@@ -1526,7 +1595,7 @@ export interface paths {
         };
         get?: never;
         /** @description Updates the details about the packages that will be used to fulfill the specified shipment. */
-        put: operations["updatePackage"];
+        put: operations["externalFulfillmentShipments_2024-09-11_updatePackage"];
         post?: never;
         delete?: never;
         options?: never;
@@ -1669,7 +1738,7 @@ export interface paths {
          *     | 2 | 30 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["fulfillmentInboundV0_getShipments"];
+        get: operations["getShipments"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2237,7 +2306,7 @@ export interface paths {
          *     | 1.133 | 25 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["shipmentInvoicingV0_getInvoiceStatus"];
+        get: operations["getInvoiceStatus"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2339,7 +2408,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Returns feed details (including the `resultDocumentId`, if available) for the feed that you specify.
+        /** @description Returns feed details (including the `feedDocumentId`, if available) for the feed that you specify.
          *
          *     **Usage Plan:**
          *
@@ -2466,7 +2535,41 @@ export interface paths {
             cookie?: never;
         };
         /** @description Returns invoice details, including header and line items, for the specified invoice. */
-        get: operations["getInvoice"];
+        get: operations["financesInvoices_2026-06-25_getInvoice"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/finances/remittances/2026-03-17/remittances": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Returns a list of remittance summaries for the specified Amazon store, filtered by date range. Results are paginated. */
+        get: operations["getRemittanceHeaders"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/finances/remittances/2026-03-17/remittances/{uniquePaymentId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Returns detailed line items for a specific remittance. Results are paginated. */
+        get: operations["getRemittance"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2654,7 +2757,7 @@ export interface paths {
          * Find particular Amazon Seller Wallet account transaction by Amazon transaction identifier
          * @description Find a transaction by the Amazon transaction identifier.
          */
-        get: operations["getTransaction"];
+        get: operations["sellerWallet_2024-03-01_getTransaction"];
         put?: never;
         post?: never;
         delete?: never;
@@ -2970,7 +3073,7 @@ export interface paths {
         };
         get?: never;
         /** @description Update package information for a specific package in a fulfillment order. This is a sandbox-only operation and must be directed to a sandbox endpoint. Refer to [Fulfillment Outbound Dynamic Sandbox Guide](https://developer-docs.amazon.com/sp-api/docs/fulfillment-outbound-dynamic-sandbox-guide) and [Selling Partner API sandbox](https://developer-docs.amazon.com/sp-api/docs/the-selling-partner-api-sandbox) for more information. */
-        put: operations["fulfillmentOutbound_2026-07-04_updatePackage"];
+        put: operations["updatePackage"];
         post?: never;
         delete?: never;
         options?: never;
@@ -4528,7 +4631,7 @@ export interface paths {
          *     | 1 | 1 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the SP-API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["merchantFulfillmentV0_getShipment"];
+        get: operations["getShipment"];
         put?: never;
         post?: never;
         /** @description Cancel the shipment indicated by the specified shipment identifier.
@@ -4805,7 +4908,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
          */
-        get: operations["ordersV0_getOrders"];
+        get: operations["getOrders"];
         put?: never;
         post?: never;
         delete?: never;
@@ -4833,7 +4936,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header contains the usage plan rate limits for the operation, when available. The preceding table contains the default rate and burst values for this operation. Selling partners whose business demands require higher throughput might have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).
          */
-        get: operations["ordersV0_getOrder"];
+        get: operations["getOrder"];
         put?: never;
         post?: never;
         delete?: never;
@@ -5242,7 +5345,15 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Search and filter promotions based on various criteria. Returns a paginated list of promotion summaries. */
+        /** @description Search and filter promotions based on various criteria. Returns a paginated list of promotion summaries.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 0.1 | 4 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon/sp-api/docs/usage-plans-and-rate-limits). */
         get: operations["searchPromotions"];
         put?: never;
         post?: never;
@@ -5259,7 +5370,15 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieve details of a specified promotion. */
+        /** @description Retrieve details of a specified promotion.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 0.1 | 2 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon/sp-api/docs/usage-plans-and-rate-limits). */
         get: operations["getPromotion"];
         put?: never;
         post?: never;
@@ -5276,7 +5395,15 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Retrieve up to 100 product items that are associated with a specified promotion. This operation only supports items found in `SelectionType.ITEMS`. Items found in `SelectionType.CATALOG` are not supported. Selection objects always include `selectionDetails` with item information. */
+        /** @description Retrieve up to 100 product items that are associated with a specified promotion. This operation only supports items found in `SelectionType.ITEMS`. Items found in `SelectionType.CATALOG` are not supported. Selection objects always include `selectionDetails` with item information.
+         *
+         *     **Usage Plan:**
+         *
+         *     | Rate (requests per second) | Burst |
+         *     | ---- | ---- |
+         *     | 0.1 | 2 |
+         *
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon/sp-api/docs/usage-plans-and-rate-limits). */
         get: operations["getSelection"];
         put?: never;
         post?: never;
@@ -6822,6 +6949,57 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/support/2025-02-01/cases": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Retrieve support cases for a selling partner. */
+        post: operations["listCases"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/support/2025-02-01/cases/{caseId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Retrieve a specific support case. */
+        get: operations["getCase"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/support/2025-02-01/cases/{caseId}/contacts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Retrieve contacts for a specific support case. */
+        get: operations["listContacts"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/tax/invoices/2024-06-19/attributes": {
         parameters: {
             query?: never;
@@ -6952,7 +7130,7 @@ export interface paths {
         };
         /** @description Returns invoice data for the specified invoice. This operation returns only a subset of the invoices data; refer to the response definition to get all the possible attributes.
          *     To get the full invoice, use the `createInvoicesExport` operation to start an export request. */
-        get: operations["InvoicesApiModel_2024-06-19_getInvoice"];
+        get: operations["getInvoice"];
         put?: never;
         post?: never;
         delete?: never;
@@ -7074,7 +7252,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["submitAcknowledgement"];
+        post: operations["vendorDirectFulfillmentOrders_2021-12-28_submitAcknowledgement"];
         delete?: never;
         options?: never;
         head?: never;
@@ -7097,7 +7275,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getOrders"];
+        get: operations["vendorDirectFulfillmentOrders_2021-12-28_getOrders"];
         put?: never;
         post?: never;
         delete?: never;
@@ -7122,7 +7300,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["getOrder"];
+        get: operations["vendorDirectFulfillmentOrders_2021-12-28_getOrder"];
         put?: never;
         post?: never;
         delete?: never;
@@ -7224,7 +7402,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["vendorDirectFulfillmentPaymentsV1_submitInvoice"];
+        post: operations["submitInvoice"];
         delete?: never;
         options?: never;
         head?: never;
@@ -7818,7 +7996,7 @@ export interface paths {
          *     | 10 | 10 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        post: operations["vendorOrders_submitAcknowledgement"];
+        post: operations["submitAcknowledgement"];
         delete?: never;
         options?: never;
         head?: never;
@@ -8034,7 +8212,7 @@ export interface paths {
          *     | 10 | 20 |
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
-        get: operations["vendorTransactionStatus_getTransaction"];
+        get: operations["getTransaction"];
         put?: never;
         post?: never;
         delete?: never;
@@ -8047,23 +8225,32 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
-        /** @description A token that you use to retrieve the next page of results. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextPageToken` is null. Note that this operation can return empty pages. */
+        /** @description The base response data for paginated A+ Content operations. Individual operations may extend this with additional data. If `nextPageToken` is not returned, there are no more pages to return. */
         "aplusContent_2020-11-01_AplusPaginatedResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"] & {
             nextPageToken?: components["schemas"]["aplusContent_2020-11-01_PageToken"];
         };
-        /** @description The base response data for all A+ Content operations when a request is successful or partially successful. Individual operations can extend this with additional data. */
+        /** @description The base response data for all A+ Content operations when a request is successful or partially successful. Individual operations may extend this with additional data. */
         "aplusContent_2020-11-01_AplusResponse": {
             warnings?: components["schemas"]["aplusContent_2020-11-01_MessageSet"];
         };
         /** @description The Amazon Standard Identification Number (ASIN). */
         "aplusContent_2020-11-01_Asin": string;
         /**
-         * @description A flag that provides additional information about an ASIN. This is contextual and can change depending on the request that generated it.
+         * @description A flag that provides additional information about an ASIN. This is contextual and may change depending on the request that generated it.
          * @enum {string}
          */
         "aplusContent_2020-11-01_AsinBadge": "BRAND_NOT_ELIGIBLE" | "CATALOG_NOT_FOUND" | "CONTENT_NOT_PUBLISHED" | "CONTENT_PUBLISHED";
         /** @description The set of ASIN badges. */
         "aplusContent_2020-11-01_AsinBadgeSet": components["schemas"]["aplusContent_2020-11-01_AsinBadge"][];
+        /** @description A single ASIN product with its associated image. */
+        "aplusContent_2020-11-01_AsinImage": {
+            productAsin: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            productImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+        };
+        /** @description Wrapper for a single ASIN image entry. */
+        "aplusContent_2020-11-01_AsinImages": {
+            asinImage: components["schemas"]["aplusContent_2020-11-01_AsinImage"];
+        };
         /** @description The A+ Content ASIN with additional metadata for content management. If you don't include the `includedDataSet` parameter in a call to the `listContentDocumentAsinRelations` operation, the related ASINs are returned without metadata. */
         "aplusContent_2020-11-01_AsinMetadata": {
             asin: components["schemas"]["aplusContent_2020-11-01_Asin"];
@@ -8080,10 +8267,77 @@ export interface components {
         /** @description The set of ASINs. */
         "aplusContent_2020-11-01_AsinSet": components["schemas"]["aplusContent_2020-11-01_Asin"][];
         /**
-         * @description The relative color scheme of your content.
+         * @description The type of relationship between media assets.
+         * @enum {string}
+         */
+        "aplusContent_2020-11-01_AssociationType": "VIDEO_PAIRING";
+        /** @description A Brand Story card with text-focused content for telling your Brand's story, mission, or values. */
+        "aplusContent_2020-11-01_BrandStoryAboutModule": {
+            logoImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            slogan?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A Brand Story card displaying up to four product ASINs with images, enabling cross-selling to other products in your catalog. */
+        "aplusContent_2020-11-01_BrandStoryFourAsinModule": {
+            /** @description Exactly 4 ASIN image entries. */
+            asinImages: components["schemas"]["aplusContent_2020-11-01_AsinImages"][];
+            brandStoreId?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            title: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description The required background card for all Brand Story Content. Provides a full-width background image with a Brand logo overlay, headline, and body text. All other Brand Story modules appear within this carousel. */
+        "aplusContent_2020-11-01_BrandStoryImageWithLogoModule": {
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A Brand Story card featuring a single image as the primary visual element. */
+        "aplusContent_2020-11-01_BrandStoryMediaAssetModule": {
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            image: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A Brand Story card with question-and-answer pairs about your Brand. */
+        "aplusContent_2020-11-01_BrandStoryQuestionsModule": {
+            /** @description Exactly 3 question-answer pairs. */
+            questionAnswerPairs: components["schemas"]["aplusContent_2020-11-01_QuestionAnswerPairs"][];
+        };
+        /**
+         * @description The relative color scheme of content.
          * @enum {string}
          */
         "aplusContent_2020-11-01_ColorType": "DARK" | "LIGHT";
+        /** @description A wrapper object for a single comparison field. */
+        "aplusContent_2020-11-01_ComparisonFields": {
+            comparisonField: components["schemas"]["aplusContent_2020-11-01_PlainTextItem"];
+        };
+        /** @description A wrapper object for a single comparison row. */
+        "aplusContent_2020-11-01_ComparisonMetrics": {
+            comparisonRow: components["schemas"]["aplusContent_2020-11-01_ComparisonRow"];
+        };
+        /** @description A product in the comparison table carousel modules. */
+        "aplusContent_2020-11-01_ComparisonProduct": {
+            desktopImage?: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            mobileImage?: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            /** @description The position of the product in comparison display. */
+            position?: number;
+            productAsin?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            productTitle?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A wrapper object for a single comparison product. */
+        "aplusContent_2020-11-01_ComparisonProducts": {
+            comparisonProduct: components["schemas"]["aplusContent_2020-11-01_ComparisonProduct"];
+        };
+        /** @description Comparison row for table-based comparison modules. */
+        "aplusContent_2020-11-01_ComparisonRow": {
+            additionalInfo?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            /** @description Collection of comparison field values, one set per product. */
+            comparisonFields?: components["schemas"]["aplusContent_2020-11-01_ComparisonFields"][];
+            comparisonType?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            metricName?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            /** @description The position of the comparison row. */
+            position?: number;
+        };
         /**
          * @description A flag that provides additional information about an A+ Content document.
          * @enum {string}
@@ -8100,11 +8354,11 @@ export interface components {
             /** @description The A+ Content document name. */
             name: string;
         };
-        /** @description The A+ Content document's metadata. */
+        /** @description The metadata of an A+ Content document. */
         "aplusContent_2020-11-01_ContentMetadata": {
             badgeSet: components["schemas"]["aplusContent_2020-11-01_ContentBadgeSet"];
             marketplaceId: components["schemas"]["aplusContent_2020-11-01_MarketplaceId"];
-            /** @description The A+ Content document's name. */
+            /** @description The A+ Content document name. */
             name: string;
             status: components["schemas"]["aplusContent_2020-11-01_ContentStatus"];
             /**
@@ -8120,9 +8374,33 @@ export interface components {
         };
         /** @description A list of A+ Content metadata records. */
         "aplusContent_2020-11-01_ContentMetadataRecordList": components["schemas"]["aplusContent_2020-11-01_ContentMetadataRecord"][];
-        /** @description An A+ Content module. An A+ Content document is composed of content modules. The `contentModuleType` property selects which content module types to use. */
+        /** @description An A+ Content module. An A+ Content document is composed of content modules. The contentModuleType property selects which content module types to use. */
         "aplusContent_2020-11-01_ContentModule": {
+            brandStoryAbout?: components["schemas"]["aplusContent_2020-11-01_BrandStoryAboutModule"];
+            brandStoryFourAsin?: components["schemas"]["aplusContent_2020-11-01_BrandStoryFourAsinModule"];
+            brandStoryImageWithLogo?: components["schemas"]["aplusContent_2020-11-01_BrandStoryImageWithLogoModule"];
+            brandStoryMediaAsset?: components["schemas"]["aplusContent_2020-11-01_BrandStoryMediaAssetModule"];
+            brandStoryQuestions?: components["schemas"]["aplusContent_2020-11-01_BrandStoryQuestionsModule"];
             contentModuleType: components["schemas"]["aplusContent_2020-11-01_ContentModuleType"];
+            premiumComparisonCarousel?: components["schemas"]["aplusContent_2020-11-01_PremiumComparisonCarouselModule"];
+            premiumComparisonScroller?: components["schemas"]["aplusContent_2020-11-01_PremiumComparisonScrollerModule"];
+            premiumDualImageText?: components["schemas"]["aplusContent_2020-11-01_PremiumDualImageTextModule"];
+            premiumFaq?: components["schemas"]["aplusContent_2020-11-01_PremiumFaqModule"];
+            premiumFourColumnImages?: components["schemas"]["aplusContent_2020-11-01_PremiumFourColumnImagesModule"];
+            premiumFullBackgroundImage?: components["schemas"]["aplusContent_2020-11-01_PremiumFullBackgroundImageModule"];
+            premiumFullBackgroundText?: components["schemas"]["aplusContent_2020-11-01_PremiumFullBackgroundTextModule"];
+            premiumHeroVideo?: components["schemas"]["aplusContent_2020-11-01_PremiumHeroVideoModule"];
+            premiumHotspotImage?: components["schemas"]["aplusContent_2020-11-01_PremiumHotspotImageModule"];
+            premiumHotspotImageText?: components["schemas"]["aplusContent_2020-11-01_PremiumHotspotImageTextModule"];
+            premiumImageCarousel?: components["schemas"]["aplusContent_2020-11-01_PremiumImageCarouselModule"];
+            premiumImageText?: components["schemas"]["aplusContent_2020-11-01_PremiumImageTextModule"];
+            premiumNavigationCarousel?: components["schemas"]["aplusContent_2020-11-01_PremiumNavigationCarouselModule"];
+            premiumRegimenCarousel?: components["schemas"]["aplusContent_2020-11-01_PremiumRegimenCarouselModule"];
+            premiumTechSpecs?: components["schemas"]["aplusContent_2020-11-01_PremiumTechSpecsModule"];
+            premiumText?: components["schemas"]["aplusContent_2020-11-01_PremiumTextModule"];
+            premiumThreeColumnComparison?: components["schemas"]["aplusContent_2020-11-01_PremiumThreeColumnComparisonModule"];
+            premiumVideoImageCarousel?: components["schemas"]["aplusContent_2020-11-01_PremiumVideoImageCarouselModule"];
+            premiumVideoText?: components["schemas"]["aplusContent_2020-11-01_PremiumVideoTextModule"];
             standardCompanyLogo?: components["schemas"]["aplusContent_2020-11-01_StandardCompanyLogoModule"];
             standardComparisonTable?: components["schemas"]["aplusContent_2020-11-01_StandardComparisonTableModule"];
             standardFourImageText?: components["schemas"]["aplusContent_2020-11-01_StandardFourImageTextModule"];
@@ -8145,14 +8423,14 @@ export interface components {
          * @description The type of A+ Content module.
          * @enum {string}
          */
-        "aplusContent_2020-11-01_ContentModuleType": "STANDARD_COMPANY_LOGO" | "STANDARD_COMPARISON_TABLE" | "STANDARD_FOUR_IMAGE_TEXT" | "STANDARD_FOUR_IMAGE_TEXT_QUADRANT" | "STANDARD_HEADER_IMAGE_TEXT" | "STANDARD_IMAGE_SIDEBAR" | "STANDARD_IMAGE_TEXT_OVERLAY" | "STANDARD_MULTIPLE_IMAGE_TEXT" | "STANDARD_PRODUCT_DESCRIPTION" | "STANDARD_SINGLE_IMAGE_HIGHLIGHTS" | "STANDARD_SINGLE_IMAGE_SPECS_DETAIL" | "STANDARD_SINGLE_SIDE_IMAGE" | "STANDARD_TECH_SPECS" | "STANDARD_TEXT" | "STANDARD_THREE_IMAGE_TEXT";
+        "aplusContent_2020-11-01_ContentModuleType": "STANDARD_COMPANY_LOGO" | "STANDARD_COMPARISON_TABLE" | "STANDARD_FOUR_IMAGE_TEXT" | "STANDARD_FOUR_IMAGE_TEXT_QUADRANT" | "STANDARD_HEADER_IMAGE_TEXT" | "STANDARD_IMAGE_SIDEBAR" | "STANDARD_IMAGE_TEXT_OVERLAY" | "STANDARD_MULTIPLE_IMAGE_TEXT" | "STANDARD_PRODUCT_DESCRIPTION" | "STANDARD_SINGLE_IMAGE_HIGHLIGHTS" | "STANDARD_SINGLE_IMAGE_SPECS_DETAIL" | "STANDARD_SINGLE_SIDE_IMAGE" | "STANDARD_TECH_SPECS" | "STANDARD_TEXT" | "STANDARD_THREE_IMAGE_TEXT" | "PREMIUM_IMAGE_TEXT" | "PREMIUM_TEXT" | "PREMIUM_FULL_BACKGROUND_TEXT" | "PREMIUM_FULL_BACKGROUND_IMAGE" | "PREMIUM_FOUR_COLUMN_IMAGES" | "PREMIUM_DUAL_IMAGE_TEXT" | "PREMIUM_IMAGE_CAROUSEL" | "PREMIUM_NAVIGATION_CAROUSEL" | "PREMIUM_REGIMEN_CAROUSEL" | "PREMIUM_THREE_COLUMN_COMPARISON" | "PREMIUM_COMPARISON_CAROUSEL" | "PREMIUM_COMPARISON_SCROLLER" | "PREMIUM_HOTSPOT_IMAGE" | "PREMIUM_HOTSPOT_IMAGE_TEXT" | "PREMIUM_FAQ" | "PREMIUM_TECH_SPECS" | "PREMIUM_VIDEO_TEXT" | "PREMIUM_HERO_VIDEO" | "PREMIUM_VIDEO_IMAGE_CAROUSEL" | "BRAND_STORY_IMAGE_WITH_LOGO" | "BRAND_STORY_FOUR_ASIN" | "BRAND_STORY_MEDIA_ASSET" | "BRAND_STORY_ABOUT" | "BRAND_STORY_QUESTIONS";
         /** @description A content document with additional information for content management. */
         "aplusContent_2020-11-01_ContentRecord": {
             contentDocument?: components["schemas"]["aplusContent_2020-11-01_ContentDocument"];
             contentMetadata?: components["schemas"]["aplusContent_2020-11-01_ContentMetadata"];
             contentReferenceKey: components["schemas"]["aplusContent_2020-11-01_ContentReferenceKey"];
         };
-        /** @description A unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. */
+        /** @description A unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
         "aplusContent_2020-11-01_ContentReferenceKey": string;
         /** @description A set of content reference keys. */
         "aplusContent_2020-11-01_ContentReferenceKeySet": components["schemas"]["aplusContent_2020-11-01_ContentReferenceKey"][];
@@ -8161,20 +8439,43 @@ export interface components {
          * @enum {string}
          */
         "aplusContent_2020-11-01_ContentStatus": "APPROVED" | "DRAFT" | "REJECTED" | "SUBMITTED";
-        /** @description The A+ Content document subtype. This represents a special-purpose type of an A+ Content document. Not every A+ Content document type has a subtype, and subtypes can change at any time. */
+        /** @description The A+ Content document subtype. This represents a special-purpose type of an A+ Content document. Not every A+ Content document type will have a subtype, and subtypes may change at any time. */
         "aplusContent_2020-11-01_ContentSubType": string;
         /**
          * @description The A+ Content document type.
          * @enum {string}
          */
-        "aplusContent_2020-11-01_ContentType": "EBC" | "EMC";
-        /** @description A decorator that is applied to a content string value in order to create rich text. */
+        "aplusContent_2020-11-01_ContentType": "EBC" | "EMC" | "BrandStory";
+        /** @description The request body for creating a media asset. Uses the unified media shape as a subset, omitting system-derived fields. */
+        "aplusContent_2020-11-01_CreateMediaRequest": {
+            descriptions?: components["schemas"]["aplusContent_2020-11-01_DescriptionList"];
+            /**
+             * @description An existing media asset identifier for reuse. Mutually exclusive with `uploadDestinationId`.
+             * @example b2c3d4e5-f6a7-8901-bcde-f12345678901
+             */
+            mediaId?: string;
+            mediaType: components["schemas"]["aplusContent_2020-11-01_MediaType"];
+            relatedMedia?: components["schemas"]["aplusContent_2020-11-01_RelatedMediaInputList"];
+            /**
+             * @description An optional title for the media asset. For standalone images, defaults to filename if not provided. Not applicable for videos (video title is derived from the filename).
+             * @example Product Thumbnail
+             */
+            title?: string;
+            /**
+             * @description The S3 upload destination identifier from the `createUploadDestination` operation. Mutually exclusive with `mediaId`.
+             * @example aplus-media-library-service-media-upload/a1b2c3d4-e5f6-7890-abcd-ef1234567890.mp4
+             */
+            uploadDestinationId?: string;
+        };
+        /** @description The response for the `createMedia` operation. Returns the full unified Media shape. */
+        "aplusContent_2020-11-01_CreateMediaResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"] & components["schemas"]["aplusContent_2020-11-01_Media"];
+        /** @description A decorator applied to a content string value in order to create rich text. */
         "aplusContent_2020-11-01_Decorator": {
-            /** @description The relative intensity or variation of this decorator. Decorators, such as bullet-points, can have multiple indentation depths. */
+            /** @description The relative intensity or variation of this decorator. Decorators such as bullet-points, for example, can have multiple indentation depths. */
             depth?: number;
-            /** @description The number of content characters to alter with this decorator. Decorators, such as line breaks, can have zero length and fit between characters. */
+            /** @description The number of content characters to alter with this decorator. Decorators such as line breaks can have zero length and fit between characters. */
             length?: number;
-            /** @description The starting value of this decorator within the content string. Use zero (`0`) for the first value. */
+            /** @description The starting character of this decorator within the content string. Use zero for the first character. */
             offset?: number;
             type?: components["schemas"]["aplusContent_2020-11-01_DecoratorType"];
         };
@@ -8185,7 +8486,22 @@ export interface components {
          * @enum {string}
          */
         "aplusContent_2020-11-01_DecoratorType": "LIST_ITEM" | "LIST_ORDERED" | "LIST_UNORDERED" | "STYLE_BOLD" | "STYLE_ITALIC" | "STYLE_LINEBREAK" | "STYLE_PARAGRAPH" | "STYLE_UNDERLINE";
-        /** @description The error response that is returned when the request is unsuccessful. */
+        /** @description An accessibility description for a specific locale. */
+        "aplusContent_2020-11-01_Description": {
+            /**
+             * @description A locale identifier (for example, `en-US`, `de-DE`).
+             * @example en-US
+             */
+            locale: string;
+            /**
+             * @description The accessibility description text for the locale.
+             * @example A demonstration of the product features and benefits.
+             */
+            value: string;
+        };
+        /** @description A list of locale-keyed accessibility descriptions. At least one entry is required for video assets. */
+        "aplusContent_2020-11-01_DescriptionList": components["schemas"]["aplusContent_2020-11-01_Description"][];
+        /** @description Error response returned when the request is unsuccessful. */
         "aplusContent_2020-11-01_Error": {
             /** @description An error code that identifies the type of error that occurred. */
             code: string;
@@ -8194,36 +8510,97 @@ export interface components {
             /** @description A message that describes the error condition. */
             message: string;
         };
-        /** @description The error response that is returned when a request is unsuccessful. */
+        /** @description The error response for when a request is unsuccessful. */
         "aplusContent_2020-11-01_ErrorList": {
-            /** @description A list of error responses that are returned when a request is unsuccessful. */
+            /** @description A list of error responses returned when a request is unsuccessful. */
             errors: components["schemas"]["aplusContent_2020-11-01_Error"][];
+        };
+        /** @description A single frequently asked question with its corresponding answer. */
+        "aplusContent_2020-11-01_Faq": {
+            answer: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            question: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+        };
+        /** @description A wrapper object for a single FAQ entry. */
+        "aplusContent_2020-11-01_Faqs": {
+            faq: components["schemas"]["aplusContent_2020-11-01_Faq"];
         };
         "aplusContent_2020-11-01_GetContentDocumentResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"] & {
             contentRecord: components["schemas"]["aplusContent_2020-11-01_ContentRecord"];
+        };
+        /** @description The response for the `getMedia` operation. Returns the full unified Media shape. */
+        "aplusContent_2020-11-01_GetMediaResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"] & components["schemas"]["aplusContent_2020-11-01_Media"];
+        /** @description A single panel within the image carousel that features rich text elements, a direct link to a product ASIN, and an image. */
+        "aplusContent_2020-11-01_ImageCarouselPanel": {
+            asin?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            buttonText?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            /** @description The position of the panel within the carousel. Must be a value between 1 and 6. */
+            position: number;
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A wrapper object for a single image carousel panel. */
+        "aplusContent_2020-11-01_ImageCarouselPanels": {
+            imagePanel: components["schemas"]["aplusContent_2020-11-01_ImageCarouselPanel"];
+        };
+        /** @description A single column within a multi-column premium image module, containing an image, an optional headline, and an optional description. */
+        "aplusContent_2020-11-01_ImageColumn": {
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            image: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            /** @description Location of the column within the module. */
+            position: number;
+        };
+        /** @description Wrapper for a repeated image column entry in a multi-column premium image module. */
+        "aplusContent_2020-11-01_ImageColumns": {
+            imageColumn: components["schemas"]["aplusContent_2020-11-01_ImageColumn"];
         };
         /** @description A reference to an image, hosted in the A+ Content media library. */
         "aplusContent_2020-11-01_ImageComponent": {
             /** @description The alternative text for the image. */
             altText: string;
             imageCropSpecification: components["schemas"]["aplusContent_2020-11-01_ImageCropSpecification"];
-            /** @description This identifier is provided by the [Uploads API](https://developer-docs.amazon.com/sp-api/reference/welcome-to-api-references). */
+            /** @description This identifier is provided by the Selling Partner API for Uploads. */
             uploadDestinationId: string;
         };
-        /** @description The instructions for optionally cropping an image. If you don't want to crop the image, set the dimensions to the original image size. If the image is cropped and you don't include offset values, the coordinates of the top left corner of the cropped image are set to (0,0) by default. */
+        /** @description The instructions for optionally cropping an image. If no cropping is desired, set the dimensions to the original image size. If the image is cropped and no offset values are provided, then the coordinates of the top left corner of the cropped image, relative to the original image, are defaulted to (0,0). */
         "aplusContent_2020-11-01_ImageCropSpecification": {
             offset?: components["schemas"]["aplusContent_2020-11-01_ImageOffsets"];
             size: components["schemas"]["aplusContent_2020-11-01_ImageDimensions"];
         };
-        /** @description The dimensions that extend from the top left corner of the image (this applies to cropped and uncropped images). `ImageDimensions` units must be in pixels. */
+        /** @description The dimensions extending from the top left corner of the cropped image, or the top left corner of the original image if there is no cropping. Only `pixels` is allowed as the units value for ImageDimensions. */
         "aplusContent_2020-11-01_ImageDimensions": {
             height: components["schemas"]["aplusContent_2020-11-01_IntegerWithUnits"];
             width: components["schemas"]["aplusContent_2020-11-01_IntegerWithUnits"];
+        };
+        /** @description A hotspot with mobile image, title, description, and coordinates. */
+        "aplusContent_2020-11-01_ImageHotSpot": {
+            description?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            title: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            xCoordinate: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            yCoordinate: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A wrapper object for a single ImageHotSpot. */
+        "aplusContent_2020-11-01_ImageHotSpots": {
+            imageHotSpot: components["schemas"]["aplusContent_2020-11-01_ImageHotSpot"];
         };
         /** @description The top left corner of the cropped image, specified in the original image's coordinate space. */
         "aplusContent_2020-11-01_ImageOffsets": {
             x: components["schemas"]["aplusContent_2020-11-01_IntegerWithUnits"];
             y: components["schemas"]["aplusContent_2020-11-01_IntegerWithUnits"];
+        };
+        /** @description A hotspot with mobile image, title, and coordinates. */
+        "aplusContent_2020-11-01_ImageTextHotSpot": {
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            title: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            xCoordinate: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            yCoordinate: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A wrapper object for a single ImageTextHotSpot. */
+        "aplusContent_2020-11-01_ImageTextHotSpots": {
+            imageTextHotSpot: components["schemas"]["aplusContent_2020-11-01_ImageTextHotSpot"];
         };
         /** @description A whole number dimension and its unit of measurement. For example, this can represent 100 pixels. */
         "aplusContent_2020-11-01_IntegerWithUnits": {
@@ -8232,23 +8609,130 @@ export interface components {
             /** @description The dimension value. */
             value: number;
         };
-        /** @description The IETF language tag, which supports the primary language subtag and one secondary language subtag. The secondary language subtag is usually a regional designation. This doesn't support subtags other than the primary and secondary subtags.
-         *     **Pattern:** ^[a-z]{2,}-[A-Z0-9]{2,}$ */
+        /** @description An issue associated with a media asset or pairing. */
+        "aplusContent_2020-11-01_Issue": {
+            /**
+             * @description List of issue categories.
+             *
+             *     **Possible values:**
+             *
+             *     * `PROCESSING_ISSUE` - Media file could not be processed (codec, duration, corrupt file).
+             *
+             *     * `CONTENT_POLICY` - Media asset is subject to content policy restrictions.
+             *
+             *     * `METADATA_VALIDATION` - Media metadata does not meet requirements (title, descriptions).
+             * @example [
+             *       "PROCESSING_ISSUE"
+             *     ]
+             */
+            categories: string[];
+            /** @description An issue code that identifies the type of issue. */
+            code: string;
+            /** @description A message that describes the issue. */
+            message: string;
+            /** @description Names of the properties associated with the issue, if applicable. */
+            propertyNames?: string[];
+            /**
+             * @description The severity of the issue.
+             * @enum {string}
+             */
+            severity: "ERROR" | "WARNING" | "INFO";
+        };
+        /** @description A list of issues associated with a media asset or pairing. */
+        "aplusContent_2020-11-01_IssueList": components["schemas"]["aplusContent_2020-11-01_Issue"][];
+        /** @description The IETF language tag. This only supports the primary language subtag with one secondary language subtag. The secondary language subtag is almost always a regional designation. This does not support additional subtags beyond the primary and secondary subtags.
+         *     **Pattern:** `^[a-z]{2,}-[A-Z0-9]{2,}$` */
         "aplusContent_2020-11-01_LanguageTag": string;
         "aplusContent_2020-11-01_ListContentDocumentAsinRelationsResponse": components["schemas"]["aplusContent_2020-11-01_AplusPaginatedResponse"] & {
             asinMetadataSet: components["schemas"]["aplusContent_2020-11-01_AsinMetadataSet"];
         };
-        /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+        /** @description The identifier for the Amazon store where the A+ Content is published. */
         "aplusContent_2020-11-01_MarketplaceId": string;
+        /** @description A media entity with its related media associations. This is the unified shape used across all media operations. */
+        "aplusContent_2020-11-01_Media": components["schemas"]["aplusContent_2020-11-01_MediaInfo"] & {
+            relatedMedia?: components["schemas"]["aplusContent_2020-11-01_RelatedMediaList"];
+        };
+        /** @description The core media entity attributes without associations. */
+        "aplusContent_2020-11-01_MediaInfo": {
+            descriptions?: components["schemas"]["aplusContent_2020-11-01_DescriptionList"];
+            issues?: components["schemas"]["aplusContent_2020-11-01_IssueList"];
+            /**
+             * @description The unique identifier for the media asset.
+             * @example b2c3d4e5-f6a7-8901-bcde-f12345678901
+             */
+            mediaId: string;
+            mediaType: components["schemas"]["aplusContent_2020-11-01_MediaType"];
+            /**
+             * @description The CDN URL for downloading or viewing the media asset. The URL is provisioned at upload time and available in all statuses. The media is non-permanent; you should re-retrieve using `getMedia` rather than caching indefinitely.
+             * @example https://m.media-amazon.com/images/S/aplus-media-library-service-media/b2c3d4e5-f6a7-8901-bcde-f12345678901.mp4
+             */
+            mediaUrl?: string;
+            /** @description The composite status of the media asset. Multiple statuses can apply simultaneously to represent both the workflow stage and the responsible actor. */
+            status: components["schemas"]["aplusContent_2020-11-01_MediaStatus"][];
+            /**
+             * @description The title for the media asset. For videos, this is the original filename. For images, this is the user-provided title or filename.
+             * @example productDemoVideo.mp4
+             */
+            title: string;
+        };
+        /** @description Input for referencing a media asset during creation. Exactly one of `uploadDestinationId` or `mediaId` must be provided. */
+        "aplusContent_2020-11-01_MediaInput": {
+            /**
+             * @description An existing media asset identifier for reuse in a new association. Mutually exclusive with `uploadDestinationId`.
+             * @example c3d4e5f6-a7b8-9012-cdef-234567890123
+             */
+            mediaId?: string;
+            mediaType: components["schemas"]["aplusContent_2020-11-01_MediaType"];
+            /**
+             * @description An optional title for the media asset. Defaults to the filename if not provided.
+             * @example Product Thumbnail
+             */
+            title?: string;
+            /**
+             * @description The S3 upload destination identifier from the `createUploadDestination` operation, for a newly uploaded asset. Mutually exclusive with `mediaId`.
+             * @example aplus-media-library-service-media-upload/7ae2d3b1-00d0-4626-a2b6-5de81e1af0d4.jpg
+             */
+            uploadDestinationId?: string;
+        };
+        /**
+         * @description A status value for a media asset or pairing. Multiple statuses can apply simultaneously to represent both the workflow stage and the responsible actor. Workflow statuses describe the processing stage; actor statuses indicate who must take the next action.
+         * @enum {string}
+         */
+        "aplusContent_2020-11-01_MediaStatus": "PENDING_PROCESSING" | "PENDING_REVIEW" | "UNABLE_TO_PROCESS" | "NOT_APPROVED" | "AVAILABLE" | "PENDING_AMAZON" | "PENDING_SELLING_PARTNER";
+        /**
+         * @description The type of media asset.
+         * @enum {string}
+         */
+        "aplusContent_2020-11-01_MediaType": "VIDEO" | "IMAGE";
         /** @description A set of messages to the user, such as warnings or comments. */
         "aplusContent_2020-11-01_MessageSet": components["schemas"]["aplusContent_2020-11-01_Error"][];
-        /** @description A token that you use to fetch a specific page when there are multiple pages of results. */
+        /** @description A wrapper to hold the metric name and metric value. */
+        "aplusContent_2020-11-01_MetricValueItem": {
+            metricName?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            metricValue?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+        };
+        /** @description A single panel within the navigation carousel that features rich text elements and an image. */
+        "aplusContent_2020-11-01_NavigationCarouselPanel": {
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            navText: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            /** @description The position of this panel within the carousel. Must be a value between 1 and 5. */
+            position: number;
+            subtitle?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A wrapper object for a single navigation carousel panel. */
+        "aplusContent_2020-11-01_NavigationCarouselPanels": {
+            navigationPanel: components["schemas"]["aplusContent_2020-11-01_NavigationCarouselPanel"];
+        };
+        /** @description A page token that is returned when the results of the call exceed the page size. To get another page of results, call the operation again, passing in this value with the `pageToken` parameter. */
         "aplusContent_2020-11-01_PageToken": string;
-        /** @description A list of rich text content that is typically presented in a text box. */
+        /** @description A list of rich text content, usually presented in a text box. */
         "aplusContent_2020-11-01_ParagraphComponent": {
             textList: components["schemas"]["aplusContent_2020-11-01_TextComponent"][];
         };
-        /** @description Plain positional text that is used in collections of brief labels and descriptors. */
+        /** @description Plain positional text, used in collections of brief labels and descriptors. */
         "aplusContent_2020-11-01_PlainTextItem": {
             /** @description The rank or index of this text item within the collection. Different items cannot occupy the same position within a single collection. */
             position: number;
@@ -8256,7 +8740,7 @@ export interface components {
             value: string;
         };
         /**
-         * @description The content's relative positioning.
+         * @description The relative positioning of content.
          * @enum {string}
          */
         "aplusContent_2020-11-01_PositionType": "LEFT" | "RIGHT";
@@ -8272,6 +8756,144 @@ export interface components {
             contentReferenceKey: components["schemas"]["aplusContent_2020-11-01_ContentReferenceKey"];
         };
         "aplusContent_2020-11-01_PostContentDocumentSuspendSubmissionResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"];
+        /** @description A comparison table with product images, headline per product, and feature rows with text. */
+        "aplusContent_2020-11-01_PremiumComparisonCarouselModule": {
+            /** @description The collection of comparison metrics, which must contain between 3 and 7 metrics. */
+            comparisonMetrics: components["schemas"]["aplusContent_2020-11-01_ComparisonMetrics"][];
+            /** @description The collection of comparison products, which must contain between 3 and 5 products. */
+            comparisonProducts: components["schemas"]["aplusContent_2020-11-01_ComparisonProducts"][];
+            headline: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A scrollable comparison view with full-height product images, chart headline, and feature rows with text per product. */
+        "aplusContent_2020-11-01_PremiumComparisonScrollerModule": {
+            /** @description The collection of comparison products, which must contain between 3 and 7 products. */
+            comparisonProducts: components["schemas"]["aplusContent_2020-11-01_ComparisonProducts"][];
+            /** @description The collection of comparison rows, which must contain between 5 and 12 rows. */
+            comparisonRows: components["schemas"]["aplusContent_2020-11-01_ComparisonMetrics"][];
+            headline: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            /** @description Whether to show Add to Cart buttons. */
+            showATC?: boolean;
+            /** @description Whether to show product prices. */
+            showPrices?: boolean;
+            /** @description Whether to show product reviews. */
+            showReviews?: boolean;
+        };
+        /** @description Two images displayed side by side with a single headline above. Each image has its own subheadline and body text. */
+        "aplusContent_2020-11-01_PremiumDualImageTextModule": {
+            /** @description The collection of image columns, which must contain exactly 2 columns. */
+            columns: components["schemas"]["aplusContent_2020-11-01_ImageColumns"][];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A list of question-and-answer pairs with a configurable background color scheme of light or dark. */
+        "aplusContent_2020-11-01_PremiumFaqModule": {
+            colorType?: components["schemas"]["aplusContent_2020-11-01_ColorType"];
+            /** @description The collection of FAQ entries, which must contain between 2 and 5 FAQs. */
+            faqs: components["schemas"]["aplusContent_2020-11-01_Faqs"][];
+        };
+        /** @description Four images displayed in a row with a single headline above. Each image has its own subheadline and body text. */
+        "aplusContent_2020-11-01_PremiumFourColumnImagesModule": {
+            /** @description The collection of image columns, which must contain between 3 and 4 columns. */
+            columns: components["schemas"]["aplusContent_2020-11-01_ImageColumns"][];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A full-width background image that spans the entire module width, with optional headline and body text below. */
+        "aplusContent_2020-11-01_PremiumFullBackgroundImageModule": {
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            footer?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+        };
+        /** @description A full-width background image with a text overlay box containing subheadline, headline, and body text. The text box can be positioned to the left or right, and styled light or dark. */
+        "aplusContent_2020-11-01_PremiumFullBackgroundTextModule": {
+            colorType: components["schemas"]["aplusContent_2020-11-01_ColorType"];
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            positionType: components["schemas"]["aplusContent_2020-11-01_PositionType"];
+            subheadline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A full-width video with optional headline and body text below. */
+        "aplusContent_2020-11-01_PremiumHeroVideoModule": {
+            footer?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            heroVideo: components["schemas"]["aplusContent_2020-11-01_VideoComponent"];
+        };
+        /** @description A full-width image with clickable hotspot markers that reveal headline and descriptive text for each point of interest. */
+        "aplusContent_2020-11-01_PremiumHotspotImageModule": {
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            /** @description The collection of hotspots, which must contain between 2 and 6 hotspots. */
+            hotSpots: components["schemas"]["aplusContent_2020-11-01_ImageHotSpots"][];
+        };
+        /** @description A full-width image with clickable hotspot markers, plus a module headline and body text above the image. */
+        "aplusContent_2020-11-01_PremiumHotspotImageTextModule": {
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            headline: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            /** @description The collection of hotspots, which must contain between 2 and 6 hotspots. */
+            hotSpots: components["schemas"]["aplusContent_2020-11-01_ImageTextHotSpots"][];
+            mainDescription?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+        };
+        /** @description A carousel of full-width image panels, each with its own headline and body text. Users swipe or click through panels. */
+        "aplusContent_2020-11-01_PremiumImageCarouselModule": {
+            /** @description The collection of image panels, which must contain between 2 and 6 panels. */
+            carouselCards: components["schemas"]["aplusContent_2020-11-01_ImageCarouselPanels"][];
+            footer?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A single image paired with text, positioned side by side. The image can appear on the left or right of the text block. */
+        "aplusContent_2020-11-01_PremiumImageTextModule": {
+            bodyText?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            headline: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            image: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            positionType: components["schemas"]["aplusContent_2020-11-01_PositionType"];
+            subheadline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A carousel of full-width image panels with clickable navigation tabs. Each panel has its own navigation text, subheadline, headline, and body text. */
+        "aplusContent_2020-11-01_PremiumNavigationCarouselModule": {
+            /** @description The collection of navigation panels, which must contain between 2 and 5 panels. */
+            carouselCards: components["schemas"]["aplusContent_2020-11-01_NavigationCarouselPanels"][];
+        };
+        /** @description A carousel with a module headline, full-width image panels, and navigation tabs. Each panel has its own inset headline, inset body text, and navigation text. */
+        "aplusContent_2020-11-01_PremiumRegimenCarouselModule": {
+            /** @description The collection of regimen panels, which must contain between 2 and 5 panels. */
+            carouselCards: components["schemas"]["aplusContent_2020-11-01_RegimenCarouselPanels"][];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A structured list of specification-definition pairs with a headline, for presenting key technical details of your product. */
+        "aplusContent_2020-11-01_PremiumTechSpecsModule": {
+            /** @description The number of columns to display in the technical specifications table, with options between 1 and 2 columns. */
+            columnCount?: number;
+            headline: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            /** @description The collection of technical specifications, which must contain between 4 and 16 technical specifications. */
+            techSpecs: components["schemas"]["aplusContent_2020-11-01_TechSpecs"][];
+        };
+        /** @description A text-only module with headline and body text, allowing greater character limits than other modules for explaining more details or instructions on your product. */
+        "aplusContent_2020-11-01_PremiumTextModule": {
+            description: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A comparison table displaying products side by side with features, tooltips, and detail rows. */
+        "aplusContent_2020-11-01_PremiumThreeColumnComparisonModule": {
+            /** @description The three products being compared. Exactly three products are required. */
+            comparisonProducts: components["schemas"]["aplusContent_2020-11-01_ThreeColumnComparisonProduct"][];
+            /** @description The rows of the comparison table. Each row represents a metric compared across all three products. */
+            comparisonRows: components["schemas"]["aplusContent_2020-11-01_ThreeColumnComparisonRow"][];
+            headline: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A carousel of panels, each containing a video or image with its own panel headline, subheadline, and body text. A module headline appears above the carousel. */
+        "aplusContent_2020-11-01_PremiumVideoImageCarouselModule": {
+            /** @description The list of carousel panels, between 2 and 6 items. */
+            carouselCards: components["schemas"]["aplusContent_2020-11-01_VideoImageCarouselPanels"][];
+            headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A video paired with text containing subheadline, headline, and body text. The video can appear on the left or right of the text block. */
+        "aplusContent_2020-11-01_PremiumVideoTextModule": {
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            headline: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            positionType: components["schemas"]["aplusContent_2020-11-01_PositionType"];
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            video: components["schemas"]["aplusContent_2020-11-01_VideoComponent"];
+        };
         /** @description The full context for an A+ Content publishing event. */
         "aplusContent_2020-11-01_PublishRecord": {
             asin: components["schemas"]["aplusContent_2020-11-01_Asin"];
@@ -8283,6 +8905,56 @@ export interface components {
         };
         /** @description A list of A+ Content publishing records. */
         "aplusContent_2020-11-01_PublishRecordList": components["schemas"]["aplusContent_2020-11-01_PublishRecord"][];
+        /** @description A single question and answer pair. */
+        "aplusContent_2020-11-01_QuestionAnswerPair": {
+            answer: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            question: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description Wrapper for a single question-answer pair. */
+        "aplusContent_2020-11-01_QuestionAnswerPairs": {
+            questionAnswerPair: components["schemas"]["aplusContent_2020-11-01_QuestionAnswerPair"];
+        };
+        /** @description A single panel within the regimen carousel that features rich text elements and an image. */
+        "aplusContent_2020-11-01_RegimenCarouselPanel": {
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            desktopImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            mobileImage: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            navText: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            /** @description The position of the panel within the carousel. Must be a value between 1 and 5. */
+            position: number;
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A wrapper object for a single regimen carousel panel. */
+        "aplusContent_2020-11-01_RegimenCarouselPanels": {
+            regimenPanel: components["schemas"]["aplusContent_2020-11-01_RegimenCarouselPanel"];
+        };
+        /** @description A relationship between media assets, representing a pairing with its own title, status, and lifecycle. */
+        "aplusContent_2020-11-01_RelatedMedia": {
+            associationType: components["schemas"]["aplusContent_2020-11-01_AssociationType"];
+            issues?: components["schemas"]["aplusContent_2020-11-01_IssueList"];
+            media: components["schemas"]["aplusContent_2020-11-01_MediaInfo"];
+            /** @description The composite status of this pairing. Multiple statuses can apply simultaneously to represent both the workflow stage and the responsible actor. */
+            status: components["schemas"]["aplusContent_2020-11-01_MediaStatus"][];
+            /**
+             * @description The title for this pairing. For `VIDEO_PAIRING`, this is the user-provided pairing title. Minimum three words; must not be all capital letters.
+             * @example Product Demo Video
+             */
+            title: string;
+        };
+        /** @description Input for creating a media association. */
+        "aplusContent_2020-11-01_RelatedMediaInput": {
+            associationType: components["schemas"]["aplusContent_2020-11-01_AssociationType"];
+            media: components["schemas"]["aplusContent_2020-11-01_MediaInput"];
+            /**
+             * @description The title for this pairing. Minimum three words for `VIDEO_PAIRING`; must not be all capital letters.
+             * @example Product Demo Video
+             */
+            title: string;
+        };
+        /** @description A list of related media inputs for creation. */
+        "aplusContent_2020-11-01_RelatedMediaInputList": components["schemas"]["aplusContent_2020-11-01_RelatedMediaInput"][];
+        /** @description A list of related media associations. */
+        "aplusContent_2020-11-01_RelatedMediaList": components["schemas"]["aplusContent_2020-11-01_RelatedMedia"][];
         "aplusContent_2020-11-01_SearchContentDocumentsResponse": components["schemas"]["aplusContent_2020-11-01_AplusPaginatedResponse"] & {
             contentMetadataRecords: components["schemas"]["aplusContent_2020-11-01_ContentMetadataRecordList"];
         };
@@ -8296,7 +8968,7 @@ export interface components {
         /** @description The A+ Content standard comparison product block. */
         "aplusContent_2020-11-01_StandardComparisonProductBlock": {
             asin?: components["schemas"]["aplusContent_2020-11-01_Asin"];
-            /** @description When true, indicates that this content block is visually highlighted. */
+            /** @description Determines whether this block of content is visually highlighted. */
             highlight?: boolean;
             image?: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
             /** @description Comparison metrics for the product. */
@@ -8331,7 +9003,7 @@ export interface components {
             block?: components["schemas"]["aplusContent_2020-11-01_StandardImageTextBlock"];
             headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
         };
-        /** @description The A+ standard fixed-length list of text and a related headline. */
+        /** @description The A+ standard fixed-length list of text, with a related headline. */
         "aplusContent_2020-11-01_StandardHeaderTextListBlock": {
             block?: components["schemas"]["aplusContent_2020-11-01_StandardTextListBlock"];
             headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
@@ -8356,7 +9028,7 @@ export interface components {
             headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
             image?: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
         };
-        /** @description The A+ Content standard image and text block, with a related caption. The caption might not display on all devices. */
+        /** @description The A+ Content standard image and text block, with a related caption. The caption may not display on all devices. */
         "aplusContent_2020-11-01_StandardImageTextCaptionBlock": {
             block?: components["schemas"]["aplusContent_2020-11-01_StandardImageTextBlock"];
             caption?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
@@ -8383,7 +9055,7 @@ export interface components {
             textBlock2?: components["schemas"]["aplusContent_2020-11-01_StandardTextBlock"];
             textBlock3?: components["schemas"]["aplusContent_2020-11-01_StandardTextBlock"];
         };
-        /** @description A standard image with paragraphs, a bulleted list, and extra space for technical details. */
+        /** @description A standard image with paragraphs and a bulleted list, and extra space for technical details. */
         "aplusContent_2020-11-01_StandardSingleImageSpecsDetailModule": {
             descriptionBlock1?: components["schemas"]["aplusContent_2020-11-01_StandardTextBlock"];
             descriptionBlock2?: components["schemas"]["aplusContent_2020-11-01_StandardTextBlock"];
@@ -8404,15 +9076,15 @@ export interface components {
             headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
             /** @description The specification list. */
             specificationList: components["schemas"]["aplusContent_2020-11-01_StandardTextPairBlock"][];
-            /** @description The number of tables you want present. Features are evenly divided between the tables. */
+            /** @description The number of tables to present. Features are evenly divided between the tables. */
             tableCount?: number;
         };
-        /** @description The A+ Content standard text box block, which contains a paragraph and a headline. */
+        /** @description The A+ Content standard text box block, comprised of a paragraph with a headline. */
         "aplusContent_2020-11-01_StandardTextBlock": {
             body?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
             headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
         };
-        /** @description The A+ Content standard fixed-length list of text, usually presented as bullet points. */
+        /** @description The A+ Content standard fixed length list of text, usually presented as bullet points. */
         "aplusContent_2020-11-01_StandardTextListBlock": {
             textList: components["schemas"]["aplusContent_2020-11-01_TextItem"][];
         };
@@ -8421,7 +9093,7 @@ export interface components {
             body: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
             headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
         };
-        /** @description The A+ Content standard label and description block, which contains a pair of text components. */
+        /** @description The A+ Content standard label and description block, comprised of a pair of text components. */
         "aplusContent_2020-11-01_StandardTextPairBlock": {
             description?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
             label?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
@@ -8433,19 +9105,78 @@ export interface components {
             block3?: components["schemas"]["aplusContent_2020-11-01_StandardImageTextBlock"];
             headline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
         };
+        /** @description A single technical specification with a key-value pair. */
+        "aplusContent_2020-11-01_TechSpec": {
+            specKey: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            specValue: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A wrapper object for a single technical specification. */
+        "aplusContent_2020-11-01_TechSpecs": {
+            techSpec: components["schemas"]["aplusContent_2020-11-01_TechSpec"];
+        };
         /** @description Rich text content. */
         "aplusContent_2020-11-01_TextComponent": {
             decoratorSet?: components["schemas"]["aplusContent_2020-11-01_DecoratorSet"];
             /** @description The actual plain text. */
             value: string;
         };
-        /** @description Rich positional text that is usually presented as a collection of bullet points. */
+        /** @description Rich positional text, usually presented as a collection of bullet points. */
         "aplusContent_2020-11-01_TextItem": {
             /** @description The rank or index of this text item within the collection. Different items cannot occupy the same position within a single collection. */
             position: number;
             text: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
         };
+        /** @description A product in the three-column comparison table. */
+        "aplusContent_2020-11-01_ThreeColumnComparisonProduct": {
+            image?: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            /** @description Location of the product within the comparison table. Must be a value between 1 and 3. */
+            position?: number;
+            productAsin?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            productTitle?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+        };
+        /** @description A comparison row with metric values for each product. */
+        "aplusContent_2020-11-01_ThreeColumnComparisonRow": {
+            /** @description The metric values for each of the three products in this row. Exactly three items are required. */
+            metricValues?: components["schemas"]["aplusContent_2020-11-01_MetricValueItem"][];
+            /** @description Location of the row within the comparison table. Must be a value between 1 and 5. */
+            position?: number;
+        };
+        /** @description The request body for updating media metadata. Exactly one of title or descriptions must be provided. */
+        "aplusContent_2020-11-01_UpdateMediaRequest": {
+            descriptions?: components["schemas"]["aplusContent_2020-11-01_DescriptionList"];
+            /**
+             * @description The updated title. When `associatedMediaId` query parameter is provided, updates the pairing title (minimum 3 words). When absent and `mediaId` is an image, updates the image title.
+             * @example Updated Product Demo Video
+             */
+            title?: string;
+        };
+        /** @description The response for the updateMedia operation. Returns the full unified Media shape. */
+        "aplusContent_2020-11-01_UpdateMediaResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"] & components["schemas"]["aplusContent_2020-11-01_Media"];
         "aplusContent_2020-11-01_ValidateContentDocumentAsinRelationsResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"] & components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+        /** @description A reference to a video asset hosted within A+, including metadata and a preview thumbnail image. */
+        "aplusContent_2020-11-01_VideoComponent": {
+            imageCropSpecification: components["schemas"]["aplusContent_2020-11-01_ImageCropSpecification"];
+            /** @description This identifier is provided by the create media response, used to locate an uploaded image file. */
+            imageMediaId: string;
+            /** @description This identifier is provided by the create media response, used to locate an uploaded video file. */
+            videoMediaId: string;
+        };
+        /** @description A single panel within the video/image carousel containing a video or image with optional text. */
+        "aplusContent_2020-11-01_VideoImageCarouselPanel": {
+            description?: components["schemas"]["aplusContent_2020-11-01_ParagraphComponent"];
+            desktopImage?: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            mobileImage?: components["schemas"]["aplusContent_2020-11-01_ImageComponent"];
+            /** @description The position of the panel within the carousel. Must be a value between 1 and 6. */
+            position: number;
+            positionType?: components["schemas"]["aplusContent_2020-11-01_PositionType"];
+            subheadline?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            title?: components["schemas"]["aplusContent_2020-11-01_TextComponent"];
+            video?: components["schemas"]["aplusContent_2020-11-01_VideoComponent"];
+        };
+        /** @description A wrapper object for a single video/image carousel panel. */
+        "aplusContent_2020-11-01_VideoImageCarouselPanels": {
+            videoCarouselPanel: components["schemas"]["aplusContent_2020-11-01_VideoImageCarouselPanel"];
+        };
         /**
          * @description The request for the `createNotification` operation.
          * @example {
@@ -11075,7 +11806,24 @@ export interface components {
             /** @description The Amazon-defined shipment identifier. */
             amazonShipmentId?: string;
             errors?: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ErrorList"];
+            /** @description List of individual invoice statuses for the order. */
+            invoices?: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_InvoiceStatus"][];
             invoiceStatus?: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ShipmentInvoiceStatus"];
+            /**
+             * @description The invoicing status of the order, considering the aggregated results of all invoices sent.
+             * @enum {string}
+             */
+            orderInvoicingStatus?: "Processing" | "Accepted" | "PartiallyAccepted" | "Rejected";
+        };
+        /** @description Individual invoice status entry. */
+        "deliveryShipmentInvoiceV2022-07-01_InvoiceStatus": {
+            /** @description The unique invoice identifier (NF-e access key for Brazilian invoices). */
+            id: string;
+            /**
+             * @description The current status of this invoice.
+             * @enum {string}
+             */
+            status: "Processing" | "Accepted" | "Rejected" | "NotFound";
         };
         /**
          * @description The invoice type.
@@ -11098,7 +11846,7 @@ export interface components {
             contentMD5Value: string;
             invoiceContent: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_Blob"];
             invoiceType: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_InvoiceType"];
-            /** @description An Amazon marketplace identifier. */
+            /** @description An Amazon store identifier. */
             marketplaceId: string;
             programType: components["schemas"]["deliveryShipmentInvoiceV2022-07-01_ProgramType"];
         };
@@ -13058,6 +13806,176 @@ export interface components {
             /** @description Returned when the number of results exceeds pageSize. To get the next page of results, call the getFeeds operation with this token as the only parameter. */
             nextToken?: string;
         };
+        /** @description Fields with a schema type of `BigDecimal` are a signed decimal number (for example `currencyAmount`). */
+        "financeRemittance-2026-03-17_BigDecimal": number;
+        /**
+         * @description A sub-component of a monetary amount.
+         * @example {
+         *       "breakdownType": "TaxAmount",
+         *       "breakdownAmount": {
+         *         "currencyCode": "EUR",
+         *         "currencyAmount": 0
+         *       }
+         *     }
+         */
+        "financeRemittance-2026-03-17_Breakdown": {
+            breakdownAmount: components["schemas"]["financeRemittance-2026-03-17_Currency"];
+            /** @description The type of sub-component.
+             *
+             *     **Possible values for `totalAmountBreakdown`:**
+             *
+             *     * `InvoiceAmount`: The amount on the invoice.
+             *     * `TaxAmount`: The tax amount on the invoice.
+             *
+             *     **Possible values for `netAmountPaidBreakdown`:**
+             *
+             *     * `AmountPaid`: The amount paid for the line item in the remittance.
+             *     * `TermsDiscountTaken`: The discount applied based on vendor payment terms. */
+            breakdownType: string;
+        };
+        /** @description A currency amount with the associated currency code. */
+        "financeRemittance-2026-03-17_Currency": {
+            currencyAmount: components["schemas"]["financeRemittance-2026-03-17_BigDecimal"];
+            /** @description The three-digit currency code in ISO 4217 format. */
+            currencyCode: string;
+        };
+        /** @description Error response returned when the request is unsuccessful. */
+        "financeRemittance-2026-03-17_Error": {
+            /** @description An error code that identifies the type of error that occurred. */
+            code: string;
+            /** @description Additional details that can help the caller understand or fix the issue. */
+            details?: string;
+            /** @description A message that describes the error condition. */
+            message: string;
+        };
+        /** @description A list of error responses returned when a request is unsuccessful. */
+        "financeRemittance-2026-03-17_ErrorList": {
+            /** @description A list of errors. */
+            errors: components["schemas"]["financeRemittance-2026-03-17_Error"][];
+        };
+        /** @description The response for the `getRemittance` operation. */
+        "financeRemittance-2026-03-17_GetRemittanceResponse": {
+            /** @description A token to fetch the next page of line item results. Present when more results are available. */
+            nextTokenForLineItems?: string;
+            remittanceHeader?: components["schemas"]["financeRemittance-2026-03-17_RemittanceHeader"];
+            /** @description A list of remittance line items. */
+            remittanceItems?: components["schemas"]["financeRemittance-2026-03-17_RemittanceItem"][];
+        };
+        /** @description The response for the `getRemittanceHeaders` operation. */
+        "financeRemittance-2026-03-17_GetRemittancesResponse": {
+            /** @description A token to fetch the next page of results. Present when more results are available. */
+            nextToken?: string;
+            /**
+             * Format: int32
+             * @description The total number of records across all pages.
+             */
+            numOfRecords?: number;
+            /** @description A list of remittance summaries. */
+            remittances?: components["schemas"]["financeRemittance-2026-03-17_RemittanceHeader"][];
+        };
+        /**
+         * @description A related business identifier for the transaction.
+         * @example {
+         *       "relatedIdentifierName": "VENDOR_CODE",
+         *       "relatedIdentifierValue": [
+         *         "VENDOR01"
+         *       ]
+         *     }
+         */
+        "financeRemittance-2026-03-17_RelatedIdentifier": {
+            /**
+             * @description An enumerated set of related business identifier names.
+             * @enum {string}
+             */
+            relatedIdentifierName: "VENDOR_CODE" | "PAYEE_CODE";
+            /** @description The corresponding values for `relatedIdentifierName`. */
+            relatedIdentifierValue: string[];
+        };
+        /**
+         * @description A related business identifier for a remittance line item.
+         * @example {
+         *       "relatedIdentifierName": "VENDOR_CODE",
+         *       "relatedIdentifierValue": [
+         *         "VENDOR01"
+         *       ]
+         *     }
+         */
+        "financeRemittance-2026-03-17_RelatedItemIdentifier": {
+            /**
+             * @description An enumerated set of related business identifier names for a line item.
+             * @enum {string}
+             */
+            relatedIdentifierName: "VENDOR_CODE";
+            /** @description The corresponding values for `relatedIdentifierName`. */
+            relatedIdentifierValue: string[];
+        };
+        /** @description Summary information for a remittance payment. */
+        "financeRemittance-2026-03-17_RemittanceHeader": {
+            /** @description The country code associated with the remittance in ISO 3166-1 alpha-2 format. */
+            countryCode?: string;
+            exchangeRate?: components["schemas"]["financeRemittance-2026-03-17_BigDecimal"];
+            /**
+             * Format: int32
+             * @description The number of line items in the remittance.
+             */
+            lineItemCount?: number;
+            paymentAmount: components["schemas"]["financeRemittance-2026-03-17_Currency"];
+            paymentAmountInInvoiceCurrency?: components["schemas"]["financeRemittance-2026-03-17_Currency"];
+            /**
+             * Format: date-time
+             * @description The date of the payment in ISO 8601 date-time format.
+             */
+            paymentDate: string;
+            /** @description The method used for the payment. */
+            paymentMethod?: string;
+            /** @description The external payment reference number associated with the remittance. Vendors can use this identifier to search for payment information. */
+            paymentNumber?: string;
+            /** @description A list of related business identifiers for the remittance. */
+            relatedIdentifiers?: components["schemas"]["financeRemittance-2026-03-17_RelatedIdentifier"][];
+            remittanceStatus: components["schemas"]["financeRemittance-2026-03-17_RemittanceStatus"];
+            /** @description The unique internal identifier for the payment record in the remittance system. */
+            uniquePaymentId: string;
+        };
+        /** @description Detailed line item information for a remittance. */
+        "financeRemittance-2026-03-17_RemittanceItem": {
+            /** @description A description of the line item. */
+            description?: string;
+            /**
+             * Format: date-time
+             * @description The invoice issue date in ISO 8601 date-time format.
+             */
+            invoiceIssueDate?: string;
+            /** @description The invoice number. */
+            invoiceNumber?: string;
+            /** @description The type of invoice. */
+            invoiceType?: string;
+            netAmountPaid?: components["schemas"]["financeRemittance-2026-03-17_Currency"];
+            /** @description The breakdown of `netAmountPaid` into sub-components.
+             *
+             *     **Possible `breakdownType` values:**
+             *
+             *     * `AmountPaid`: The amount paid for the line item in the remittance.
+             *     * `TermsDiscountTaken`: The discount applied based on vendor payment terms. For example, early payment terms such as `1% 30, NET 60` allow a percentage discount on the invoice value when payment is made within the specified period. */
+            netAmountPaidBreakdown?: components["schemas"]["financeRemittance-2026-03-17_Breakdown"][];
+            /** @description The payment terms. */
+            paymentTerms?: string;
+            /** @description A list of related business identifiers for the line item. */
+            relatedItemIdentifiers?: components["schemas"]["financeRemittance-2026-03-17_RelatedItemIdentifier"][];
+            totalAmount?: components["schemas"]["financeRemittance-2026-03-17_Currency"];
+            /** @description The breakdown of `totalAmount` into sub-components.
+             *
+             *     **Possible `breakdownType` values:**
+             *
+             *     * `InvoiceAmount`: The amount on the invoice.
+             *     * `TaxAmount`: The tax amount on the invoice. */
+            totalAmountBreakdown?: components["schemas"]["financeRemittance-2026-03-17_Breakdown"][];
+            withholdingAmount?: components["schemas"]["financeRemittance-2026-03-17_Currency"];
+        };
+        /**
+         * @description The status of a remittance.
+         * @enum {string}
+         */
+        "financeRemittance-2026-03-17_RemittanceStatus": "IN_PROGRESS" | "SUCCESSFUL" | "FAILED";
         /**
          * @description Additional information related to Amazon Pay.
          * @example {
@@ -20843,7 +21761,8 @@ export interface components {
          *         "name": "BUSINESS_TRANSACTION_ID",
          *         "id": "94cd4e1a-5cc5-486d-b592-045a95a168e1"
          *       },
-         *       "transactionType": "CUSTOMER_SALES"
+         *       "transactionType": "CUSTOMER_SALES",
+         *       "warehouseCode": "ABCD"
          *     }
          */
         "InvoicesApiModel_2024-06-19_ExportInvoicesRequest": {
@@ -20873,6 +21792,8 @@ export interface components {
             transactionIdentifier?: components["schemas"]["InvoicesApiModel_2024-06-19_TransactionIdentifier"];
             /** @description The marketplace-specific classification of the transaction type for which the invoice was created. Use the `getInvoicesAttributes` operation to check `transactionType` options */
             transactionType?: string;
+            /** @description The Warehouse code included in the invoice issued on behalf of the vendor. Check the warehouse code under your WarehouseSettings in VendorCentral. */
+            warehouseCode?: string;
         };
         /** @description Success. */
         "InvoicesApiModel_2024-06-19_ExportInvoicesResponse": {
@@ -22455,7 +23376,7 @@ export interface components {
             orderId?: string;
         };
         /**
-         * @description An associated order item that a customer has purchased with the product. For example, a tire installation service purchased with tires.
+         * @description An associated order item that a customer has purchased with the product. For example, a tire installation service purchased with tires, or a warranty protection plan purchased with a product.
          * @example {
          *       "orderId": "123-4567890-7654321",
          *       "orderItemId": "12345678904321",
@@ -22463,15 +23384,19 @@ export interface components {
          *     }
          */
         "orders_2026-01-01_AssociatedOrderItem": {
+            /** @description The ASIN of the associated order item. */
+            asin?: string;
             /** @description The type of association between the order items.
              *
              *     **Possible values**:
-             *     - `VALUE_ADD_SERVICE` (The associated item is a service order) */
+             *     - `VALUE_ADD_SERVICE` (The associated item is a service order)
+             *     - `WARRANTY` (The associated item is a product covered by a warranty or protection plan) */
             associationType?: string;
             /** @description The order identifier of the associated order item. */
             orderId?: string;
             /** @description The order item identifier of the associated order item. */
             orderItemId?: string;
+            purchasePrice?: components["schemas"]["orders_2026-01-01_Money"];
         };
         /** @description Business days and hours when the destination is open for deliveries. */
         "orders_2026-01-01_BusinessHour": {
@@ -22590,7 +23515,7 @@ export interface components {
             /** @description Alternative operating hours that apply specifically to this exception date. */
             timeWindows?: components["schemas"]["orders_2026-01-01_TimeWindow"][];
         };
-        /** @description Information about a fulfillment order associated with a customer order. A fulfillment order represents a unit of fulfillment created by Amazon for the order. **Note:** Only available for EasyShip orders at present. */
+        /** @description Information about a fulfillment order associated with a customer order. A fulfillment order represents a unit of fulfillment created by Amazon for the order. **Note:** Only available for Easy Ship and Seller Flex. */
         "orders_2026-01-01_FulfillmentOrder": {
             /** @description The Fulfillment Order ID assigned by Amazon after fulfillment planning. This identifier is identical to the Shipment ID required by External Fulfillment APIs. */
             fulfillmentOrderId: string;
@@ -22623,13 +23548,13 @@ export interface components {
             cancellationExecution?: components["schemas"]["orders_2026-01-01_ItemCancellationExecution"];
             cancellationRequest?: components["schemas"]["orders_2026-01-01_ItemCancellationRequest"];
         };
-        /** @description Details of how the cancellation was executed for a specific order item, including who performed the cancellation and the reason. */
+        /** @description Detailed information about how the cancellation was processed for a specific order item. */
         "orders_2026-01-01_ItemCancellationExecution": {
-            /** @description Entity that executed the cancellation for this item.
+            /** @description The entity that executed the cancellation for this item.
              *
-             *     **Possible values**: `BUYER`, `MERCHANT`, `AMAZON` */
+             *     **Possible values**: `BUYER`, `MERCHANT`, `AMAZON`. */
             cancelledBy?: string;
-            /** @description Explanation provided for why the cancellation was executed. */
+            /** @description The provided explanation for why the cancellation occurred. */
             cancelReason?: string;
         };
         /** @description Detailed information about a cancellation request submitted for a specific order item. */
@@ -22868,7 +23793,7 @@ export interface components {
              */
             createdTime: string;
             fulfillment?: components["schemas"]["orders_2026-01-01_OrderFulfillment"];
-            /** @description The list of fulfillment orders associated with this customer order. Each entry corresponds to one fulfillment unit created by Amazon for this order. **Note:** Only available for EasyShip orders at present. */
+            /** @description The list of fulfillment orders associated with this customer order. Each entry corresponds to one fulfillment unit created by Amazon for this order. **Note:** Only available for Easy Ship and Seller Flex. */
             fulfillmentOrders?: components["schemas"]["orders_2026-01-01_FulfillmentOrder"][];
             /**
              * Format: date-time
@@ -22906,11 +23831,31 @@ export interface components {
             fulfillmentServiceLevel?: string;
             fulfillmentStatus: components["schemas"]["orders_2026-01-01_FulfillmentStatus"];
             labelPrintingWindow?: components["schemas"]["orders_2026-01-01_DateTimeRange"];
+            promiseCalculationInputs?: components["schemas"]["orders_2026-01-01_PromiseCalculationInputs"];
             shipByWindow?: components["schemas"]["orders_2026-01-01_DateTimeRange"];
         };
         /** @description Information about a single product within an order. */
         "orders_2026-01-01_OrderItem": {
-            /** @description A list of order items associated with this item. For example, a value-add service purchased with the product. */
+            /**
+             * @description A list of order items associated with this item. For example, a value-add service purchased with the product, or a product covered by a warranty protection plan.
+             * @example [
+             *       {
+             *         "orderId": "123-4567890-7654321",
+             *         "orderItemId": "12345678904321",
+             *         "associationType": "VALUE_ADD_SERVICE"
+             *       },
+             *       {
+             *         "orderId": "903-4153187-3171039",
+             *         "orderItemId": "6248989267365",
+             *         "associationType": "WARRANTY",
+             *         "asin": "B0BC9Z7PJT",
+             *         "purchasePrice": {
+             *           "amount": "139.99",
+             *           "currencyCode": "USD"
+             *         }
+             *       }
+             *     ]
+             */
             associatedOrderItems?: components["schemas"]["orders_2026-01-01_AssociatedOrderItem"][];
             cancellation?: components["schemas"]["orders_2026-01-01_ItemCancellation"];
             expense?: components["schemas"]["orders_2026-01-01_ItemExpense"];
@@ -23105,6 +24050,10 @@ export interface components {
             /** @description Specific dates within the next 30 days when normal business hours do not apply. */
             exceptionDates?: components["schemas"]["orders_2026-01-01_ExceptionDate"][];
         };
+        /** @description The inputs used to calculate a promise date. */
+        "orders_2026-01-01_PromiseCalculationInputs": {
+            transitTime?: components["schemas"]["orders_2026-01-01_TransitTimeInput"];
+        };
         /** @description Information about the recipient to whom the order should be delivered. */
         "orders_2026-01-01_Recipient": {
             deliveryAddress?: components["schemas"]["orders_2026-01-01_CustomerAddress"];
@@ -23159,6 +24108,24 @@ export interface components {
         "orders_2026-01-01_TimeWindow": {
             endTime?: components["schemas"]["orders_2026-01-01_HourMinute"];
             startTime?: components["schemas"]["orders_2026-01-01_HourMinute"];
+        };
+        /** @description The carrier data that determined the transit time, and the source that supplied the data. */
+        "orders_2026-01-01_TransitTimeInput": {
+            /** @description The source of the transit time data.
+             *
+             *     **Possible values**:
+             *     - `AMAZON_AUTOMATED` (Amazon selected the shipping service using settings generated on the seller's behalf.)
+             *     - `SELLER_SET` (The seller configured the transit time through a shipping template they maintain.)
+             *     - `THIRD_PARTY_INTEGRATOR` (The transit time came from a live shipping quote that Amazon obtained from a third-party integrator for the seller's order.) */
+            dataSource?: string;
+            details?: components["schemas"]["orders_2026-01-01_TransitTimeInputDetails"];
+        };
+        /** @description Details about the carrier and shipping service used to calculate the transit time. */
+        "orders_2026-01-01_TransitTimeInputDetails": {
+            /** @description The carrier name. For example, `Correios`. */
+            carrier?: string;
+            /** @description The shipping service. For example, `SEDEX`. */
+            shippingService?: string;
         };
         /** @description The shipping address for the order. */
         ordersV0_Address: {
@@ -30048,6 +31015,605 @@ export interface components {
         "supplySources_2020-07-01_UpdateSupplySourceStatusRequest": {
             status?: components["schemas"]["supplySources_2020-07-01_SupplySourceStatus"];
         };
+        /**
+         * @description An appointment for a contact at a future date.
+         * @example {
+         *       "appointmentId": "TestAppointmentId",
+         *       "phoneNumber": {
+         *         "countryCode": "US",
+         *         "number": "1234567890",
+         *         "extension": "1"
+         *       },
+         *       "answeringParty": "RECEPTIONIST",
+         *       "callbackTiming": {
+         *         "earliestCallbackTime": "2024-01-12T10:00:00.000Z",
+         *         "latestCallbackTime": "2024-01-12T11:00:00.000Z"
+         *       },
+         *       "status": "SCHEDULED"
+         *     }
+         */
+        "support_2025-02-01_Appointment": {
+            /**
+             * @description The person who is expected to answer the call.
+             * @example RECEPTIONIST
+             * @enum {string}
+             */
+            answeringParty?: "RECEPTIONIST";
+            /**
+             * @description The unique identifier for the scheduled appointment.
+             * @example TestAppointmentId
+             */
+            appointmentId: string;
+            callbackTiming: components["schemas"]["support_2025-02-01_CallbackTiming"];
+            phoneNumber: components["schemas"]["support_2025-02-01_PhoneNumber"];
+            /**
+             * @description The appointment status.
+             * @example SCHEDULED
+             * @enum {string}
+             */
+            status: "SCHEDULED" | "CANCELLED" | "MISSED" | "COMPLETED";
+        };
+        /**
+         * @description A file attachment.
+         * @example {
+         *       "name": "testAttachment.txt",
+         *       "downloadUrl": "https://filelocation/filename"
+         *     }
+         */
+        "support_2025-02-01_Attachment": {
+            /**
+             * @description The download link to the attachment file. The `downloadUrl` is included in the response if available. If there is a failure to return the `downloadUrl`, this field is not included in the response. The `downloadUrl` expires after 15 minutes.
+             * @example https://filelocation/filename
+             */
+            downloadUrl?: string;
+            /**
+             * @description The name of the attachment.
+             * @example testAttachment.txt
+             */
+            name: string;
+        };
+        /**
+         * @description The time window for an appointment callback
+         * @example {
+         *       "earliestCallbackTime": "2024-01-12T10:00:00.000Z",
+         *       "latestCallbackTime": "2024-01-12T11:00:00.000Z"
+         *     }
+         */
+        "support_2025-02-01_CallbackTiming": {
+            /**
+             * Format: date-time
+             * @description The earliest time at which to call the selling partner.
+             * @example 2024-01-12T10:00:00.000Z
+             */
+            earliestCallbackTime: string;
+            /**
+             * Format: date-time
+             * @description The latest time at which to call the selling partner.
+             * @example 2024-01-12T11:00:00.000Z
+             */
+            latestCallbackTime: string;
+        };
+        /**
+         * @description The support case.
+         * @example {
+         *       "caseId": "1234567890",
+         *       "status": "RESOLVED",
+         *       "subject": "test subject",
+         *       "primaryEmail": "test_seller@domain.com",
+         *       "ccEmails": [
+         *         "test_seller1@domain.com",
+         *         "test_seller2@domain.com"
+         *       ],
+         *       "createdDate": "2024-01-12T10:00:00.000Z",
+         *       "lastUpdatedDate": "2024-01-12T10:00:00.000Z",
+         *       "resolvedDate": "2024-01-12T10:00:00.000Z",
+         *       "appointments": [
+         *         {
+         *           "appointmentId": "TestAppointmentId",
+         *           "answeringParty": "RECEPTIONIST",
+         *           "phoneNumber": {
+         *             "countryCode": "US",
+         *             "number": "1234567890",
+         *             "extension": "1"
+         *           },
+         *           "callbackTiming": {
+         *             "earliestCallbackTime": "2024-01-12T10:00:00.000Z",
+         *             "latestCallbackTime": "2024-01-12T11:00:00.000Z"
+         *           },
+         *           "status": "SCHEDULED"
+         *         }
+         *       ]
+         *     }
+         */
+        "support_2025-02-01_Case": {
+            /** @description All appointments for the case. */
+            appointments?: components["schemas"]["support_2025-02-01_Appointment"][];
+            /**
+             * @description A globally unique identifier for the case
+             * @example 1234567890
+             */
+            caseId: string;
+            /**
+             * @description Additional emails that are attached to the case.
+             * @example [
+             *       "test1@testemail.com",
+             *       "test2@testemail.com"
+             *     ]
+             */
+            ccEmails: string[];
+            /**
+             * Format: date-time
+             * @description The time when the case was created. In [ISO 8601](https://developer-docs.amazon/sp-api/docs/iso-8601) format.
+             * @example 2024-01-12T10:00:00.000Z
+             */
+            createdDate: string;
+            /**
+             * Format: date-time
+             * @description The timestamp of the last outbound contact on the case. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
+             * @example 2024-01-12T10:30:00.000Z
+             */
+            lastOutboundDate?: string;
+            /**
+             * Format: date-time
+             * @description The time when the case was last updated, which includes updates to the case details and new contacts added to the case. In [ISO 8601](https://developer-docs.amazon/sp-api/docs/iso-8601) format.
+             * @example 2024-01-12T10:00:00.000Z
+             */
+            lastUpdatedDate: string;
+            /**
+             * @description The primary email associated with the case.
+             * @example test@testemail.com
+             */
+            primaryEmail: string;
+            /**
+             * Format: date-time
+             * @description The time when the case was resolved. In [ISO 8601](https://developer-docs.amazon/sp-api/docs/iso-8601) format.
+             * @example 2024-01-12T10:00:00.000Z
+             */
+            resolvedDate?: string;
+            /**
+             * @description The current status of the case.
+             * @enum {string}
+             */
+            status: "RESOLVED" | "TRANSFERRED" | "PENDING_MERCHANT_ACTION" | "PENDING_AMAZON_ACTION";
+            /**
+             * @description The subject of the case.
+             * @example test subject
+             */
+            subject: string;
+        };
+        /**
+         * @description Optional filters for case search. All filters are optional — when absent, no filtering is applied for that field. Different filters are combined with AND logic, and multiple values of the same field are combined with OR logic.
+         * @example {
+         *       "caseStatuses": [
+         *         "PENDING_AMAZON_ACTION"
+         *       ],
+         *       "createdDate": {
+         *         "after": "2024-01-01T00:00:00.000Z"
+         *       },
+         *       "lastOutboundDate": {
+         *         "after": "2024-06-01T00:00:00.000Z"
+         *       },
+         *       "resolvedDate": {
+         *         "before": "2024-12-31T23:59:59.000Z"
+         *       },
+         *       "primaryEmails": [
+         *         "test_seller@domain.com"
+         *       ],
+         *       "ccEmails": [
+         *         "test_seller1@domain.com"
+         *       ],
+         *       "subjectKeywords": "test subject"
+         *     }
+         */
+        "support_2025-02-01_CaseFilters": {
+            /**
+             * @description Filter the collection by one or more case statuses.
+             * @example [
+             *       "PENDING_AMAZON_ACTION",
+             *       "PENDING_MERCHANT_ACTION"
+             *     ]
+             */
+            caseStatuses?: ("RESOLVED" | "TRANSFERRED" | "PENDING_MERCHANT_ACTION" | "PENDING_AMAZON_ACTION")[];
+            /**
+             * @description Filter the collection by one or more CC email addresses.
+             * @example [
+             *       "test_seller1@domain.com"
+             *     ]
+             */
+            ccEmails?: string[];
+            createdDate?: components["schemas"]["support_2025-02-01_DateFilter"];
+            lastOutboundDate?: components["schemas"]["support_2025-02-01_DateFilter"];
+            /**
+             * @description Filter the collection by primary email address.
+             * @example [
+             *       "test_seller@domain.com"
+             *     ]
+             */
+            primaryEmails?: string[];
+            resolvedDate?: components["schemas"]["support_2025-02-01_DateFilter"];
+            /**
+             * @description Filter the collection by case subject keywords. Maximum 200 characters.
+             * @example test subject
+             */
+            subjectKeywords?: string;
+        };
+        /**
+         * @description The content for a chat contact.
+         * @example {
+         *       "events": [
+         *         {
+         *           "timestamp": "2024-01-12T11:00:00.000Z",
+         *           "type": "MESSAGE",
+         *           "message": "sample chat message",
+         *           "participant": {
+         *             "displayName": "Test Selling Partner Name",
+         *             "role": "SELLING_PARTNER"
+         *           }
+         *         }
+         *       ],
+         *       "transcript": "sample chat transcript"
+         *     }
+         */
+        "support_2025-02-01_ChatContent": {
+            /**
+             * @description A list of events that make up the chat contact. Not all chat contacts are broken into chat events, and it is recommended to fallback on the `transcript` when `events` is empty.
+             * @example [
+             *       {
+             *         "timestamp": "2024-01-12T11:00:00.000Z",
+             *         "type": "MESSAGE",
+             *         "message": "sample chat message",
+             *         "participant": {
+             *           "displayName": "Test Selling Partner Name",
+             *           "role": "SELLING_PARTNER"
+             *         }
+             *       }
+             *     ]
+             */
+            events: components["schemas"]["support_2025-02-01_ChatEvent"][];
+            /**
+             * @description The human-readable transcript of the chat contact.
+             * @example 2024-12-23T15:02:00.171Z SellingPartnerName I'm having an issue with my Listing\n\n2024-12-23T15:02:57.627Z Amazon Associated Kyle Hello
+             */
+            transcript: string;
+        };
+        /**
+         * @description A single event from a chat contact.
+         * @example {
+         *       "timestamp": "2024-01-12T11:00:00.000Z",
+         *       "type": "MESSAGE",
+         *       "message": "sample chat message",
+         *       "participant": {
+         *         "displayName": "Test Selling Partner Name",
+         *         "role": "SELLING_PARTNER"
+         *       }
+         *     }
+         */
+        "support_2025-02-01_ChatEvent": {
+            /**
+             * @description All attachments included in the event. Only present if the event type is `ATTACHMENT`.
+             * @example [
+             *       {
+             *         "name": "testAttachment.txt",
+             *         "downloadUrl": "https://filelocation/filename"
+             *       }
+             *     ]
+             */
+            attachments?: components["schemas"]["support_2025-02-01_Attachment"][];
+            /**
+             * @description The message from the chat event. Only present if the event type is `MESSAGE`.
+             * @example sample chat message
+             */
+            message?: string;
+            participant?: components["schemas"]["support_2025-02-01_Participant"];
+            /**
+             * Format: date-time
+             * @description The time at which the event occurred.
+             * @example 2024-01-12T11:00:00.000Z
+             */
+            timestamp: string;
+            /**
+             * @description The type of chat event.
+             * @example MESSAGE
+             * @enum {string}
+             */
+            type: "MESSAGE" | "ATTACHMENT" | "PARTICIPANT_JOINED" | "PARTICIPANT_LEFT" | "PARTICIPANT_IDLE" | "CHAT_ENDED";
+        };
+        /**
+         * @description A contact.
+         * @example {
+         *       "contactId": "TestContactId",
+         *       "channel": "EMAIL",
+         *       "emailContent": {
+         *         "sender": {
+         *           "displayName": "Test Selling Partner Name",
+         *           "role": "SELLING_PARTNER"
+         *         },
+         *         "message": "sample email message",
+         *         "attachments": [
+         *           {
+         *             "name": "testAttachment.txt",
+         *             "downloadUrl": "https://filelocation/filename"
+         *           }
+         *         ]
+         *       },
+         *       "createdDate": "2024-01-12T11:00:00.000Z"
+         *     }
+         */
+        "support_2025-02-01_Contact": {
+            /**
+             * @description The contact channel for communication between the selling partner and Amazon.
+             * @example PHONE
+             * @enum {string}
+             */
+            channel: "PHONE" | "CHAT" | "EMAIL";
+            chatContent?: components["schemas"]["support_2025-02-01_ChatContent"];
+            /**
+             * @description A unique identifier for the contact
+             * @example TestContactId
+             */
+            contactId: string;
+            /**
+             * Format: date-time
+             * @description The time at which the contact was created. In [ISO 8601](https://developer-docs.amazon/sp-api/docs/iso-8601) format.
+             * @example 2024-01-12T11:00:00.000Z
+             */
+            createdDate: string;
+            emailContent?: components["schemas"]["support_2025-02-01_EmailContent"];
+            phoneContent?: components["schemas"]["support_2025-02-01_PhoneContent"];
+        };
+        /**
+         * @description A date range filter with optional before and after bounds. Dates must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
+         * @example {
+         *       "after": "2024-01-01T00:00:00.000Z",
+         *       "before": "2024-12-31T23:59:59.000Z"
+         *     }
+         */
+        "support_2025-02-01_DateFilter": {
+            /**
+             * Format: date-time
+             * @description Include results with timestamps strictly after this value (exclusive).
+             * @example 2024-01-01T00:00:00.000Z
+             */
+            after?: string;
+            /**
+             * Format: date-time
+             * @description Include results with timestamps strictly before this value (exclusive).
+             * @example 2024-12-31T23:59:59.000Z
+             */
+            before?: string;
+        };
+        /**
+         * @description The content of an email contact.
+         * @example {
+         *       "sender": {
+         *         "displayName": "Test Selling Partner Name",
+         *         "role": "SELLING_PARTNER"
+         *       },
+         *       "message": "sample email message",
+         *       "attachments": [
+         *         {
+         *           "name": "testAttachment.txt",
+         *           "downloadUrl": "https://filelocation/filename"
+         *         }
+         *       ]
+         *     }
+         */
+        "support_2025-02-01_EmailContent": {
+            /**
+             * @description All attachments included in the contact.
+             * @example [
+             *       {
+             *         "name": "testAttachment.txt",
+             *         "downloadUrl": "https://filelocation/filename"
+             *       }
+             *     ]
+             */
+            attachments?: components["schemas"]["support_2025-02-01_Attachment"][];
+            /**
+             * @description The email body of the contact.
+             * @example sample email message
+             */
+            message: string;
+            sender: components["schemas"]["support_2025-02-01_Participant"];
+        };
+        /**
+         * @description Error response returned when the request is unsuccessful.
+         * @example {
+         *       "code": "ErrorCode",
+         *       "message": "The error message",
+         *       "details": "Details about the error"
+         *     }
+         */
+        "support_2025-02-01_Error": {
+            /** @description An error code that identifies the type of error that occurred. */
+            code: string;
+            /** @description Additional details that can help the caller understand or fix the issue. */
+            details?: string;
+            /** @description A message that describes the error condition. */
+            message: string;
+        };
+        /**
+         * @description A list of error responses returned when a request is unsuccessful.
+         * @example {
+         *       "errors": [
+         *         {
+         *           "code": "ErrorCode",
+         *           "message": "The error message",
+         *           "details": "Details about the error"
+         *         }
+         *       ]
+         *     }
+         */
+        "support_2025-02-01_ErrorList": {
+            /** @description array of errors */
+            errors: components["schemas"]["support_2025-02-01_Error"][];
+        };
+        /**
+         * @description The request body for the listCases operation.
+         * @example {
+         *       "sortOrder": "ASC",
+         *       "maxResults": 25
+         *     }
+         */
+        "support_2025-02-01_ListCasesRequest": {
+            caseFilters?: components["schemas"]["support_2025-02-01_CaseFilters"];
+            /**
+             * @description The marketplace identifier used for authorization only. This field does not impact the returned collection. For a list of possible values, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
+             * @example ATVPDKIKX0DER
+             */
+            marketplaceId?: string;
+            /**
+             * Format: int32
+             * @description Maximum number of results to return.
+             * @default 10
+             * @example 25
+             */
+            maxResults: number;
+            /**
+             * @description A token to retrieve the next page of results. The response includes `nextToken` when the number of results exceeds the specified `maxResults` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.
+             * @example SampleToken
+             */
+            nextToken?: string;
+            /**
+             * @description The field to sort cases by. Defaults to CREATION_DATE when absent.
+             * @default CREATION_DATE
+             * @example CASE_ID
+             * @enum {string}
+             */
+            sortField: "CASE_ID" | "STATUS" | "SUBJECT" | "PRIMARY_EMAIL" | "CREATION_DATE" | "LAST_OUTBOUND_DATE" | "RESOLUTION_DATE";
+            /**
+             * @description The sort direction. Defaults to DESC when absent.
+             * @default DESC
+             * @example ASC
+             * @enum {string}
+             */
+            sortOrder: "ASC" | "DESC";
+        };
+        /** @description A list of support cases. */
+        "support_2025-02-01_ListCasesResult": {
+            /** @description A paginated list of support cases. */
+            cases: components["schemas"]["support_2025-02-01_Case"][];
+            /**
+             * @description A token to retrieve the next page of results. The response includes `nextToken` when the number of results exceeds the specified `maxResults` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.
+             * @example SampleToken
+             */
+            nextToken?: string;
+        };
+        /**
+         * @description A list of contacts.
+         * @example {
+         *       "nextToken": "SampleToken",
+         *       "contacts": [
+         *         {
+         *           "contactId": "TestContactId",
+         *           "channel": "EMAIL",
+         *           "emailContent": {
+         *             "sender": {
+         *               "displayName": "Test Selling Partner Name",
+         *               "role": "SELLING_PARTNER"
+         *             },
+         *             "message": "sample email message",
+         *             "attachments": [
+         *               {
+         *                 "name": "testAttachment.txt",
+         *                 "downloadUrl": "https://filelocation/filename"
+         *               }
+         *             ]
+         *           },
+         *           "createdDate": "2024-01-12T11:00:00.000Z"
+         *         }
+         *       ]
+         *     }
+         */
+        "support_2025-02-01_ListContactsResult": {
+            /**
+             * @description A list of contacts.
+             * @example [
+             *       {
+             *         "contactId": "TestContactId",
+             *         "channel": "EMAIL",
+             *         "emailContent": {
+             *           "sender": {
+             *             "displayName": "Test Selling Partner Name",
+             *             "role": "SELLING_PARTNER"
+             *           },
+             *           "message": "sample email message",
+             *           "attachments": [
+             *             {
+             *               "name": "testAttachment.txt",
+             *               "downloadUrl": "https://filelocation/filename"
+             *             }
+             *           ]
+             *         },
+             *         "createdDate": "2024-01-12T11:00:00.000Z"
+             *       }
+             *     ]
+             */
+            contacts: components["schemas"]["support_2025-02-01_Contact"][];
+            /**
+             * @description A token to retrieve the next page of results. The response includes `nextToken` when the number of results exceeds the specified `pageSize` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.
+             * @example SampleToken
+             */
+            nextToken?: string;
+        };
+        /**
+         * @description A participant for a single-directional communication between a selling partner and Amazon support.
+         * @example {
+         *       "displayName": "Test Selling Partner Name",
+         *       "role": "SELLING_PARTNER"
+         *     }
+         */
+        "support_2025-02-01_Participant": {
+            /**
+             * @description The human-readable name of the participant.
+             * @example Test Selling Partner Name
+             */
+            displayName: string;
+            /**
+             * @description The role of the participant.
+             * @example SELLING_PARTNER
+             * @enum {string}
+             */
+            role: "AMAZON" | "SELLING_PARTNER";
+        };
+        /**
+         * @description The content for a phone contact.
+         * @example {
+         *       "callNotes": "sample notes from call"
+         *     }
+         */
+        "support_2025-02-01_PhoneContent": {
+            /**
+             * @description Notes that summarize the phone call, provided by Amazon support
+             * @example sample notes from call
+             */
+            callNotes?: string;
+        };
+        /**
+         * @description The selling partner's phone number.
+         * @example {
+         *       "countryCode": "US",
+         *       "number": "1234567890",
+         *       "extension": "1"
+         *     }
+         */
+        "support_2025-02-01_PhoneNumber": {
+            /**
+             * @description The ISO 3166-1 two-digit country code for the calling country.
+             * @example US
+             */
+            countryCode: string;
+            /**
+             * @description The extension to use for the call, if applicable.
+             * @example 1
+             */
+            extension?: string;
+            /**
+             * @description The phone number to call.
+             * @example 1234567890
+             */
+            number: string;
+        };
         /** @description The request schema for the createRestrictedDataToken operation. */
         "tokens_2021-03-01_CreateRestrictedDataTokenRequest": {
             /** @description A list of restricted resources.
@@ -30162,6 +31728,8 @@ export interface components {
             houseBillOfLadingNumber?: string;
             /** @description A unique identifier generated by Amazon for the shipment tracking request. */
             id?: string;
+            /** @description The PRO number assigned by the freight carrier */
+            proNumber?: string;
         };
         /** @description A single milestone event in a shipment's journey. */
         "tracking_2026-01-30_TrackingMilestone": {
@@ -31185,7 +32753,17 @@ export interface components {
              * @description The type of the additional information provided by the selling party.
              * @enum {string}
              */
-            type: "SUR" | "OCR";
+            type: "SUR" | "OCR" | "TaxExemptReason" | "LegalTerms" | "RegulatoryNote";
+        };
+        /** @description An additional corporate or fiscal registration identifier for a party. */
+        vendorDirectFulfillmentPaymentsV1_AdditionalPartyIdentification: {
+            /** @description The value of the additional party identifier. */
+            identificationNumber: string;
+            /**
+             * @description The type of the additional party identifier.
+             * @enum {string}
+             */
+            identificationType: "FR_SIREN" | "DE_WIDNR";
         };
         /** @description Address of the party. */
         vendorDirectFulfillmentPaymentsV1_Address: {
@@ -31211,6 +32789,19 @@ export interface components {
             postalCode: string;
             /** @description The state or region where person, business or institution is located. */
             stateOrRegion: string;
+        };
+        /** @description Monetary and tax details of the allowance. */
+        vendorDirectFulfillmentPaymentsV1_AllowanceDetails: {
+            allowanceAmount: components["schemas"]["vendorDirectFulfillmentPaymentsV1_Money"];
+            /** @description Description of the allowance. */
+            description?: string;
+            /** @description Tax amount details applied on this allowance. */
+            taxDetails?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_TaxDetail"][];
+            /**
+             * @description Type of the allowance applied.
+             * @enum {string}
+             */
+            type: "Discount" | "DiscountIncentive" | "Defective" | "Promotional" | "UnsaleableMerchandise" | "Special";
         };
         /** @description Monetary and tax details of the charge. */
         vendorDirectFulfillmentPaymentsV1_ChargeDetails: {
@@ -31240,9 +32831,19 @@ export interface components {
         vendorDirectFulfillmentPaymentsV1_InvoiceDetail: {
             /** @description Additional details provided by the selling party, for tax-related or other purposes. */
             additionalDetails?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_AdditionalDetails"][];
+            /** @description Total allowance amount details for all line items. */
+            allowanceDetails?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_AllowanceDetails"][];
+            billFromParty?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_PartyIdentification"];
             billToParty?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_PartyIdentification"];
             /** @description Total charge amount details for all line items. */
             chargeDetails?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_ChargeDetails"][];
+            /**
+             * Format: date-time
+             * @description Date of delivery of the goods or completion of the service.
+             */
+            deliveryDate?: string;
+            exchangeRate?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_Decimal"];
+            invoiceBaseAmount?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_Money"];
             /**
              * Format: date-time
              * @description Invoice date.
@@ -31261,11 +32862,23 @@ export interface components {
             shipFromParty: components["schemas"]["vendorDirectFulfillmentPaymentsV1_PartyIdentification"];
             /** @description Ship-to country code. */
             shipToCountryCode?: string;
+            shipToParty?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_PartyIdentification"];
+            /**
+             * Format: date-time
+             * @description The date on which the tax becomes chargeable, if different from the invoice date. When absent, the invoice date applies.
+             */
+            taxPointDate?: string;
+            taxRepresentativeParty?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_PartyIdentification"];
             /** @description Individual tax details per line item. */
             taxTotals?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_TaxDetail"][];
+            vatGroupParty?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_PartyIdentification"];
         };
         /** @description Provides the details of the items in this invoice. */
         vendorDirectFulfillmentPaymentsV1_InvoiceItem: {
+            /** @description Line-level additional details provided by the selling party, e.g. tax exemption reason code and text. */
+            additionalDetails?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_AdditionalDetails"][];
+            /** @description Individual allowance details per line item. */
+            allowanceDetails?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_AllowanceDetails"][];
             /** @description Buyer's standard identification number (ASIN) of an item. */
             buyerProductIdentifier?: string;
             /** @description Individual charge details per line item. */
@@ -31273,6 +32886,8 @@ export interface components {
             /** @description Harmonized System of Nomenclature (HSN) tax code. The HSN number cannot contain alphabets. */
             hsnCode?: string;
             invoicedQuantity: components["schemas"]["vendorDirectFulfillmentPaymentsV1_ItemQuantity"];
+            /** @description Product or service description for the invoiced line item. */
+            itemDescription?: string;
             /** @description Numbering of the item on the purchase order. The first item will be 1, the second 2, and so on. */
             itemSequenceNumber: string;
             netCost: components["schemas"]["vendorDirectFulfillmentPaymentsV1_Money"];
@@ -31300,6 +32915,8 @@ export interface components {
         };
         /** @description Name, address and tax details of a party. */
         vendorDirectFulfillmentPaymentsV1_PartyIdentification: {
+            /** @description Additional corporate or fiscal registration identifiers for the party that are not VAT/GST registrations (e.g. FR SIREN, or DE W-IdNr.). */
+            additionalPartyIdentifications?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_AdditionalPartyIdentification"][];
             address?: components["schemas"]["vendorDirectFulfillmentPaymentsV1_Address"];
             /** @description Assigned Identification for the party. */
             partyId: string;
@@ -31338,7 +32955,7 @@ export interface components {
              * @description Tax registration type for the entity.
              * @enum {string}
              */
-            taxRegistrationType?: "VAT" | "GST";
+            taxRegistrationType?: "VAT" | "GST" | "LocalTaxNumber";
         };
         /** @description Response containing the transaction ID. */
         vendorDirectFulfillmentPaymentsV1_TransactionReference: {
@@ -32197,7 +33814,17 @@ export interface components {
              * @description The type of the additional information provided by the selling party.
              * @enum {string}
              */
-            type: "SUR" | "OCR" | "CartonCount";
+            type: "SUR" | "OCR" | "CartonCount" | "TaxExemptReason" | "LegalTerms" | "RegulatoryNote";
+        };
+        /** @description An additional corporate or fiscal registration identifier for a party. */
+        vendorInvoices_AdditionalPartyIdentification: {
+            /** @description The value of the additional party identifier. */
+            identificationNumber: string;
+            /**
+             * @description The type of the additional party identifier.
+             * @enum {string}
+             */
+            identificationType: "FR_SIREN" | "DE_WIDNR";
         };
         /** @description A physical address. */
         vendorInvoices_Address: {
@@ -32259,6 +33886,7 @@ export interface components {
             /** @description Debit Note Number as generated by Amazon. Recommended for Returns and COOP Credit Notes. */
             debitNoteNumber?: string;
             goodsReturnDate?: components["schemas"]["vendorInvoices_DateTime"];
+            originalInvoiceDate?: components["schemas"]["vendorInvoices_DateTime"];
             /** @description Original Invoice Number when sending a credit note relating to an existing invoice. One Invoice only to be processed per Credit Note. This is mandatory for AP Credit Notes. */
             referenceInvoiceNumber?: string;
             /** @description Identifies the Returns Notice Number. Mandatory for all Returns Credit Notes. */
@@ -32290,12 +33918,14 @@ export interface components {
             additionalDetails?: components["schemas"]["vendorInvoices_AdditionalDetails"][];
             /** @description Total allowance amount details for all line items. */
             allowanceDetails?: components["schemas"]["vendorInvoices_AllowanceDetails"][];
+            billFromParty?: components["schemas"]["vendorInvoices_PartyIdentification"];
             billToParty?: components["schemas"]["vendorInvoices_PartyIdentification"];
             /** @description Total charge amount details for all line items. */
             chargeDetails?: components["schemas"]["vendorInvoices_ChargeDetails"][];
             date: components["schemas"]["vendorInvoices_DateTime"];
             /** @description Unique number relating to the charges defined in this document. This will be invoice number if the document type is Invoice or CreditNote number if the document type is Credit Note. Failure to provide this reference will result in a rejection. */
             id: string;
+            invoiceBaseAmount?: components["schemas"]["vendorInvoices_Money"];
             invoiceTotal: components["schemas"]["vendorInvoices_Money"];
             /**
              * @description Identifies the type of invoice.
@@ -32312,9 +33942,14 @@ export interface components {
             shipToParty?: components["schemas"]["vendorInvoices_PartyIdentification"];
             /** @description Total tax amount details for all line items. */
             taxDetails?: components["schemas"]["vendorInvoices_TaxDetails"][];
+            taxPointDate?: components["schemas"]["vendorInvoices_DateTime"];
+            taxRepresentativeParty?: components["schemas"]["vendorInvoices_PartyIdentification"];
+            vatGroupParty?: components["schemas"]["vendorInvoices_PartyIdentification"];
         };
         /** @description Details of the item being invoiced. */
         vendorInvoices_InvoiceItem: {
+            /** @description Line-level additional details provided by the selling party, e.g. tax exemption reason code and text. */
+            additionalDetails?: components["schemas"]["vendorInvoices_AdditionalDetails"][];
             /** @description Individual allowance details per line item. */
             allowanceDetails?: components["schemas"]["vendorInvoices_AllowanceDetails"][];
             /** @description Amazon Standard Identification Number (ASIN) of an item. */
@@ -32325,6 +33960,8 @@ export interface components {
             /** @description HSN Tax code. The HSN number cannot contain alphabets. */
             hsnCode?: string;
             invoicedQuantity: components["schemas"]["vendorInvoices_ItemQuantity"];
+            /** @description Product or service description for the invoiced line item. */
+            itemDescription?: string;
             /** @description Unique number related to this line item. */
             itemSequenceNumber: number;
             netCost: components["schemas"]["vendorInvoices_Money"];
@@ -32362,6 +33999,8 @@ export interface components {
         vendorInvoices_NetCostUnitOfMeasure: "POUNDS" | "OUNCES" | "GRAMS" | "KILOGRAMS";
         /** @description Name, address and tax details of a party. */
         vendorInvoices_PartyIdentification: {
+            /** @description Additional corporate or fiscal registration identifiers for the party that are not VAT/GST registrations (e.g. FR SIREN, or DE W-IdNr.). */
+            additionalPartyIdentifications?: components["schemas"]["vendorInvoices_AdditionalPartyIdentification"][];
             address?: components["schemas"]["vendorInvoices_Address"];
             /** @description Assigned identification for the party. */
             partyId: string;
@@ -32410,7 +34049,7 @@ export interface components {
              * @description The tax registration type for the entity.
              * @enum {string}
              */
-            taxRegistrationType: "VAT" | "GST";
+            taxRegistrationType: "VAT" | "GST" | "LocalTaxNumber";
         };
         /** @description The aggregate weight of this item being invoiced. This information will be available for items sold by weight. */
         vendorInvoices_TotalWeight: {
@@ -33498,19 +35137,19 @@ export interface components {
     };
     responses: never;
     parameters: {
-        /** @description The Amazon Standard Identification Number (ASIN) is the unique identifier of a product within a marketplace. */
+        /** @description The Amazon Standard Identification Number (ASIN). */
         "aplusContent_2020-11-01_asin": string;
         /** @description The set of ASINs. */
         "aplusContent_2020-11-01_asinSet": string[];
-        /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. */
+        /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
         "aplusContent_2020-11-01_contentReferenceKey": string;
         /** @description The set of A+ data types to include in the response. */
         "aplusContent_2020-11-01_getContentDocumentIncludedDataSet": ("CONTENTS" | "METADATA")[];
         /** @description The set of A+ data types to include in the response. */
         "aplusContent_2020-11-01_listContentDocumentAsinRelationsIncludedDataSet": "METADATA"[];
-        /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+        /** @description The identifier for the Amazon store where the A+ Content is published. */
         "aplusContent_2020-11-01_marketplaceId": string;
-        /** @description A token that you use to fetch a specific page when there are multiple pages of results. */
+        /** @description A page token from the `nextPageToken` response element returned by your previous call to this operation. `nextPageToken` is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include `pageToken` as the only parameter. Specifying `pageToken` with any other parameter will cause the request to fail. When no `nextPageToken` value is returned there are no more pages to return. A `pageToken` value is not usable across different operations. */
         "aplusContent_2020-11-01_pageToken": string;
     };
     requestBodies: {
@@ -33543,7 +35182,7 @@ export interface operations {
             query: {
                 /** @description The set of ASINs. */
                 asinSet?: string[];
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
             };
             header?: never;
@@ -33582,7 +35221,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33620,7 +35259,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33634,7 +35273,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33648,7 +35287,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33663,9 +35302,9 @@ export interface operations {
     searchContentDocuments: {
         parameters: {
             query: {
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
-                /** @description A token that you use to fetch a specific page when there are multiple pages of results. */
+                /** @description A page token from the `nextPageToken` response element returned by your previous call to this operation. `nextPageToken` is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include `pageToken` as the only parameter. Specifying `pageToken` with any other parameter will cause the request to fail. When no `nextPageToken` value is returned there are no more pages to return. A `pageToken` value is not usable across different operations. */
                 pageToken?: string;
             };
             header?: never;
@@ -33704,7 +35343,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33742,7 +35381,7 @@ export interface operations {
             410: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33756,7 +35395,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33770,7 +35409,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33784,7 +35423,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33799,7 +35438,7 @@ export interface operations {
     createContentDocument: {
         parameters: {
             query: {
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
             };
             header?: never;
@@ -33838,7 +35477,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33876,7 +35515,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33890,7 +35529,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33904,7 +35543,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -33921,12 +35560,12 @@ export interface operations {
             query: {
                 /** @description The set of A+ Content data types to include in the response. */
                 includedDataSet: ("CONTENTS" | "METADATA")[];
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
             };
             header?: never;
             path: {
-                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
+                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
                 contentReferenceKey: string;
             };
             cookie?: never;
@@ -33963,7 +35602,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34001,7 +35640,7 @@ export interface operations {
             410: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34015,7 +35654,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34029,7 +35668,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34043,7 +35682,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34058,12 +35697,12 @@ export interface operations {
     updateContentDocument: {
         parameters: {
             query: {
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
             };
             header?: never;
             path: {
-                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
+                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
                 contentReferenceKey: string;
             };
             cookie?: never;
@@ -34100,7 +35739,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34138,7 +35777,7 @@ export interface operations {
             410: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34152,7 +35791,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34166,7 +35805,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34180,7 +35819,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34195,12 +35834,12 @@ export interface operations {
     postContentDocumentApprovalSubmission: {
         parameters: {
             query: {
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
             };
             header?: never;
             path: {
-                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. */
+                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
                 contentReferenceKey: string;
             };
             cookie?: never;
@@ -34237,7 +35876,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34275,7 +35914,7 @@ export interface operations {
             410: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34289,7 +35928,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34303,7 +35942,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34317,7 +35956,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34334,16 +35973,16 @@ export interface operations {
             query: {
                 /** @description The set of ASINs. */
                 asinSet?: string[];
-                /** @description The set of A+ Content data types to include in the response. If you don't include this parameter, the operation returns the related ASINs without metadata. */
+                /** @description The set of A+ Content data types to include in the response. If you do not include this parameter, the operation returns the related ASINs without metadata. */
                 includedDataSet?: "METADATA"[];
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
-                /** @description A token that you use to fetch a specific page when there are multiple pages of results. */
+                /** @description A page token from the `nextPageToken` response element returned by your previous call to this operation. `nextPageToken` is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include `pageToken` as the only parameter. Specifying `pageToken` with any other parameter will cause the request to fail. When no `nextPageToken` value is returned there are no more pages to return. A `pageToken` value is not usable across different operations. */
                 pageToken?: string;
             };
             header?: never;
             path: {
-                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
+                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
                 contentReferenceKey: string;
             };
             cookie?: never;
@@ -34380,7 +36019,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34418,7 +36057,7 @@ export interface operations {
             410: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34432,7 +36071,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34446,7 +36085,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34460,7 +36099,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34475,17 +36114,17 @@ export interface operations {
     postContentDocumentAsinRelations: {
         parameters: {
             query: {
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
             };
             header?: never;
             path: {
-                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. */
+                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
                 contentReferenceKey: string;
             };
             cookie?: never;
         };
-        /** @description The request details for the content document ASIN relations. */
+        /** @description The content document ASIN relations request details. */
         requestBody: {
             content: {
                 "application/json": components["schemas"]["aplusContent_2020-11-01_PostContentDocumentAsinRelationsRequest"];
@@ -34522,7 +36161,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34560,7 +36199,7 @@ export interface operations {
             410: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34574,7 +36213,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34588,7 +36227,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34602,7 +36241,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34617,12 +36256,12 @@ export interface operations {
     postContentDocumentSuspendSubmission: {
         parameters: {
             query: {
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
             };
             header?: never;
             path: {
-                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and might change in the future. A content reference key is not guaranteed to match any A+ content identifier. */
+                /** @description The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. */
                 contentReferenceKey: string;
             };
             cookie?: never;
@@ -34659,7 +36298,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34697,7 +36336,7 @@ export interface operations {
             410: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34711,7 +36350,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34725,7 +36364,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34739,7 +36378,7 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34754,11 +36393,11 @@ export interface operations {
     searchContentPublishRecords: {
         parameters: {
             query: {
-                /** @description The Amazon Standard Identification Number (ASIN) is the unique identifier of a product within a marketplace. */
+                /** @description The Amazon Standard Identification Number (ASIN). */
                 asin: string;
-                /** @description The marketplace ID is the globally unique identifier of a marketplace. To find the ID for your marketplace, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids). */
+                /** @description The identifier for the Amazon store where the A+ Content is published. */
                 marketplaceId: string;
-                /** @description A token that you use to fetch a specific page when there are multiple pages of results. */
+                /** @description A page token from the `nextPageToken` response element returned by your previous call to this operation. `nextPageToken` is returned when the results of a call exceed the page size. To get the next page of results, call the operation and include `pageToken` as the only parameter. Specifying `pageToken` with any other parameter will cause the request to fail. When no `nextPageToken` value is returned there are no more pages to return. A `pageToken` value is not usable across different operations. */
                 pageToken?: string;
             };
             header?: never;
@@ -34797,7 +36436,7 @@ export interface operations {
             401: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34835,7 +36474,7 @@ export interface operations {
             429: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34849,7 +36488,7 @@ export interface operations {
             500: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
@@ -34863,8 +36502,381 @@ export interface operations {
             503: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation.
-                     *     **Note:** For this status code, the rate limit header is deprecated and no longer returned. */
+                     *     _Note:_ For this status code, the rate limit header is deprecated and no longer returned. */
                     "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+        };
+    };
+    createMedia: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description The media creation request details. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["aplusContent_2020-11-01_CreateMediaRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. The media asset already exists with identical metadata. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_CreateMediaResponse"];
+                };
+            };
+            /** @description Created. A new media asset was successfully created. */
+            201: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_CreateMediaResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The specified resource does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The media combination already exists with different metadata. */
+            409: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The specified resource no longer exists. */
+            410: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+        };
+    };
+    getMedia: {
+        parameters: {
+            query?: {
+                /**
+                 * @description When provided, returns only the specific association. When omitted, returns all associated media.
+                 * @example c3d4e5f6-a7b8-9012-cdef-234567890123
+                 */
+                associatedMediaId?: string;
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier for the media asset.
+                 * @example b2c3d4e5-f6a7-8901-bcde-f12345678901
+                 */
+                mediaId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_GetMediaResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The specified resource does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The specified resource no longer exists. */
+            410: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+        };
+    };
+    updateMedia: {
+        parameters: {
+            query?: {
+                /**
+                 * @description When provided, identifies the specific video-image pairing for title updates. Required when updating a pairing title.
+                 * @example c3d4e5f6-a7b8-9012-cdef-234567890123
+                 */
+                associatedMediaId?: string;
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier for the media asset to update.
+                 * @example b2c3d4e5-f6a7-8901-bcde-f12345678901
+                 */
+                mediaId: string;
+            };
+            cookie?: never;
+        };
+        /** @description The media update request details. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["aplusContent_2020-11-01_UpdateMediaRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_UpdateMediaResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The specified resource does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The specified resource no longer exists. */
+            410: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["aplusContent_2020-11-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
                     /** @description Unique request reference identifier. */
                     "x-amzn-RequestId"?: string;
                     [name: string]: unknown;
@@ -41226,7 +43238,7 @@ export interface operations {
             };
         };
     };
-    submitInvoice: {
+    "deliveryShipmentInvoiceV2022-07-01_submitInvoice": {
         parameters: {
             query?: {
                 /**
@@ -41244,7 +43256,7 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        /** @description The request body that specifies invoice, program and marketplace values. */
+        /** @description The request body that specifies invoice, program and `marketplaceId` values. */
         requestBody: {
             content: {
                 "application/json": components["schemas"]["deliveryShipmentInvoiceV2022-07-01_SubmitInvoiceRequest"];
@@ -41369,16 +43381,21 @@ export interface operations {
             };
         };
     };
-    getInvoiceStatus: {
+    "deliveryShipmentInvoiceV2022-07-01_getInvoiceStatus": {
         parameters: {
             query: {
+                /**
+                 * @description The invoice access key (NF-e access key for Brazilian invoices). Use this to retrieve the status of a specific invoice.
+                 * @example 35200000000000000000000000000000000000000000
+                 */
+                invoiceId?: string;
                 /**
                  * @description The invoice's type.
                  * @example Outbound
                  */
                 invoiceType: "Outbound";
                 /**
-                 * @description The marketplace identifier.
+                 * @description The Amazon store identifier.
                  * @example A2Q3Y263D00KWC
                  */
                 marketplaceId: string;
@@ -42492,7 +44509,7 @@ export interface operations {
             };
         };
     };
-    getShipments: {
+    "externalFulfillmentShipments_2024-09-11_getShipments": {
         parameters: {
             query: {
                 /**
@@ -42775,7 +44792,7 @@ export interface operations {
             };
         };
     };
-    getShipment: {
+    "externalFulfillmentShipments_2024-09-11_getShipment": {
         parameters: {
             query?: never;
             header?: never;
@@ -43593,7 +45610,7 @@ export interface operations {
             };
         };
     };
-    updatePackage: {
+    "externalFulfillmentShipments_2024-09-11_updatePackage": {
         parameters: {
             query?: never;
             header?: never;
@@ -44666,7 +46683,7 @@ export interface operations {
             };
         };
     };
-    fulfillmentInboundV0_getShipments: {
+    getShipments: {
         parameters: {
             query: {
                 /** @description A date used for selecting inbound shipments that were last updated after (or at) a specified time. The selection includes updates made by Amazon and by the seller. */
@@ -47478,7 +49495,7 @@ export interface operations {
             };
         };
     };
-    shipmentInvoicingV0_getInvoiceStatus: {
+    getInvoiceStatus: {
         parameters: {
             query?: never;
             header?: never;
@@ -48959,7 +50976,7 @@ export interface operations {
             };
         };
     };
-    getInvoice: {
+    "financesInvoices_2026-06-25_getInvoice": {
         parameters: {
             query: {
                 /**
@@ -49088,6 +51105,276 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["financesInvoices_2026-06-25_ErrorList"];
+                };
+            };
+        };
+    };
+    getRemittanceHeaders: {
+        parameters: {
+            query: {
+                /**
+                 * @description The latest payment date for remittances to include in the response. Dates are in ISO 8601 date-time format. The default is the current date-time. The maximum date range between `startDate` and `endDate` is 90 days.
+                 * @example 2026-03-17T00:00:00Z
+                 */
+                endDate?: string;
+                /**
+                 * @description The `marketplaceId` is a globally unique identifier used to specify which Amazon store a request is targeting. For more information, refer to [Store Identifiers](https://developer-docs.amazon/sp-api/docs/store-identifiers).
+                 * @example ATVPDKIKX0DER
+                 */
+                marketplaceId: string;
+                /**
+                 * @description A token to fetch the next page of results. Use the value returned in the previous response.
+                 * @example xsd9fhsakl
+                 */
+                nextToken?: string;
+                /**
+                 * @description The earliest payment date for remittances to include in the response. Dates are in ISO 8601 date-time format. The default is 30 days prior to the time of the request. The minimum start date is one year ago from the current date.
+                 * @example 2026-03-01T00:00:00Z
+                 */
+                startDate?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_GetRemittancesResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+        };
+    };
+    getRemittance: {
+        parameters: {
+            query: {
+                /**
+                 * @description The `marketplaceId` is a globally unique identifier used to specify which Amazon store a request is targeting. For more information, refer to [Store Identifiers](https://developer-docs.amazon/sp-api/docs/store-identifiers).
+                 * @example ATVPDKIKX0DER
+                 */
+                marketplaceId: string;
+                /**
+                 * @description A token to fetch the next page of results. Use the value returned in the previous response.
+                 * @example xsd9fhsakl
+                 */
+                nextTokenForLineItems?: string;
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier for the payment.
+                 * @example 756473657
+                 */
+                uniquePaymentId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_GetRemittanceResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["financeRemittance-2026-03-17_ErrorList"];
                 };
             };
         };
@@ -50337,7 +52624,7 @@ export interface operations {
             };
         };
     };
-    getTransaction: {
+    "sellerWallet_2024-03-01_getTransaction": {
         parameters: {
             query: {
                 /**
@@ -52666,7 +54953,7 @@ export interface operations {
             };
         };
     };
-    "fulfillmentOutbound_2026-07-04_updatePackage": {
+    updatePackage: {
         parameters: {
             query?: never;
             header?: {
@@ -61667,7 +63954,7 @@ export interface operations {
             };
         };
     };
-    merchantFulfillmentV0_getShipment: {
+    getShipment: {
         parameters: {
             query?: never;
             header?: never;
@@ -63516,7 +65803,7 @@ export interface operations {
             };
         };
     };
-    ordersV0_getOrders: {
+    getOrders: {
         parameters: {
             query: {
                 /** @description The `sourceId` of the location from where you want the order fulfilled. */
@@ -63704,7 +65991,7 @@ export interface operations {
             };
         };
     };
-    ordersV0_getOrder: {
+    getOrder: {
         parameters: {
             query?: never;
             header?: never;
@@ -74837,11 +77124,394 @@ export interface operations {
             };
         };
     };
+    listCases: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description The request body for the listCases operation. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["support_2025-02-01_ListCasesRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ListCasesResult"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+        };
+    };
+    getCase: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /**
+                 * @description The case identifier.
+                 * @example 1234567890
+                 */
+                caseId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_Case"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+        };
+    };
+    listContacts: {
+        parameters: {
+            query?: {
+                /**
+                 * @description The maximum number of results to include in the response.
+                 * @example 25
+                 */
+                maxResults?: number;
+                /**
+                 * @description A token to retrieve the next page of results. The response includes `nextToken` when the number of results exceeds the specified `maxResults` value. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages.
+                 * @example SampleToken
+                 */
+                nextToken?: string;
+                /**
+                 * @description Sort the returned contacts by `createdDate` in either ascending or descending order.
+                 * @example DESC
+                 */
+                sortOrder?: "ASC" | "DESC";
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The case identifier.
+                 * @example 1234567890
+                 */
+                caseId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ListContactsResult"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["support_2025-02-01_ErrorList"];
+                };
+            };
+        };
+    };
     getInvoicesAttributes: {
         parameters: {
             query: {
                 /** @description The marketplace identifier. */
                 marketplaceId: string;
+                /** @description The Warehouse code included in the invoice issued on behalf of the vendor. Check the warehouse code under your WarehouseSettings in VendorCentral. */
+                warehouseCode?: string;
             };
             header?: never;
             path?: never;
@@ -74969,7 +77639,10 @@ export interface operations {
     };
     getInvoicesDocument: {
         parameters: {
-            query?: never;
+            query?: {
+                /** @description The Warehouse code included in the invoice issued on behalf of the vendor. Check the warehouse code under your WarehouseSettings in VendorCentral. */
+                warehouseCode?: string;
+            };
             header?: never;
             path: {
                 /** @description The export document identifier. */
@@ -75116,6 +77789,8 @@ export interface operations {
                 pageSize?: number;
                 /** @description Return exports matching the status specified.  */
                 status?: "REQUESTED" | "PROCESSING" | "DONE" | "ERROR";
+                /** @description The Warehouse code included in the invoice issued on behalf of the vendor. Check the warehouse code under your WarehouseSettings in VendorCentral. */
+                warehouseCode?: string;
             };
             header?: never;
             path?: never;
@@ -75375,7 +78050,10 @@ export interface operations {
     };
     getInvoicesExport: {
         parameters: {
-            query?: never;
+            query?: {
+                /** @description The Warehouse code included in the invoice issued on behalf of the vendor. Check the warehouse code under your WarehouseSettings in VendorCentral. */
+                warehouseCode?: string;
+            };
             header?: never;
             path: {
                 /** @description The unique identifier for the export. */
@@ -75949,6 +78627,8 @@ export interface operations {
                 transactionIdentifierName?: string;
                 /** @description The marketplace-specific classification of the transaction type for which the invoice was created. Use the `getInvoicesAttributes` operation to check `transactionType` options. */
                 transactionType?: string;
+                /** @description The Warehouse code included in the invoice issued on behalf of the vendor. Check the warehouse code under your WarehouseSettings in VendorCentral. */
+                warehouseCode?: string;
             };
             header?: never;
             path?: never;
@@ -76074,11 +78754,13 @@ export interface operations {
             };
         };
     };
-    "InvoicesApiModel_2024-06-19_getInvoice": {
+    getInvoice: {
         parameters: {
             query: {
                 /** @description The marketplace from which you want the invoice. */
                 marketplaceId: string;
+                /** @description The Warehouse code included in the invoice issued on behalf of the vendor. Check the warehouse code under your WarehouseSettings in VendorCentral. */
+                warehouseCode?: string;
             };
             header?: never;
             path: {
@@ -76378,6 +79060,11 @@ export interface operations {
                  * @example 546e1ddb-dae0-4f76-84fd-ab4998ad00dd
                  */
                 id?: string;
+                /**
+                 * @description The PRO number assigned by the freight carrier
+                 * @example 2972802458
+                 */
+                proNumber?: string;
             };
             header?: {
                 /**
@@ -76774,7 +79461,7 @@ export interface operations {
             };
         };
     };
-    submitAcknowledgement: {
+    "vendorDirectFulfillmentOrders_2021-12-28_submitAcknowledgement": {
         parameters: {
             query?: never;
             header?: never;
@@ -76895,7 +79582,7 @@ export interface operations {
             };
         };
     };
-    getOrders: {
+    "vendorDirectFulfillmentOrders_2021-12-28_getOrders": {
         parameters: {
             query: {
                 /** @description Purchase orders that became available after this date and time will be included in the result. Must be in ISO-8601 date/time format. */
@@ -77019,7 +79706,7 @@ export interface operations {
             };
         };
     };
-    getOrder: {
+    "vendorDirectFulfillmentOrders_2021-12-28_getOrder": {
         parameters: {
             query?: never;
             header?: never;
@@ -77501,7 +80188,7 @@ export interface operations {
             };
         };
     };
-    vendorDirectFulfillmentPaymentsV1_submitInvoice: {
+    submitInvoice: {
         parameters: {
             query?: never;
             header?: never;
@@ -80520,7 +83207,7 @@ export interface operations {
             };
         };
     };
-    vendorOrders_submitAcknowledgement: {
+    submitAcknowledgement: {
         parameters: {
             query?: never;
             header?: never;
@@ -81684,7 +84371,7 @@ export interface operations {
             };
         };
     };
-    vendorTransactionStatus_getTransaction: {
+    getTransaction: {
         parameters: {
             query?: never;
             header?: never;
