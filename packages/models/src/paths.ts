@@ -12613,7 +12613,7 @@ export interface components {
          *       "locationId": "LOC_001",
          *       "marketplaceId": "A21TJRUUN4KGV",
          *       "marketplaceChannel": "FBA",
-         *       "shippingType": "SELF",
+         *       "shippingType": "Self",
          *       "orderType": [
          *         "HAZMAT",
          *         "MPS"
@@ -12660,7 +12660,7 @@ export interface components {
              * @example SELF
              * @enum {string}
              */
-            shippingType: "SELF" | "MARKETPLACE" | "THIRD_PARTY_CARRIER";
+            shippingType: "Self" | "Marketplace" | "THIRD_PARTY_CARRIER";
         };
         /**
          * @description The response object for creating a sandbox shipment.
@@ -13384,7 +13384,7 @@ export interface components {
              * @description The type of shipping that the seller uses to deliver a customer order.
              * @enum {string}
              */
-            shippingType?: "MARKETPLACE" | "SELF";
+            shippingType?: "Marketplace" | "Self";
             shipToAddress?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Address"];
         };
         /**
