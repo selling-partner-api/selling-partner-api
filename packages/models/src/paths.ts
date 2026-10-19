@@ -44548,7 +44548,7 @@ export interface operations {
                  */
                 paginationToken?: string;
                 /**
-                 * @description The status of shipment you want to include in the response. To retrieve all new shipments, set this value to `CREATED` or `ACCEPTED`.
+                 * @description The status of shipment you want to include in the response. To retrieve all new shipments, set this value to `ACCEPTED`.
                  * @example CONFIRMED
                  */
                 status: "CREATED" | "ACCEPTED" | "CONFIRMED" | "PACKAGE_CREATED" | "PICKUP_SLOT_RETRIEVED" | "INVOICE_GENERATED" | "SHIPLABEL_GENERATED" | "CANCELLED" | "SHIPPED" | "DELIVERED";
