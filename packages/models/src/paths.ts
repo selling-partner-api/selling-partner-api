@@ -1,4 +1,108 @@
 export interface paths {
+    "/actionItems/2026-06-01/items": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List action items.
+         * @description Retrieve a paginated, filterable list of action items for the selling partner. When you specify multiple filters, only action items that match all of them are returned. When you specify multiple values for one filter, action items that match any of those values are returned.
+         */
+        get: operations["listActionItems"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/actionItems/2026-06-01/items/{actionItemId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get an action item.
+         * @description Retrieve a single action item by ID with full detail.
+         */
+        get: operations["getActionItem"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/actionItems/2026-06-01/items/{actionItemId}/dismissals": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Dismiss an action item.
+         * @description Dismiss the specified action item. An optional reason can be provided.
+         */
+        post: operations["dismissActionItem"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/actionPlans/2026-06-01/plans": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List action plans.
+         * @description Returns a paginated list of the seller's action plans, sorted newest first by `createdDate`. Multiple filters are combined with a logical AND. Multiple values in a single filter are combined with a logical OR.
+         */
+        get: operations["listActionPlans"];
+        put?: never;
+        /**
+         * Create an action plan.
+         * @description Creates an action plan from a template. Use `mode=PREVIEW` to return the plan without creating or executing it. Omit `mode` to create the plan and submit it for execution.
+         */
+        post: operations["createActionPlan"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/actionPlans/2026-06-01/plans/{actionPlanId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get an action plan.
+         * @description Returns an action plan by ID. Use `includedData=steps` to include the plan's steps with their resolved input and output values.
+         */
+        get: operations["getActionPlan"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/aplus/2020-11-01/contentAsinValidations": {
         parameters: {
             query?: never;
@@ -4215,7 +4319,7 @@ export interface paths {
          *
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
         get: operations["getListingsItem"];
-        /** @description Creates a new or fully-updates an existing listings item for a selling partner.
+        /** @description Creates a new or fully updates an existing listings item for a selling partner.
          *
          *     **Usage Plan:**
          *
@@ -4226,7 +4330,7 @@ export interface paths {
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput can receive higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api) in the Selling Partner API documentation. */
         put: operations["putListingsItem"];
         post?: never;
-        /** @description Delete a listings item for a selling partner.
+        /** @description Deletes a listings item for a selling partner.
          *
          *     **Usage Plan:**
          *
@@ -4268,6 +4372,42 @@ export interface paths {
          *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values then those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](doc:usage-plans-and-rate-limits-in-the-sp-api). */
         get: operations["getListingsRestrictions"];
         put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/messaging/2026-04-20/automationConfigurations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Returns a list of automation configurations that include the specified Amazon store. Results may include configurations that also apply to other stores, since a single configuration can span multiple stores. */
+        get: operations["listAutomationConfigurations"];
+        put?: never;
+        /** @description Creates a new automation configuration for automated buyer-seller messaging. The configuration is `ACTIVE` as soon as it is created. The response returns the full automation configuration resource, including the server-generated `automationId`. */
+        post: operations["createAutomationConfiguration"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/messaging/2026-04-20/automationConfigurations/{automationId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Returns the details of a specific automation configuration, including its store-specific automation entries with response content and trigger conditions. */
+        get: operations["getAutomationConfiguration"];
+        /** @description Updates an existing automation configuration. This is a full replacement operation using `PUT` semantics; you must provide the complete desired state, including `automationDisplayName`, `automationStatus`, and `marketplaceAutomations`. The `marketplaceAutomations` entries you provide replace all of the configuration's existing Amazon store entries; any store that you omit is removed from the configuration. To deactivate a configuration, send its complete current state with `automationStatus` set to `DEACTIVATED`. */
+        put: operations["updateAutomationConfiguration"];
         post?: never;
         delete?: never;
         options?: never;
@@ -4557,7 +4697,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 1 | 1 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the SP-API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["getAdditionalSellerInputs"];
         delete?: never;
         options?: never;
@@ -4582,7 +4722,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 6 | 12 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the SP-API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["getEligibleShipmentServices"];
         delete?: never;
         options?: never;
@@ -4607,7 +4747,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 2 | 2 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the SP-API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         post: operations["merchantFulfillmentV0_createShipment"];
         delete?: never;
         options?: never;
@@ -4630,7 +4770,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 1 | 1 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the SP-API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         get: operations["merchantFulfillmentV0_getShipment"];
         put?: never;
         post?: never;
@@ -4642,7 +4782,7 @@ export interface paths {
          *     | ---- | ---- |
          *     | 1 | 1 |
          *
-         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits in the SP-API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
+         *     The `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that are applied to the requested operation when available. The preceding table indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may have higher rate and burst values than those shown here. For more information, refer to [Usage Plans and Rate Limits](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api). */
         delete: operations["merchantFulfillmentV0_cancelShipment"];
         options?: never;
         head?: never;
@@ -8249,6 +8389,933 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** @description A specific actionable item surfaced to a selling partner. Can be a recommendation (an opportunity to pursue), an issue (a problem to fix), or a task (a mid-execution prompt requiring seller action). */
+        "actionItems_2026-06-01_ActionItem": {
+            /** @description Uniquely and permanently identifies the action item throughout its lifecycle. */
+            actionItemId: string;
+            description: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            /**
+             * Format: date-time
+             * @description The date by which action must be taken. Items past this date transition to `OVERDUE` status. Absent means no due date.
+             */
+            dueDate?: string;
+            impacts?: components["schemas"]["actionItems_2026-06-01_ActionItemImpacts"];
+            /**
+             * Format: date-time
+             * @description When the action item was last updated. In [ISO 8601](https://developer-docs.amazon/sp-api/docs/iso-8601) date-time format.
+             */
+            lastUpdatedDate: string;
+            references?: components["schemas"]["actionItems_2026-06-01_References"];
+            resolutions?: components["schemas"]["actionItems_2026-06-01_Resolutions"];
+            status: components["schemas"]["actionItems_2026-06-01_ActionItemStatuses"];
+            type: components["schemas"]["actionItems_2026-06-01_ActionItemType"];
+        };
+        /** @description The business impacts associated with an action item. */
+        "actionItems_2026-06-01_ActionItemImpacts": components["schemas"]["actionItems_2026-06-01_Impact"][];
+        /**
+         * @description A state or capability of an action item. `PENDING_SELLING_PARTNER`, `DISMISSED`, `SNOOZED`, `OVERDUE`, `ACTIONED`, and `RESOLVED` are lifecycle states; `AUTOMATABLE`, `DISMISSABLE`, and `SNOOZABLE` express available capabilities.
+         * @enum {string}
+         */
+        "actionItems_2026-06-01_ActionItemStatus": "PENDING_SELLING_PARTNER" | "AUTOMATABLE" | "DISMISSABLE" | "SNOOZABLE" | "DISMISSED" | "SNOOZED" | "OVERDUE" | "ACTIONED" | "RESOLVED";
+        /** @description The state of an action item, expressed as a list combining lifecycle state with currently available capabilities. */
+        "actionItems_2026-06-01_ActionItemStatuses": components["schemas"]["actionItems_2026-06-01_ActionItemStatus"][];
+        /** @description The structured classification of an action item and a reference to the definition it instantiates. */
+        "actionItems_2026-06-01_ActionItemType": {
+            classifications: components["schemas"]["actionItems_2026-06-01_ActionItemTypeClassifications"];
+            definition: components["schemas"]["actionItems_2026-06-01_ActionItemTypeDefinition"];
+        };
+        /**
+         * @description The classification of an action item.
+         * @enum {string}
+         */
+        "actionItems_2026-06-01_ActionItemTypeClassification": "ISSUE" | "RECOMMENDATION" | "TASK";
+        /** @description A list of action item classifications. */
+        "actionItems_2026-06-01_ActionItemTypeClassifications": components["schemas"]["actionItems_2026-06-01_ActionItemTypeClassification"][];
+        /** @description A reference to the versioned action item definition, with a localized display name. */
+        "actionItems_2026-06-01_ActionItemTypeDefinition": {
+            displayName?: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            /** @description The semantic identifier of the action item definition. For example, `AFN_CROSS_STORE_EXPANSION`. */
+            typeDefinitionId: string;
+        };
+        /** @description A reference to an action plan offered by a resolution. `actionPlanTemplateId` identifies the plan template; `actionPlanId` identifies the created plan instance once one exists; `url` optionally deep-links to the action plan experience for this template; `description` optionally carries localized text for this plan, distinguishing it from other action plans offered on the same resolution. */
+        "actionItems_2026-06-01_ActionPlanReference": {
+            /**
+             * @description The identifier of the created plan instance, when one exists. Optional; the backend may not populate it yet.
+             * @example ap-9a8b7c6d-5e4f-3a2b-1c0d-ef9876543210
+             */
+            actionPlanId?: string;
+            /**
+             * @description The identifier of the plan template.
+             * @example CROSS_STORE_EXPANSION_FBA
+             */
+            actionPlanTemplateId: string;
+            description?: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            /**
+             * Format: uri
+             * @description Optional deep link to the action plan experience for this template.
+             * @example https://sellercentral.amazon.com/action-plans/CROSS_STORE_EXPANSION_FBA
+             */
+            url?: string;
+        };
+        /** @description A reference to a catalog, scoped to one or more Amazon stores. */
+        "actionItems_2026-06-01_CatalogReference": {
+            /** @description The catalog identifier. */
+            catalogId: string;
+            /** @description The Amazon store identifiers to which this catalog reference applies. */
+            marketplaceIds?: string[];
+        };
+        /**
+         * @description Request body for dismissing an action item.
+         * @example {
+         *       "reason": {
+         *         "reasonTypes": [
+         *           "NOT_INTERESTED"
+         *         ]
+         *       }
+         *     }
+         */
+        "actionItems_2026-06-01_DismissActionItemRequest": {
+            reason?: components["schemas"]["actionItems_2026-06-01_DismissalReason"];
+        };
+        /** @description The response schema for the `dismissActionItem` operation. */
+        "actionItems_2026-06-01_DismissActionItemResponse": {
+            /** @description The identifier of the dismissed action item. */
+            actionItemId: string;
+            status: components["schemas"]["actionItems_2026-06-01_ActionItemStatuses"];
+        };
+        /** @description The reason a selling partner is dismissing an action item. */
+        "actionItems_2026-06-01_DismissalReason": {
+            /** @description One or more reasons for dismissing the action item. */
+            reasonTypes: ("NOT_APPLICABLE" | "NOT_INTERESTED")[];
+        };
+        /** @description Error response returned when the request is unsuccessful. */
+        "actionItems_2026-06-01_Error": {
+            /** @description An error code that identifies the type of error that occurred. */
+            code: string;
+            /** @description Additional details that can help the caller understand or fix the issue. */
+            details?: string;
+            /** @description A message that describes the error condition. */
+            message: string;
+        };
+        /** @description A list of error responses returned when a request is unsuccessful. */
+        "actionItems_2026-06-01_ErrorList": {
+            /** @description A list of error responses. */
+            errors: components["schemas"]["actionItems_2026-06-01_Error"][];
+        };
+        /** @description A quantified estimate for an impact. If value is present it is a single-point estimate; if minimum and maximum are present it is a range. */
+        "actionItems_2026-06-01_Estimate": {
+            /**
+             * @description ISO 4217 currency code. Present when `type` is `MONEY`.
+             * @example EUR
+             */
+            currencyCode?: string;
+            definition?: components["schemas"]["actionItems_2026-06-01_EstimateDefinitionRef"];
+            /**
+             * @description The upper bound of a range estimate.
+             * @example 15
+             */
+            maximum?: number;
+            /**
+             * @description The lower bound of a range estimate.
+             * @example 8
+             */
+            minimum?: number;
+            /**
+             * @description The type of estimate.
+             * @enum {string}
+             */
+            type: "MONEY" | "PERCENT" | "COUNT";
+            /**
+             * @description A single-point estimate value. Present when the estimate is not a range.
+             * @example 50000
+             */
+            value?: number;
+        };
+        /** @description A reference to an estimate type definition with a localized display name. */
+        "actionItems_2026-06-01_EstimateDefinitionRef": {
+            displayName?: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            /** @description Machine-readable identifier of the estimate type. For example, `CATEGORY_REFERRAL_RATE`, `NINETY_DAY_SALES_LIFT`. */
+            estimateDefinitionId: string;
+        };
+        /** @description The response schema for the `getActionItem` operation. */
+        "actionItems_2026-06-01_GetActionItemResponse": {
+            actionItem: components["schemas"]["actionItems_2026-06-01_ActionItem"];
+        };
+        /** @description A typed impact associated with an action item, classified as a cost, benefit, or enforcement, and optionally quantified with one or more estimates. */
+        "actionItems_2026-06-01_Impact": {
+            /** @description One or more impact classifications (`COST`, `BENEFIT`, `ENFORCEMENT`). */
+            classifications: components["schemas"]["actionItems_2026-06-01_ImpactClassification"][];
+            definition: components["schemas"]["actionItems_2026-06-01_ImpactDefinitionRef"];
+            description?: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            /** @description Quantified estimates for this impact. */
+            estimates?: components["schemas"]["actionItems_2026-06-01_Estimate"][];
+        };
+        /**
+         * @description The classification of an impact.
+         * @enum {string}
+         */
+        "actionItems_2026-06-01_ImpactClassification": "COST" | "BENEFIT" | "ENFORCEMENT";
+        /** @description A reference to an impact type definition with a localized display name. */
+        "actionItems_2026-06-01_ImpactDefinitionRef": {
+            displayName?: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            /** @description Machine-readable identifier of the impact type. For example, `REFERRAL_FEE`, `POTENTIAL_SALES_LIFT`. */
+            impactDefinitionId: string;
+        };
+        /** @description The response schema for the `listActionItems` operation. */
+        "actionItems_2026-06-01_ListActionItemsResponse": {
+            /** @description The action items matching the query, as full `ActionItem` objects. */
+            actionItems: components["schemas"]["actionItems_2026-06-01_ActionItem"][];
+            pagination?: components["schemas"]["actionItems_2026-06-01_Pagination"];
+            refinements?: components["schemas"]["actionItems_2026-06-01_SearchRefinements"];
+        };
+        /**
+         * @description A localized text value paired with the locale it is rendered in.
+         * @example {
+         *       "text": "Cross-store expansion (FBA)",
+         *       "locale": "en-US"
+         *     }
+         */
+        "actionItems_2026-06-01_LocalizedText": {
+            /**
+             * @description A BCP 47 language tag.
+             * @example en-US
+             */
+            locale: string;
+            /**
+             * @description The localized text.
+             * @example Cross-store expansion (FBA)
+             */
+            text: string;
+        };
+        /** @description Pagination details for list responses. */
+        "actionItems_2026-06-01_Pagination": {
+            /** @description A token to retrieve the next page of results. Absent when there are no more results. */
+            nextToken?: string;
+            /**
+             * @description A token to retrieve the previous page of results. Absent on the first page.
+             * @example eyJwcmV2SXRlbUlkIjoiYTEyMzQ1NjcifQ==
+             */
+            previousToken?: string;
+        };
+        /** @description Entities referenced by an action item. */
+        "actionItems_2026-06-01_References": {
+            /** @description The most recent action plan associated with this action item, if any. To find every plan for an item, call `listActionPlans` with `actionItemIds`. */
+            actionPlans?: components["schemas"]["actionItems_2026-06-01_ActionPlanReference"][];
+            /** @description Catalog references associated with the action item. */
+            catalogs?: components["schemas"]["actionItems_2026-06-01_CatalogReference"][];
+        };
+        /** @description An end state that resolves the action item. The resolution itself is identified by `definition.resolutionDefinitionId`. The type names the top-level mechanism for reaching that end state (for example, `EXPAND_CROSS_STORE`), and each mechanism offers one or more pathways to accomplish it: the seller can perform it themselves with the `url` and/or have Amazon automate it with `actionPlans`; a resolution always offers at least one of these pathways. The optional description carries localized instructions for the resolution as a whole; for text specific to one action plan, refer to `ActionPlanReference.description`. */
+        "actionItems_2026-06-01_Resolution": {
+            /** @description Automated pathways for accomplishing this resolution. Each entry references an action plan template that Amazon can run to reach this resolution's end state. */
+            actionPlans?: components["schemas"]["actionItems_2026-06-01_ActionPlanReference"][];
+            definition: components["schemas"]["actionItems_2026-06-01_ResolutionDefinitionRef"];
+            description?: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            type: components["schemas"]["actionItems_2026-06-01_ResolutionType"];
+            /**
+             * Format: uri
+             * @description Pathway for the selling partner to accomplish this resolution themselves: a URL to an existing experience. Optional; present when a manual pathway is available.
+             * @example https://sellercentral.amazon.com/global-selling/expansion
+             */
+            url?: string;
+        };
+        /** @description Details of a resolution, drawn from a catalog of resolution definitions that can be shared across action item types. */
+        "actionItems_2026-06-01_ResolutionDefinitionRef": {
+            displayName?: components["schemas"]["actionItems_2026-06-01_LocalizedText"];
+            /**
+             * @description Machine-readable identifier of the resolution definition (the change this resolution produces).
+             * @example AFN_CROSS_STORE_EXPANSION
+             */
+            resolutionDefinitionId: string;
+        };
+        /** @description The available ways the selling partner can act on an action item. Returned in priority order; the first entry is the recommended resolution. */
+        "actionItems_2026-06-01_Resolutions": components["schemas"]["actionItems_2026-06-01_Resolution"][];
+        /**
+         * @description The top-level mechanism for reaching this resolution's end state, expressed as a verb (for example, `EXPAND_CROSS_STORE`). This is an open string: additional resolution types may be introduced over time without a new API version, so clients should tolerate unrecognized values rather than fail deserialization. Known values are documented below. Each mechanism offers one or more pathways to accomplish it: the seller can perform it themselves with the `url`, or have Amazon carry it out with an automated action plan (`actionPlans`).
+         * @example EXPAND_CROSS_STORE
+         */
+        "actionItems_2026-06-01_ResolutionType": string;
+        /** @description Search refinements (facets) for progressive filtering. Maps a refinement key (for example, status, classifications) to its available values with counts in the full filtered result set. */
+        "actionItems_2026-06-01_SearchRefinements": {
+            [key: string]: components["schemas"]["actionItems_2026-06-01_SearchRefinementValues"];
+        };
+        /** @description A refinement value with its count in the full filtered result set. */
+        "actionItems_2026-06-01_SearchRefinementValue": {
+            /** @description Number of results matching this refinement value. */
+            count: number;
+            /** @description Human-readable label for the refinement value. */
+            displayName: string;
+            /** @description The refinement value to pass back as a filter. */
+            value: string;
+        };
+        /** @description The list of refinement values for a given refinement key. */
+        "actionItems_2026-06-01_SearchRefinementValues": components["schemas"]["actionItems_2026-06-01_SearchRefinementValue"][];
+        /**
+         * @description An issue or required action on a specific step surfaced during plan creation or execution.
+         * @example {
+         *       "type": {
+         *         "classifications": [
+         *           "ISSUE"
+         *         ],
+         *         "definition": {
+         *           "typeDefinitionId": "MISSING_INPUT",
+         *           "displayName": {
+         *             "text": "Missing Input",
+         *             "locale": "en-US"
+         *           }
+         *         }
+         *       },
+         *       "description": {
+         *         "text": "Step 'Copy Offers' is missing value for sourceMarketplaceId input.",
+         *         "locale": "en-US"
+         *       },
+         *       "references": {
+         *         "steps": [
+         *           {
+         *             "stepId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+         *             "attributeNames": [
+         *               "sourceMarketplaceId"
+         *             ]
+         *           }
+         *         ]
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_ActionItem": {
+            description: components["schemas"]["actionPlans_2026-06-01_LocalizedText"];
+            references?: components["schemas"]["actionPlans_2026-06-01_ActionItemReferences"];
+            type: components["schemas"]["actionPlans_2026-06-01_ActionItemType"];
+        };
+        /** @description A reference from a plan to the action item it resolves. */
+        "actionPlans_2026-06-01_ActionItemReference": {
+            /**
+             * @description The identifier of the action item this plan resolves.
+             * @example ebf5caf1-8cfb-43bd-a13b-ef91bdb0d930
+             */
+            actionItemId: string;
+            resolution?: components["schemas"]["actionPlans_2026-06-01_ActionItemResolutionRef"];
+        };
+        /**
+         * @description Contains an action item's references to steps and attributes.
+         * @example {
+         *       "steps": [
+         *         {
+         *           "stepId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+         *           "attributeNames": [
+         *             "sourceMarketplaceId"
+         *           ]
+         *         }
+         *       ]
+         *     }
+         */
+        "actionPlans_2026-06-01_ActionItemReferences": {
+            /** @description The steps this action item relates to. */
+            steps?: components["schemas"]["actionPlans_2026-06-01_ActionItemStepReference"][];
+        };
+        /** @description The resolution definition that satisfies an action item. */
+        "actionPlans_2026-06-01_ActionItemResolutionRef": {
+            definition: components["schemas"]["actionPlans_2026-06-01_ResolutionDefinitionRef"];
+        };
+        /** @description Identifies the action item this plan resolves and the resolution it fulfills. Required when creating a plan from an action item. */
+        "actionPlans_2026-06-01_ActionItemResolutionReference": {
+            /**
+             * @description The identifier of the action item this plan resolves.
+             * @example ebf5caf1-8cfb-43bd-a13b-ef91bdb0d930
+             */
+            actionItemId: string;
+            resolution: components["schemas"]["actionPlans_2026-06-01_ActionItemResolutionRef"];
+        };
+        /**
+         * @description A reference from an action item to a specific step and its affected attributes.
+         * @example {
+         *       "stepId": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
+         *       "attributeNames": [
+         *         "sourceMarketplaceId"
+         *       ]
+         *     }
+         */
+        "actionPlans_2026-06-01_ActionItemStepReference": {
+            /**
+             * @description The input or output attribute names on the step that this action item relates to.
+             * @example [
+             *       "sourceMarketplaceId"
+             *     ]
+             */
+            attributeNames?: string[];
+            /**
+             * @description The step identifier (UUID) this action item relates to.
+             * @example 7c9e6679-7425-40de-944b-e07fc1f90ae7
+             */
+            stepId: string;
+        };
+        /**
+         * @description Combines one or more classifications with a reference to the action item's type definition.
+         * @example {
+         *       "classifications": [
+         *         "ISSUE"
+         *       ],
+         *       "definition": {
+         *         "typeDefinitionId": "MISSING_INPUT",
+         *         "displayName": {
+         *           "text": "Missing Input",
+         *           "locale": "en-US"
+         *         }
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_ActionItemType": {
+            classifications: components["schemas"]["actionPlans_2026-06-01_ActionItemTypeClassifications"];
+            definition: components["schemas"]["actionPlans_2026-06-01_ActionItemTypeDefinition"];
+        };
+        /**
+         * @description A classification of an action item.
+         * @example ISSUE
+         * @enum {string}
+         */
+        "actionPlans_2026-06-01_ActionItemTypeClassification": "ISSUE" | "TASK" | "RECOMMENDATION";
+        /**
+         * @description Classifications for an action item type.
+         * @example [
+         *       "ISSUE"
+         *     ]
+         */
+        "actionPlans_2026-06-01_ActionItemTypeClassifications": components["schemas"]["actionPlans_2026-06-01_ActionItemTypeClassification"][];
+        /**
+         * @description The action item's type and its display name.
+         * @example {
+         *       "typeDefinitionId": "MISSING_INPUT",
+         *       "displayName": {
+         *         "text": "Missing Input",
+         *         "locale": "en-US"
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_ActionItemTypeDefinition": {
+            displayName: components["schemas"]["actionPlans_2026-06-01_LocalizedText"];
+            /**
+             * @description The semantic identifier of the action item type definition.
+             * @example MISSING_INPUT
+             */
+            typeDefinitionId: string;
+        };
+        /**
+         * @description An action plan instance.
+         * @example {
+         *       "actionPlanId": "e5f6a7b8-89ab-cdef-0123-456789abcdef",
+         *       "type": {
+         *         "definition": {
+         *           "displayName": {
+         *             "text": "Cross-store expansion (FBA)",
+         *             "locale": "en-US"
+         *           },
+         *           "planDefinitionId": "CROSS_STORE_EXPANSION_FBA"
+         *         }
+         *       },
+         *       "references": {
+         *         "actionItems": [
+         *           {
+         *             "actionItemId": "ebf5caf1-8cfb-43bd-a13b-ef91bdb0d930",
+         *             "resolution": {
+         *               "definition": {
+         *                 "resolutionDefinitionId": "CROSS_STORE_EXPANSION_FBA"
+         *               }
+         *             }
+         *           }
+         *         ]
+         *       },
+         *       "displayName": {
+         *         "text": "Expand FBA to DE — Order #12345",
+         *         "locale": "en-US"
+         *       },
+         *       "status": [
+         *         "DONE"
+         *       ],
+         *       "inputs": {
+         *         "sourceMarketplaceId": {
+         *           "value": [
+         *             "A1PA6795UKMFR9"
+         *           ]
+         *         },
+         *         "targetMarketplaceId": {
+         *           "value": [
+         *             "A13V1IB3VIYZZH"
+         *           ]
+         *         }
+         *       },
+         *       "createdDate": "2025-07-07T14:55:00Z",
+         *       "lastUpdatedDate": "2025-07-07T17:00:00Z",
+         *       "acceptedDate": "2025-07-07T15:00:00Z",
+         *       "startedDate": "2025-07-07T15:01:00Z",
+         *       "completedDate": "2025-07-07T17:00:00Z"
+         *     }
+         */
+        "actionPlans_2026-06-01_ActionPlan": {
+            /**
+             * Format: date-time
+             * @description When the plan was accepted, in ISO 8601 format.
+             * @example 2025-07-07T15:00:00Z
+             */
+            acceptedDate?: string;
+            /** @description Action items generated during plan creation or execution. Follows the same schema as the Action Items API. */
+            actionItems?: components["schemas"]["actionPlans_2026-06-01_ActionItem"][];
+            /**
+             * @description Unique identifier for this action plan (UUID, system-generated).
+             * @example e5f6a7b8-89ab-cdef-0123-456789abcdef
+             */
+            actionPlanId: string;
+            /**
+             * Format: date-time
+             * @description When the plan reached a terminal state, in ISO 8601 format.
+             * @example 2025-07-07T17:00:00Z
+             */
+            completedDate?: string;
+            /**
+             * Format: date-time
+             * @description When the plan was created, in ISO 8601 format.
+             * @example 2025-07-07T14:55:00Z
+             */
+            createdDate?: string;
+            displayName?: components["schemas"]["actionPlans_2026-06-01_LocalizedText"];
+            inputs?: components["schemas"]["actionPlans_2026-06-01_InputValues"];
+            /**
+             * Format: date-time
+             * @description When the plan was last updated, in ISO 8601 format.
+             * @example 2025-07-07T17:00:00Z
+             */
+            lastUpdatedDate?: string;
+            references?: components["schemas"]["actionPlans_2026-06-01_PlanReferences"];
+            /**
+             * Format: date-time
+             * @description When execution began, in ISO 8601 format.
+             * @example 2025-07-07T15:01:00Z
+             */
+            startedDate?: string;
+            status: components["schemas"]["actionPlans_2026-06-01_PlanStatuses"];
+            /** @description The plan's steps with their resolved input and output values. Included only when `includedData` contains `steps`. */
+            steps?: components["schemas"]["actionPlans_2026-06-01_PlanStep"][];
+            type?: components["schemas"]["actionPlans_2026-06-01_ActionPlanType"];
+        };
+        /**
+         * @description The plan template this plan instantiates.
+         * @example {
+         *       "definition": {
+         *         "displayName": {
+         *           "text": "Cross-store expansion (FBA)",
+         *           "locale": "en-US"
+         *         },
+         *         "planDefinitionId": "CROSS_STORE_EXPANSION_FBA"
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_ActionPlanType": {
+            definition: components["schemas"]["actionPlans_2026-06-01_PlanDefinitionRef"];
+        };
+        /**
+         * @description Request body for creating an action plan.
+         * @example {
+         *       "planTemplateId": "CROSS_STORE_EXPANSION_FBA",
+         *       "actionItem": {
+         *         "actionItemId": "ebf5caf1-8cfb-43bd-a13b-ef91bdb0d930",
+         *         "resolution": {
+         *           "definition": {
+         *             "resolutionDefinitionId": "CROSS_STORE_EXPANSION_FBA"
+         *           }
+         *         }
+         *       },
+         *       "inputs": {
+         *         "sourceMarketplaceId": {
+         *           "value": [
+         *             "A1PA6795UKMFR9"
+         *           ]
+         *         },
+         *         "targetMarketplaceId": {
+         *           "value": [
+         *             "A13V1IB3VIYZZH"
+         *           ]
+         *         }
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_CreateActionPlanRequest": {
+            actionItem?: components["schemas"]["actionPlans_2026-06-01_ActionItemResolutionReference"];
+            inputs?: components["schemas"]["actionPlans_2026-06-01_InputValues"];
+            /**
+             * @description The plan template to instantiate.
+             * @example CROSS_STORE_EXPANSION_FBA
+             */
+            planTemplateId: string;
+        };
+        /** @description Error response returned when the request is unsuccessful. */
+        "actionPlans_2026-06-01_Error": {
+            /** @description An error code that identifies the type of error that occurred. */
+            code: string;
+            /**
+             * @description Additional details that can help the caller understand or fix the issue.
+             * @example The actionPlanId must be a valid UUID.
+             */
+            details?: string;
+            /** @description A message that describes the error condition. */
+            message: string;
+        };
+        /** @description A list of error responses returned when a request is unsuccessful. */
+        "actionPlans_2026-06-01_ErrorList": {
+            /** @description Error list. */
+            errors: components["schemas"]["actionPlans_2026-06-01_Error"][];
+        };
+        /**
+         * @description Response for the getActionPlan operation, containing the requested action plan.
+         * @example {
+         *       "plan": {
+         *         "actionPlanId": "e5f6a7b8-89ab-cdef-0123-456789abcdef",
+         *         "status": [
+         *           "DONE"
+         *         ],
+         *         "displayName": {
+         *           "text": "Expand FBA to DE — Order #12345",
+         *           "locale": "en-US"
+         *         }
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_GetActionPlanResponse": {
+            plan: components["schemas"]["actionPlans_2026-06-01_ActionPlan"];
+        };
+        /**
+         * @description A display-name declaration for a named input or output.
+         * @example {
+         *       "displayName": {
+         *         "text": "Source marketplace ID",
+         *         "locale": "en-US"
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_InputDeclaration": {
+            displayName: components["schemas"]["actionPlans_2026-06-01_LocalizedText"];
+        };
+        /**
+         * @description A map of input or output declarations, keyed by name.
+         * @example {
+         *       "sourceMarketplaceId": {
+         *         "displayName": {
+         *           "text": "Source marketplace ID",
+         *           "locale": "en-US"
+         *         }
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_InputDeclarations": {
+            [key: string]: components["schemas"]["actionPlans_2026-06-01_InputDeclaration"];
+        };
+        /**
+         * @description An input or output value carried as an array of strings.
+         * @example {
+         *       "value": [
+         *         "A1PA6795UKMFR9"
+         *       ]
+         *     }
+         */
+        "actionPlans_2026-06-01_InputValue": {
+            /**
+             * @description The value, as an array of strings.
+             * @example [
+             *       "A1PA6795UKMFR9"
+             *     ]
+             */
+            value: string[];
+        };
+        /**
+         * @description A map of input or output values, keyed by name.
+         * @example {
+         *       "sourceMarketplaceId": {
+         *         "value": [
+         *           "A1PA6795UKMFR9"
+         *         ]
+         *       },
+         *       "targetMarketplaceId": {
+         *         "value": [
+         *           "A13V1IB3VIYZZH"
+         *         ]
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_InputValues": {
+            [key: string]: components["schemas"]["actionPlans_2026-06-01_InputValue"];
+        };
+        /**
+         * @description Response for the `listActionPlans` operation, containing the matching action plans and the total results count.
+         * @example {
+         *       "actionPlans": [
+         *         {
+         *           "actionPlanId": "e5f6a7b8-89ab-cdef-0123-456789abcdef",
+         *           "status": [
+         *             "PROCESSING"
+         *           ]
+         *         }
+         *       ],
+         *       "numberOfResults": 2,
+         *       "refinements": {
+         *         "planTemplateId": [
+         *           {
+         *             "displayName": "Cross-store expansion (FBA)",
+         *             "count": 12,
+         *             "value": "CROSS_STORE_EXPANSION_FBA"
+         *           }
+         *         ]
+         *       },
+         *       "pagination": {
+         *         "nextToken": "eyJsYXN0UGxhbklkIjoiYzFkMmUzZjQifQ=="
+         *       }
+         *     }
+         */
+        "actionPlans_2026-06-01_ListActionPlansResponse": {
+            /** @description The action plans matching the query. Steps are omitted by default. */
+            actionPlans: components["schemas"]["actionPlans_2026-06-01_ActionPlan"][];
+            /** @description The total number of action plans matching the query. */
+            numberOfResults: number;
+            pagination?: components["schemas"]["actionPlans_2026-06-01_Pagination"];
+            refinements?: components["schemas"]["actionPlans_2026-06-01_SearchRefinements"];
+        };
+        /** @description A localized text value paired with the locale it is rendered in. */
+        "actionPlans_2026-06-01_LocalizedText": {
+            /**
+             * @description The BCP 47 language tag, as an ISO 639 language code and ISO 3166 country code separated by a hyphen.
+             * @example en-US
+             */
+            locale: string;
+            /**
+             * @description The localized text content.
+             * @example Cross-store expansion (FBA)
+             */
+            text: string;
+        };
+        /**
+         * @description Cursor-based pagination metadata.
+         * @example {
+         *       "nextToken": "eyJsYXN0UGxhbklkIjoiYzFkMmUzZjQifQ=="
+         *     }
+         */
+        "actionPlans_2026-06-01_Pagination": {
+            /**
+             * @description Token to retrieve the next page. Absent when no more results.
+             * @example eyJsYXN0UGxhbklkIjoiYzFkMmUzZjQifQ==
+             */
+            nextToken?: string;
+            /**
+             * @description A token to retrieve the previous page of results. This value is not yet supported.
+             * @example eyJsYXN0UGxhbklkIjoiYTliOGM3ZDYifQ==
+             */
+            previousToken?: string;
+        };
+        /**
+         * @description The plan template and its input declarations.
+         * @example {
+         *       "displayName": {
+         *         "text": "Cross-store expansion (FBA)",
+         *         "locale": "en-US"
+         *       },
+         *       "inputs": {
+         *         "sourceMarketplaceId": {
+         *           "displayName": {
+         *             "text": "Source marketplace ID",
+         *             "locale": "en-US"
+         *           }
+         *         }
+         *       },
+         *       "planDefinitionId": "CROSS_STORE_EXPANSION_FBA"
+         *     }
+         */
+        "actionPlans_2026-06-01_PlanDefinitionRef": {
+            displayName: components["schemas"]["actionPlans_2026-06-01_LocalizedText"];
+            inputs?: components["schemas"]["actionPlans_2026-06-01_InputDeclarations"];
+            /**
+             * @description The semantic identifier of the plan template.
+             * @example CROSS_STORE_EXPANSION_FBA
+             */
+            planDefinitionId: string;
+        };
+        /**
+         * @description Contains entities related to a plan.
+         * @example {
+         *       "actionItems": [
+         *         {
+         *           "actionItemId": "ebf5caf1-8cfb-43bd-a13b-ef91bdb0d930",
+         *           "resolution": {
+         *             "definition": {
+         *               "resolutionDefinitionId": "CROSS_STORE_EXPANSION_FBA"
+         *             }
+         *           }
+         *         }
+         *       ]
+         *     }
+         */
+        "actionPlans_2026-06-01_PlanReferences": {
+            /** @description Action items associated with this plan. */
+            actionItems?: components["schemas"]["actionPlans_2026-06-01_ActionItemReference"][];
+        };
+        /**
+         * @description A lifecycle state of an action plan.
+         * @example DONE
+         * @enum {string}
+         */
+        "actionPlans_2026-06-01_PlanStatus": "DRAFT" | "PENDING_SELLING_PARTNER" | "PROCESSING" | "DONE" | "CANCELLED" | "PARTIAL";
+        /**
+         * @description The state of a plan, expressed as an array.
+         * @example [
+         *       "DONE"
+         *     ]
+         */
+        "actionPlans_2026-06-01_PlanStatuses": components["schemas"]["actionPlans_2026-06-01_PlanStatus"][];
+        /**
+         * @description A step instance within a plan.
+         * @example {
+         *       "stepId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+         *       "mode": "AUTOMATED",
+         *       "definition": {
+         *         "displayName": {
+         *           "text": "Configure Pricing Settings",
+         *           "locale": "en-US"
+         *         },
+         *         "stepDefinitionId": "CONFIGURE_PRICING_SETTINGS"
+         *       },
+         *       "description": {
+         *         "text": "Set up cross-store pricing rules.",
+         *         "locale": "en-US"
+         *       },
+         *       "dependencies": [],
+         *       "status": [
+         *         "COMPLETED",
+         *         "SUCCEEDED"
+         *       ],
+         *       "startedDate": "2025-07-07T15:01:00Z"
+         *     }
+         */
+        "actionPlans_2026-06-01_PlanStep": {
+            /**
+             * Format: date-time
+             * @description When the step completed, in ISO 8601 format.
+             * @example 2025-07-07T15:15:00Z
+             */
+            completedDate?: string;
+            definition: components["schemas"]["actionPlans_2026-06-01_StepDefinitionRef"];
+            /**
+             * @description Step identifiers (UUIDs) that must complete before this step runs.
+             * @example []
+             */
+            dependencies?: string[];
+            description?: components["schemas"]["actionPlans_2026-06-01_LocalizedText"];
+            inputs?: components["schemas"]["actionPlans_2026-06-01_InputValues"];
+            /**
+             * Format: date-time
+             * @description When the step was last updated, in ISO 8601 format.
+             * @example 2025-07-07T15:15:00Z
+             */
+            lastUpdatedDate?: string;
+            mode: components["schemas"]["actionPlans_2026-06-01_StepMode"];
+            outputs?: components["schemas"]["actionPlans_2026-06-01_InputValues"];
+            /**
+             * Format: date-time
+             * @description When the step started execution, in ISO 8601 format.
+             * @example 2025-07-07T15:01:00Z
+             */
+            startedDate?: string;
+            status?: components["schemas"]["actionPlans_2026-06-01_StepStatuses"];
+            /**
+             * @description Opaque unique identifier of this step within the plan (UUID).
+             * @example f47ac10b-58cc-4372-a567-0e02b2c3d479
+             */
+            stepId: string;
+        };
+        /** @description The resolution definition on an action item. */
+        "actionPlans_2026-06-01_ResolutionDefinitionRef": {
+            /**
+             * @description The identifier of the resolution definition.
+             * @example CROSS_STORE_EXPANSION_FBA
+             */
+            resolutionDefinitionId: string;
+        };
+        /**
+         * @description Facets keyed by refinement name, used for progressive filtering of the result set.
+         * @example {
+         *       "planTemplateId": [
+         *         {
+         *           "displayName": "Cross-store expansion (FBA)",
+         *           "count": 12,
+         *           "value": "CROSS_STORE_EXPANSION_FBA"
+         *         }
+         *       ]
+         *     }
+         */
+        "actionPlans_2026-06-01_SearchRefinements": {
+            [key: string]: components["schemas"]["actionPlans_2026-06-01_SearchRefinementValues"];
+        };
+        /** @description A single search refinement value with its display name and result count. */
+        "actionPlans_2026-06-01_SearchRefinementValue": {
+            /**
+             * @description The number of results matching this refinement value.
+             * @example 12
+             */
+            count: number;
+            /**
+             * @description The localized display name for this refinement value.
+             * @example Cross-store expansion (FBA)
+             */
+            displayName: string;
+            /**
+             * @description The value to supply as a filter to refine the result set.
+             * @example CROSS_STORE_EXPANSION_FBA
+             */
+            value: string;
+        };
+        /**
+         * @description The set of values available for a single search refinement.
+         * @example [
+         *       {
+         *         "displayName": "Cross-store expansion (FBA)",
+         *         "count": 12,
+         *         "value": "CROSS_STORE_EXPANSION_FBA"
+         *       }
+         *     ]
+         */
+        "actionPlans_2026-06-01_SearchRefinementValues": components["schemas"]["actionPlans_2026-06-01_SearchRefinementValue"][];
+        /**
+         * @description The step template and its input and output declarations.
+         * @example {
+         *       "displayName": {
+         *         "text": "Configure Pricing Settings",
+         *         "locale": "en-US"
+         *       },
+         *       "stepDefinitionId": "CONFIGURE_PRICING_SETTINGS"
+         *     }
+         */
+        "actionPlans_2026-06-01_StepDefinitionRef": {
+            displayName: components["schemas"]["actionPlans_2026-06-01_LocalizedText"];
+            inputs?: components["schemas"]["actionPlans_2026-06-01_InputDeclarations"];
+            outputs?: components["schemas"]["actionPlans_2026-06-01_InputDeclarations"];
+            /**
+             * @description The semantic identifier of the step definition.
+             * @example CONFIGURE_PRICING_SETTINGS
+             */
+            stepDefinitionId: string;
+        };
+        /**
+         * @description Indicates whether a step completes automatically or through manual seller action.
+         * @example AUTOMATED
+         * @enum {string}
+         */
+        "actionPlans_2026-06-01_StepMode": "AUTOMATED" | "MANUAL";
+        /**
+         * @description The current state of the step. A step can take up to 7 days to complete.
+         * @example COMPLETED
+         * @enum {string}
+         */
+        "actionPlans_2026-06-01_StepStatus": "NOT_STARTED" | "PENDING_DEPENDENCY" | "PENDING_SELLING_PARTNER" | "PROCESSING" | "COMPLETED" | "SKIPPED" | "SUCCEEDED" | "FAILED";
+        /**
+         * @description The state of a step, expressed as an array.
+         * @example [
+         *       "COMPLETED",
+         *       "SUCCEEDED"
+         *     ]
+         */
+        "actionPlans_2026-06-01_StepStatuses": components["schemas"]["actionPlans_2026-06-01_StepStatus"][];
         /** @description The base response data for paginated A+ Content operations. Individual operations may extend this with additional data. If `nextPageToken` is not returned, there are no more pages to return. */
         "aplusContent_2020-11-01_AplusPaginatedResponse": components["schemas"]["aplusContent_2020-11-01_AplusResponse"] & {
             nextPageToken?: components["schemas"]["aplusContent_2020-11-01_PageToken"];
@@ -12595,7 +13662,7 @@ export interface components {
              * @description The type of charge.
              * @enum {string}
              */
-            chargeType: "PRODUCT" | "SHIPPING" | "GIFT_WRAP" | "TOTAL" | "OTHER";
+            chargeType: "product" | "shipping" | "gift_wrap" | "total" | "other";
             /** @description The tax charge details. */
             taxBreakup?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Tax"][];
             totalCharge: components["schemas"]["externalFulfillmentShipments_2024-09-11_ChargeBreakup"];
@@ -12611,9 +13678,10 @@ export interface components {
         "externalFulfillmentShipments_2024-09-11_Charges": components["schemas"]["externalFulfillmentShipments_2024-09-11_Charge"][];
         /** @description All necessary compliance attributes specific to the line item. */
         "externalFulfillmentShipments_2024-09-11_ComplianceAttributes": {
-            countryOfOriginRequirement: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
+            countryOfOriginRequirement?: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
+            hazmatLabelRequirement?: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
             hazmatLabelsRequirement: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
-            itemValueRequirement: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
+            itemValueRequirement?: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
             serialNumberRequirement: components["schemas"]["externalFulfillmentShipments_2024-09-11_RequirementLevel"];
         };
         /** @description A two-letter country code, as defined by the ISO-3166 alpha-2 standard. */
@@ -12637,7 +13705,7 @@ export interface components {
          *       "locationId": "LOC_001",
          *       "marketplaceId": "A21TJRUUN4KGV",
          *       "marketplaceChannel": "FBA",
-         *       "shippingType": "Self",
+         *       "shippingType": "SELF",
          *       "orderType": [
          *         "HAZMAT",
          *         "MPS"
@@ -12684,7 +13752,7 @@ export interface components {
              * @example SELF
              * @enum {string}
              */
-            shippingType: "Self" | "Marketplace" | "THIRD_PARTY_CARRIER";
+            shippingType: "SELF" | "MARKETPLACE" | "THIRD_PARTY_CARRIER";
         };
         /**
          * @description The response object for creating a sandbox shipment.
@@ -12727,10 +13795,13 @@ export interface components {
         "externalFulfillmentShipments_2024-09-11_CustomAttributeType": "STRING" | "BOOLEAN" | "INTEGER" | "DOUBLE" | "JSON_STRING";
         /** @description Marketplace channel-specific attribute value. */
         "externalFulfillmentShipments_2024-09-11_CustomChannelAttribute": ("PRIME" | "FASTTRACK")[];
-        /** @description A date and time in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. */
+        /**
+         * Format: date-time
+         * @description A date and time in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format.
+         */
         "externalFulfillmentShipments_2024-09-11_DateTime": string;
-        /** @description A decimal number with no loss of precision. Useful when precision loss is unacceptable, as with currencies. */
-        "externalFulfillmentShipments_2024-09-11_Decimal": string;
+        /** @description A decimal number. */
+        "externalFulfillmentShipments_2024-09-11_Decimal": number;
         /** @description A dimension of a package. */
         "externalFulfillmentShipments_2024-09-11_Dimension": {
             /**
@@ -12743,7 +13814,7 @@ export interface components {
         /**
          * @description A distance measurement.
          * @example {
-         *       "value": "3.5",
+         *       "value": 3.5,
          *       "distanceUnit": "MI"
          *     }
          */
@@ -12809,9 +13880,9 @@ export interface components {
         /**
          * @description Geographic coordinates.
          * @example {
-         *       "latitude": "47.6062",
-         *       "longitude": "-122.3321",
-         *       "elevation": "56.0"
+         *       "latitude": 47.6062,
+         *       "longitude": -122.3321,
+         *       "elevation": 56
          *     }
          */
         "externalFulfillmentShipments_2024-09-11_Geocodes": {
@@ -12837,12 +13908,12 @@ export interface components {
          *         "stateOrRegion": "WA",
          *         "countryCode": "US",
          *         "geocodes": {
-         *           "latitude": "47.6062",
-         *           "longitude": "-122.3321"
+         *           "latitude": 47.6062,
+         *           "longitude": -122.3321
          *         }
          *       },
          *       "distance": {
-         *         "value": "3.5",
+         *         "value": 3.5,
          *         "distanceUnit": "MI"
          *       },
          *       "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
@@ -12856,11 +13927,11 @@ export interface components {
         };
         /** @description Information about the shipment's invoice. */
         "externalFulfillmentShipments_2024-09-11_InvoiceInfo": {
-            creationDateTime: components["schemas"]["externalFulfillmentShipments_2024-09-11_DateTime"];
+            creationDateTime?: components["schemas"]["externalFulfillmentShipments_2024-09-11_DateTime"];
             /** @description The unique ID of the invoice that corresponds to the shipment. */
-            invoiceId: string;
+            invoiceId?: string;
         };
-        /** @description Whether the invoice document is required to be attached to the shipment and its corresponding status. */
+        /** @description Whether the invoice document is required to be attached to the shipment and its corresponding status. Applicable only for Brazil marketplace. */
         "externalFulfillmentShipments_2024-09-11_InvoiceRequirement": {
             /**
              * @description Whether the invoice document is required to be attached to the shipment.
@@ -12938,7 +14009,7 @@ export interface components {
             dimensions: components["schemas"]["externalFulfillmentShipments_2024-09-11_PackageDimensions"];
             /** @description The optional list of HAZMAT labels applied to the package. */
             hazmatLabels?: string[];
-            /** @description An ID that uniquely identifies a package within a shipment. */
+            /** @description The ID of the package whose information you want to update. */
             id: string;
             /**
              * @description Whether the package requires standard handling or extra care.
@@ -12952,6 +14023,7 @@ export interface components {
              * @enum {string}
              */
             status?: "CREATED" | "PICKUP_SLOT_RETRIEVED" | "INVOICE_GENERATED" | "SHIPLABEL_GENERATED" | "SHIPPED" | "DELIVERED" | "CANCELLED";
+            trackingDetails?: components["schemas"]["externalFulfillmentShipments_2024-09-11_TrackingDetails"];
             weight: components["schemas"]["externalFulfillmentShipments_2024-09-11_Weight"];
         };
         /**
@@ -12963,7 +14035,7 @@ export interface components {
          *     }
          */
         "externalFulfillmentShipments_2024-09-11_PackageDeliveryStatus": {
-            /** @description The reason for the sub-status. */
+            /** @description The reason for the sub-status. Refer [table](https://developer-docs.amazon/sp-api/docs/process-shipment#step-6-update-the-package-status) for possible values. */
             reason?: string;
             status?: components["schemas"]["externalFulfillmentShipments_2024-09-11_PackageStatus"];
             subStatus?: components["schemas"]["externalFulfillmentShipments_2024-09-11_PackageSubStatus"];
@@ -12997,20 +14069,20 @@ export interface components {
          *           "id": "001",
          *           "dimensions": {
          *             "length": {
-         *               "value": "10.0",
+         *               "value": 10,
          *               "dimensionUnit": "CM"
          *             },
          *             "width": {
-         *               "value": "10.0",
+         *               "value": 10,
          *               "dimensionUnit": "CM"
          *             },
          *             "height": {
-         *               "value": "10.0",
+         *               "value": 10,
          *               "dimensionUnit": "CM"
          *             }
          *           },
          *           "weight": {
-         *             "value": "200.0",
+         *             "value": 200,
          *             "weightUnit": "G"
          *           },
          *           "hazmatLabels": [],
@@ -13021,7 +14093,7 @@ export interface components {
          *               "pieces": 1,
          *               "countryOfOrigin": "IN",
          *               "itemValue": {
-         *                 "value": "10",
+         *                 "value": 10,
          *                 "currencyCode": "INR"
          *               },
          *               "serialNumbers": []
@@ -13032,7 +14104,7 @@ export interface components {
          *               "serialNumbers": []
          *             }
          *           ],
-         *           "status": "CREATED"
+         *           "status": "SHIPPED"
          *         }
          *       ]
          *     }
@@ -13082,7 +14154,7 @@ export interface components {
          * @description The status of a package.
          * @enum {string}
          */
-        "externalFulfillmentShipments_2024-09-11_PackageStatus": "CREATED" | "PICKUP_SLOT_RETRIEVED" | "INVOICE_GENERATED" | "SHIPLABEL_GENERATED" | "SHIPPED" | "DELIVERED";
+        "externalFulfillmentShipments_2024-09-11_PackageStatus": "SHIPPED" | "DELIVERED";
         /**
          * @description The sub-status of a package.
          * @enum {string}
@@ -13106,7 +14178,7 @@ export interface components {
             /** @description A token that you use to retrieve the next page of results. The response includes `nextToken` when there are multiple pages of results. To get the next page of results, call the operation with this token and include the same arguments as the call that produced the token. To get a complete list, call this operation until `nextToken` is null. Note that this operation can return empty pages. */
             nextToken?: string;
         };
-        /** @description Party identification details for the shipment, applicable to direct fulfillment shipments. */
+        /** @description Party identification details for the shipment, applicable only to direct fulfillment shipments. */
         "externalFulfillmentShipments_2024-09-11_PartyIdentificationInfo": {
             address?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Address"];
             /** @description Assigned identification for the party. For example, a warehouse code or vendor code. */
@@ -13118,7 +14190,7 @@ export interface components {
             partyType: "BILL_TO_PARTY" | "SHIP_TO_PARTY" | "SHIP_FROM_PARTY" | "SELLING_PARTY";
             taxInfo?: components["schemas"]["externalFulfillmentShipments_2024-09-11_TaxRegistrationInfo"];
         };
-        /** @description All involved party identification and metadata for the vendor, buyer, and seller. Applicable for direct-fulfillment sellers. */
+        /** @description All involved party identification and metadata for vendor, buyer, seller. Applicable only for direct-fulfillment sellers. */
         "externalFulfillmentShipments_2024-09-11_PartyIdentificationInfoList": components["schemas"]["externalFulfillmentShipments_2024-09-11_PartyIdentificationInfo"][];
         /**
          * @description Whether the item is a single piece or multiple pieces.
@@ -13138,7 +14210,7 @@ export interface components {
         /** @description Recommendations for a package */
         "externalFulfillmentShipments_2024-09-11_RecommendedPackage": {
             dimensions: components["schemas"]["externalFulfillmentShipments_2024-09-11_PackageDimensions"];
-            lineItems: components["schemas"]["externalFulfillmentShipments_2024-09-11_RecommendedPackageLineItems"];
+            lineItems?: components["schemas"]["externalFulfillmentShipments_2024-09-11_RecommendedPackageLineItems"];
             weight: components["schemas"]["externalFulfillmentShipments_2024-09-11_Weight"];
         };
         /** @description A line item to be contained in a recommended package. This attribute is provided only for orders that come with a specific recommendation of line-item distribution within the package recommendations. */
@@ -13225,12 +14297,12 @@ export interface components {
          *           "stateOrRegion": "WA",
          *           "countryCode": "US",
          *           "geocodes": {
-         *             "latitude": "47.6062",
-         *             "longitude": "-122.3321"
+         *             "latitude": 47.6062,
+         *             "longitude": -122.3321
          *           }
          *         },
          *         "distance": {
-         *           "value": "3.5",
+         *           "value": 3.5,
          *           "distanceUnit": "MI"
          *         },
          *         "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
@@ -13318,7 +14390,7 @@ export interface components {
          *     }
          */
         "externalFulfillmentShipments_2024-09-11_ShipmentAcknowledgementRequest": {
-            /** @description Details about the line items from the shipment that are being confirmed or rejected by the seller. */
+            /** @description Details about the line items from the shipment that are being rejected by the seller. */
             lineItems: components["schemas"]["externalFulfillmentShipments_2024-09-11_LineItemWithReason"][];
             /** @description A unique identifier for every shipment rejection. */
             referenceId?: string;
@@ -13329,8 +14401,11 @@ export interface components {
             buyerOrderId: string;
             /** @description Total number of units in the shipment. */
             numberOfUnits: number;
-            /** @description The timestamp of when the order was placed, in UTC */
-            orderPlacedTimestamp?: string;
+            /**
+             * Format: int64
+             * @description The epoch timestamp (in milliseconds) of when the order was placed, in UTC.
+             */
+            orderPlacedTimestamp?: number;
             /** @description A list of order statuses for which the marketplace allows order rejection (seller cancellation). If the order has a status that does not belong to this list, then seller cancellation is not possible. */
             orderStatesEligibleForRejection?: string[];
             originalShipmentInfo?: components["schemas"]["externalFulfillmentShipments_2024-09-11_ReplacedShipmentInfo"];
@@ -13400,6 +14475,7 @@ export interface components {
         };
         /** @description Shipping information for the packages in a shipment. */
         "externalFulfillmentShipments_2024-09-11_ShippingInfo": {
+            expectedShippingDateTime?: components["schemas"]["externalFulfillmentShipments_2024-09-11_DateTime"];
             expectedShippingDateTimeInUTC: components["schemas"]["externalFulfillmentShipments_2024-09-11_DateTime"];
             recommendedPackages?: components["schemas"]["externalFulfillmentShipments_2024-09-11_RecommendedPackages"];
             /** @description The ship method recommended by the Amazon Fulfillment Network for the packages in this shipment. */
@@ -13434,12 +14510,12 @@ export interface components {
          *           "stateOrRegion": "WA",
          *           "countryCode": "US",
          *           "geocodes": {
-         *             "latitude": "47.6062",
-         *             "longitude": "-122.3321"
+         *             "latitude": 47.6062,
+         *             "longitude": -122.3321
          *           }
          *         },
          *         "distance": {
-         *           "value": "3.5",
+         *           "value": 3.5,
          *           "distanceUnit": "MI"
          *         },
          *         "mapUrl": "https://maps.example.com/location?lat=47.6062&lng=-122.3321"
@@ -13447,7 +14523,7 @@ export interface components {
          *     }
          */
         "externalFulfillmentShipments_2024-09-11_ShippingOptions": {
-            /** @description The carrier name for the offering. */
+            /** @description The carrier name for the offering. Applicable only for Self Ship program */
             carrierName?: string;
             handoverLocation?: components["schemas"]["externalFulfillmentShipments_2024-09-11_HandoverLocation"];
             pickupWindow?: components["schemas"]["externalFulfillmentShipments_2024-09-11_TimeWindow"];
@@ -13483,7 +14559,7 @@ export interface components {
              */
             type?: "VAT" | "CST" | "IGST" | "SGST" | "CGST" | "UTGST" | "CESS" | "OTHER" | "TOTAL";
         };
-        /** @description Tax registration details of the entity. Applicable to direct fulfillment shipments. */
+        /** @description Tax registration details of the entity. Applicable only to direct fulfillment shipments. */
         "externalFulfillmentShipments_2024-09-11_TaxRegistrationInfo": {
             address?: components["schemas"]["externalFulfillmentShipments_2024-09-11_Address"];
             /** @description Tax registration message that can be used for additional tax related details. */
@@ -13520,6 +14596,31 @@ export interface components {
              * @description The start time of the window.
              */
             startTime: number;
+        };
+        /**
+         * @description The carrier and tracking details of a package.
+         * @example {
+         *       "trackingId": "TBA303940590400",
+         *       "carrier": "AMZL",
+         *       "shippingService": "ATS_STANDARD"
+         *     }
+         */
+        "externalFulfillmentShipments_2024-09-11_TrackingDetails": {
+            /**
+             * @description The carrier responsible for transporting this package to the customer.
+             * @example AMZL
+             */
+            carrier: string;
+            /**
+             * @description The specific shipping method or service used for delivering this package.
+             * @example ATS_STANDARD
+             */
+            shippingService?: string;
+            /**
+             * @description The carrier-provided tracking number that customers can use to monitor the package's delivery progress.
+             * @example TBA303940590400
+             */
+            trackingId?: string;
         };
         /**
          * @description The request object for updating a sandbox shipment. The `updates` object is required for `SHIPMENT_STATUS_CHANGE` and `TRANSPORT_CAPACITY_CHANGE` update types, and must not be provided for `INVOICE_AVAILABILITY_CHANGE`.
@@ -22119,7 +23220,7 @@ export interface components {
              */
             severity: "ERROR" | "WARNING" | "INFO";
         };
-        /** @description The enforcement action taken by Amazon that affect the publishing or status of a listing */
+        /** @description An enforcement action that Amazon takes that affects the publishing or status of a listing. */
         "listingsItems_2021-08-01_IssueEnforcementAction": {
             /**
              * @description The enforcement action name.
@@ -22143,11 +23244,11 @@ export interface components {
             actions: components["schemas"]["listingsItems_2021-08-01_IssueEnforcementAction"][];
             exemption: components["schemas"]["listingsItems_2021-08-01_IssueExemption"];
         };
-        /** @description Conveying the status of the listed enforcement actions and, if applicable, provides information about the exemption's expiry date. */
+        /** @description The status of the listed enforcement actions. If applicable, includes information about the exemption expiry date. */
         "listingsItems_2021-08-01_IssueExemption": {
             /**
              * Format: date-time
-             * @description Represents the timestamp, in ISO 8601 format, that specifies the date when the temporary exemptions expires, and Amazon begins enforcing the listed actions.
+             * @description The timestamp, in ISO 8601 format, when the temporary exemption expires and Amazon begins enforcing the listed actions.
              * @example 2023-10-28T00:36:48.914Z
              */
             expiryDate?: string;
@@ -22208,6 +23309,8 @@ export interface components {
             offerType: "B2C" | "B2B";
             points?: components["schemas"]["listingsItems_2021-08-01_Points"];
             price: components["schemas"]["listingsItems_2021-08-01_Money"];
+            quantityDiscountPlan?: components["schemas"]["listingsItems_2021-08-01_QuantityDiscountPlan"];
+            replenishmentDiscount?: components["schemas"]["listingsItems_2021-08-01_ReplenishmentDiscount"];
         };
         /** @description The listings item's offer details. */
         "listingsItems_2021-08-01_ItemOffers": components["schemas"]["listingsItems_2021-08-01_ItemOfferByMarketplace"][];
@@ -22254,7 +23357,7 @@ export interface components {
         "listingsItems_2021-08-01_ItemSearchResults": {
             /** @description A list of listings items. */
             items: components["schemas"]["listingsItems_2021-08-01_Item"][];
-            /** @description The total number of selling partner listings items found for the search criteria (only results up to the page count limit is returned per request regardless of the number found).
+            /** @description The total number of selling partner listings items found for the search criteria (the response returns only results up to the page count limit per request regardless of the number found).
              *
              *     Note: The maximum number of items (SKUs) that can be returned and paged through is 1000. */
             numberOfResults: number;
@@ -22286,7 +23389,7 @@ export interface components {
              */
             lastUpdatedDate: string;
             mainImage?: components["schemas"]["listingsItems_2021-08-01_ItemImage"];
-            /** @description A marketplace identifier. Identifies the listings item's Amazon store. */
+            /** @description An Amazon store identifier. Identifies the listings item's Amazon store. */
             marketplaceId: string;
             /** @description The listings item's Amazon product type. */
             productType: string;
@@ -22345,7 +23448,7 @@ export interface components {
             /** @description Three-digit currency code. In ISO 4217 format. */
             currencyCode: string;
         };
-        /** @description When a request produces a response that exceeds the `pageSize`, pagination occurs. This means the response is divided into individual pages. To retrieve the next page or the previous page, you must pass the `nextToken` value or the `previousToken` value as the `pageToken` parameter in the next request. When you receive the last page, there is no `nextToken` key in the pagination object. */
+        /** @description When a response exceeds the `pageSize`, the response is divided into individual pages. To retrieve the next page or the previous page, you must pass the `nextToken` value or the `previousToken` value as the `pageToken` parameter in the next request. When you receive the last page, there is no `nextToken` key in the pagination object. */
         "listingsItems_2021-08-01_Pagination": {
             /** @description A token that can be used to fetch the next page. */
             nextToken?: string;
@@ -22370,6 +23473,27 @@ export interface components {
         "listingsItems_2021-08-01_Points": {
             /** @description The number of Amazon Points offered with the purchase of an item, and their monetary value. */
             pointsNumber: number;
+        };
+        /** @description A quantity discount level, defining the discount applied when the purchase quantity meets a given threshold. */
+        "listingsItems_2021-08-01_QuantityDiscountLevel": {
+            /** @description The quantity threshold, which is the minimum purchase quantity necessary to receive the discount. The discount applies to all units when the quantity threshold is met. */
+            lowerBound: number;
+            value: components["schemas"]["listingsItems_2021-08-01_Decimal"];
+        };
+        /** @description The active quantity discount plan for an offer. A quantity discount plan defines discounts on the offer price based on the purchase quantity. There are two types of discounts: fixed prices based on the order quantity, and percentage discounts on the price based on the order quantity. */
+        "listingsItems_2021-08-01_QuantityDiscountPlan": {
+            /**
+             * @description The quantity price type, indicating whether the quantity discount is a fixed price set in the local currency for each quantity threshold, or a percentage discount on the price.
+             * @enum {string}
+             */
+            discountType: "PERCENT" | "FIXED";
+            /** @description The quantity discount levels that define the discount at each quantity threshold. */
+            levels: components["schemas"]["listingsItems_2021-08-01_QuantityDiscountLevel"][];
+        };
+        /** @description A replenishment discount set by the selling partner on the offer for Subscribe & Save subscriptions. */
+        "listingsItems_2021-08-01_ReplenishmentDiscount": {
+            /** @description The seller-funded Subscribe & Save discount on the offer, as a percentage (0–100). For example, `5` means 5% off; `0` means the selling partner funds no discount. */
+            discountPercentage: number;
         };
         /** @description Error response returned when the request is unsuccessful. */
         "listingsRestrictions_2021-08-01_Error": {
@@ -22509,7 +23633,7 @@ export interface components {
             AvailableCarrierWillPickUpOptions: components["schemas"]["merchantFulfillmentV0_AvailableCarrierWillPickUpOptionsList"];
             AvailableDeliveryExperienceOptions: components["schemas"]["merchantFulfillmentV0_AvailableDeliveryExperienceOptionsList"];
         };
-        /** @description Benefits that are included and excluded for each shipping offer. Benefits represents services provided by Amazon (for example, `CLAIMS_PROTECTED`) when sellers purchase shipping through Amazon. Benefit details are made available for any shipment placed on or after January 1st 2024 00:00 UTC. */
+        /** @description Benefits that are included and excluded for each shipping offer. Benefits represent services provided by Amazon (for example, `CLAIMS_PROTECTED`) when sellers purchase shipping through Amazon. Benefit details are available for any shipment placed on or after January 1, 2024, 00:00 UTC. */
         merchantFulfillmentV0_Benefits: {
             ExcludedBenefits?: components["schemas"]["merchantFulfillmentV0_ExcludedBenefits"];
             IncludedBenefits?: components["schemas"]["merchantFulfillmentV0_IncludedBenefits"];
@@ -22585,19 +23709,19 @@ export interface components {
          * @description The delivery confirmation level.
          * @enum {string}
          */
-        merchantFulfillmentV0_DeliveryExperienceOption: "DeliveryConfirmationWithAdultSignature" | "DeliveryConfirmationWithSignature" | "DeliveryConfirmationWithoutSignature" | "NoTracking" | "NoPreference";
+        merchantFulfillmentV0_DeliveryExperienceOption: "DeliveryConfirmationWithAdultSignature" | "DeliveryConfirmationWithSignature" | "DeliveryConfirmationWithoutSignature" | "NoTracking" | "NoPreference" | "DeliveryConfirmationWithIdentityCheck" | "DeliveryConfirmationWithNameVerification";
         /**
          * @description The delivery confirmation level.
          * @enum {string}
          */
-        merchantFulfillmentV0_DeliveryExperienceType: "DeliveryConfirmationWithAdultSignature" | "DeliveryConfirmationWithSignature" | "DeliveryConfirmationWithoutSignature" | "NoTracking";
+        merchantFulfillmentV0_DeliveryExperienceType: "DeliveryConfirmationWithAdultSignature" | "DeliveryConfirmationWithSignature" | "DeliveryConfirmationWithoutSignature" | "NoTracking" | "DeliveryConfirmationWithIdentityCheck" | "DeliveryConfirmationWithNameVerification";
         /** @description The district or county. */
         merchantFulfillmentV0_DistrictOrCounty: string;
         /** @description The email address. */
         merchantFulfillmentV0_EmailAddress: string;
         /** @description Error response returned when the request is unsuccessful. */
         merchantFulfillmentV0_Error: {
-            /** @description An error code that identifies the type of error that occurred. */
+            /** @description An error code that identifies the type of error. */
             code: string;
             /** @description Additional details that can help the caller understand or fix the issue. */
             details?: string;
@@ -22606,9 +23730,9 @@ export interface components {
         };
         /** @description A list of error responses returned when a request is unsuccessful. */
         merchantFulfillmentV0_ErrorList: components["schemas"]["merchantFulfillmentV0_Error"][];
-        /** @description An object representing an excluded benefit that is excluded for a shipping offer or rate. */
+        /** @description A benefit excluded from a shipping offer or rate. */
         merchantFulfillmentV0_ExcludedBenefit: {
-            /** @description A benefit that is being excluded from a shipment. */
+            /** @description The benefit excluded from a shipment. */
             Benefit?: string;
             ReasonCodes?: components["schemas"]["merchantFulfillmentV0_ExcludedBenefitReasonCodes"];
         };
@@ -22682,7 +23806,7 @@ export interface components {
         /** @description An Amazon order item identifier and a quantity. */
         merchantFulfillmentV0_Item: {
             DangerousGoodsDetails?: components["schemas"]["merchantFulfillmentV0_DangerousGoodsDetails"];
-            /** @description When true, the item qualifies as hazardous materials (hazmat). Defaults to false. */
+            /** @description When `true`, the item qualifies as hazardous materials (hazmat). Defaults to `false`. */
             IsHazmat?: boolean;
             ItemDescription?: components["schemas"]["merchantFulfillmentV0_ItemDescription"];
             ItemLevelSellerInputsList?: components["schemas"]["merchantFulfillmentV0_AdditionalSellerInputsList"];
@@ -22739,13 +23863,13 @@ export interface components {
         merchantFulfillmentV0_LabelFormatList: components["schemas"]["merchantFulfillmentV0_LabelFormat"][];
         /** @description The label format details and whether to include a packing slip. */
         merchantFulfillmentV0_LabelFormatOption: {
-            /** @description When true, include a packing slip with the label. */
+            /** @description When `true`, include a packing slip with the label. */
             IncludePackingSlipWithLabel?: boolean;
             LabelFormat?: components["schemas"]["merchantFulfillmentV0_LabelFormat"];
         };
         /** @description Whether to include a packing slip. */
         merchantFulfillmentV0_LabelFormatOptionRequest: {
-            /** @description When true, include a packing slip with the label. */
+            /** @description When `true`, include a packing slip with the label. */
             IncludePackingSlipWithLabel?: boolean;
         };
         /** @description The length. */
@@ -22806,19 +23930,19 @@ export interface components {
          * @enum {string}
          */
         merchantFulfillmentV0_RateItemType: "INCLUDED";
-        /** @description Information about a rejected shipping service */
+        /** @description Information about a rejected shipping service. */
         merchantFulfillmentV0_RejectedShippingService: {
             /** @description The rejected shipping carrier name. For example, USPS. */
             CarrierName: string;
-            /** @description A reason code meant to be consumed programatically. For example, `CARRIER_CANNOT_SHIP_TO_POBOX`. */
+            /** @description A reason code meant to be consumed programmatically. For example, `CARRIER_CANNOT_SHIP_TO_POBOX`. */
             RejectionReasonCode: string;
-            /** @description A localized human readable description of the rejected reason. */
+            /** @description A localized, human-readable description of the rejected reason. */
             RejectionReasonMessage?: string;
             ShippingServiceId: components["schemas"]["merchantFulfillmentV0_ShippingServiceIdentifier"];
             /** @description The rejected shipping service localized name. For example, FedEx Standard Overnight. */
             ShippingServiceName: string;
         };
-        /** @description List of services that are for some reason unavailable for this request */
+        /** @description List of services that are for some reason unavailable for this request. */
         merchantFulfillmentV0_RejectedShippingServiceList: components["schemas"]["merchantFulfillmentV0_RejectedShippingService"][];
         /** @description The set of fixed values in an additional seller input. */
         merchantFulfillmentV0_RestrictedSetValues: string[];
@@ -22830,7 +23954,7 @@ export interface components {
             /** @description The display text for the additional input field. */
             InputDisplayText: string;
             InputTarget?: components["schemas"]["merchantFulfillmentV0_InputTargetType"];
-            /** @description When true, the additional input field is required. */
+            /** @description When `true`, the additional input field is required. */
             IsRequired: boolean;
             RestrictedSetValues?: components["schemas"]["merchantFulfillmentV0_RestrictedSetValues"];
             StoredValue: components["schemas"]["merchantFulfillmentV0_AdditionalSellerInput"];
@@ -22879,9 +24003,9 @@ export interface components {
         merchantFulfillmentV0_ShippingOfferingFilter: {
             CarrierWillPickUp?: components["schemas"]["merchantFulfillmentV0_CarrierWillPickUpOption"];
             DeliveryExperience?: components["schemas"]["merchantFulfillmentV0_DeliveryExperienceOption"];
-            /** @description When true, include complex shipping options. */
+            /** @description When `true`, include complex shipping options. */
             IncludeComplexShippingOptions?: boolean;
-            /** @description When true, include a packing slip with the label. */
+            /** @description When `true`, include a packing slip with the label. */
             IncludePackingSlipWithLabel?: boolean;
         };
         /** @description A shipping service offer made by a carrier. */
@@ -22897,11 +24021,11 @@ export interface components {
             LatestEstimatedDeliveryDate?: components["schemas"]["merchantFulfillmentV0_Timestamp"];
             Rate: components["schemas"]["merchantFulfillmentV0_CurrencyAmount"];
             RateWithAdjustments: components["schemas"]["merchantFulfillmentV0_CurrencyAmount"];
-            /** @description When true, additional seller inputs are required. */
+            /** @description When `true`, additional seller inputs are required. */
             RequiresAdditionalSellerInputs: boolean;
             ShipDate: components["schemas"]["merchantFulfillmentV0_Timestamp"];
             ShippingServiceId: components["schemas"]["merchantFulfillmentV0_ShippingServiceIdentifier"];
-            /** @description A plain text representation of a carrier's shipping service. For example, "UPS Ground" or "FedEx Standard Overnight".  */
+            /** @description The carrier's shipping service name, such as "UPS Ground" or "FedEx Standard Overnight". */
             ShippingServiceName: string;
             /** @description An Amazon-defined shipping service offer identifier. */
             ShippingServiceOfferId: string;
@@ -22913,7 +24037,7 @@ export interface components {
         merchantFulfillmentV0_ShippingServiceList: components["schemas"]["merchantFulfillmentV0_ShippingService"][];
         /** @description Extra services provided by a carrier. */
         merchantFulfillmentV0_ShippingServiceOptions: {
-            /** @description When true, the carrier will pick up the package. Note: Scheduled carrier pickup is available only using Dynamex (US), DPD (UK), and Royal Mail (UK). */
+            /** @description When `true`, the carrier picks up the package. Note: Scheduled carrier pickup is available only using Dynamex (US), DPD (UK), and Royal Mail (UK). */
             CarrierWillPickUp: boolean;
             CarrierWillPickUpOption?: components["schemas"]["merchantFulfillmentV0_CarrierWillPickUpOption"];
             DeclaredValue?: components["schemas"]["merchantFulfillmentV0_CurrencyAmount"];
@@ -22925,7 +24049,7 @@ export interface components {
          * @enum {string}
          */
         merchantFulfillmentV0_StandardIdForLabel: "AmazonOrderId";
-        /** @description The state or province code. This is a required field in Canada, US, and UK marketplaces, and for shipments that originate in China. */
+        /** @description The state or province code. This is a required field in Amazon Canada, US, and UK stores, and for shipments that originate in China. */
         merchantFulfillmentV0_StateOrProvinceCode: string;
         /** @description A carrier who is temporarily unavailable, most likely due to a service outage experienced by the carrier. */
         merchantFulfillmentV0_TemporarilyUnavailableCarrier: {
@@ -22976,6 +24100,173 @@ export interface components {
          * @description The weight value.
          */
         merchantFulfillmentV0_WeightValue: number;
+        /** @description Represents a seller's automation configuration for automated buyer-seller messaging. An automation configuration defines rules for automatically responding to buyer inquiries, such as common questions about shipping, returns, or product details. Each configuration has a type (for example, `AUTO_RESPONSE`), a status (`ACTIVE` or `DEACTIVATED`), and one or more store-specific entries that contain the actual response content and trigger conditions. */
+        "messaging_2026-04-20_AutomationConfiguration": {
+            /**
+             * @description The seller-provided display name for the automation configuration.
+             * @example Holiday Auto Response
+             */
+            automationDisplayName: string;
+            /**
+             * @description The unique identifier of the automation configuration.
+             * @example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+             */
+            automationId: string;
+            automationStatus: components["schemas"]["messaging_2026-04-20_AutomationStatus"];
+            automationSubType?: components["schemas"]["messaging_2026-04-20_AutomationSubType"];
+            automationType: components["schemas"]["messaging_2026-04-20_AutomationType"];
+            /**
+             * Format: date-time
+             * @description The date and time when the automation configuration was created, in ISO 8601 format.
+             * @example 2026-03-15T10:30:00Z
+             */
+            createdDateTime?: string;
+            /**
+             * @description The version number of the automation configuration that is currently serving buyer messages. The version number increases by one with each update.
+             * @example 3
+             */
+            currentAutomationVersion?: number;
+            /**
+             * Format: date-time
+             * @description The date and time when the automation configuration was last updated, in ISO 8601 format.
+             * @example 2026-04-20T14:45:00Z
+             */
+            lastUpdatedDateTime?: string;
+            /**
+             * @description The most recent version number of the automation configuration. Because updates take effect immediately, this value always equals `currentAutomationVersion`.
+             * @example 3
+             */
+            latestAutomationVersion?: number;
+            /** @description A list of store-specific automation entries. Each entry contains the response content and trigger conditions for a specific Amazon store. Populated only for the `listAutomationConfigurations` operation when the `includeMarketplaceAutomations` query parameter is set to `true`. */
+            marketplaceAutomations?: components["schemas"]["messaging_2026-04-20_MarketplaceAutomation"][];
+        };
+        /** @description The details of the automated action. */
+        "messaging_2026-04-20_AutomationDetails": {
+            /**
+             * @description A URL to an attachment included with the auto-response message.
+             * @example https://m.media-amazon.com/images/I/61abc123def.pdf
+             */
+            autoResponseAttachmentUrl?: string;
+            /**
+             * @description The auto-response message text sent to the buyer. Required for `AUTO_RESPONSE` automation configurations.
+             * @example Thank you for reaching out. We typically respond within 24 hours. In the meantime, please check our storefront for common questions about shipping and returns.
+             */
+            autoResponseText: string;
+        };
+        /**
+         * @description The current status of the automation configuration. A configuration is `ACTIVE` as soon as it is created. The auto-response text is validated when you create a configuration or update it with `automationStatus` set to `ACTIVE`. A request that contains text that is not permitted is rejected with a `422` error. Set the status to `DEACTIVATED` to stop the configuration from activating without deleting it, and reset it to `ACTIVE` to resume it.
+         * @example ACTIVE
+         * @enum {string}
+         */
+        "messaging_2026-04-20_AutomationStatus": "ACTIVE" | "DEACTIVATED";
+        /**
+         * @description The sub-type of automation configuration. Used in combination with `automationType` to support future automation categories (for example, different types of auto-responses or refund automations). Currently, the only supported value is `AUTO_RESPONSE`.
+         * @example AUTO_RESPONSE
+         * @enum {string}
+         */
+        "messaging_2026-04-20_AutomationSubType": "AUTO_RESPONSE";
+        /**
+         * @description The primary category of the automation configuration. Determines the kind of automated action performed when trigger conditions are met.
+         * @example AUTO_RESPONSE
+         * @enum {string}
+         */
+        "messaging_2026-04-20_AutomationType": "AUTO_RESPONSE";
+        /** @description The request body for creating a new automation configuration. A seller can have up to 10 automation configurations, including deactivated configurations. */
+        "messaging_2026-04-20_CreateAutomationConfigRequest": {
+            /**
+             * @description A display name for the automation configuration. The name must be unique (case-insensitive) among the seller's automation configurations.
+             * @example Holiday Auto Response
+             */
+            automationDisplayName: string;
+            automationSubType?: components["schemas"]["messaging_2026-04-20_AutomationSubType"];
+            automationType: components["schemas"]["messaging_2026-04-20_AutomationType"];
+            /** @description A list of store-specific automation entries. Each entry specifies the store, the response content, and the trigger conditions for that store. */
+            marketplaceAutomations: components["schemas"]["messaging_2026-04-20_MarketplaceAutomation"][];
+        };
+        /** @description Error response returned when the request is unsuccessful. */
+        "messaging_2026-04-20_Error": {
+            /**
+             * @description An error code that identifies the type of error that occurred.
+             * @example InvalidInput
+             */
+            code: string;
+            /**
+             * @description Additional details that can help the caller understand or fix the issue.
+             * @example See the associated error code for more details.
+             */
+            details?: string;
+            /**
+             * @description A message that describes the error condition.
+             * @example The request has missing or invalid parameters.
+             */
+            message: string;
+        };
+        /** @description A list of error responses returned when a request is unsuccessful. */
+        "messaging_2026-04-20_ErrorList": {
+            /** @description A list of error responses returned when a request is unsuccessful. */
+            errors: components["schemas"]["messaging_2026-04-20_Error"][];
+        };
+        /** @description The response for the `listAutomationConfigurations` operation. */
+        "messaging_2026-04-20_ListAutomationConfigsResponse": {
+            /** @description A list of automation configurations. */
+            automationConfigurations: components["schemas"]["messaging_2026-04-20_AutomationConfiguration"][];
+            pagination?: components["schemas"]["messaging_2026-04-20_Pagination"];
+        };
+        /** @description The store-specific entry within an automation configuration. A seller can have multiple automation configurations, and each configuration can contain entries for one or more Amazon stores. Each store entry defines the automation response content (for example, the auto-response text) and the trigger conditions (for example, specific buyer contact topics or ASINs) for that specific store. */
+        "messaging_2026-04-20_MarketplaceAutomation": {
+            automationDetails: components["schemas"]["messaging_2026-04-20_AutomationDetails"];
+            /**
+             * @description The [Amazon store identifier](https://developer-docs.amazon/sp-api/docs/marketplace-ids).
+             * @example ATVPDKIKX0DER
+             */
+            marketplaceId: string;
+            triggerConditions: components["schemas"]["messaging_2026-04-20_TriggerConditions"];
+        };
+        /** @description Contains a token for retrieving the next page of results. Only present when additional pages are available. */
+        "messaging_2026-04-20_Pagination": {
+            /**
+             * @description A token to fetch the next page of results. Absent when no further pages exist.
+             * @example eyJsYXN0RXZhbHVhdGVkS2V5IjoiY2ZnLWIyYzNkNGU1In0=
+             */
+            nextToken?: string;
+        };
+        /** @description The conditions that determine when an automation configuration activates for a given store. All conditions must be met simultaneously using `AND` logic. Within list-based conditions (such as `buyerContactTopics` or `asinList`), any single match satisfies that condition using `OR` logic. For example, if `buyerContactTopics` contains `SHIPPING` and `WHERES_MY_STUFF`, the automation triggers when the buyer's inquiry matches either topic. Trigger conditions cannot overlap with another active automation configuration in the same store; if any combination of ASIN, buyer contact topic, and buyer contact type is already covered by another active configuration, the request is rejected with a `409` error. */
+        "messaging_2026-04-20_TriggerConditions": {
+            /**
+             * @description The ASINs this automation configuration applies to. The configuration only triggers for buyer inquiries about these ASINs. ASINs are validated for format only (10 alphanumeric characters); they are not checked against the catalog. Non-existent ASINs won't match a buyer inquiry.
+             * @example [
+             *       "B07F6271HL",
+             *       "B07X3XLYS3",
+             *       "B09V3KXJPB"
+             *     ]
+             */
+            asinList: string[];
+            /**
+             * @description The buyer contact topics that trigger this automation configuration.
+             * @example [
+             *       "SHIPPING",
+             *       "WHERES_MY_STUFF"
+             *     ]
+             */
+            buyerContactTopics: ("PRODUCT_DETAILS" | "WARRANTY" | "PRICING" | "SHIPPING" | "TROUBLESHOOTING" | "WHERES_MY_STUFF" | "RETURN_POLICY")[];
+            /**
+             * @description The buyer contact type that triggers this automation configuration. There is no default value.
+             * @example POST_ORDER
+             * @enum {string}
+             */
+            buyerContactType: "PRE_ORDER" | "POST_ORDER" | "ANY";
+        };
+        /** @description The request body for updating an existing automation configuration. */
+        "messaging_2026-04-20_UpdateAutomationConfigRequest": {
+            /**
+             * @description An updated display name for the automation configuration. To keep the current name, provide the existing value.
+             * @example Updated Holiday Auto Response
+             */
+            automationDisplayName: string;
+            automationStatus: components["schemas"]["messaging_2026-04-20_AutomationStatus"];
+            /** @description The complete list of store-specific automation entries for the configuration. This list replaces all existing entries; any store you omit is removed from the configuration. */
+            marketplaceAutomations: components["schemas"]["messaging_2026-04-20_MarketplaceAutomation"][];
+        };
         /** @description Represents a file that was uploaded to a destination that was created by the Uploads API [`createUploadDestinationForResource`](https://developer-docs.amazon.com/sp-api/reference/createuploaddestinationforresource) operation. */
         messaging_Attachment: {
             /** @description The name of the file, including the extension. This is the file name that will appear in the message. This does not need to match the file name of the file that you uploaded. */
@@ -23292,7 +24583,7 @@ export interface components {
          * @description The supported order change type of ORDER_CHANGE notification.
          * @enum {string}
          */
-        notifications_OrderChangeTypeEnum: "BuyerRequestedChange" | "DeliveryTipChange" | "OrderStatusChange";
+        notifications_OrderChangeTypeEnum: "BuyerRequestedChange" | "DeliveryTipChange" | "OrderStatusChange" | "PreFulfillmentStatusChange";
         /** @description An event filter you can use to customize your subscription to send notifications for a specific `orderChangeType`. */
         notifications_OrderChangeTypeFilter: {
             orderChangeTypes?: components["schemas"]["notifications_OrderChangeTypes"];
@@ -23365,6 +24656,8 @@ export interface components {
             houseBillOfLadingNumber?: string;
             /** @description Amazon unique tracking identifier. */
             id?: string;
+            /** @description The PRO number assigned by the freight carrier */
+            proNumber?: string;
         };
         /** @description Additional address components that provide more detailed location information, helping with precise delivery routing.
          *
@@ -29021,6 +30314,8 @@ export interface components {
         services_ServiceJobId: string;
         /** @description Information about the service job provider. */
         services_ServiceJobProvider: {
+            /** @description The reference ID for the service job assigned to the provider. */
+            providerServiceJobReferenceId?: string;
             /** @description The identifier of the service job provider. */
             serviceJobProviderId?: string;
         };
@@ -31173,12 +32468,6 @@ export interface components {
             createdDate: string;
             /**
              * Format: date-time
-             * @description The timestamp of the last outbound contact on the case. The date must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
-             * @example 2024-01-12T10:30:00.000Z
-             */
-            lastOutboundDate?: string;
-            /**
-             * Format: date-time
              * @description The time when the case was last updated, which includes updates to the case details and new contacts added to the case. In [ISO 8601](https://developer-docs.amazon/sp-api/docs/iso-8601) format.
              * @example 2024-01-12T10:00:00.000Z
              */
@@ -31204,62 +32493,6 @@ export interface components {
              * @example test subject
              */
             subject: string;
-        };
-        /**
-         * @description Optional filters for case search. All filters are optional — when absent, no filtering is applied for that field. Different filters are combined with AND logic, and multiple values of the same field are combined with OR logic.
-         * @example {
-         *       "caseStatuses": [
-         *         "PENDING_AMAZON_ACTION"
-         *       ],
-         *       "createdDate": {
-         *         "after": "2024-01-01T00:00:00.000Z"
-         *       },
-         *       "lastOutboundDate": {
-         *         "after": "2024-06-01T00:00:00.000Z"
-         *       },
-         *       "resolvedDate": {
-         *         "before": "2024-12-31T23:59:59.000Z"
-         *       },
-         *       "primaryEmails": [
-         *         "test_seller@domain.com"
-         *       ],
-         *       "ccEmails": [
-         *         "test_seller1@domain.com"
-         *       ],
-         *       "subjectKeywords": "test subject"
-         *     }
-         */
-        "support_2025-02-01_CaseFilters": {
-            /**
-             * @description Filter the collection by one or more case statuses.
-             * @example [
-             *       "PENDING_AMAZON_ACTION",
-             *       "PENDING_MERCHANT_ACTION"
-             *     ]
-             */
-            caseStatuses?: ("RESOLVED" | "TRANSFERRED" | "PENDING_MERCHANT_ACTION" | "PENDING_AMAZON_ACTION")[];
-            /**
-             * @description Filter the collection by one or more CC email addresses.
-             * @example [
-             *       "test_seller1@domain.com"
-             *     ]
-             */
-            ccEmails?: string[];
-            createdDate?: components["schemas"]["support_2025-02-01_DateFilter"];
-            lastOutboundDate?: components["schemas"]["support_2025-02-01_DateFilter"];
-            /**
-             * @description Filter the collection by primary email address.
-             * @example [
-             *       "test_seller@domain.com"
-             *     ]
-             */
-            primaryEmails?: string[];
-            resolvedDate?: components["schemas"]["support_2025-02-01_DateFilter"];
-            /**
-             * @description Filter the collection by case subject keywords. Maximum 200 characters.
-             * @example test subject
-             */
-            subjectKeywords?: string;
         };
         /**
          * @description The content for a chat contact.
@@ -31386,27 +32619,6 @@ export interface components {
             phoneContent?: components["schemas"]["support_2025-02-01_PhoneContent"];
         };
         /**
-         * @description A date range filter with optional before and after bounds. Dates must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> format.
-         * @example {
-         *       "after": "2024-01-01T00:00:00.000Z",
-         *       "before": "2024-12-31T23:59:59.000Z"
-         *     }
-         */
-        "support_2025-02-01_DateFilter": {
-            /**
-             * Format: date-time
-             * @description Include results with timestamps strictly after this value (exclusive).
-             * @example 2024-01-01T00:00:00.000Z
-             */
-            after?: string;
-            /**
-             * Format: date-time
-             * @description Include results with timestamps strictly before this value (exclusive).
-             * @example 2024-12-31T23:59:59.000Z
-             */
-            before?: string;
-        };
-        /**
          * @description The content of an email contact.
          * @example {
          *       "sender": {
@@ -31480,12 +32692,6 @@ export interface components {
          *     }
          */
         "support_2025-02-01_ListCasesRequest": {
-            caseFilters?: components["schemas"]["support_2025-02-01_CaseFilters"];
-            /**
-             * @description The marketplace identifier used for authorization only. This field does not impact the returned collection. For a list of possible values, refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids).
-             * @example ATVPDKIKX0DER
-             */
-            marketplaceId?: string;
             /**
              * Format: int32
              * @description Maximum number of results to return.
@@ -31498,13 +32704,6 @@ export interface components {
              * @example SampleToken
              */
             nextToken?: string;
-            /**
-             * @description The field to sort cases by. Defaults to CREATION_DATE when absent.
-             * @default CREATION_DATE
-             * @example CASE_ID
-             * @enum {string}
-             */
-            sortField: "CASE_ID" | "STATUS" | "SUBJECT" | "PRIMARY_EMAIL" | "CREATION_DATE" | "LAST_OUTBOUND_DATE" | "RESOLUTION_DATE";
             /**
              * @description The sort direction. Defaults to DESC when absent.
              * @default DESC
@@ -35201,6 +36400,815 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    listActionItems: {
+        parameters: {
+            query?: {
+                /**
+                 * @description Filter by classification (OR match).
+                 * @example RECOMMENDATION
+                 */
+                classifications?: ("ISSUE" | "RECOMMENDATION" | "TASK")[];
+                /**
+                 * @description A list of optional datasets to include in the response. When omitted, only core action item fields are returned.
+                 * @example impacts
+                 */
+                includedData?: ("impacts" | "resolutions" | "references" | "refinements")[];
+                /**
+                 * @description The BCP 47 locale for localized content. Defaults to `en-US`.
+                 * @example en-US
+                 */
+                locale?: string;
+                /**
+                 * @description Filter by marketplace IDs.
+                 * @example A1PA6795UKMFR9
+                 */
+                marketplaceIds?: string[];
+                /**
+                 * @description Number of results per page.
+                 * @example 10
+                 */
+                pageSize?: number;
+                /**
+                 * @description A token to retrieve a specific page of results. Pass the nextToken or previousToken value from a previous response.
+                 * @example eyJsYXN0SXRlbUlkIjoiZjEyMzQ1NjcifQ==
+                 */
+                pageToken?: string;
+                /**
+                 * @description How to sort results. Defaults to recommended.
+                 * @example recommended
+                 */
+                sortBy?: "lastUpdatedDate" | "recommended";
+                /**
+                 * @description The sort order. Defaults to `DESC`.
+                 * @example DESC
+                 */
+                sortOrder?: "ASC" | "DESC";
+                /**
+                 * @description Filter by status (OR match).
+                 * @example PENDING_SELLING_PARTNER
+                 */
+                statuses?: ("PENDING_SELLING_PARTNER" | "AUTOMATABLE" | "DISMISSABLE" | "SNOOZABLE" | "DISMISSED" | "SNOOZED" | "OVERDUE" | "ACTIONED" | "RESOLVED")[];
+                /**
+                 * @description Filter by action item type definition IDs. Multiple values allowed.
+                 * @example AFN_CROSS_STORE_EXPANSION
+                 */
+                typeDefinitionIds?: string[];
+                /**
+                 * @description Retrieve items last updated at or after this time. When used with `updatedBefore`, this value must be earlier than `updatedBefore`.
+                 * @example 2025-07-01T00:00:00Z
+                 */
+                updatedAfter?: string;
+                /**
+                 * @description Retrieve items last updated at or before this time. When used with `updatedAfter`, this value must be later than `updatedAfter`.
+                 * @example 2025-12-31T23:59:59Z
+                 */
+                updatedBefore?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ListActionItemsResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+        };
+    };
+    getActionItem: {
+        parameters: {
+            query?: {
+                /**
+                 * @description A list of optional datasets to include in the response. When omitted, only core action item fields are returned.
+                 * @example impacts
+                 */
+                includedData?: ("impacts" | "resolutions" | "references")[];
+                /**
+                 * @description The BCP 47 locale for localized content. Defaults to `en-US`.
+                 * @example en-US
+                 */
+                locale?: string;
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier of the action item.
+                 * @example mejD2Swh3BmB2P8xdLSdqY88kszafsu2JibYR1d9x62RnwjB5
+                 */
+                actionItemId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_GetActionItemResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+        };
+    };
+    dismissActionItem: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier of the action item.
+                 * @example mejD2Swh3BmB2P8xdLSdqY88kszafsu2JibYR1d9x62RnwjB5
+                 */
+                actionItemId: string;
+            };
+            cookie?: never;
+        };
+        /** @description The request body for the dismissActionItem operation. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["actionItems_2026-06-01_DismissActionItemRequest"];
+            };
+        };
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_DismissActionItemResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The action item is not in a dismissable state. */
+            409: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionItems_2026-06-01_ErrorList"];
+                };
+            };
+        };
+    };
+    listActionPlans: {
+        parameters: {
+            query?: {
+                /**
+                 * @description Filters by associated action item IDs. Multiple values allowed.
+                 * @example ebf5caf1-8cfb-43bd-a13b-ef91bdb0d930
+                 */
+                actionItemIds?: string[];
+                /**
+                 * @description Plans created at or after this timestamp. Timestamp is in ISO 8601 format.
+                 * @example 2025-07-01T00:00:00Z
+                 */
+                createdAfter?: string;
+                /**
+                 * @description Plans created at or before this timestamp. Timestamp is in ISO 8601 format.
+                 * @example 2025-07-31T23:59:59Z
+                 */
+                createdBefore?: string;
+                /**
+                 * @description Additional data to return in the response. Specify `steps` to return each plan's steps with their resolved input and output values.
+                 * @example steps
+                 */
+                includedData?: ("steps" | "refinements")[];
+                /**
+                 * @description The locale for localized content, as an ISO 639 language code and ISO 3166 country code separated by a hyphen. Defaults to `en-US`.
+                 * @example en-US
+                 */
+                locale?: string;
+                /**
+                 * @description Maximum number of results per page.
+                 * @example 10
+                 */
+                pageSize?: number;
+                /**
+                 * @description A token to retrieve a specific page of results. Pass the `nextToken` value from a previous response.
+                 *
+                 *     **Note:** The `previousToken` value is not yet supported.
+                 * @example eyJsYXN0UGxhbklkIjoiYzFkMmUzZjQifQ==
+                 */
+                pageToken?: string;
+                /**
+                 * @description Filters by plan template IDs. Multiple values allowed.
+                 * @example CROSS_STORE_EXPANSION_FBA
+                 */
+                planTemplateIds?: string[];
+                /**
+                 * @description Filters by plan status.
+                 * @example PROCESSING,DONE
+                 */
+                statuses?: ("DRAFT" | "PENDING_SELLING_PARTNER" | "PROCESSING" | "DONE" | "CANCELLED" | "PARTIAL")[];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ListActionPlansResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+        };
+    };
+    createActionPlan: {
+        parameters: {
+            query?: {
+                /**
+                 * @description The locale for localized content, as an ISO 639 language code and ISO 3166 country code separated by a hyphen. Defaults to `en-US`.
+                 * @example en-US
+                 */
+                locale?: string;
+                /**
+                 * @description The mode of operation. Set `PREVIEW` to return the plan without creating or executing it. Omit `mode` to create the plan and submit it for execution.
+                 * @example PREVIEW
+                 */
+                mode?: "PREVIEW";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description The request for action plan creation. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["actionPlans_2026-06-01_CreateActionPlanRequest"];
+            };
+        };
+        responses: {
+            /** @description If `mode=PREVIEW` is set, returns a preview of the action plan. Otherwise, returns the created plan, which is submitted for execution. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_GetActionPlanResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The request conflicts with the current state of the resource. */
+            409: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+        };
+    };
+    getActionPlan: {
+        parameters: {
+            query?: {
+                /**
+                 * @description Additional data to include in the response. Include `steps` to include the plan's steps with their resolved input and output values.
+                 * @example steps
+                 */
+                includedData?: "steps"[];
+                /**
+                 * @description The locale for localized content, as an ISO 639 language code and ISO 3166 country code separated by a hyphen. Defaults to `en-US`.
+                 * @example en-US
+                 */
+                locale?: string;
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier of the action plan (UUID).
+                 * @example e5f6a7b8-89ab-cdef-0123-456789abcdef
+                 */
+                actionPlanId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Success. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_GetActionPlanResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["actionPlans_2026-06-01_ErrorList"];
+                };
+            };
+        };
+    };
     validateContentDocumentAsinRelations: {
         parameters: {
             query: {
@@ -45936,7 +47944,7 @@ export interface operations {
     generateShipLabels: {
         parameters: {
             query: {
-                /** @description Specify whether you want to generate or regenerate a label. */
+                /** @description Specify whether you want to generate or regenerate a label. For retrieving existing labels, set this value to `GENERATE` */
                 operation: "GENERATE" | "REGENERATE";
                 /** @description The ID of the shipping option whose shipping labels you want. */
                 shippingOptionId?: string;
@@ -61403,12 +63411,12 @@ export interface operations {
                  */
                 identifiersType?: "ASIN" | "EAN" | "FNSKU" | "GTIN" | "ISBN" | "JAN" | "MINSAN" | "SKU" | "UPC";
                 /**
-                 * @description A comma-delimited list of data sets that you want to include in the response. Default: `summaries`.
+                 * @description A comma-delimited list of data sets to include in the response. Default: `summaries`.
                  * @example summaries
                  */
                 includedData?: ("summaries" | "attributes" | "issues" | "offers" | "fulfillmentAvailability" | "procurement" | "relationships" | "productTypes")[];
                 /**
-                 * @description A locale that is used to localize issues. When not provided, the default language code of the first Amazon store is used. Examples: "en_US", "fr_CA", "fr_FR". When a localization is not available in the specified locale, localized messages default to "en_US".
+                 * @description A locale for localization of issues. When not provided, the default language code of the first Amazon store is used. Examples: "en_US", "fr_CA", "fr_FR". When a localization is not available in the specified locale, localized messages default to "en_US".
                  * @example en_US
                  */
                 issueLocale?: string;
@@ -61770,7 +63778,7 @@ export interface operations {
             };
         };
         responses: {
-            /** @description Successfully understood the request to create or fully-update a listings item. Refer to the response to determine if the submission has been accepted. */
+            /** @description Successfully understood the request to create or fully-update a listings item. Refer to the response to determine whether the submission has been accepted. */
             200: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation. */
@@ -62257,6 +64265,585 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["listingsRestrictions_2021-08-01_ErrorList"];
+                };
+            };
+        };
+    };
+    listAutomationConfigurations: {
+        parameters: {
+            query: {
+                /**
+                 * @description Filters results by automation sub-type.
+                 * @example AUTO_RESPONSE
+                 */
+                automationSubType?: "AUTO_RESPONSE";
+                /**
+                 * @description Filters results by automation type.
+                 * @example AUTO_RESPONSE
+                 */
+                automationType?: "AUTO_RESPONSE";
+                /**
+                 * @description When set to `true`, the response includes the full, store-level automation details for each configuration, including response text, attachment URL, and the trigger conditions that define when the automation activates for that store. When false or omitted, only the top-level configuration metadata (identifier, status, display name, timestamps) is returned.
+                 * @example TRUE
+                 */
+                includeMarketplaceAutomations?: "TRUE" | "FALSE";
+                /**
+                 * @description A comma-delimited list of [Amazon store identifiers](https://developer-docs.amazon/sp-api/docs/marketplace-ids) for the request. Required for store-scoped operations and authorization. Your application must have permission to operate in the specified stores before processing the request body.
+                 * @example ATVPDKIKX0DER
+                 */
+                marketplaceIds: string[];
+                /**
+                 * @description The number of results to return per page. Minimum: 1. Maximum: 50. Default: 10.
+                 * @example 10
+                 */
+                pageSize?: number;
+                /**
+                 * @description A token to fetch the next page of results. Use the `nextToken` value returned in the previous response's `pagination` object.
+                 * @example eyJsYXN0RXZhbHVhdGVkS2V5IjoiY2ZnLWExYjJjM2Q0In0=
+                 */
+                paginationToken?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successfully returned the list of automation configurations. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ListAutomationConfigsResponse"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+        };
+    };
+    createAutomationConfiguration: {
+        parameters: {
+            query: {
+                /**
+                 * @description A comma-delimited list of [Amazon store identifiers](https://developer-docs.amazon/sp-api/docs/marketplace-ids) for the request. Required for store-scoped operations and authorization. Your application must have permission to operate in the specified stores before processing the request body.
+                 * @example ATVPDKIKX0DER
+                 */
+                marketplaceIds: string[];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description The request body for creating an automation configuration. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["messaging_2026-04-20_CreateAutomationConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description Successfully created the automation configuration. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_AutomationConfiguration"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request conflicts with an existing automation configuration. Possible reasons include a duplicate `automationDisplayName` or trigger conditions that overlap with another active configuration in the same Amazon store. */
+            409: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The auto-response text contains content that is not permitted. */
+            422: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+        };
+    };
+    getAutomationConfiguration: {
+        parameters: {
+            query: {
+                /**
+                 * @description A comma-delimited list of [Amazon store identifiers](https://developer-docs.amazon/sp-api/docs/marketplace-ids) for the request. Required for store-scoped operations and authorization. Your application must have permission to operate in the specified stores before processing the request body.
+                 * @example ATVPDKIKX0DER
+                 */
+                marketplaceIds: string[];
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier of the automation configuration.
+                 * @example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                 */
+                automationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successfully returned the automation configuration. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_AutomationConfiguration"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+        };
+    };
+    updateAutomationConfiguration: {
+        parameters: {
+            query: {
+                /**
+                 * @description A comma-delimited list of [Amazon store identifiers](https://developer-docs.amazon/sp-api/docs/marketplace-ids) for the request. Required for store-scoped operations and authorization. Your application must have permission to operate in the specified stores before processing the request body.
+                 * @example ATVPDKIKX0DER
+                 */
+                marketplaceIds: string[];
+            };
+            header?: never;
+            path: {
+                /**
+                 * @description The unique identifier of the automation configuration to update.
+                 * @example a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                 */
+                automationId: string;
+            };
+            cookie?: never;
+        };
+        /** @description The request body for updating an automation configuration. */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["messaging_2026-04-20_UpdateAutomationConfigRequest"];
+            };
+        };
+        responses: {
+            /** @description The automation configuration was updated successfully. */
+            200: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_AutomationConfiguration"];
+                };
+            };
+            /** @description Request has missing or invalid parameters and cannot be parsed. */
+            400: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature. */
+            403: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The resource specified does not exist. */
+            404: {
+                headers: {
+                    /** @description Your rate limit (requests per second) for this operation. */
+                    "x-amzn-RateLimit-Limit"?: string;
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request conflicts with an existing automation configuration. Possible reasons include a duplicate `automationDisplayName` or trigger conditions that overlap with another active configuration in the same marketplace. */
+            409: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request size exceeded the maximum accepted size. */
+            413: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The request payload is in an unsupported format. */
+            415: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The auto-response text contains content that is not permitted. */
+            422: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description The frequency of requests was greater than allowed. */
+            429: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            500: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
+                };
+            };
+            /** @description Temporary overloading or maintenance of the server. */
+            503: {
+                headers: {
+                    /** @description Unique request reference identifier. */
+                    "x-amzn-RequestId"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["messaging_2026-04-20_ErrorList"];
                 };
             };
         };
@@ -63723,7 +66310,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_GetAdditionalSellerInputsResponse"];
                 };
             };
-            /** @description The frequency of requests was greater than allowed. */
+            /** @description The frequency of requests exceeds the allowed rate. */
             429: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -63734,7 +66321,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_GetAdditionalSellerInputsResponse"];
                 };
             };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            /** @description An unexpected condition prevents the server from fulfilling the request. */
             500: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -63833,7 +66420,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_GetEligibleShipmentServicesResponse"];
                 };
             };
-            /** @description The frequency of requests was greater than allowed. */
+            /** @description The frequency of requests exceeds the allowed rate. */
             429: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -63844,7 +66431,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_GetEligibleShipmentServicesResponse"];
                 };
             };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            /** @description An unexpected condition prevents the server from fulfilling the request. */
             500: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -63943,7 +66530,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_CreateShipmentResponse"];
                 };
             };
-            /** @description The frequency of requests was greater than allowed. */
+            /** @description The frequency of requests exceeds the allowed rate. */
             429: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -63954,7 +66541,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_CreateShipmentResponse"];
                 };
             };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            /** @description An unexpected condition prevents the server from fulfilling the request. */
             500: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -64051,7 +66638,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_GetShipmentResponse"];
                 };
             };
-            /** @description The frequency of requests was greater than allowed. */
+            /** @description The frequency of requests exceeds the allowed rate. */
             429: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -64062,7 +66649,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_GetShipmentResponse"];
                 };
             };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            /** @description An unexpected condition prevents the server from fulfilling the request. */
             500: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -64146,7 +66733,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_CancelShipmentResponse"];
                 };
             };
-            /** @description The resource specified does not exist. */
+            /** @description The specified resource does not exist. */
             404: {
                 headers: {
                     /** @description Your rate limit (requests per second) for this operation. */
@@ -64159,7 +66746,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_CancelShipmentResponse"];
                 };
             };
-            /** @description The frequency of requests was greater than allowed. */
+            /** @description The frequency of requests exceeds the allowed rate. */
             429: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -64170,7 +66757,7 @@ export interface operations {
                     "application/json": components["schemas"]["merchantFulfillmentV0_CancelShipmentResponse"];
                 };
             };
-            /** @description An unexpected condition occurred that prevented the server from fulfilling the request. */
+            /** @description An unexpected condition prevents the server from fulfilling the request. */
             500: {
                 headers: {
                     /** @description Unique request reference identifier. */
@@ -70751,6 +73338,8 @@ export interface operations {
                 pageToken?: string;
                 /** @description A list of up to 20 associated product order IDs. You can use these IDs to query service jobs. */
                 productOrderIds?: string[];
+                /** @description A list of up to 20 reference IDs for the service jobs assigned to the provider. You can use these IDs to query service jobs. */
+                providerServiceJobReferenceIds?: string[];
                 /** @description A defined set of related knowledge, skills, experience, tools, materials, and work processes common to service delivery for a set of products and/or service scenarios. Max values supported is 20. */
                 requiredSkills?: string[];
                 /** @description A date used for filtering jobs schedules at or before a specified time. Must be in ISO 8601 format. Schedule end date should not be earlier than schedule start date. */
