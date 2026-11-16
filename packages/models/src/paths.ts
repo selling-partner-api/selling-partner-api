@@ -13220,7 +13220,14 @@ export interface components {
         };
         /** @description A list of inventory request responses. */
         "externalFulfillmentInventory_2024-09-11_BatchInventoryResponseList": components["schemas"]["externalFulfillmentInventory_2024-09-11_InventoryResponse"][];
-        /** @description Error response returned when the request is unsuccessful. */
+        /**
+         * @description Error response returned when the request is unsuccessful.
+         * @example {
+         *       "code": "InvalidInput",
+         *       "message": "Invalid input provided.",
+         *       "details": "Provided input contains more number of batches than max supported."
+         *     }
+         */
         "externalFulfillmentInventory_2024-09-11_Error": {
             /**
              * @description An error code that identifies the type of error that occurred.
@@ -13238,7 +13245,18 @@ export interface components {
              */
             message: string;
         };
-        /** @description An object containing a list of error responses returned when a request is unsuccessful. */
+        /**
+         * @description An object containing a list of error responses returned when a request is unsuccessful.
+         * @example {
+         *       "errors": [
+         *         {
+         *           "code": "InvalidInput",
+         *           "message": "Invalid input provided.",
+         *           "details": "Provided input contains more number of batches than max supported."
+         *         }
+         *       ]
+         *     }
+         */
         "externalFulfillmentInventory_2024-09-11_ErrorList": {
             /** @description A list of error responses returned when a request is unsuccessful. */
             errors: components["schemas"]["externalFulfillmentInventory_2024-09-11_Error"][];
@@ -13354,12 +13372,13 @@ export interface components {
              * @enum {string}
              */
             channelName?: "FBA" | "MFN" | "DF";
-            /**
-             * @description The marketplace ID of the marketplace where you want to update inventory.
-             * @example AXJDDKDFDKDF
-             */
-            marketplaceId?: string;
+            marketplaceId?: components["schemas"]["externalFulfillmentInventory_2024-09-11_MarketplaceId"];
         };
+        /**
+         * @description The identifier for the marketplace. Refer to [Marketplace IDs](https://developer-docs.amazon.com/sp-api/docs/marketplace-ids) for the full list of supported marketplace IDs.
+         * @example A21TJRUUN4KGV
+         */
+        "externalFulfillmentInventory_2024-09-11_MarketplaceId": string;
         /**
          * @description The request object for creating a sandbox location.
          * @example {
@@ -13465,7 +13484,14 @@ export interface components {
         "externalFulfillmentLocation_2026-07-30_MarketplaceId": string;
         /** @description A date and time in [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) format. */
         "externalFulfillmentReturns_2024-09-11_DateTime": string;
-        /** @description Error response returned when the request is unsuccessful. */
+        /**
+         * @description Error response returned when the request is unsuccessful.
+         * @example {
+         *       "code": "InvalidInput",
+         *       "message": "Invalid request parameter.",
+         *       "details": "The specified parameter value is invalid."
+         *     }
+         */
         "externalFulfillmentReturns_2024-09-11_Error": {
             /** @description An error code that identifies the type of error that occurred. */
             code: string;
@@ -13477,7 +13503,18 @@ export interface components {
             /** @description A message that describes the error condition. */
             message: string;
         };
-        /** @description An object containing a list of error responses returned when a request is unsuccessful. */
+        /**
+         * @description An object containing a list of error responses returned when a request is unsuccessful.
+         * @example {
+         *       "errors": [
+         *         {
+         *           "code": "InvalidInput",
+         *           "message": "Invalid request parameter.",
+         *           "details": "The specified parameter value is invalid."
+         *         }
+         *       ]
+         *     }
+         */
         "externalFulfillmentReturns_2024-09-11_ErrorList": {
             /** @description A list of error responses returned when a request is unsuccessful. */
             errors: components["schemas"]["externalFulfillmentReturns_2024-09-11_Error"][];
@@ -13506,7 +13543,10 @@ export interface components {
              */
             exchangeOrderId?: string;
             marketplaceChannel?: components["schemas"]["externalFulfillmentReturns_2024-09-11_MarketplaceChannel"];
-            /** @description The ID of the merchant or seller to whom this return is created in the marketplace. */
+            /**
+             * @description The ID of the merchant or seller to whom this return is created in the marketplace.
+             * @example A2MERCHANTID
+             */
             merchantId?: string;
             /** @description The Amazon SmartConnect ID of the location to which this return is created. */
             returnLocationId?: string;
@@ -13520,9 +13560,27 @@ export interface components {
             /** @description The UNIX timestamp of when the verification code expires. */
             validTill: number;
         };
-        /** @description Provides details about the replanned returns. */
+        /**
+         * @description Provides details about the replanned returns.
+         * @example {
+         *       "previousTrackingInfo": [
+         *         {
+         *           "carrierName": "ATS",
+         *           "trackingId": "156121269663"
+         *         }
+         *       ]
+         *     }
+         */
         "externalFulfillmentReturns_2024-09-11_ReplanningDetails": {
-            /** @description A list of all the previous tracking information for the return. */
+            /**
+             * @description A list of all the previous tracking information for the return.
+             * @example [
+             *       {
+             *         "carrierName": "ATS",
+             *         "trackingId": "156121269663"
+             *       }
+             *     ]
+             */
             previousTrackingInfo?: components["schemas"]["externalFulfillmentReturns_2024-09-11_TrackingInfo"][];
         };
         /** @description Information about the return item. */
@@ -13548,7 +13606,10 @@ export interface components {
              */
             packageDeliveryMode?: "WITH_OTP" | "WITHOUT_OTP";
             replanningDetails?: components["schemas"]["externalFulfillmentReturns_2024-09-11_ReplanningDetails"];
-            /** @description The SmartConnect identifier for where the return item was dropped for delivery. */
+            /**
+             * @description The SmartConnect identifier for where the return item was dropped for delivery.
+             * @example EDD5
+             */
             returnLocationId?: string;
             returnMetadata: components["schemas"]["externalFulfillmentReturns_2024-09-11_ReturnMetadata"];
             returnShippingInfo: components["schemas"]["externalFulfillmentReturns_2024-09-11_ReturnShippingInfo"];
@@ -13592,11 +13653,23 @@ export interface components {
             /** @description A list of returns. */
             returns?: components["schemas"]["externalFulfillmentReturns_2024-09-11_Return"][];
         };
-        /** @description Information for tracking a return. */
+        /**
+         * @description Information for tracking a return.
+         * @example {
+         *       "carrierName": "ATS",
+         *       "trackingId": "19124773658"
+         *     }
+         */
         "externalFulfillmentReturns_2024-09-11_TrackingInfo": {
-            /** @description The name of the third party courier service used to ship the return package. */
+            /**
+             * @description The name of the third party courier service used to ship the return package.
+             * @example ATS
+             */
             carrierName: string;
-            /** @description The tracking ID of the return package. */
+            /**
+             * @description The tracking ID of the return package.
+             * @example 19124773658
+             */
             trackingId: string;
         };
         /** @description The address. */
@@ -46244,7 +46317,10 @@ export interface operations {
                  * @example 2021-03-19T15:23:58Z
                  */
                 createdUntil?: string;
-                /** @description DEPRECATED. Use the `createdSince` parameter. */
+                /**
+                 * @description DEPRECATED. Use the `createdSince` parameter.
+                 * @example 2021-03-18T20:13:08Z
+                 */
                 lastUpdatedAfter?: string;
                 /**
                  * @description DEPRECATED. Use the `createdUntil` parameter.
@@ -46275,16 +46351,25 @@ export interface operations {
                  * @example eyJsYXN0VXBkYXRlZFRpbWVzdGFtcCI6eyJzIjpu
                  */
                 nextToken?: string;
-                /** @description The SmartConnect location ID of the location from which you want to retrieve return items. */
+                /**
+                 * @description The SmartConnect location ID of the location from which you want to retrieve return items.
+                 * @example EDD9
+                 */
                 returnLocationId?: string;
                 /**
                  * @description The reverse tracking ID of the return items you want to list.
                  * @example 10024773658
                  */
                 reverseTrackingId?: string;
-                /** @description The RMA ID of the return items you want to list. */
+                /**
+                 * @description The RMA ID of the return items you want to list.
+                 * @example RMA123456
+                 */
                 rmaId?: string;
-                /** @description The status of return items you want to list. You can retrieve all new return items with the `CREATED` status. */
+                /**
+                 * @description The status of return items you want to list. You can retrieve all new return items with the `CREATED` status.
+                 * @example CREATED
+                 */
                 status?: "CREATED" | "CARRIER_NOTIFIED_TO_PICK_UP_FROM_CUSTOMER" | "CARRIER_OUT_FOR_PICK_UP_FROM_CUSTOMER" | "CUSTOMER_CANCELLED_PICK_UP" | "CUSTOMER_RESCHEDULED_PICK_UP" | "PICKED_FROM_CUSTOMER" | "IN_TRANSIT" | "OUT_FOR_DELIVERY" | "DELIVERED" | "REPLANNED" | "CUSTOMER_DROPPED_OFF" | "PARTIALLY_PROCESSED" | "PROCESSED" | "REJECTED" | "CANCELLED";
             };
             header?: never;
@@ -46416,7 +46501,10 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                /** @description The ID of the return item you want. */
+                /**
+                 * @description The ID of the return item you want.
+                 * @example ee39cdd9-9caa-47b6-a5b1-7b6a1c6d43d1
+                 */
                 returnId: string;
             };
             cookie?: never;
