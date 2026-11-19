@@ -15301,7 +15301,7 @@ export interface components {
              * @description The store name associated with the transaction.
              * @enum {string}
              */
-            storeName?: "AMAZON_HAUL";
+            storeName?: "AMAZON_HAUL" | "AMAZON_FBA_FROM_ORIGIN";
         };
         /** @description Additional information about the item. */
         "finances_2024-06-19_Context": {
@@ -52818,9 +52818,11 @@ export interface operations {
                  *
                  *     * `ORDER_ID`: the order ID associated with the transaction.
                  *
+                 *     * `SETTLEMENT_ID`: the settlement group ID associated with the transaction.
+                 *
                  *     **Note:**
                  *
-                 *     `FINANCIAL_EVENT_GROUP_ID` and `ORDER_ID` are the only `relatedIdentifier` with filtering capabilities at the moment. While other `relatedIdentifier` values will be included in the response when available, they cannot be used for filtering purposes.
+                 *     `FINANCIAL_EVENT_GROUP_ID`, `ORDER_ID`, and `SETTLEMENT_ID` are the only `relatedIdentifier` with filtering capabilities at the moment. While other `relatedIdentifier` values will be included in the response when available, they cannot be used for filtering purposes.
                  * @example FINANCIAL_EVENT_GROUP_ID
                  */
                 relatedIdentifierName?: string;
